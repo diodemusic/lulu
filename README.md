@@ -1,11 +1,11 @@
-# lulu
+# Lulu
 An API wrapper for the Riot API.
 
-lulu provides a pythonic easy to use interface.
+Lulu provides a pythonic easy to use interface.
 
 All endpoints fully unit tested.
 
-## lulu handles
+## Lulu handles
 
 * Optimised rate limiting ensuring you get the most out of your API key.
 
