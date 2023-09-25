@@ -3,7 +3,7 @@ An API wrapper for the Riot API.
 
 ## lulu handles
 
-* Optimised rate limiting ensuring you get the most out of your api key.
+* Optimised rate limiting ensuring you get the most out of your API key.
 
 * Caching so you never have to make the same call twice.
 
