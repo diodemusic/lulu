@@ -1,9 +1,13 @@
-import lulu
+import lulu.src.lulu as lulu
 
-lu = lulu.set_key("YOUR_KEY_HERE")
+key = "YOUR_RIOT_API_KEY"
 
-player = lu.account.by_riot_id(lulu.Continent.europe, "saves", "000")
-mastery_entries = lu.champion_mastery.by_puuid(lulu.Region.euw, player.puuid)
+continent = lulu.continent.europe
+region = lulu.region.euw
+
+player = lulu.account_by_riot_id(key, continent, "saves", "000")
+
+mastery_entries = lulu.mastery_by_puuid(key, region, player.puuid)
 mastery_points_sum = sum(entry.points for entry in mastery_entries)
 
-print(f"Hi, I'm {player.game_name} and I have {mastery_points_sum} total mastery :)")
+print(f"hi im {player.game_name} and i have {mastery_points_sum} total mastery :)")
