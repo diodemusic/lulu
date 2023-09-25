@@ -1,5 +1,6 @@
 # lulu
 An API wrapper for the Riot API.
+
 lulu provides a pythonic easy to use interface.
 
 ## lulu handles
