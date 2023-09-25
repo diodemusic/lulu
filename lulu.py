@@ -170,7 +170,7 @@ class Account(Lulu):
             puuid (str): Puuid
 
         Returns:
-            class: _Account class
+            class: Account class
         """
 
         r = self._call(
@@ -190,7 +190,7 @@ class Account(Lulu):
             tag_line (str): In game tag line
 
         Returns:
-            class: _Account class
+            class: Account class
         """
 
         r = self._call(
@@ -237,7 +237,7 @@ class ChampionMastery(Lulu):
             puuid (str): Puuid
 
         Returns:
-            list: List of _MasteryEntry classes
+            list: List of MasteryEntry classes
         """
 
         entries = []
@@ -272,7 +272,7 @@ class ChampionMastery(Lulu):
             summoner_id (str): Summoner id
 
         Returns:
-            list: List of _MasteryEntry classes
+            list: List of MasteryEntry classes
         """
 
         entries = []
@@ -309,14 +309,14 @@ class _FreeChampionRotation:
 
 
 class Champion(Lulu):
-    def champion_rotations(self, region: Region):
+    def free_rotation(self, region: Region):
         """Returns champion rotations, including free-to-play and low-level free-to-play rotations
 
         Args:
             region (enum): Region enum
 
         Returns:
-            class: _FreeChampionRotation class
+            class: FreeChampionRotation class
         """
 
         r = self._call(
@@ -402,7 +402,7 @@ class _LeagueEntry:
 
 
 class League(Lulu):
-    def by_queue_challenger(self, region: Region, queue: Queue):
+    def challenger(self, region: Region, queue: Queue):
         """Get the challenger league for given queue
 
         Args:
@@ -410,7 +410,7 @@ class League(Lulu):
             queue (enum): Queue enum
 
         Returns:
-            class: _League class
+            class: League class
         """
 
         r = self._call(
@@ -433,7 +433,7 @@ class League(Lulu):
             summoner_id (str): Summoner id
 
         Returns:
-            list: List of _LeagueEntry classes
+            list: List of LeagueEntry classes
         """
 
         entries = []
@@ -481,7 +481,7 @@ class League(Lulu):
             page (int): Page of entries to retrieve
 
         Returns:
-            list: List of _LeagueEntry classes
+            list: List of LeagueEntry classes
         """
 
         entries = []
@@ -511,7 +511,7 @@ class League(Lulu):
 
         return entries
 
-    def by_queue_grandmaster(self, region: Region, queue: Queue):
+    def grandmaster(self, region: Region, queue: Queue):
         """Get the grandmaster league for given queue
 
         Args:
@@ -519,7 +519,7 @@ class League(Lulu):
             queue (enum): Queue enum
 
         Returns:
-            class: _League class
+            class: League class
         """
 
         r = self._call(
@@ -542,7 +542,7 @@ class League(Lulu):
             league_id (str): League id
 
         Returns:
-            class: _League class
+            class: League class
         """
 
         r = self._call(
@@ -557,7 +557,7 @@ class League(Lulu):
             entries=r["entries"],
         )
 
-    def by_queue_master(self, region: Region, queue: Queue):
+    def master(self, region: Region, queue: Queue):
         """Get the master league for given queue
 
         Args:
@@ -565,7 +565,7 @@ class League(Lulu):
             queue (enum): Queue enum
 
         Returns:
-            class: _League class
+            class: League class
         """
 
         r = self._call(
@@ -590,11 +590,19 @@ class _Config:
         self.thresholds = thresholds
 
 
-class _ChallengeApexPlayers:
+class _ApexPlayersInfo:
     def __init__(self, position, puuid, value):
         self.position = position
         self.puuid = puuid
         self.value = value
+
+
+class _PlayerInfo:
+    def __init__(self, category_points, challenges, preferences, total_points):
+        self.category_points = category_points
+        self.challenges = challenges
+        self.preferences = preferences
+        self.total_points = total_points
 
 
 class Challenges(Lulu):
@@ -605,7 +613,7 @@ class Challenges(Lulu):
             region (Enum): Region enum
 
         Returns:
-            list: List of _Config classes
+            list: List of Config classes
         """
 
         entries = []
@@ -643,9 +651,7 @@ class Challenges(Lulu):
 
         return r
 
-    def by_challenge_id_players_by_level(
-        self, region: Region, challenge_id: int, level: ChallengesLevel
-    ):
+    def apex_players(self, region: Region, challenge_id: int, level: ChallengesLevel):
         """Return top players for each level. Level must be MASTER, GRANDMASTER or CHALLENGER
 
         Args:
@@ -654,7 +660,7 @@ class Challenges(Lulu):
             level (Enum): Challenges level enum
 
         Returns:
-            list: List of _ChallengeApexPlayers classes
+            list: List of ApexPlayersInfo classes
         """
 
         entries = []
@@ -664,7 +670,7 @@ class Challenges(Lulu):
         )
 
         for item in r:
-            entry = _ChallengeApexPlayers(
+            entry = _ApexPlayersInfo(
                 position=item["position"],
                 puuid=item["puuid"],
                 value=item["value"],
@@ -673,3 +679,24 @@ class Challenges(Lulu):
             entries.append(entry)
 
         return entries
+
+    def by_puuid(self, region: Region, puuid: str):
+        """Returns player information with list of all progressed challenges (REST)
+
+        Args:
+            region (Enum): Region enum
+            puuid (str): Puuid
+
+        Returns:
+            class: PlayerInfo class
+        """
+        r = self._call(
+            url=f"https://{region.value}.api.riotgames.com/lol/challenges/v1/player-data/{puuid}"
+        )
+
+        return _PlayerInfo(
+            category_points=r["categoryPoints"],
+            challenges=r["challenges"],
+            preferences=r["preferences"],
+            total_points=r["totalPoints"],
+        )
