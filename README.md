@@ -1,5 +1,6 @@
 # lulu
 An API wrapper for the Riot API.
+lulu provides a pythonic easy to use interface.
 
 ## lulu handles
 
@@ -8,8 +9,6 @@ An API wrapper for the Riot API.
 * Caching so you never have to make the same call twice.
 
 * Enums for all common params eg. regions, continents and ranks.
-
-## lulu provides a clean and pythonic easy to use interface.
 
 ## Example usage
 
