@@ -3,8 +3,6 @@ An API wrapper for the Riot API.
 
 Lulu provides a pythonic easy to use interface.
 
-All endpoints fully unit tested.
-
 ## Lulu handles
 
 * Optimised rate limiting ensuring you get the most out of your API key.
