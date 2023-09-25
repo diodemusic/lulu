@@ -1,6 +1,6 @@
 import lulu
 
-lu = lulu.SetKey("YOUR_KEY_HERE")
+lu = lulu.set_key("YOUR_KEY_HERE")
 
 player = lu.account.by_riot_id(lulu.Continent.europe, "saves", "000")
 mastery_entries = lu.champion_mastery.by_puuid(lulu.Region.euw, player.puuid)
