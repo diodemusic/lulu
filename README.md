@@ -27,5 +27,4 @@ mastery_entries = lulu.mastery_by_puuid(key, region, player.puuid)
 mastery_points_sum = sum(entry.points for entry in mastery_entries)
 
 print(f"hi im {player.game_name} and i have {mastery_points_sum} total mastery :)")
-
 ```
