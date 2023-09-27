@@ -10,4 +10,4 @@ An API wrapper for the Riot API.
 ### Completed ✓
 - [x] Split public functions and private utils into seperate files.
 - [x] Impliment caching.
-- [x] Fix unit test bug.
+- [x] Add unit tests.
