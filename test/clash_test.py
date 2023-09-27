@@ -8,4 +8,4 @@ key = os.getenv("KEY")
 
 
 def test_by_puuid():
-    pass
+    assert 1 == 1

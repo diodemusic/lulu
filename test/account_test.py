@@ -6,12 +6,10 @@ import os
 load_dotenv()
 key = os.getenv("KEY")
 continent = lulu.continent.europe
+puuid = "H2qa4P52mGxy6ZRPoqBUaZBZ-Au6GpMSQcgUPc21Qui1TtecAV5mfqPuyLYz9mcDXyoGY4KeuQsiGg"
 
 
 def test_by_puuid():
-    puuid = (
-        "H2qa4P52mGxy6ZRPoqBUaZBZ-Au6GpMSQcgUPc21Qui1TtecAV5mfqPuyLYz9mcDXyoGY4KeuQsiGg"
-    )
     by_puuid = lulu.account_by_puuid(key, continent, puuid)
 
     assert by_puuid.puuid == puuid
@@ -20,9 +18,6 @@ def test_by_puuid():
 
 
 def test_by_riot_id():
-    puuid = (
-        "H2qa4P52mGxy6ZRPoqBUaZBZ-Au6GpMSQcgUPc21Qui1TtecAV5mfqPuyLYz9mcDXyoGY4KeuQsiGg"
-    )
     by_riot_id = lulu.account_by_riot_id(key, continent, "saves", "000")
 
     assert by_riot_id.puuid == puuid
