@@ -52,15 +52,15 @@ class level(__Enum):
 
 
 def account_by_puuid(key: str, continent: continent, puuid: str) -> object:
-    """Get account by puuid
+    """Get account by puuid.
 
     Args:
-        key (str): Riot API key
-        continent (enum): Continent enum
-        puuid (str): Puuid
+        key (str): Riot API key.
+        continent (enum): Continent enum.
+        puuid (str): Puuid.
 
     Returns:
-        object: Account object
+        object: Account object.
     """
 
     r = __utils.call(
@@ -76,16 +76,16 @@ def account_by_puuid(key: str, continent: continent, puuid: str) -> object:
 def account_by_riot_id(
     key: str, continent: continent, game_name: str, tag_line: str
 ) -> object:
-    """Get account by riot id
+    """Get account by riot ID.
 
     Args:
-        key (str): Riot API key
-        continent (enum): Continent enum
-        game_name (str): In game name
-        tag_line (str): In game tag line
+        key (str): Riot API key.
+        continent (enum): Continent enum.
+        game_name (str): In game name.
+        tag_line (str): In game tag line.
 
     Returns:
-        object: Account object
+        object: Account object.
     """
 
     r = __utils.call(
@@ -99,14 +99,15 @@ def account_by_riot_id(
 
 
 def mastery_by_puuid(key: str, region: region, puuid: str) -> list:
-    """Get all champion mastery entries sorted by number of champion points descending
+    """Get all champion mastery entries sorted by number of champion points descending.
 
     Args:
-        region (enum): Region enum
-        puuid (str): Puuid
+        key (str): Riot API key.
+        region (enum): Region enum.
+        puuid (str): Puuid.
 
     Returns:
-        list: List of MasteryEntry objects
+        list: List of MasteryEntry objects.
     """
 
     entries = []
@@ -118,7 +119,80 @@ def mastery_by_puuid(key: str, region: region, puuid: str) -> list:
 
     for item in r:
         entry = __utils.MasteryEntry(
-            puuid=puuid,
+            puuid=item["puuid"],
+            champion_id=item["championId"],
+            level=item["championLevel"],
+            points=item["championPoints"],
+            last_play_time=item["lastPlayTime"],
+            points_since_last_level=item["championPointsSinceLastLevel"],
+            points_until_next_level=item["championPointsUntilNextLevel"],
+            chest_granted=item["chestGranted"],
+            tokens_earned=item["tokensEarned"],
+            summoner_id=item["summonerId"],
+        )
+
+        entries.append(entry)
+
+    return entries
+
+
+def mastery_by_puuid_and_champion_id(
+    key: str, region: region, puuid: str, champion_id: int
+) -> object:
+    """Get a champion mastery by puuid and champion ID.
+
+    Args:
+        key (str): Riot API key.
+        region (enum): Region enum.
+        puuid (str): Puuid.
+        champion_id (int): Champion id.
+
+    Returns:
+        object: MasteryEntry object.
+    """
+
+    r = __utils.call(
+        url=f"https://{region.value}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}/by-champion/{champion_id}",
+        key=key,
+    )
+
+    return __utils.MasteryEntry(
+        puuid=r["puuid"],
+        champion_id=r["championId"],
+        level=r["championLevel"],
+        points=r["championPoints"],
+        last_play_time=r["lastPlayTime"],
+        points_since_last_level=r["championPointsSinceLastLevel"],
+        points_until_next_level=r["championPointsUntilNextLevel"],
+        chest_granted=r["chestGranted"],
+        tokens_earned=r["tokensEarned"],
+        summoner_id=r["summonerId"],
+    )
+
+
+def mastery_by_puuid_top(key: str, region: region, puuid: str, count: str = 3):
+    """Get specified number of top champion mastery entries sorted by number of champion points descending.
+
+    Args:
+        key (str): Riot API key.
+        region (enum): Region enum.
+        puuid (str): Puuid.
+        count (str, optional): Count of mastery entries to get. Defaults to 3.
+
+    Returns:
+        list: List of MasteryEntry objects.
+    """
+
+    entries = []
+
+    r = __utils.call(
+        url=f"https://{region.value}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}/top?count={count}",
+        key=key,
+    )
+
+    for item in r:
+        entry = __utils.MasteryEntry(
+            puuid=item["puuid"],
             champion_id=item["championId"],
             level=item["championLevel"],
             points=item["championPoints"],
@@ -136,14 +210,15 @@ def mastery_by_puuid(key: str, region: region, puuid: str) -> list:
 
 
 def mastery_by_summoner_id(key: str, region: region, summoner_id: str) -> list:
-    """Get all champion mastery entries sorted by number of champion points descending
+    """Get all champion mastery entries sorted by number of champion points descending.
 
     Args:
-        region (enum): Region enum
-        summoner_id (str): Summoner id
+        key (str): Riot API key.
+        region (enum): Region enum.
+        summoner_id (str): Summoner ID.
 
     Returns:
-        list: List of MasteryEntry objects
+        list: List of MasteryEntry objects.
     """
 
     entries = []
@@ -171,14 +246,130 @@ def mastery_by_summoner_id(key: str, region: region, summoner_id: str) -> list:
     return entries
 
 
-def champion_free_rotation(key: str, region: region) -> object:
-    """Returns champion rotations, including free-to-play and low-level free-to-play rotations
+def mastery_by_summoner_id_and_champion_id(
+    key: str, region: region, summoner_id: str, champion_id: int
+) -> object:
+    """Get a champion mastery by Summoner ID and champion ID.
 
     Args:
-        region (enum): Region enum
+        key (str): Riot API key.
+        region (enum): Region enum.
+        summoner_id (str): Summoner ID.
+        champion_id (int): Champion ID.
 
     Returns:
-        object: FreeChampionRotation object
+        object: MasteryEntry object.
+    """
+
+    r = __utils.call(
+        url=f"https://{region.value}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/{summoner_id}/by-champion/{champion_id}",
+        key=key,
+    )
+
+    return __utils.MasteryEntry(
+        puuid=r["puuid"],
+        champion_id=r["championId"],
+        level=r["championLevel"],
+        points=r["championPoints"],
+        last_play_time=r["lastPlayTime"],
+        points_since_last_level=r["championPointsSinceLastLevel"],
+        points_until_next_level=r["championPointsUntilNextLevel"],
+        chest_granted=r["chestGranted"],
+        tokens_earned=r["tokensEarned"],
+        summoner_id=r["summonerId"],
+    )
+
+
+def mastery_by_summoner_id_top(
+    key: str, region: region, summoner_id: str, count: str = 3
+):
+    """Get specified number of top champion mastery entries sorted by number of champion points descending.
+
+    Args:
+        key (str): Riot API key.
+        region (enum): Region enum.
+        summoner_id (str): Summoner ID.
+        count (str, optional): Count of mastery entries to get. Defaults to 3.
+
+    Returns:
+        list: List of MasteryEntry objects.
+    """
+
+    entries = []
+
+    r = __utils.call(
+        url=f"https://{region.value}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/{summoner_id}/top?count={count}",
+        key=key,
+    )
+
+    for item in r:
+        entry = __utils.MasteryEntry(
+            puuid=item["puuid"],
+            champion_id=item["championId"],
+            level=item["championLevel"],
+            points=item["championPoints"],
+            last_play_time=item["lastPlayTime"],
+            points_since_last_level=item["championPointsSinceLastLevel"],
+            points_until_next_level=item["championPointsUntilNextLevel"],
+            chest_granted=item["chestGranted"],
+            tokens_earned=item["tokensEarned"],
+            summoner_id=item["summonerId"],
+        )
+
+        entries.append(entry)
+
+    return entries
+
+
+def mastery_levels_sum_by_puuid(key: str, region: region, puuid: str):
+    """Get a player's total champion mastery score, which is the sum of individual champion mastery levels.
+
+    Args:
+        key (str): Riot API key.
+        region (enum): Region enum.
+        puuid (str): Puuid.
+
+    Returns:
+        int: Sum of mastery levels int.
+    """
+
+    r = __utils.call(
+        url=f"https://{region.value}.api.riotgames.com/lol/champion-mastery/v4/scores/by-puuid/{puuid}",
+        key=key,
+    )
+
+    return r
+
+
+def mastery_levels_sum_by_summoner_id(key: str, region: region, summoner_id: str):
+    """Get a player's total champion mastery score, which is the sum of individual champion mastery levels.
+
+    Args:
+        key (str): Riot API key.
+        region (enum): Region enum.
+        summoner_id (str): Summoner ID.
+
+    Returns:
+        int: Sum of mastery levels int.
+    """
+
+    r = __utils.call(
+        url=f"https://{region.value}.api.riotgames.com/lol/champion-mastery/v4/scores/by-summoner/{summoner_id}",
+        key=key,
+    )
+
+    return r
+
+
+def champion_free_rotation(key: str, region: region) -> object:
+    """Returns champion rotations, including free-to-play and low-level free-to-play rotations.
+
+    Args:
+        key (str): Riot API key.
+        region (enum): Region enum.
+
+    Returns:
+        object: FreeChampionRotation object.
     """
 
     r = __utils.call(
@@ -198,14 +389,15 @@ def clash():
 
 
 def league_challenger(key: str, region: region, queue: queue) -> object:
-    """Get the challenger league for given queue
+    """Get the challenger league for given queue.
 
     Args:
-        region (enum): Region enum
-        queue (enum): Queue enum
+        key (str): Riot API key.
+        region (enum): Region enum.
+        queue (enum): Queue enum.
 
     Returns:
-        object: League object
+        object: League object.
     """
 
     r = __utils.call(
@@ -223,14 +415,15 @@ def league_challenger(key: str, region: region, queue: queue) -> object:
 
 
 def league_by_summoner_id(key: str, region: region, summoner_id: str) -> list:
-    """Get league entries in all queues for a given summoner ID
+    """Get league entries in all queues for a given summoner ID.
 
     Args:
-        region (enum): Region enum
-        summoner_id (str): Summoner id
+        key (str): Riot API key.
+        region (enum): Region enum.
+        summoner_id (str): Summoner ID.
 
     Returns:
-        list: List of LeagueEntry objects
+        list: List of LeagueEntry objects.
     """
 
     entries = []
@@ -270,17 +463,18 @@ def league_by_queue_tier_division(
     division: division,
     page: int = 1,
 ) -> list:
-    """Get all the league entries
+    """Get all the league entries.
 
     Args:
-        region (Enum): Region enum
-        queue (Enum): Queue enum
-        tier (Enum): Ranked tier enum
-        division (Enum): Ranked division enum
-        page (int): Page of entries to retrieve
+        key (str): Riot API key.
+        region (Enum): Region enum.
+        queue (Enum): Queue enum.
+        tier (Enum): Ranked tier enum.
+        division (Enum): Ranked division enum.
+        page (int): Page of entries to retrieve.
 
     Returns:
-        list: List of LeagueEntry objects
+        list: List of LeagueEntry objects.
     """
 
     entries = []
@@ -313,14 +507,15 @@ def league_by_queue_tier_division(
 
 
 def league_grandmaster(key: str, region: region, queue: queue) -> object:
-    """Get the grandmaster league for given queue
+    """Get the grandmaster league for given queue.
 
     Args:
-        region (enum): Region enum
-        queue (enum): Queue enum
+        key (str): Riot API key.
+        region (enum): Region enum.
+        queue (enum): Queue enum.
 
     Returns:
-        object: League object
+        object: League object.
     """
 
     r = __utils.call(
@@ -338,14 +533,15 @@ def league_grandmaster(key: str, region: region, queue: queue) -> object:
 
 
 def league_by_league_id(key: str, region: region, league_id: str) -> object:
-    """Get league with given ID, including inactive entries
+    """Get league with given ID, including inactive entries.
 
     Args:
-        region (Enum): Region enum
-        league_id (str): League id
+        key (str): Riot API key.
+        region (Enum): Region enum.
+        league_id (str): League ID.
 
     Returns:
-        object: League object
+        object: League object.
     """
 
     r = __utils.call(
@@ -363,14 +559,15 @@ def league_by_league_id(key: str, region: region, league_id: str) -> object:
 
 
 def league_master(key: str, region: region, queue: queue) -> object:
-    """Get the master league for given queue
+    """Get the master league for given queue.
 
     Args:
-        region (enum): Region enum
-        queue (enum): Queue enum
+        key (str): Riot API key.
+        region (enum): Region enum.
+        queue (enum): Queue enum.
 
     Returns:
-        object: League object
+        object: League object.
     """
 
     r = __utils.call(
@@ -388,13 +585,14 @@ def league_master(key: str, region: region, queue: queue) -> object:
 
 
 def challenges_config(key: str, region: region) -> list:
-    """List of all basic challenge configuration information (includes all translations for names and descriptions)
+    """List of all basic challenge configuration information (includes all translations for names and descriptions).
 
     Args:
-        region (Enum): Region enum
+        key (str): Riot API key.
+        region (Enum): Region enum.
 
     Returns:
-        list: List of Config objects
+        list: List of ChallengeConfig objects.
     """
 
     entries = []
@@ -405,7 +603,7 @@ def challenges_config(key: str, region: region) -> list:
     )
 
     for item in r:
-        entry = __utils.Config(
+        entry = __utils.ChallengeConfig(
             challenge_id=item["id"],
             leaderboard=item["leaderboard"],
             localized_names=item["localizedNames"],
@@ -419,13 +617,14 @@ def challenges_config(key: str, region: region) -> list:
 
 
 def challenges_percentiles(key: str, region: region) -> dict:
-    """Map of level to percentile of players who have achieved it - keys: ChallengeId -> Season -> Level -> percentile of players who achieved it
+    """Map of level to percentile of players who have achieved it - keys: ChallengeId -> Season -> Level -> percentile of players who achieved it.
 
     Args:
-        region (Enum): Region enum
+        key (str): Riot API key.
+        region (Enum): Region enum.
 
     Returns:
-        dict: Percentiles dictionary
+        dict: Percentiles dictionary.
     """
 
     r = __utils.call(
@@ -436,18 +635,47 @@ def challenges_percentiles(key: str, region: region) -> dict:
     return r
 
 
+def challenges_config_by_challenge_id(
+    key: str, region: region, challenge_id: int
+) -> object:
+    """Get challenge configuration (REST).
+
+    Args:
+        key (str): Riot API key.
+        region (enum): Region enum.
+        challenge_id (int): Challenge ID.
+
+    Returns:
+        object: ChallengeConfig object.
+    """
+
+    r = __utils.call(
+        url=f"https://{region.value}.api.riotgames.com/lol/challenges/v1/challenges/{challenge_id}/config",
+        key=key,
+    )
+
+    return __utils.ChallengeConfig(
+        challenge_id=r["id"],
+        leaderboard=r["leaderboard"],
+        localized_names=r["localizedNames"],
+        state=r["state"],
+        thresholds=r["thresholds"],
+    )
+
+
 def challenges_apex_players(
     key: str, region: region, challenge_id: int, level: level
 ) -> list:
-    """Return top players for each level. Level must be MASTER, GRANDMASTER or CHALLENGER
+    """Return top players for each level. Level must be MASTER, GRANDMASTER or CHALLENGER.
 
     Args:
-        region (Enum): Region enum
-        challenge_id (int): Challenge id
-        level (Enum): Level enum
+        key (str): Riot API key.
+        region (Enum): Region enum.
+        challenge_id (int): Challenge ID.
+        level (Enum): Level enum.
 
     Returns:
-        list: List of ApexPlayersInfo objects
+        list: List of ApexPlayersInfo objects.
     """
 
     entries = []
@@ -469,15 +697,49 @@ def challenges_apex_players(
     return entries
 
 
-def challenges(key: str, region: region, puuid: str) -> object:
-    """Returns player information with list of all progressed challenges (REST)
+def challenges_percentiles_by_challenge_id(
+    key: str, region: region, challenge_id: int
+) -> object:
+    """Map of level to percentile of players who have achieved it.
 
     Args:
-        region (Enum): Region enum
-        puuid (str): Puuid
+        key (str): Riot API key.
+        region (enum): Region enum.
+        challenge_id (int): Challenge ID.
 
     Returns:
-        object: PlayerInfo object
+        object: Percentiles object.
+    """
+
+    r = __utils.call(
+        url=f"https://{region.value}.api.riotgames.com/lol/challenges/v1/challenges/{challenge_id}/percentiles",
+        key=key,
+    )
+
+    return __utils.Percentiles(
+        iron=r["IRON"],
+        bronze=r["BRONZE"],
+        silver=r["SILVER"],
+        gold=r["GOLD"],
+        platinum=r["PLATINUM"],
+        diamond=r["DIAMOND"],
+        master=r["MASTER"],
+        grandmaster=r["GRANDMASTER"],
+        challenger=r["CHALLENGER"],
+        none=r["NONE"],
+    )
+
+
+def challenges(key: str, region: region, puuid: str) -> object:
+    """Returns player information with list of all progressed challenges (REST).
+
+    Args:
+        key (str): Riot API key.
+        region (Enum): Region enum.
+        puuid (str): Puuid.
+
+    Returns:
+        object: PlayerInfo object.
     """
 
     r = __utils.call(
@@ -497,11 +759,13 @@ def status(key: str, region: region) -> object:
     """Get League of Legends status for the given platform.
 
     Args:
-        region (Enum): Region enum
+        key (str): Riot API key.
+        region (Enum): Region enum.
 
     Returns:
-        object: PlatformStatus object
+        object: PlatformStatus object.
     """
+
     r = __utils.call(
         url=f"https://{region.value}.api.riotgames.com/lol/status/v4/platform-data",
         key=key,
@@ -516,7 +780,31 @@ def status(key: str, region: region) -> object:
     )
 
 
-def match_history(key: str, region: region, puuid: str):
-    r = __utils.call(url=f"")
+def match_history(
+    key: str,
+    continent: continent,
+    puuid: str,
+    queue: int,
+    start: int = 0,
+    count: int = 20,
+) -> list:
+    """Get a list of match ids by puuid.
+
+    Args:
+        key (str): Riot API key.
+        continent (enum): Continent enum.
+        puuid (str): Puuid.
+        queue (int): Queue ID
+        start (int, optional): Start index. Defaults to 0.
+        count (int, optional): Valid values: 0 to 100. Number of match IDs to return. Defaults to 20.
+
+    Returns:
+        list: List of match IDs.
+    """
+
+    r = __utils.call(
+        url=f"https://{continent.value}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?queue={queue}&start={start}&count={count}",
+        key=key,
+    )
 
     return r
