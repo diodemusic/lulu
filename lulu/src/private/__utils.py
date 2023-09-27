@@ -183,7 +183,7 @@ class LeagueEntry:
         self.wins = wins
 
 
-class Config:
+class ChallengeConfig:
     def __init__(self, challenge_id, leaderboard, localized_names, state, thresholds):
         self.challenge_id = challenge_id
         self.leaderboard = leaderboard
@@ -197,6 +197,32 @@ class ApexPlayersInfo:
         self.position = position
         self.puuid = puuid
         self.value = value
+
+
+class Percentiles:
+    def __init__(
+        self,
+        iron,
+        bronze,
+        silver,
+        gold,
+        platinum,
+        diamond,
+        master,
+        grandmaster,
+        challenger,
+        none,
+    ):
+        self.iron = iron
+        self.bronze = bronze
+        self.silver = silver
+        self.gold = gold
+        self.platinum = platinum
+        self.diamond = diamond
+        self.master = master
+        self.grandmaster = grandmaster
+        self.challenger = challenger
+        self.none = none
 
 
 class PlayerInfo:
@@ -214,10 +240,3 @@ class PlatformStatus:
         self.locales = locales
         self.maintenances = maintenances
         self.name = name
-
-
-class MatchHistory:
-    def __init__(
-        self,
-    ):
-        pass
