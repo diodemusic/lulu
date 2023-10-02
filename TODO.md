@@ -2,7 +2,7 @@
 An API wrapper for the Riot API.
 
 ### To do
-- [ ] Add setup.py to install dependencies.
+- [ ] Add setup.py file.
 - [ ] Add logic to set api key once and forget instead of having to pass the key to every function on use.
 - [ ] Provide extensive documentation.
 - [ ] Make a folder for cached calls that do not need a time to live. (matches only need to be fetched once, the data is static).
