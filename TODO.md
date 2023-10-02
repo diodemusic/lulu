@@ -9,7 +9,7 @@ An API wrapper for the Riot API.
 - [ ] Optimise rate limiting, never hit a 429 and store some kind of token bucket.
 - [ ] Add handling for service 429's, since it's using a header that doesn't exist on those it's going to hit a TypeError on the int conversion.
 - [ ] Add SEA as a continent.
-- [ ] Add CLASH-V1.
+- [ ] Finish CLASH-V1.
 
 
 ### Completed ✓
