@@ -39,6 +39,7 @@ def call(key: str, url: str, max_retries: int = 3, retry_delay: int = 40):
     cached_response = load_from_cache(cache_key=cache_key, ttl=3600)
 
     if cached_response is not None:
+        logging.info(cache_key)
         return cached_response
 
     headers = {"X-Riot-Token": key}
@@ -61,6 +62,12 @@ def call(key: str, url: str, max_retries: int = 3, retry_delay: int = 40):
             )
 
             time.sleep(int(r.headers.get("Retry-After")))
+
+        elif r.status_code == 404:
+            raise Exception("Error 404.")
+
+        elif r.status_code == 403:
+            raise Exception("Error 403, check API key.")
 
         else:
             logging.error(f"Status code >> {r.status_code}.")
@@ -240,3 +247,120 @@ class PlatformStatus:
         self.locales = locales
         self.maintenances = maintenances
         self.name = name
+
+
+class MatchInfo:
+    def __init__(
+        self,
+        creation,
+        duration,
+        end_timestamp,
+        game_id,
+        mode,
+        name,
+        start_timestamp,
+        game_type,
+        version,
+        map_id,
+        participants,
+        platform_id,
+        queue_id,
+        teams,
+        tournament_code,
+    ):
+        self.creation = creation
+        self.duration = duration
+        self.end_timestamp = end_timestamp
+        self.game_id = game_id
+        self.mode = mode
+        self.name = name
+        self.start_timestamp = start_timestamp
+        self.game_type = game_type
+        self.version = version
+        self.map_id = map_id
+        self.participants = participants
+        self.platform_id = platform_id
+        self.queue_id = queue_id
+        self.teams = teams
+        self.tournament_code = tournament_code
+
+
+class Metadata:
+    def __init__(self, data_version, match_id, participants):
+        self.data_version = data_version
+        self.match_id = match_id
+        self.participants = participants
+
+
+class Match:
+    def __init__(self, info, metadata):
+        self.info = info
+        self.metadata = metadata
+
+
+class TimelineInfo:
+    def __init__(self, frame_interval, frames, game_id, participants):
+        self.frame_interval = frame_interval
+        self.frames = frames
+        self.game_id = game_id
+        self.participants = participants
+
+
+class MatchTimeline:
+    def __init__(self, info, metadata):
+        self.info = info
+        self.metadata = metadata
+
+
+class Spectator:
+    def __init__(
+        self,
+        banned_champions,
+        game_id,
+        length,
+        mode,
+        queue_config_id,
+        start_time,
+        game_type,
+        map_id,
+        observers,
+        participants,
+        platform_id,
+    ):
+        self.banned_champions = banned_champions
+        self.game_id = game_id
+        self.length = length
+        self.mode = mode
+        self.queue_config_id = queue_config_id
+        self.start_time = start_time
+        self.game_type = game_type
+        self.map_id = map_id
+        self.observers = observers
+        self.participants = participants
+        self.platform_id = platform_id
+
+
+class FeaturedGames:
+    def __init__(self, client_refresh_interval, game_list):
+        self.client_refresh_interval = client_refresh_interval
+        self.game_list = game_list
+
+
+class Summoner:
+    def __init__(
+        self,
+        account_id,
+        summoner_id,
+        name,
+        profile_icon_id,
+        puuid,
+        revision_date,
+        level,
+    ):
+        self.account_id = account_id
+        self.summoner_id = summoner_id
+        self.name = name
+        self.profile_icon_id = profile_icon_id
+        self.puuid = puuid
+        self.revision_date = revision_date
+        self.level = level

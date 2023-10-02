@@ -9,21 +9,25 @@ Lulu provides a pythonic easy to use interface.
 
 * Caching so you never have to make the same call twice.
 
-* Enums for all common params eg. regions, continents and ranks.
-
 ## Example usage
 
 ```py
-import lulu.src.lulu as lulu
+from lulu import continent, region, account, mastery, match
 
-key = "YOUR_API_KEY"
+key = "YOUR_RIOT_API_KEY"
 
-continent = lulu.continent.europe
-region = lulu.region.euw
+continent = continent.europe
+region = region.euw
 
-player = lulu.account_by_riot_id(key, continent, "saves", "000")
+player = account.by_riot_id(key, continent, "john_doe", "1234")
+sum_score = mastery.levels_sum_by_puuid(key, region, player.puuid)
 
-sum_score = lulu.mastery_levels_sum_by_puuid(key, region, player.puuid)
+print(f"Hi, I'm {player.game_name} and I have {sum_score} total mastery levels.")
 
-print(f"Hi, I'm {player.game_name} and I have {sum_score} total mastery levels :)")
+match_ids = match.history(key, continent, player.puuid, 420)
+match = match.by_match_id(key, continent, match_ids[0])
+
+for participant in match.info.participants:
+    if participant["puuid"] == player.puuid:
+        print(f"In my last game I had {participant['assists']} assists.")
 ```

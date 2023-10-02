@@ -1,11 +1,14 @@
-import lulu.src.lulu as lulu
-from dotenv import load_dotenv
-import os
+from lulu import clash
+
+# from dotenv import load_dotenv
+# import os
 
 
-load_dotenv()
-key = os.getenv("KEY")
+# load_dotenv()
+# key = os.getenv("KEY")
 
 
 def test_by_puuid():
-    assert 1 == 1
+    clash_data = clash.clash()
+
+    assert clash_data == "This is some clash data"

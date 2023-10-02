@@ -1,17 +1,17 @@
-import lulu.src.lulu as lulu
+from lulu import region, status
 from dotenv import load_dotenv
 import os
 
 
 load_dotenv()
 key = os.getenv("KEY")
-region = lulu.region.euw
+region = region.euw
 
 
 def test_platform():
-    platform_status = lulu.status(key, region)
+    platform_status = status.by_region(key, region)
 
-    assert platform_status.platform_id == region.value.upper()
+    assert platform_status.platform_id == region.upper()
     assert type(platform_status.incidents) == list
     assert type(platform_status.locales) == list
     assert type(platform_status.maintenances) == list
