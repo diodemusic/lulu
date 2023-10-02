@@ -1,15 +1,15 @@
-from lulu import region, champion
+import lulu
 from dotenv import load_dotenv
 import os
 
 
 load_dotenv()
 key = os.getenv("KEY")
-region = region.euw
+region = lulu.region.euw
 
 
 def test_by_puuid():
-    champion_rotations = champion.free_rotation(key, region)
+    champion_rotations = lulu.champion.free_rotation(key, region)
 
     assert type(champion_rotations.free_champion_ids) == list
     assert type(champion_rotations.free_champion_ids_for_new_players) == list

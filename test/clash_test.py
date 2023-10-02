@@ -1,4 +1,4 @@
-from lulu import clash
+import lulu
 
 # from dotenv import load_dotenv
 # import os
@@ -9,6 +9,6 @@ from lulu import clash
 
 
 def test_by_puuid():
-    clash_data = clash.clash()
+    clash_data = lulu.clash.clash()
 
     assert clash_data == "This is some clash data"

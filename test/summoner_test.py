@@ -1,4 +1,4 @@
-from lulu import region, summoner
+import lulu
 from dotenv import load_dotenv
 import os
 
@@ -9,11 +9,11 @@ account_id = os.getenv("ACCOUNT_ID")
 name = os.getenv("SUMMONER_NAME")
 puuid = os.getenv("PUUID")
 summoner_id = os.getenv("SUMMONER_ID")
-region = region.euw
+region = lulu.region.euw
 
 
 def test_by_account():
-    by_account_id = summoner.by_account(key, region, account_id)
+    by_account_id = lulu.summoner.by_account(key, region, account_id)
 
     assert by_account_id.account_id == account_id
     assert by_account_id.summoner_id == summoner_id
@@ -25,7 +25,7 @@ def test_by_account():
 
 
 def test_by_name():
-    by_name = summoner.by_name(key, region, name)
+    by_name = lulu.summoner.by_name(key, region, name)
 
     assert by_name.account_id == account_id
     assert by_name.summoner_id == summoner_id
@@ -37,7 +37,7 @@ def test_by_name():
 
 
 def test_by_puuid():
-    by_puuid = summoner.by_puuid(key, region, puuid)
+    by_puuid = lulu.summoner.by_puuid(key, region, puuid)
 
     assert by_puuid.account_id == account_id
     assert by_puuid.summoner_id == summoner_id
@@ -49,7 +49,7 @@ def test_by_puuid():
 
 
 def test_by_summoner_id():
-    by_summoner_id = summoner.by_summoner_id(key, region, summoner_id)
+    by_summoner_id = lulu.summoner.by_summoner_id(key, region, summoner_id)
 
     assert by_summoner_id.account_id == account_id
     assert by_summoner_id.summoner_id == summoner_id

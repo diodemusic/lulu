@@ -1,4 +1,4 @@
-from lulu import continent, account
+import lulu
 from dotenv import load_dotenv
 import os
 
@@ -8,11 +8,11 @@ key = os.getenv("KEY")
 puuid = os.getenv("PUUID")
 game_name = os.getenv("GAME_NAME")
 tag_line = os.getenv("TAG_LINE")
-continent = continent.europe
+continent = lulu.continent.europe
 
 
 def test_by_puuid():
-    by_puuid = account.by_puuid(key, continent, puuid)
+    by_puuid = lulu.account.by_puuid(key, continent, puuid)
 
     assert by_puuid.puuid == puuid
     assert by_puuid.game_name == game_name
@@ -20,7 +20,7 @@ def test_by_puuid():
 
 
 def test_by_riot_id():
-    by_riot_id = account.by_riot_id(key, continent, game_name, tag_line)
+    by_riot_id = lulu.account.by_riot_id(key, continent, game_name, tag_line)
 
     assert by_riot_id.puuid == puuid
     assert by_riot_id.game_name == game_name

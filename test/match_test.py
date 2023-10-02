@@ -1,4 +1,4 @@
-from lulu import continent, match
+import lulu
 from dotenv import load_dotenv
 import os
 
@@ -6,22 +6,22 @@ import os
 load_dotenv()
 key = os.getenv("KEY")
 puuid = os.getenv("PUUID")
-continent = continent.europe
+continent = lulu.continent.europe
 queue = 400
-match_id = match.history(key, continent, puuid, queue, 1)[0]
+match_id = lulu.match.history(key, continent, puuid, queue, 1)[0]
 
 
 def test_history():
     count = 10
     start = 3
-    history = match.history(key, continent, puuid, queue, start, count)
+    history = lulu.match.history(key, continent, puuid, queue, start, count)
 
     assert type(history) == list
     assert len(history) == count
 
 
 def test_by_match_id():
-    match_data = match.by_match_id(key, continent, match_id)
+    match_data = lulu.match.by_match_id(key, continent, match_id)
     info = match_data.info
     metadata = match_data.metadata
 
@@ -54,7 +54,7 @@ def test_by_match_id():
 
 
 def test_timeline_by_match_id():
-    timeline_by_match_id = match.timeline_by_match_id(key, continent, match_id)
+    timeline_by_match_id = lulu.match.timeline_by_match_id(key, continent, match_id)
 
     info = timeline_by_match_id.info
     metadata = timeline_by_match_id.metadata

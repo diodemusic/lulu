@@ -1,4 +1,4 @@
-from lulu import region, queue, tier, division, league
+import lulu
 from dotenv import load_dotenv
 import os
 
@@ -6,14 +6,14 @@ import os
 load_dotenv()
 key = os.getenv("KEY")
 summoner_id = os.getenv("SUMMONER_ID")
-region = region.euw
-queue = queue.solo_duo
-tier = tier.gold
-division = division.two
+region = lulu.region.euw
+queue = lulu.queue.solo_duo
+tier = lulu.tier.gold
+division = lulu.division.two
 
 
 def test_challenger():
-    challengers = league.challenger(key, region, queue)
+    challengers = lulu.league.challenger(key, region, queue)
 
     assert type(challengers.name) == str
     assert type(challengers.entries) == list
@@ -35,7 +35,7 @@ def test_challenger():
 
 
 def test_by_summoner_id():
-    entries = league.by_summoner_id(key, region, summoner_id)
+    entries = lulu.league.by_summoner_id(key, region, summoner_id)
 
     assert type(entries) == list
 
@@ -56,7 +56,7 @@ def test_by_summoner_id():
 
 
 def test_by_queue_tier_division():
-    entries = league.by_queue_tier_division(
+    entries = lulu.league.by_queue_tier_division(
         key,
         region,
         queue,
@@ -83,7 +83,7 @@ def test_by_queue_tier_division():
 
 
 def test_grandmaster():
-    grandmasters = league.grandmaster(key, region, queue)
+    grandmasters = lulu.league.grandmaster(key, region, queue)
 
     assert type(grandmasters.name) == str
     assert type(grandmasters.entries) == list
@@ -106,7 +106,7 @@ def test_grandmaster():
 
 def test_by_league_id():
     league_id = "d472b83c-2a7c-4fdd-91ae-76713eb00cdd"
-    league_list = league.by_league_id(key, region, league_id)
+    league_list = lulu.league.by_league_id(key, region, league_id)
 
     assert type(league_list.name) == str
     assert type(league_list.entries) == list
@@ -128,7 +128,7 @@ def test_by_league_id():
 
 
 def test_master():
-    masters = league.master(key, region, queue)
+    masters = lulu.league.master(key, region, queue)
 
     assert type(masters.name) == str
     assert type(masters.entries) == list

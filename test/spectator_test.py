@@ -1,16 +1,16 @@
-from lulu import region, spectator
+import lulu
 from dotenv import load_dotenv
 import os
 
 
 load_dotenv()
 key = os.getenv("KEY")
-region = region.euw
+region = lulu.region.euw
 summoner_id = None  # get from .env spectator game_name + tag_line
 
 
 def _by_summoner_id():
-    by_summoner_id = spectator.by_summoner_id(key, region, summoner_id)
+    by_summoner_id = lulu.spectator.by_summoner_id(key, region, summoner_id)
 
     assert type(by_summoner_id.banned_champions) == list
 
@@ -33,7 +33,7 @@ def _by_summoner_id():
 
 
 def _featured_games():
-    featured_games = spectator.featured_games(key, region)
+    featured_games = lulu.spectator.featured_games(key, region)
 
     assert type(featured_games.client_refresh_interval) == int
     assert type(featured_games.game_list) == list

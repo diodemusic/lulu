@@ -1,18 +1,18 @@
-from lulu import region, challenges, level
+import lulu
 from dotenv import load_dotenv
 import os
 
 
 load_dotenv()
 key = os.getenv("KEY")
-region = region.euw
+region = lulu.region.euw
 puuid = os.getenv("PUUID")
 challenge_id = 0
-level = level.master
+level = lulu.level.master
 
 
 def test_config():
-    challenges_config = challenges.config(key, region)
+    challenges_config = lulu.challenges.config(key, region)
 
     assert type(challenges_config) == list
 
@@ -25,13 +25,13 @@ def test_config():
 
 
 def test_percentiles():
-    percentiles = challenges.percentiles(key, region)
+    percentiles = lulu.challenges.percentiles(key, region)
 
     assert type(percentiles) == dict
 
 
 def test_config_by_challenge_id():
-    challenges_config_by_challenge_id = challenges.config_by_challenge_id(
+    challenges_config_by_challenge_id = lulu.challenges.config_by_challenge_id(
         key, region, challenge_id
     )
 
@@ -43,7 +43,7 @@ def test_config_by_challenge_id():
 
 
 def test_apex_players():
-    apex_players = challenges.apex_players(key, region, challenge_id, level)
+    apex_players = lulu.challenges.apex_players(key, region, challenge_id, level)
 
     assert type(apex_players) == list
 
@@ -54,7 +54,7 @@ def test_apex_players():
 
 
 def test_percentiles_by_challenge_id():
-    percentiles_by_challenge_id = challenges.percentiles_by_challenge_id(
+    percentiles_by_challenge_id = lulu.challenges.percentiles_by_challenge_id(
         key, region, challenge_id
     )
 
@@ -71,7 +71,7 @@ def test_percentiles_by_challenge_id():
 
 
 def test_by_puuid():
-    player = challenges.by_puuid(
+    player = lulu.challenges.by_puuid(
         key,
         region,
         puuid,
