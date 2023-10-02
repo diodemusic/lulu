@@ -1,5 +1,5 @@
 # Lulu
-An API wrapper for the Riot API.
+A League of Legends API wrapper for the Riot API.
 
 Lulu provides a pythonic easy to use interface.
 
