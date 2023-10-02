@@ -1,11 +1,10 @@
-from . import __utils
+import utils
 
 
-def config(key: str, region: str) -> list:
+def config(region: str) -> list:
     """List of all basic challenge configuration information (includes all translations for names and descriptions).
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
 
     Returns:
@@ -14,13 +13,12 @@ def config(key: str, region: str) -> list:
 
     entries = []
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/challenges/v1/challenges/config",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/challenges/v1/challenges/config"
     )
 
     for item in r:
-        entry = __utils.ChallengeConfig(
+        entry = utils.classes.ChallengeConfig(
             challenge_id=item["id"],
             leaderboard=item["leaderboard"],
             localized_names=item["localizedNames"],
@@ -33,30 +31,27 @@ def config(key: str, region: str) -> list:
     return entries
 
 
-def percentiles(key: str, region: str) -> dict:
+def percentiles(region: str) -> dict:
     """Map of level to percentile of players who have achieved it - keys: ChallengeId -> Season -> Level -> percentile of players who achieved it.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
 
     Returns:
         dict: Percentiles dictionary.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/challenges/v1/challenges/percentiles",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/challenges/v1/challenges/percentiles"
     )
 
     return r
 
 
-def config_by_challenge_id(key: str, region: str, challenge_id: int) -> object:
+def config_by_challenge_id(region: str, challenge_id: int) -> object:
     """Get challenge configuration (REST).
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         challenge_id (int): Challenge ID.
 
@@ -64,12 +59,11 @@ def config_by_challenge_id(key: str, region: str, challenge_id: int) -> object:
         object: ChallengeConfig object.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/challenges/v1/challenges/{challenge_id}/config",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/challenges/v1/challenges/{challenge_id}/config"
     )
 
-    return __utils.ChallengeConfig(
+    return utils.classes.ChallengeConfig(
         challenge_id=r["id"],
         leaderboard=r["leaderboard"],
         localized_names=r["localizedNames"],
@@ -78,11 +72,10 @@ def config_by_challenge_id(key: str, region: str, challenge_id: int) -> object:
     )
 
 
-def apex_players(key: str, region: str, challenge_id: int, level: str) -> list:
+def apex_players(region: str, challenge_id: int, level: str) -> list:
     """Return top players for each level. Level must be MASTER, GRANDMASTER or CHALLENGER.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         challenge_id (int): Challenge ID.
         level (str): Level str.
@@ -93,13 +86,12 @@ def apex_players(key: str, region: str, challenge_id: int, level: str) -> list:
 
     entries = []
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/challenges/v1/challenges/{challenge_id}/leaderboards/by-level/{level}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/challenges/v1/challenges/{challenge_id}/leaderboards/by-level/{level}"
     )
 
     for item in r:
-        entry = __utils.ApexPlayersInfo(
+        entry = utils.classes.ApexPlayersInfo(
             position=item["position"],
             puuid=item["puuid"],
             value=item["value"],
@@ -110,11 +102,10 @@ def apex_players(key: str, region: str, challenge_id: int, level: str) -> list:
     return entries
 
 
-def percentiles_by_challenge_id(key: str, region: str, challenge_id: int) -> object:
+def percentiles_by_challenge_id(region: str, challenge_id: int) -> object:
     """Map of level to percentile of players who have achieved it.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         challenge_id (int): Challenge ID.
 
@@ -122,12 +113,11 @@ def percentiles_by_challenge_id(key: str, region: str, challenge_id: int) -> obj
         object: Percentiles object.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/challenges/v1/challenges/{challenge_id}/percentiles",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/challenges/v1/challenges/{challenge_id}/percentiles"
     )
 
-    return __utils.Percentiles(
+    return utils.classes.Percentiles(
         iron=r["IRON"],
         bronze=r["BRONZE"],
         silver=r["SILVER"],
@@ -141,11 +131,10 @@ def percentiles_by_challenge_id(key: str, region: str, challenge_id: int) -> obj
     )
 
 
-def by_puuid(key: str, region: str, puuid: str) -> object:
+def by_puuid(region: str, puuid: str) -> object:
     """Returns player information with list of all progressed challenges (REST).
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         puuid (str): Puuid.
 
@@ -153,12 +142,11 @@ def by_puuid(key: str, region: str, puuid: str) -> object:
         object: PlayerInfo object.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/challenges/v1/player-data/{puuid}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/challenges/v1/player-data/{puuid}"
     )
 
-    return __utils.PlayerInfo(
+    return utils.classes.PlayerInfo(
         category_points=r["categoryPoints"],
         challenges=r["challenges"],
         preferences=r["preferences"],

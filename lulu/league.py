@@ -1,11 +1,10 @@
-from . import __utils
+import utils
 
 
-def challenger(key: str, region: str, queue: str) -> object:
+def challenger(region: str, queue: str) -> object:
     """Get the challenger league for given queue.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         queue (str): Queue str.
 
@@ -13,12 +12,11 @@ def challenger(key: str, region: str, queue: str) -> object:
         object: League object.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/{queue}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/{queue}"
     )
 
-    return __utils.League(
+    return utils.classes.League(
         tier=r["tier"],
         league_id=r["leagueId"],
         queue=r["queue"],
@@ -27,11 +25,10 @@ def challenger(key: str, region: str, queue: str) -> object:
     )
 
 
-def by_summoner_id(key: str, region: str, summoner_id: str) -> list:
+def by_summoner_id(region: str, summoner_id: str) -> list:
     """Get league entries in all queues for a given summoner ID.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         summoner_id (str): Summoner ID.
 
@@ -41,13 +38,12 @@ def by_summoner_id(key: str, region: str, summoner_id: str) -> list:
 
     entries = []
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{summoner_id}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{summoner_id}"
     )
 
     for item in r:
-        entry = __utils.LeagueEntry(
+        entry = utils.classes.LeagueEntry(
             fresh_blood=item["freshBlood"],
             hot_streak=item["hotStreak"],
             inactive=item["inactive"],
@@ -69,7 +65,6 @@ def by_summoner_id(key: str, region: str, summoner_id: str) -> list:
 
 
 def by_queue_tier_division(
-    key: str,
     region: str,
     queue: str,
     tier: str,
@@ -79,7 +74,6 @@ def by_queue_tier_division(
     """Get all the league entries.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         queue (str): Queue str.
         tier (str): Ranked tier str.
@@ -92,13 +86,12 @@ def by_queue_tier_division(
 
     entries = []
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/league/v4/entries/{queue}/{tier}/{division}?page={page}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/league/v4/entries/{queue}/{tier}/{division}?page={page}"
     )
 
     for item in r:
-        entry = __utils.LeagueEntry(
+        entry = utils.classes.LeagueEntry(
             fresh_blood=item["freshBlood"],
             hot_streak=item["hotStreak"],
             inactive=item["inactive"],
@@ -119,11 +112,10 @@ def by_queue_tier_division(
     return entries
 
 
-def grandmaster(key: str, region: str, queue: str) -> object:
+def grandmaster(region: str, queue: str) -> object:
     """Get the grandmaster league for given queue.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         queue (str): Queue str.
 
@@ -131,12 +123,11 @@ def grandmaster(key: str, region: str, queue: str) -> object:
         object: League object.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/league/v4/grandmasterleagues/by-queue/{queue}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/league/v4/grandmasterleagues/by-queue/{queue}"
     )
 
-    return __utils.League(
+    return utils.classes.League(
         tier=r["tier"],
         league_id=r["leagueId"],
         queue=r["queue"],
@@ -145,11 +136,10 @@ def grandmaster(key: str, region: str, queue: str) -> object:
     )
 
 
-def by_league_id(key: str, region: str, league_id: str) -> object:
+def by_league_id(region: str, league_id: str) -> object:
     """Get league with given ID, including inactive entries.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         league_id (str): League ID.
 
@@ -157,12 +147,11 @@ def by_league_id(key: str, region: str, league_id: str) -> object:
         object: League object.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/league/v4/leagues/{league_id}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/league/v4/leagues/{league_id}"
     )
 
-    return __utils.League(
+    return utils.classes.League(
         tier=r["tier"],
         league_id=r["leagueId"],
         queue=r["queue"],
@@ -171,11 +160,10 @@ def by_league_id(key: str, region: str, league_id: str) -> object:
     )
 
 
-def master(key: str, region: str, queue: str) -> object:
+def master(region: str, queue: str) -> object:
     """Get the master league for given queue.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         queue (str): Queue str.
 
@@ -183,12 +171,11 @@ def master(key: str, region: str, queue: str) -> object:
         object: League object.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/league/v4/masterleagues/by-queue/{queue}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/league/v4/masterleagues/by-queue/{queue}"
     )
 
-    return __utils.League(
+    return utils.classes.League(
         tier=r["tier"],
         league_id=r["leagueId"],
         queue=r["queue"],

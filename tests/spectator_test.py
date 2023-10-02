@@ -9,8 +9,13 @@ region = lulu.region.euw
 summoner_id = None  # get from .env spectator game_name + tag_line
 
 
+settings = lulu.settings.SettingsManager()
+settings.set_api_key(key)
+settings.set_cache_enabled(False)
+
+
 def _by_summoner_id():
-    by_summoner_id = lulu.spectator.by_summoner_id(key, region, summoner_id)
+    by_summoner_id = lulu.spectator.by_summoner_id(region, summoner_id)
 
     assert type(by_summoner_id.banned_champions) == list
 
@@ -33,7 +38,7 @@ def _by_summoner_id():
 
 
 def _featured_games():
-    featured_games = lulu.spectator.featured_games(key, region)
+    featured_games = lulu.spectator.featured_games(region)
 
     assert type(featured_games.client_refresh_interval) == int
     assert type(featured_games.game_list) == list

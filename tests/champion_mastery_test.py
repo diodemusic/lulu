@@ -11,8 +11,13 @@ region = lulu.region.euw
 champion_id = 29
 
 
+settings = lulu.settings.SettingsManager()
+settings.set_api_key(key)
+settings.set_cache_enabled(False)
+
+
 def test_by_puuid():
-    by_puuid = lulu.mastery.by_puuid(key, region, puuid)
+    by_puuid = lulu.mastery.by_puuid(region, puuid)
 
     assert type(by_puuid) == list
 
@@ -31,7 +36,7 @@ def test_by_puuid():
 
 def test_by_puuid_and_champion_id():
     by_puuid_and_champion_id = lulu.mastery.by_puuid_and_champion_id(
-        key, region, puuid, champion_id
+        region, puuid, champion_id
     )
 
     assert by_puuid_and_champion_id.puuid == puuid
@@ -47,7 +52,7 @@ def test_by_puuid_and_champion_id():
 
 
 def test_by_puuid_top():
-    by_puuid_top = lulu.mastery.by_puuid_top(key, region, puuid, champion_id)
+    by_puuid_top = lulu.mastery.by_puuid_top(region, puuid, champion_id)
 
     assert type(by_puuid_top) == list
 
@@ -65,7 +70,7 @@ def test_by_puuid_top():
 
 
 def test_by_summoner_id():
-    by_summoner_id = lulu.mastery.by_summoner_id(key, region, summoner_id)
+    by_summoner_id = lulu.mastery.by_summoner_id(region, summoner_id)
 
     assert type(by_summoner_id) == list
 
@@ -84,7 +89,7 @@ def test_by_summoner_id():
 
 def test_by_puuid_and_champion_id():
     by_summoner_id_and_champion_id = lulu.mastery.by_summoner_id_and_champion_id(
-        key, region, summoner_id, champion_id
+        region, summoner_id, champion_id
     )
 
     assert by_summoner_id_and_champion_id.puuid == puuid
@@ -101,7 +106,7 @@ def test_by_puuid_and_champion_id():
 
 def test_by_summoner_id_top():
     by_summoner_id_top = lulu.mastery.by_summoner_id_top(
-        key, region, summoner_id, champion_id
+        region, summoner_id, champion_id
     )
 
     assert type(by_summoner_id_top) == list
@@ -120,14 +125,14 @@ def test_by_summoner_id_top():
 
 
 def test_levels_sum_by_puuid():
-    levels_sum_by_puuid = lulu.mastery.levels_sum_by_puuid(key, region, puuid)
+    levels_sum_by_puuid = lulu.mastery.levels_sum_by_puuid(region, puuid)
 
     assert type(levels_sum_by_puuid) == int
 
 
 def test_levels_sum_by_summoner_id():
     levels_sum_by_summoner_id = lulu.mastery.levels_sum_by_summoner_id(
-        key, region, summoner_id
+        region, summoner_id
     )
 
     assert type(levels_sum_by_summoner_id) == int

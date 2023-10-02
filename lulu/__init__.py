@@ -1,5 +1,4 @@
 from lulu import (
-    account,
     challenges,
     champion,
     clash,
@@ -15,4 +14,5 @@ from lulu import (
     status,
     summoner,
     tier,
+    settings,
 )

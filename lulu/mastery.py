@@ -1,11 +1,10 @@
-from . import __utils
+import utils
 
 
-def by_puuid(key: str, region: str, puuid: str) -> list:
+def by_puuid(region: str, puuid: str) -> list:
     """Get all champion mastery entries sorted by number of champion points descending.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         puuid (str): Puuid.
 
@@ -15,13 +14,12 @@ def by_puuid(key: str, region: str, puuid: str) -> list:
 
     entries = []
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}"
     )
 
     for item in r:
-        entry = __utils.MasteryEntry(
+        entry = utils.classes.MasteryEntry(
             puuid=item["puuid"],
             champion_id=item["championId"],
             level=item["championLevel"],
@@ -39,13 +37,10 @@ def by_puuid(key: str, region: str, puuid: str) -> list:
     return entries
 
 
-def by_puuid_and_champion_id(
-    key: str, region: str, puuid: str, champion_id: int
-) -> object:
+def by_puuid_and_champion_id(region: str, puuid: str, champion_id: int) -> object:
     """Get a champion mastery by puuid and champion ID.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         puuid (str): Puuid.
         champion_id (int): Champion id.
@@ -54,12 +49,11 @@ def by_puuid_and_champion_id(
         object: MasteryEntry object.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}/by-champion/{champion_id}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}/by-champion/{champion_id}"
     )
 
-    return __utils.MasteryEntry(
+    return utils.classes.MasteryEntry(
         puuid=r["puuid"],
         champion_id=r["championId"],
         level=r["championLevel"],
@@ -73,11 +67,10 @@ def by_puuid_and_champion_id(
     )
 
 
-def by_puuid_top(key: str, region: str, puuid: str, count: str = 3):
+def by_puuid_top(region: str, puuid: str, count: str = 3):
     """Get specified number of top champion mastery entries sorted by number of champion points descending.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         puuid (str): Puuid.
         count (str, optional): Count of mastery entries to get. Defaults to 3.
@@ -88,13 +81,12 @@ def by_puuid_top(key: str, region: str, puuid: str, count: str = 3):
 
     entries = []
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}/top?count={count}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}/top?count={count}"
     )
 
     for item in r:
-        entry = __utils.MasteryEntry(
+        entry = utils.classes.MasteryEntry(
             puuid=item["puuid"],
             champion_id=item["championId"],
             level=item["championLevel"],
@@ -112,11 +104,10 @@ def by_puuid_top(key: str, region: str, puuid: str, count: str = 3):
     return entries
 
 
-def by_summoner_id(key: str, region: str, summoner_id: str) -> list:
+def by_summoner_id(region: str, summoner_id: str) -> list:
     """Get all champion mastery entries sorted by number of champion points descending.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         summoner_id (str): Summoner ID.
 
@@ -126,13 +117,12 @@ def by_summoner_id(key: str, region: str, summoner_id: str) -> list:
 
     entries = []
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/{summoner_id}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/{summoner_id}"
     )
 
     for item in r:
-        entry = __utils.MasteryEntry(
+        entry = utils.classes.MasteryEntry(
             puuid=item["puuid"],
             champion_id=item["championId"],
             level=item["championLevel"],
@@ -150,12 +140,11 @@ def by_summoner_id(key: str, region: str, summoner_id: str) -> list:
 
 
 def by_summoner_id_and_champion_id(
-    key: str, region: str, summoner_id: str, champion_id: int
+    region: str, summoner_id: str, champion_id: int
 ) -> object:
     """Get a champion mastery by Summoner ID and champion ID.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         summoner_id (str): Summoner ID.
         champion_id (int): Champion ID.
@@ -164,12 +153,11 @@ def by_summoner_id_and_champion_id(
         object: MasteryEntry object.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/{summoner_id}/by-champion/{champion_id}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/{summoner_id}/by-champion/{champion_id}"
     )
 
-    return __utils.MasteryEntry(
+    return utils.classes.MasteryEntry(
         puuid=r["puuid"],
         champion_id=r["championId"],
         level=r["championLevel"],
@@ -183,11 +171,10 @@ def by_summoner_id_and_champion_id(
     )
 
 
-def by_summoner_id_top(key: str, region: str, summoner_id: str, count: str = 3):
+def by_summoner_id_top(region: str, summoner_id: str, count: str = 3):
     """Get specified number of top champion mastery entries sorted by number of champion points descending.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         summoner_id (str): Summoner ID.
         count (str, optional): Count of mastery entries to get. Defaults to 3.
@@ -198,13 +185,12 @@ def by_summoner_id_top(key: str, region: str, summoner_id: str, count: str = 3):
 
     entries = []
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/{summoner_id}/top?count={count}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/{summoner_id}/top?count={count}"
     )
 
     for item in r:
-        entry = __utils.MasteryEntry(
+        entry = utils.classes.MasteryEntry(
             puuid=item["puuid"],
             champion_id=item["championId"],
             level=item["championLevel"],
@@ -222,11 +208,10 @@ def by_summoner_id_top(key: str, region: str, summoner_id: str, count: str = 3):
     return entries
 
 
-def levels_sum_by_puuid(key: str, region: str, puuid: str):
+def levels_sum_by_puuid(region: str, puuid: str):
     """Get a player's total champion mastery score, which is the sum of individual champion mastery levels.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         puuid (str): Puuid.
 
@@ -234,19 +219,17 @@ def levels_sum_by_puuid(key: str, region: str, puuid: str):
         int: Sum of mastery levels int.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/champion-mastery/v4/scores/by-puuid/{puuid}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/champion-mastery/v4/scores/by-puuid/{puuid}"
     )
 
     return r
 
 
-def levels_sum_by_summoner_id(key: str, region: str, summoner_id: str):
+def levels_sum_by_summoner_id(region: str, summoner_id: str):
     """Get a player's total champion mastery score, which is the sum of individual champion mastery levels.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         summoner_id (str): Summoner ID.
 
@@ -254,9 +237,8 @@ def levels_sum_by_summoner_id(key: str, region: str, summoner_id: str):
         int: Sum of mastery levels int.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/champion-mastery/v4/scores/by-summoner/{summoner_id}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/champion-mastery/v4/scores/by-summoner/{summoner_id}"
     )
 
     return r

@@ -1,7 +1,7 @@
-from . import __utils
+import utils
 
 
-def by_summoner_id(key: str, region: str, summoner_id: str) -> object:
+def by_summoner_id(region: str, summoner_id: str) -> object:
     """Get current game information for the given summoner ID.
 
     Args:
@@ -13,12 +13,11 @@ def by_summoner_id(key: str, region: str, summoner_id: str) -> object:
         object: Spectator object
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/{summoner_id}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/{summoner_id}"
     )
 
-    return __utils.Spectator(
+    return utils.classes.Spectator(
         banned_champions=r["bannedChampions"],
         game_id=r["gameId"],
         length=r["gameLength"],
@@ -33,7 +32,7 @@ def by_summoner_id(key: str, region: str, summoner_id: str) -> object:
     )
 
 
-def featured_games(key: str, region: str) -> object:
+def featured_games(region: str) -> object:
     """Get list of featured games.
 
     Args:
@@ -44,11 +43,10 @@ def featured_games(key: str, region: str) -> object:
         object: FeaturedGames object
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/spectator/v4/featured-games",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/spectator/v4/featured-games"
     )
 
-    return __utils.FeaturedGames(
+    return utils.classes.FeaturedGames(
         client_refresh_interval=r["clientRefreshInterval"], game_list=r["gameList"]
     )

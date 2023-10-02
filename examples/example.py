@@ -1,17 +1,3 @@
-# Lulu
-An API wrapper for the Riot API.
-
-Lulu provides a pythonic easy to use interface.
-
-## Lulu handles
-
-* Optimised rate limiting ensuring you get the most out of your API key.
-
-* Caching so you never have to make the same call twice.
-
-## Example usage
-
-```py
 import lulu
 
 settings = lulu.settings.SettingsManager()
@@ -35,4 +21,3 @@ for participant in match.info.participants:
         print(f"In my last game I had {participant['assists']} assists.")
 
 print(lulu.challenges.config(region))
-```

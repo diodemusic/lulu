@@ -12,8 +12,13 @@ tier = lulu.tier.gold
 division = lulu.division.two
 
 
+settings = lulu.settings.SettingsManager()
+settings.set_api_key(key)
+settings.set_cache_enabled(False)
+
+
 def test_challenger():
-    challengers = lulu.league.challenger(key, region, queue)
+    challengers = lulu.league.challenger(region, queue)
 
     assert type(challengers.name) == str
     assert type(challengers.entries) == list
@@ -35,7 +40,7 @@ def test_challenger():
 
 
 def test_by_summoner_id():
-    entries = lulu.league.by_summoner_id(key, region, summoner_id)
+    entries = lulu.league.by_summoner_id(region, summoner_id)
 
     assert type(entries) == list
 
@@ -57,7 +62,6 @@ def test_by_summoner_id():
 
 def test_by_queue_tier_division():
     entries = lulu.league.by_queue_tier_division(
-        key,
         region,
         queue,
         tier,
@@ -83,7 +87,7 @@ def test_by_queue_tier_division():
 
 
 def test_grandmaster():
-    grandmasters = lulu.league.grandmaster(key, region, queue)
+    grandmasters = lulu.league.grandmaster(region, queue)
 
     assert type(grandmasters.name) == str
     assert type(grandmasters.entries) == list
@@ -106,7 +110,7 @@ def test_grandmaster():
 
 def test_by_league_id():
     league_id = "d472b83c-2a7c-4fdd-91ae-76713eb00cdd"
-    league_list = lulu.league.by_league_id(key, region, league_id)
+    league_list = lulu.league.by_league_id(region, league_id)
 
     assert type(league_list.name) == str
     assert type(league_list.entries) == list
@@ -128,7 +132,7 @@ def test_by_league_id():
 
 
 def test_master():
-    masters = lulu.league.master(key, region, queue)
+    masters = lulu.league.master(region, queue)
 
     assert type(masters.name) == str
     assert type(masters.entries) == list

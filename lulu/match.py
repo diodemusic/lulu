@@ -1,8 +1,7 @@
-from . import __utils
+import utils
 
 
 def history(
-    key: str,
     continent: str,
     puuid: str,
     queue: int,
@@ -12,7 +11,6 @@ def history(
     """Get a list of match ids by puuid.
 
     Args:
-        key (str): Riot API key.
         continent (str): Continent str.
         puuid (str): Puuid.
         queue (int): Queue ID
@@ -23,19 +21,17 @@ def history(
         list: List of match IDs.
     """
 
-    r = __utils.call(
-        url=f"https://{continent}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?queue={queue}&start={start}&count={count}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{continent}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?queue={queue}&start={start}&count={count}"
     )
 
     return r
 
 
-def by_match_id(key: str, continent: str, match_id: str) -> object:
+def by_match_id(continent: str, match_id: str) -> object:
     """Get a match by match id.
 
     Args:
-        key (str): Riot API key.
         continent (str): Continent str.
         match_id (str): Match ID.
 
@@ -43,16 +39,15 @@ def by_match_id(key: str, continent: str, match_id: str) -> object:
         object: Match object.
     """
 
-    r = __utils.call(
-        url=f"https://{continent}.api.riotgames.com/lol/match/v5/matches/{match_id}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{continent}.api.riotgames.com/lol/match/v5/matches/{match_id}"
     )
 
     info = r["info"]
     metadata = r["metadata"]
 
-    return __utils.Match(
-        info=__utils.MatchInfo(
+    return utils.classes.Match(
+        info=utils.classes.MatchInfo(
             creation=info["gameCreation"],
             duration=info["gameDuration"],
             end_timestamp=info["gameEndTimestamp"],
@@ -69,7 +64,7 @@ def by_match_id(key: str, continent: str, match_id: str) -> object:
             teams=info["teams"],
             tournament_code=info["tournamentCode"],
         ),
-        metadata=__utils.Metadata(
+        metadata=utils.classes.Metadata(
             data_version=metadata["dataVersion"],
             match_id=metadata["matchId"],
             participants=metadata["participants"],
@@ -77,11 +72,10 @@ def by_match_id(key: str, continent: str, match_id: str) -> object:
     )
 
 
-def timeline_by_match_id(key: str, continent: str, match_id: str) -> object:
+def timeline_by_match_id(continent: str, match_id: str) -> object:
     """Get a match timeline by match id.
 
     Args:
-        key (str): Riot API key.
         continent (str): Continent str.
         match_id (str): Match ID
 
@@ -89,22 +83,21 @@ def timeline_by_match_id(key: str, continent: str, match_id: str) -> object:
         object: MatchTimeline object.
     """
 
-    r = __utils.call(
-        url=f"https://{continent}.api.riotgames.com/lol/match/v5/matches/{match_id}/timeline",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{continent}.api.riotgames.com/lol/match/v5/matches/{match_id}/timeline"
     )
 
     info = r["info"]
     metadata = r["metadata"]
 
-    return __utils.MatchTimeline(
-        info=__utils.TimelineInfo(
+    return utils.classes.MatchTimeline(
+        info=utils.classes.TimelineInfo(
             frame_interval=info["frameInterval"],
             frames=info["frames"],
             game_id=info["gameId"],
             participants=info["participants"],
         ),
-        metadata=__utils.Metadata(
+        metadata=utils.classes.Metadata(
             data_version=metadata["dataVersion"],
             match_id=metadata["matchId"],
             participants=metadata["participants"],

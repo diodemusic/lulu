@@ -1,11 +1,10 @@
-from . import __utils
+import utils
 
 
-def by_account(key: str, region: str, account_id: str) -> object:
+def by_account(region: str, account_id: str) -> object:
     """Get a summoner by account ID.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         account_id (str): Account ID.
 
@@ -13,12 +12,11 @@ def by_account(key: str, region: str, account_id: str) -> object:
         object: Summoner object.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-account/{account_id}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-account/{account_id}"
     )
 
-    return __utils.Summoner(
+    return utils.classes.Summoner(
         account_id=r["accountId"],
         summoner_id=r["id"],
         name=r["name"],
@@ -29,11 +27,10 @@ def by_account(key: str, region: str, account_id: str) -> object:
     )
 
 
-def by_name(key: str, region: str, summoner_name: str) -> object:
+def by_name(region: str, summoner_name: str) -> object:
     """Get a summoner by summoner name.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         summoner_name (str): Summoner name.
 
@@ -41,12 +38,11 @@ def by_name(key: str, region: str, summoner_name: str) -> object:
         object: Summoner object.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summoner_name}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summoner_name}"
     )
 
-    return __utils.Summoner(
+    return utils.classes.Summoner(
         account_id=r["accountId"],
         summoner_id=r["id"],
         name=r["name"],
@@ -57,11 +53,10 @@ def by_name(key: str, region: str, summoner_name: str) -> object:
     )
 
 
-def by_puuid(key: str, region: str, puuid: str) -> object:
+def by_puuid(region: str, puuid: str) -> object:
     """Get a summoner by PUUID.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
         puuid (str): Puuid.
 
@@ -69,12 +64,11 @@ def by_puuid(key: str, region: str, puuid: str) -> object:
         object: Summoner object.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{puuid}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{puuid}"
     )
 
-    return __utils.Summoner(
+    return utils.classes.Summoner(
         account_id=r["accountId"],
         summoner_id=r["id"],
         name=r["name"],
@@ -85,11 +79,10 @@ def by_puuid(key: str, region: str, puuid: str) -> object:
     )
 
 
-def by_summoner_id(key: str, region: str, summoner_id: str) -> object:
+def by_summoner_id(region: str, summoner_id: str) -> object:
     """Get a summoner by summoner ID.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str
         summoner_id (str): Summoner ID.
 
@@ -97,12 +90,11 @@ def by_summoner_id(key: str, region: str, summoner_id: str) -> object:
         object: Summoner object.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/summoner/v4/summoners/{summoner_id}",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/summoner/v4/summoners/{summoner_id}"
     )
 
-    return __utils.Summoner(
+    return utils.classes.Summoner(
         account_id=r["accountId"],
         summoner_id=r["id"],
         name=r["name"],

@@ -1,23 +1,21 @@
-from . import __utils
+import utils
 
 
-def by_region(key: str, region: str) -> object:
+def by_region(region: str) -> object:
     """Get League of Legends status for the given platform.
 
     Args:
-        key (str): Riot API key.
         region (str): Region str.
 
     Returns:
         object: PlatformStatus object.
     """
 
-    r = __utils.call(
-        url=f"https://{region}.api.riotgames.com/lol/status/v4/platform-data",
-        key=key,
+    r = utils.call.make_call(
+        url=f"https://{region}.api.riotgames.com/lol/status/v4/platform-data"
     )
 
-    return __utils.PlatformStatus(
+    return utils.classes.PlatformStatus(
         platform_id=r["id"],
         incidents=r["incidents"],
         locales=r["locales"],
