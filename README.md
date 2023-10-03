@@ -20,6 +20,7 @@ import lulu
 settings = lulu.settings.SettingsManager()
 settings.set_api_key("API_KEY")
 settings.set_cache_enabled(False)
+settings.set_cache_ttl(5600)
 
 
 continent = lulu.continent.europe
