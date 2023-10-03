@@ -1,20 +1,13 @@
 import lulu
-from dotenv import load_dotenv
-import os
-
-
-load_dotenv()
-key = os.getenv("KEY")
-name = os.getenv("SUMMONER_NAME")
 
 
 settings = lulu.settings.SettingsManager()
-settings.set_api_key(key)
+settings.set_api_key("YOUR_API_KEY")
 settings.set_cache_enabled(False)
 
 
 region = lulu.region.euw
-summoner = lulu.summoner.by_name(region, name)
+summoner = lulu.summoner.by_name(region, "SUMMONER_NAME")
 
 
 print(f"Object >> {summoner}")
