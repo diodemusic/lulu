@@ -1,13 +1,16 @@
 # Lulu
-`lulu` is a League of Legends API wrapper for the Riot API.
 
-`lulu` provides a pythonic, modern, easy to use interface.
+`lulu` is a League of Legends API wrapper built on top of the Riot API.
 
-## Lulu handles
+## Features
 
-* Optimised rate limiting ensuring you get the most out of your API key.
+* Provides a pythonic, modern, easy to use interface.
 
-* Caching so you never have to make the same call twice.
+* Abstracts away all the API complications.
+
+* Optimised rate limiting ensuring you get the most out of your API key (WIP).
+
+* Optional caching that can be easily configured.
 
 ## Example usage
 
@@ -41,4 +44,4 @@ See [`examples/`] for more example usage.
 
 ## Docs
 
-Pending...
+(WIP)
