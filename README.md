@@ -1,7 +1,7 @@
 # Lulu
-A League of Legends API wrapper for the Riot API.
+`lulu` is a League of Legends API wrapper for the Riot API.
 
-Lulu provides a pythonic easy to use interface.
+`lulu` provides a pythonic, modern, easy to use interface.
 
 ## Lulu handles
 
@@ -36,3 +36,9 @@ for participant in match.info.participants:
 
 print(lulu.challenges.config(region))
 ```
+
+See [`examples/`] for more example usage.
+
+## Docs
+
+Pending...
