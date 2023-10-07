@@ -2,14 +2,15 @@
 An API wrapper for the Riot API.
 
 ### To do
-- [ ] Add setup.py file.
+- [ ] Publish to pip and provide installation instructions.
+- [ ] Wait for update/maintenence/incident to test LOL-STATUS-V4
+- [ ] Wait for clash to finish CLASH-V1.
+- [ ] Switch to dataclasses.
+- [ ] Rename pytest cases to instance.
+- [ ] Add examples for every endpoint.
 - [ ] Provide documentation.
 - [ ] Fix spectator tests to get params from .env file.
-- [ ] Finish Turning everything into objects, no dicts.
-- [ ] Optimise rate limiting, never hit a 429 and store some kind of token bucket.
-- [ ] Add handling for service 429's, since it's using a header that doesn't exist on those it's going to hit a TypeError on the int conversion.
-- [ ] Add SEA as a continent.
-- [ ] Finish CLASH-V1.
+- [ ] Add esports as a continent.
 
 
 ### Completed ✓
@@ -21,3 +22,9 @@ An API wrapper for the Riot API.
 - [x] Remove ACCOUNT-V1 in favour of SUMMONER-V4.
 - [x] Add logic to set api key once and forget instead of having to pass the key to every function on use.
 - [x] Add settings logic, use this to change caching time to live or disable it all together.
+- [x] Finish Turning all endpoints into objects.
+- [x] Add setup.py file.
+- [x] Add SEA as a continent.
+- [x] Change dataclass naming convention to reflect the API docs.
+- [x] Add handling for service 429's, since it's using a header that doesn't exist on those it's going to hit a TypeError on the int conversion.
+- [x] Optimise rate limiting.
