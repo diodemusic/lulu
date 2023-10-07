@@ -1,6 +1,7 @@
 import lulu
 from dotenv import load_dotenv
 import os
+import utils
 
 
 load_dotenv()
@@ -13,9 +14,18 @@ settings.set_api_key(key)
 settings.set_cache_enabled(False)
 
 
-def test_by_puuid():
-    champion_rotations = lulu.champion.free_rotation(region)
+def test_champion_rotations():
+    instance = lulu.champion.champion_rotations(region)
 
-    assert type(champion_rotations.free_champion_ids) == list
-    assert type(champion_rotations.free_champion_ids_for_new_players) == list
-    assert type(champion_rotations.max_new_player_level) == int
+    assert type(instance) == utils.classes.ChampionInfo
+    assert type(instance.free_champion_ids) == list
+
+    for free_champion_id in instance.free_champion_ids:
+        assert type(free_champion_id) == int
+
+    assert type(instance.free_champion_ids_for_new_players) == list
+
+    for free_champion_id_for_new_players in instance.free_champion_ids_for_new_players:
+        assert type(free_champion_id_for_new_players) == int
+
+    assert type(instance.max_new_player_level) == int

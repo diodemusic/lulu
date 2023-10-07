@@ -26,7 +26,7 @@ def test_by_account():
     assert type(by_account_id.profile_icon_id) == int
     assert by_account_id.puuid == puuid
     assert type(by_account_id.revision_date) == int
-    assert type(by_account_id.level) == int
+    assert type(by_account_id.summoner_level) == int
 
 
 def test_by_name():
@@ -38,7 +38,7 @@ def test_by_name():
     assert type(by_name.profile_icon_id) == int
     assert by_name.puuid == puuid
     assert type(by_name.revision_date) == int
-    assert type(by_name.level) == int
+    assert type(by_name.summoner_level) == int
 
 
 def test_by_puuid():
@@ -50,7 +50,7 @@ def test_by_puuid():
     assert type(by_puuid.profile_icon_id) == int
     assert by_puuid.puuid == puuid
     assert type(by_puuid.revision_date) == int
-    assert type(by_puuid.level) == int
+    assert type(by_puuid.summoner_level) == int
 
 
 def test_by_summoner_id():
@@ -62,4 +62,4 @@ def test_by_summoner_id():
     assert type(by_summoner_id.profile_icon_id) == int
     assert by_summoner_id.puuid == puuid
     assert type(by_summoner_id.revision_date) == int
-    assert type(by_summoner_id.level) == int
+    assert type(by_summoner_id.summoner_level) == int
