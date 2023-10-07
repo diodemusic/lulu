@@ -10,10 +10,10 @@ class SettingsManager:
         return cls._instance
 
     def set_api_key(self, api_key: str) -> None:
-        """Set the API key.
+        """Set the Riot API key.
 
         Args:
-            api_key (str): The new API key.
+            api_key (str): Riot API key.
         """
 
         self.api_key = api_key
@@ -37,10 +37,10 @@ class SettingsManager:
         self.cache_enabled = cache_enabled
 
     def get_api_key(self) -> str:
-        """Get the current API key.
+        """Get the current Riot API key.
 
         Returns:
-            str: The current API key.
+            str: The current Riot API key.
         """
 
         return self.api_key

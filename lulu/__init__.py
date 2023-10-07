@@ -1,12 +1,12 @@
 from lulu import (
     challenges,
     champion,
+    champion_mastery,
     clash,
     continent,
     division,
     league,
     level,
-    mastery,
     match,
     queue,
     region,

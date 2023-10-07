@@ -23,7 +23,7 @@ def by_account(region: str, account_id: str) -> object:
         profile_icon_id=r["profileIconId"],
         puuid=r["puuid"],
         revision_date=r["revisionDate"],
-        level=r["summonerLevel"],
+        summoner_level=r["summonerLevel"],
     )
 
 
@@ -49,7 +49,7 @@ def by_name(region: str, summoner_name: str) -> object:
         profile_icon_id=r["profileIconId"],
         puuid=r["puuid"],
         revision_date=r["revisionDate"],
-        level=r["summonerLevel"],
+        summoner_level=r["summonerLevel"],
     )
 
 
@@ -75,7 +75,7 @@ def by_puuid(region: str, puuid: str) -> object:
         profile_icon_id=r["profileIconId"],
         puuid=r["puuid"],
         revision_date=r["revisionDate"],
-        level=r["summonerLevel"],
+        summoner_level=r["summonerLevel"],
     )
 
 
@@ -101,5 +101,5 @@ def by_summoner_id(region: str, summoner_id: str) -> object:
         profile_icon_id=r["profileIconId"],
         puuid=r["puuid"],
         revision_date=r["revisionDate"],
-        level=r["summonerLevel"],
+        summoner_level=r["summonerLevel"],
     )

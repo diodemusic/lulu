@@ -1,4 +1,4 @@
 americas = "americas"
 asia = "asia"
-esports = "esports"
 europe = "europe"
+sea = "sea"
