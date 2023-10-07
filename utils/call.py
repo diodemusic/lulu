@@ -8,7 +8,17 @@ from lulu.settings import SettingsManager
 settings_manager = SettingsManager()
 
 
-def make_call(url: str, max_retries: int = 3, retry_delay: int = 40):
+class NotFoundError(Exception):
+    pass
+
+
+class ApiKeyError(Exception):
+    pass
+
+
+def make_call(url: str, retry_delay: int = 120):
+    start_time = time.time()
+
     cache_key = (
         url.split("https://")[1].replace(".", "_").replace("/", "_").replace("?", "_")
     )
@@ -17,44 +27,56 @@ def make_call(url: str, max_retries: int = 3, retry_delay: int = 40):
 
     if cached_response is not None:
         print(cache_key)
-
         return cached_response
+
+    print(url)
 
     headers = {"X-Riot-Token": settings_manager.get_api_key()}
 
-    for retry in range(max_retries + 1):
-        print(url)
+    r = requests.get(url, headers=headers)
 
-        r = requests.get(url, headers=headers)
-        time.sleep(0.6)
+    if r.status_code == 200:
+        app_rate_limit = r.headers.get("X-App-Rate-Limit").split(",")
 
-        if r.status_code == 200:
-            r_dict = r.json()
+        time_to_wait = int(app_rate_limit[1].split(":")[1]) / int(
+            app_rate_limit[1].split(":")[0]
+        )
 
-            caching.save_to_cache(cache_data=r_dict, cache_key=cache_key)
+        elapsed_time = time.time() - start_time
 
-            return r_dict
+        if elapsed_time < time_to_wait:
+            time.sleep(time_to_wait - elapsed_time)
 
-        elif r.status_code == 429:
-            logging.warning(
-                f"Rate limited, Waiting {int(r.headers.get('Retry-After'))} seconds..."
-            )
+        app_rate_limit_count = (
+            r.headers.get("X-App-Rate-Limit-Count").split(",")[1].split(":")
+        )
 
-            time.sleep(int(r.headers.get("Retry-After")))
+        print(
+            f"Rate limit : {app_rate_limit_count[0]} / {app_rate_limit[1].split(':')[0]}"
+        )
 
-        elif r.status_code == 404:
-            raise Exception("Error 404.")
+        r_dict = r.json()
+        caching.save_to_cache(cache_data=r_dict, cache_key=cache_key)
 
-        elif r.status_code == 403:
-            raise Exception("Error 403, check API key.")
+        return r_dict
+
+    elif r.status_code == 429:
+        retry_after_header = r.headers.get("Retry-After")
+
+        if retry_after_header:
+            retry_after_seconds = int(retry_after_header)
+            logging.warning(f"Error 429, Waiting {retry_after_seconds} seconds...")
+            time.sleep(retry_after_seconds)
 
         else:
-            logging.error(f"Status code >> {r.status_code}.")
+            logging.warning("Rate limited, Waiting for default time...")
+            time.sleep(retry_delay)
 
-            if retry < max_retries:
-                logging.info(f"Retrying in {retry_delay} seconds...")
+    elif r.status_code == 404:
+        raise NotFoundError("Error 404, data not found.")
 
-                time.sleep(retry_delay)
+    elif r.status_code == 403:
+        raise ApiKeyError("Error 403, check API key.")
 
-            else:
-                raise Exception("Max retries reached, giving up.")
+    else:
+        raise Exception(f"Error {r.status_code}.")

@@ -1,276 +1,562 @@
-class MasteryEntry:
-    def __init__(
-        self,
-        puuid,
-        champion_id,
-        level,
-        points,
-        last_play_time,
-        points_since_last_level,
-        points_until_next_level,
-        chest_granted,
-        tokens_earned,
-        summoner_id,
-    ):
-        self.champion_id = champion_id
-        self.puuid = puuid
-        self.level = level
-        self.points = points
-        self.last_play_time = last_play_time
-        self.points_since_last_level = points_since_last_level
-        self.points_until_next_level = points_until_next_level
-        self.chest_granted = chest_granted
-        self.tokens_earned = tokens_earned
-        self.summoner_id = summoner_id
+from dataclasses import dataclass
 
 
-class FreeChampionRotation:
-    def __init__(
-        self, free_champion_ids, free_champion_ids_for_new_players, max_new_player_level
-    ):
-        self.free_champion_ids = free_champion_ids
-        self.free_champion_ids_for_new_players = free_champion_ids_for_new_players
-        self.max_new_player_level = max_new_player_level
+@dataclass
+class ChampionMastery:
+    puuid: str
+    champion_id: int
+    champion_level: int
+    champion_points: int
+    last_play_time: int
+    champion_points_since_last_level: int
+    champion_points_until_next_level: int
+    chest_granted: bool
+    tokens_earned: int
+    summoner_id: str
 
 
-class Entry:
-    def __init__(
-        self,
-        summonerId,
-        summonerName,
-        leaguePoints,
-        rank,
-        wins,
-        losses,
-        veteran,
-        inactive,
-        freshBlood,
-        hotStreak,
-    ):
-        self.summoner_id = summonerId
-        self.summoner_name = summonerName
-        self.league_points = leaguePoints
-        self.rank = rank
-        self.wins = wins
-        self.losses = losses
-        self.veteran = veteran
-        self.inactive = inactive
-        self.fresh_blood = freshBlood
-        self.hot_streak = hotStreak
+@dataclass
+class ChampionInfo:
+    free_champion_ids: list[int]
+    free_champion_ids_for_new_players: list[int]
+    max_new_player_level: int
 
 
-class League:
-    def __init__(self, tier, league_id, queue, name, entries):
-        self.tier = tier
-        self.league_id = league_id
-        self.queue = queue
-        self.name = name
-        self.entries = [Entry(**entry_data) for entry_data in entries]
+@dataclass
+class MiniSeries:
+    losses: int
+    progress: str
+    target: int
+    wins: int
 
 
+@dataclass
+class LeagueItem:
+    summoner_id: str
+    summoner_name: str
+    mini_series: MiniSeries
+    league_points: int
+    rank: str
+    wins: int
+    losses: int
+    veteran: bool
+    inactive: bool
+    fresh_blood: bool
+    hot_streak: bool
+
+
+@dataclass
+class LeagueList:
+    tier: str
+    league_id: str
+    queue: str
+    name: str
+    entries: list[LeagueItem]
+
+
+@dataclass
 class LeagueEntry:
-    def __init__(
-        self,
-        fresh_blood,
-        hot_streak,
-        inactive,
-        league_id,
-        points,
-        losses,
-        queue_type,
-        rank,
-        summoner_id,
-        summoner_name,
-        tier,
-        veteran,
-        wins,
-    ):
-        self.fresh_blood = fresh_blood
-        self.hot_streak = hot_streak
-        self.inactive = inactive
-        self.league_id = league_id
-        self.points = points
-        self.losses = losses
-        self.queue_type = queue_type
-        self.rank = rank
-        self.summoner_id = summoner_id
-        self.summoner_name = summoner_name
-        self.tier = tier
-        self.veteran = veteran
-        self.wins = wins
+    fresh_blood: bool
+    hot_streak: bool
+    inactive: bool
+    league_id: str
+    league_points: int
+    losses: int
+    mini_series: MiniSeries
+    queue_type: str
+    rank: str
+    summoner_id: str
+    summoner_name: str
+    tier: str
+    veteran: bool
+    wins: int
 
 
-class ChallengeConfig:
-    def __init__(self, challenge_id, leaderboard, localized_names, state, thresholds):
-        self.challenge_id = challenge_id
-        self.leaderboard = leaderboard
-        self.localized_names = localized_names
-        self.state = state
-        self.thresholds = thresholds
+@dataclass
+class Thresholds:
+    iron: int
+    bronze: int
+    silver: int
+    gold: int
+    platinum: int
+    diamond: int
+    master: int
+    grandmaster: int
+    challenger: int
 
 
-class ApexPlayersInfo:
-    def __init__(self, position, puuid, value):
-        self.position = position
-        self.puuid = puuid
-        self.value = value
+@dataclass
+class ChallengeConfigInfo:
+    challenge_id: int
+    leaderboard: bool
+    localized_names: dict
+    state: str
+    thresholds: Thresholds
+    tracking: str
+    start_timestamp: int
+    end_timestamp: int
 
 
+@dataclass
 class Percentiles:
-    def __init__(
-        self,
-        iron,
-        bronze,
-        silver,
-        gold,
-        platinum,
-        diamond,
-        master,
-        grandmaster,
-        challenger,
-        none,
-    ):
-        self.iron = iron
-        self.bronze = bronze
-        self.silver = silver
-        self.gold = gold
-        self.platinum = platinum
-        self.diamond = diamond
-        self.master = master
-        self.grandmaster = grandmaster
-        self.challenger = challenger
-        self.none = none
+    iron: int
+    bronze: int
+    silver: int
+    gold: int
+    platinum: int
+    diamond: int
+    master: int
+    grandmaster: int
+    challenger: int
 
 
+@dataclass
+class ApexPlayerInfo:
+    position: int
+    puuid: str
+    value: int
+
+
+@dataclass
+class ChallengeInfo:
+    achieved_time: int
+    challenge_id: int
+    level: str
+    percentile: int
+    value: int
+
+
+@dataclass
+class Collection:
+    current: int
+    level: str
+    max: int
+    percentile: int
+
+
+@dataclass
+class Expertise:
+    current: int
+    level: str
+    max: int
+    percentile: int
+
+
+@dataclass
+class Imagination:
+    current: int
+    level: str
+    max: int
+    percentile: int
+
+
+@dataclass
+class Teamwork:
+    current: int
+    level: str
+    max: int
+    percentile: int
+
+
+@dataclass
+class Veterancy:
+    current: int
+    level: str
+    max: int
+    percentile: int
+
+
+@dataclass
+class CategoryPoints:
+    collection: Collection
+    expertise: Expertise
+    imagination: Imagination
+    teamwork: Teamwork
+    veterancy: Veterancy
+
+
+@dataclass
+class PlayerClientPreferences:
+    banner_accent: str
+    challenge_ids: list[int]
+    crest_border: str
+    prestige_crest_border_level: int
+    title: str
+
+
+@dataclass
+class ChallengePoints:
+    current: int
+    level: str
+    max: int
+    percentile: int
+
+
+@dataclass
 class PlayerInfo:
-    def __init__(self, category_points, challenges, preferences, total_points):
-        self.category_points = category_points
-        self.challenges = challenges
-        self.preferences = preferences
-        self.total_points = total_points
+    category_points: CategoryPoints
+    challenges: list[ChallengeInfo]
+    preferences: PlayerClientPreferences
+    total_points: ChallengePoints
 
 
-class PlatformStatus:
-    def __init__(self, platform_id, incidents, locales, maintenances, name):
-        self.platform_id = platform_id
-        self.incidents = incidents
-        self.locales = locales
-        self.maintenances = maintenances
-        self.name = name
+@dataclass
+class Content:
+    locale: str
+    content: str
 
 
-class MatchInfo:
-    def __init__(
-        self,
-        creation,
-        duration,
-        end_timestamp,
-        game_id,
-        mode,
-        name,
-        start_timestamp,
-        game_type,
-        version,
-        map_id,
-        participants,
-        platform_id,
-        queue_id,
-        teams,
-        tournament_code,
-    ):
-        self.creation = creation
-        self.duration = duration
-        self.end_timestamp = end_timestamp
-        self.game_id = game_id
-        self.mode = mode
-        self.name = name
-        self.start_timestamp = start_timestamp
-        self.game_type = game_type
-        self.version = version
-        self.map_id = map_id
-        self.participants = participants
-        self.platform_id = platform_id
-        self.queue_id = queue_id
-        self.teams = teams
-        self.tournament_code = tournament_code
+@dataclass
+class Update:
+    update_id: int
+    author: str
+    publish: bool
+    publish_locations: list[str]
+    translations: list[Content]
+    created_at: str
+    updated_at: str
 
 
+@dataclass
+class Status:
+    status_id: int
+    maintenance_status: str
+    incident_severity: str
+    titles: list[Content]
+    updates: list[Update]
+    created_at: str
+    archive_at: str
+    updated_at: str
+    platforms: list[str]
+
+
+@dataclass
+class PlatformData:
+    platform_id: str
+    incidents: list[Status]
+    locales: list[str]
+    maintenances: list[Status]
+    name: str
+
+
+@dataclass
 class Metadata:
-    def __init__(self, data_version, match_id, participants):
-        self.data_version = data_version
-        self.match_id = match_id
-        self.participants = participants
+    data_version: str
+    match_id: str
+    participants: list[str]
 
 
+@dataclass
+class PerkStats:
+    defense: int
+    flex: int
+    offense: int
+
+
+@dataclass
+class PerkStyleSelection:
+    perk: int
+    var_1: int
+    var_2: int
+    var_3: int
+
+
+@dataclass
+class PerkStyle:
+    description: str
+    selections: list[PerkStyleSelection]
+    style: int
+
+
+@dataclass
+class Perks:
+    stat_perks: PerkStats
+    styles: list[PerkStyle]
+
+
+@dataclass
+class Participant:
+    assists: int
+    baron_kills: int
+    bounty_level: int
+    champ_experience: int
+    champ_level: int
+    champion_id: int
+    champion_name: str
+    champion_transform: int
+    consumables_purchased: int
+    damage_dealt_to_buildings: int
+    damage_dealt_to_objectives: int
+    damage_dealt_to_turrets: int
+    damage_self_mitigated: int
+    deaths: int
+    detector_wards_placed: int
+    double_kills: int
+    dragon_kills: int
+    first_blood_assist: bool
+    first_blood_kill: bool
+    first_tower_assist: bool
+    first_tower_kill: bool
+    game_ended_in_early_surrender: bool
+    game_ended_in_surrender: bool
+    gold_earned: int
+    gold_spent: int
+    individual_position: str
+    inhibitor_kills: int
+    inhibitor_takedowns: int
+    inhibitors_lost: int
+    item_0: int
+    item_1: int
+    item_2: int
+    item_3: int
+    item_4: int
+    item_5: int
+    item_6: int
+    items_purchased: int
+    killing_sprees: int
+    kills: int
+    lane: str
+    largest_critical_strike: int
+    largest_killing_spree: int
+    largest_multi_kill: int
+    longest_time_spent_living: int
+    magic_damage_dealt: int
+    magic_damage_dealt_to_champions: int
+    magic_damage_taken: int
+    neutral_minions_killed: int
+    nexus_kills: int
+    nexus_takedowns: int
+    nexus_lost: int
+    objectives_stolen: int
+    objectives_stolen_assists: int
+    participant_id: int
+    penta_kills: int
+    perks: Perks
+    physical_damage_dealt: int
+    physical_damage_dealt_to_champions: int
+    physical_damage_taken: int
+    profile_icon: int
+    puuid: str
+    quadra_kills: int
+    riot_id_name: str
+    riot_id_tagline: str
+    role: str
+    sight_wards_bought_in_game: int
+    spell_1_casts: int
+    spell_2_casts: int
+    spell_3_casts: int
+    spell_4_casts: int
+    summoner_1_casts: int
+    summoner_1_id: int
+    summoner_2_casts: int
+    summoner_2_id: int
+    summoner_id: str
+    summoner_level: int
+    summoner_name: str
+    team_early_surrendered: bool
+    team_id: int
+    team_position: str
+    time_ccing_others: int
+    time_played: int
+    total_damage_dealt: int
+    total_damage_dealt_to_champions: int
+    total_damage_shielded_on_teammates: int
+    total_damage_taken: int
+    total_heal: int
+    total_heals_on_teammates: int
+    total_minions_killed: int
+    total_time_cc_dealt: int
+    total_time_spent_dead: int
+    total_units_healed: int
+    triple_kills: int
+    true_damage_dealt: int
+    true_damage_dealt_to_champions: int
+    true_damage_taken: int
+    turret_kills: int
+    turret_takedowns: int
+    turrets_lost: int
+    unreal_kills: int
+    vision_score: int
+    vision_wards_bought_in_game: int
+    wards_killed: int
+    wards_placed: int
+    win: bool
+
+
+@dataclass
+class Ban:
+    champion_id: int
+    pick_turn: int
+
+
+@dataclass
+class Objective:
+    first: bool
+    kills: int
+
+
+@dataclass
+class Objectives:
+    baron: Objective
+    champion: Objective
+    dragon: Objective
+    inhibitor: Objective
+    rift_herald: Objective
+    tower: Objective
+
+
+@dataclass
+class Team:
+    bans: list[Ban]
+    objectives: Objectives
+    team_id: int
+    win: bool
+
+
+@dataclass
+class Info:
+    game_creation: int
+    game_duration: int
+    game_end_timestamp: int
+    game_id: int
+    game_mode: str
+    game_name: str
+    game_start_timestamp: int
+    game_type: str
+    game_version: str
+    map_id: int
+    participants: list[Participant]
+    platform_id: str
+    queue_id: int
+    teams: list[Team]
+    tournament_code: str
+
+
+@dataclass
 class Match:
-    def __init__(self, info, metadata):
-        self.info = info
-        self.metadata = metadata
+    info: Info
+    metadata: Metadata
 
 
+@dataclass
+class TimelineParticipant:
+    participant_id: int
+    puuid: str
+
+
+@dataclass
 class TimelineInfo:
-    def __init__(self, frame_interval, frames, game_id, participants):
-        self.frame_interval = frame_interval
-        self.frames = frames
-        self.game_id = game_id
-        self.participants = participants
+    frame_interval: int
+    frames: list[dict]
+    game_id: int
+    participants: list[TimelineParticipant]
 
 
+@dataclass
+class TimelineMetadata:
+    data_version: str
+    match_id: int
+    participants: list[str]
+
+
+@dataclass
 class MatchTimeline:
-    def __init__(self, info, metadata):
-        self.info = info
-        self.metadata = metadata
+    info: TimelineInfo
+    metadata: TimelineMetadata
 
 
-class Spectator:
-    def __init__(
-        self,
-        banned_champions,
-        game_id,
-        length,
-        mode,
-        queue_config_id,
-        start_time,
-        game_type,
-        map_id,
-        observers,
-        participants,
-        platform_id,
-    ):
-        self.banned_champions = banned_champions
-        self.game_id = game_id
-        self.length = length
-        self.mode = mode
-        self.queue_config_id = queue_config_id
-        self.start_time = start_time
-        self.game_type = game_type
-        self.map_id = map_id
-        self.observers = observers
-        self.participants = participants
-        self.platform_id = platform_id
+@dataclass
+class BannedChampion:
+    pick_turn: int
+    champion_id: int
+    team_id: int
 
 
+@dataclass
+class Observer:
+    encryption_key: str
+
+
+@dataclass
+class CurrentGamePeks:
+    perk_ids: list[int]
+    perk_style: int
+    perk_sub_style: int
+
+
+@dataclass
+class GameCustomizationObject:
+    category: str
+    content: str
+
+
+@dataclass
+class CurrentGameParticipant:
+    champion_id: int
+    perks: CurrentGamePeks
+    profile_icon_id: int
+    bot: bool
+    team_id: int
+    summoner_name: str
+    summoner_id: str
+    spell_1_id: int
+    spell_2_id: int
+    game_customization_objects: list[GameCustomizationObject]
+
+
+@dataclass
+class CurrentGameInfo:
+    banned_champions: list[BannedChampion]
+    game_id: int
+    length: int
+    mode: str
+    queue_config_id: int
+    start_time: int
+    game_type: str
+    map_id: int
+    observers: Observer
+    participants: list[CurrentGameParticipant]
+    platform_id: str
+
+
+@dataclass
+class FeaturedGameParticipant:
+    bot: bool
+    spell_2_id: int
+    profile_icon_id: int
+    summoner_name: str
+    champion_id: int
+    team_id: int
+    spell_1_id: int
+
+
+@dataclass
+class FeaturedGameInfo:
+    game_mode: str
+    game_length: int
+    map_id: int
+    game_type: str
+    banned_champions: list[BannedChampion]
+    game_id: int
+    observers: Observer
+    game_queue_config_id: int
+    game_start_time: int
+    participants: list[FeaturedGameParticipant]
+    platform_id: str
+
+
+@dataclass
 class FeaturedGames:
-    def __init__(self, client_refresh_interval, game_list):
-        self.client_refresh_interval = client_refresh_interval
-        self.game_list = game_list
+    client_refresh_interval: int
+    game_list: list[FeaturedGameInfo]
 
 
+@dataclass
 class Summoner:
-    def __init__(
-        self,
-        account_id,
-        summoner_id,
-        name,
-        profile_icon_id,
-        puuid,
-        revision_date,
-        level,
-    ):
-        self.account_id = account_id
-        self.summoner_id = summoner_id
-        self.name = name
-        self.profile_icon_id = profile_icon_id
-        self.puuid = puuid
-        self.revision_date = revision_date
-        self.level = level
+    account_id: str
+    summoner_id: str
+    name: str
+    profile_icon_id: int
+    puuid: str
+    revision_date: int
+    summoner_level: int
