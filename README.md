@@ -1,3 +1,5 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/diodemusic/lulu/badge/main)](https://www.codefactor.io/repository/github/diodemusic/lulu/overview/main)
+
 # Lulu
 
 `lulu` is a League of Legends API wrapper built on top of the Riot API.
