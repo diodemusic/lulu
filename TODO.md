@@ -1,7 +1,9 @@
 # Lulu
+
 An API wrapper for the Riot API.
 
-### To do
+## To do
+
 - [ ] Publish to pip and provide installation instructions.
 - [ ] Wait for update/maintenence/incident to test LOL-STATUS-V4
 - [ ] Wait for clash to finish CLASH-V1.
@@ -12,8 +14,8 @@ An API wrapper for the Riot API.
 - [ ] Fix spectator tests to get params from .env file.
 - [ ] Add esports as a continent.
 
+## Completed ✓
 
-### Completed ✓
 - [x] Split public functions and private utils into seperate files.
 - [x] Impliment caching.
 - [x] Add unit tests.
