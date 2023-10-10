@@ -1,9 +1,9 @@
-import setuptools
+from setuptools import setup, find_packages
 
 readme = open("README.md", "r").read()
 url = "https://github.com/diodemusic/lulu"
 
-setuptools.setup(
+setup(
     name="lulu",
     version="0.0.1",
     license="MIT",
@@ -20,7 +20,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     python_requires=">=3.8.0",
     zip_safe=False,
-    packages=["lulu"],
+    packages=find_packages(exclude=["tests"]),
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Intended Audience :: Developers",
