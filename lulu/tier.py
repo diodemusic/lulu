@@ -1,7 +1,0 @@
-iron = "IRON"
-bronze = "BRONZE"
-silver = "SILVER"
-gold = "GOLD"
-platinum = "PLATINUM"
-emerald = "EMERALD"
-diamond = "DIAMOND"
