@@ -1,23 +1,25 @@
-# Lulu
+# lulu
 
-`lulu` is a League of Legends API wrapper built on top of the Riot API.
+lulu is a Riot API wrapper specifically for League of Legends.
 
 ## Features
 
-* Provides a pythonic, modern, easy to use interface.
-
-* Abstracts away all the API complications.
+* Provides a simple, pythonic interface to interact with the Riot API.
 
 ## Example usage
 
 ```py
-import lulu
+from lulu import Lulu, Continent
 
-lu = lulu.Lulu("API_KEY")
+lu = Lulu("API_KEY")
+
+CONTINENT = Continent.europe.value
 
 # Returns AccountDTO {puuid: str, gameName: str?, tagLine: str?}
-account = lulu.account.by_riot_id(lulu.continent.europe, "game_name", "tag_line")
-print(f"Player {account.game_name} has the puuid: {account.puuid}")
+account = lu.account.by_riot_id(CONTINENT, "game_name", "tag_line")
+
+print(f"Riot ID: {account.game_name}#{account.tag_line}")
+print(f"PUUID: {account.puuid}")
 ```
 
 See [`examples/`] for more example usage.
