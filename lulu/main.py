@@ -1,13 +1,6 @@
-from .endpoints import account
-from .models.account import Account
-from .enums.continent import Continent
+from .endpoints.account import AccountEndpoint
 
 
 class Lulu:
-    def __init__(self, api_key: str):
-        self._api_key = api_key
-
-    def account_by_puuid(self, continent: Continent, puuid: str) -> Account:
-        data = account.by_puuid(continent=continent, puuid=puuid)
-
-        return data
+    def __init__(self, api_key: str | None):
+        self.account = AccountEndpoint(api_key)
