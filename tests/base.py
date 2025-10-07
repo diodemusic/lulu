@@ -1,11 +1,16 @@
-import pytest
+import os
 
-from lulu import Lulu
+import pytest
+from dotenv import load_dotenv
+
+import lulu
+
+load_dotenv()
+API_KEY = os.getenv("RIOT_API_KEY")
 
 
 @pytest.fixture
-def lu() -> Lulu:
-    """Initializes the API wrapper for the test session."""
-    lu = Lulu("api_key_abc123")
+def api() -> lulu.Lulu:
+    api = lulu.Lulu(API_KEY)
 
-    return lu
+    return api
