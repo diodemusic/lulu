@@ -9,14 +9,12 @@ lulu is a Riot API wrapper specifically for League of Legends.
 ## Example usage
 
 ```py
-from lulu import Lulu, Continent
+import lulu
 
-lu = Lulu("API_KEY")
-
-CONTINENT = Continent.europe.value
+api = lulu.Lulu("API_KEY")
 
 # Returns AccountDTO {puuid: str, gameName: str?, tagLine: str?}
-account = lu.account_by_riot_id(CONTINENT, "game_name", "tag_line")
+account = api.account.by_riot_id(lulu.Continent.EUROPE, "game_name", "tag_line")
 
 print(f"Riot ID: {account.game_name}#{account.tag_line}")
 print(f"PUUID: {account.puuid}")
