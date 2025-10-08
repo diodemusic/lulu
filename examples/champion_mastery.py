@@ -33,3 +33,14 @@ except lulu.exceptions.DataNotFound as e:
 print(f"Champion ID: {champion_mastery.champion_id}")
 print(f"Champion Level: {champion_mastery.champion_level}")
 print(f"Champion Points: {champion_mastery.champion_points}")
+
+champion_masteries = api.champion_mastery.masteries_by_puuid_top(
+    REGION, account.puuid, count=5
+)
+
+for champion_mastery in champion_masteries:
+    print(f"Champion ID: {champion_mastery.champion_id}")
+    print(f"Champion Level: {champion_mastery.champion_level}")
+    print(f"Champion Points: {champion_mastery.champion_points}")
+
+    print("-" * 50)

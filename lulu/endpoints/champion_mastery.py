@@ -43,7 +43,33 @@ class ChampionMasteryEndpoint:
         Returns:
             ChampionMastery: lulu.models.champion_mastery.ChampionMastery object.
         """
+
         path = f"/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}/by-champion/{champion_id}"
         data = self.client.region_request(region=region, path=path)
 
         return ChampionMastery(**data)
+
+    def masteries_by_puuid_top(
+        self, region: Region, puuid: str, count: int | None = None
+    ) -> list[ChampionMastery]:
+        """Get specified number of top champion mastery entries sorted by number of champion points descending.
+
+        Args:
+            region (Region): Region to execute against.
+            puuid (str): Encrypted PUUID. Exact length of 78 characters.
+            count (int | None, optional): Number of entries to retrieve. defaults to 3.
+
+        Returns:
+            list[ChampionMastery]: List of lulu.models.champion_mastery.ChampionMastery objects.
+        """
+
+        path = f"/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}/top"
+        params = {"count": count}
+        data = self.client.region_request(region=region, path=path, params=params)
+
+        champion_masteries: list[ChampionMastery] = []
+
+        for champion_mastery in data:
+            champion_masteries.append(ChampionMastery(**champion_mastery))
+
+        return champion_masteries
