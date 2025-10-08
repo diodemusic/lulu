@@ -15,12 +15,15 @@ class BaseApiClient:
     def _get(self, url: str, params: dict[Any, Any] | None = None):
         headers = {"X-Riot-Token": self.api_key}
         response = requests.get(url, headers=headers, params=params)
-        rate_limit_count = (
-            response.headers.get("X-App-Rate-Limit-Count", "")
-            .split(",")[0]
-            .replace(":", "/")
+
+        rate_limit = (
+            response.headers.get("X-App-Rate-Limit", "").split(":")[0].replace(":", "/")
         )
-        print(f"({rate_limit_count}) - {url}")
+        rate_limit_count = response.headers.get("X-App-Rate-Limit-Count", "").split(
+            ":"
+        )[0]
+        print(f"({rate_limit_count}/{rate_limit}) - {url}")
+
         code = response.status_code
 
         if code == 400:
