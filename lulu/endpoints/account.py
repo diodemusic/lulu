@@ -16,7 +16,7 @@ class AccountEndpoint:
             puuid (str): Encrypted PUUID. Exact length of 78 characters.
 
         Returns:
-            Account: Instance of the lulu.models.account.Account model.
+            Account: lulu.models.account.Account object.
         """
 
         path = f"/riot/account/v1/accounts/by-puuid/{puuid}"

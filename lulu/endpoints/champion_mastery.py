@@ -33,6 +33,16 @@ class ChampionMasteryEndpoint:
     def by_puuid_and_champion_id(
         self, region: Region, puuid: str, champion_id: int
     ) -> ChampionMastery:
+        """Get a champion mastery by puuid and champion ID.
+
+        Args:
+            region (Region): Region to execute against.
+            puuid (str): Encrypted PUUID. Exact length of 78 characters.
+            champion_id (int): Champion ID for this entry.
+
+        Returns:
+            ChampionMastery: lulu.models.champion_mastery.ChampionMastery object.
+        """
         path = f"/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}/by-champion/{champion_id}"
         data = self.client.region_request(region=region, path=path)
 
