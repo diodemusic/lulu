@@ -1,7 +1,8 @@
 from ..base_client import BaseApiClient
-from ..enums.continent import Continent
+
+# from ..enums.continent import Continent
 from ..enums.region import Region
-from ..models.account import ChampionMastery
+from ..models.champion_mastery import ChampionMastery
 
 
 class ChampionMasteryEndpoint:
@@ -11,9 +12,13 @@ class ChampionMasteryEndpoint:
     def masteries_by_puuid(self, region: Region, puuid: str) -> list[ChampionMastery]:
         path = f"/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}"
         data = self.client.region_request(region=region, path=path)
-        # data["region"] = Region(data["region"])
 
-        return ChampionMastery(**data)
+        champion_masteries: list[ChampionMastery] = []
+
+        for champion_mastery in data:
+            champion_masteries.append(ChampionMastery(**champion_mastery))
+
+        return champion_masteries
 
 
 """Get account by puuid.
