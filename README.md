@@ -32,7 +32,7 @@ account = api.account.by_riot_id(lulu.Continent.EUROPE, "game_name", "tag_line")
 print(f"Riot ID: {account.game_name}#{account.tag_line}")
 print(f"PUUID: {account.puuid}")
 
-# lulu throws custom exceptions, again following the same convention as the Riot API
+# lulu throws custom exceptions, again following the same conventions as the Riot API
 # For example a request that responds with error code 429
 # Will throw lulu.exceptions.RateLimitExceeded
 try:
