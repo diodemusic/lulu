@@ -6,3 +6,4 @@ class Continent(Enum):
     ASIA = "asia"
     EUROPE = "europe"
     SEA = "sea"
+    ESPORTS = "esports"
