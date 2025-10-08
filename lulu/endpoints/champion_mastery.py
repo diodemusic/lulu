@@ -29,3 +29,11 @@ class ChampionMasteryEndpoint:
             champion_masteries.append(ChampionMastery(**champion_mastery))
 
         return champion_masteries
+
+    def by_puuid_and_champion_id(
+        self, region: Region, puuid: str, champion_id: int
+    ) -> ChampionMastery:
+        path = f"/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}/by-champion/{champion_id}"
+        data = self.client.region_request(region=region, path=path)
+
+        return ChampionMastery(**data)
