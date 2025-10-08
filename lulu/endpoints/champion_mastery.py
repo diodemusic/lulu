@@ -1,6 +1,4 @@
 from ..base_client import BaseApiClient
-
-# from ..enums.continent import Continent
 from ..enums.region import Region
 from ..models.champion_mastery import ChampionMastery
 
