@@ -4,10 +4,12 @@ import requests
 
 from . import exceptions
 from .enums.continent import Continent
+from .enums.region import Region
 
 
 class BaseApiClient:
     CONTINENT_BASE = "https://{continent}.api.riotgames.com"
+    REGION_BASE = "https://{region}.api.riotgames.com"
 
     def __init__(self, api_key: str | None):
         self.api_key = api_key
@@ -59,4 +61,10 @@ class BaseApiClient:
         self, continent: Continent, path: str, params: dict[Any, Any] | None = None
     ):
         url = f"{self.CONTINENT_BASE.format(continent=continent.value)}{path}"
+        return self._get(url, params)
+
+    def region_request(
+        self, region: Region, path: str, params: dict[Any, Any] | None = None
+    ):
+        url = f"{self.REGION_BASE.format(region=region.value)}{path}"
         return self._get(url, params)
