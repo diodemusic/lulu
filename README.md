@@ -20,7 +20,8 @@ WIP
 ```py
 import lulu
 
-# We always initialize the API like this (see examples for loading an api key from a .env file)
+# We always initialize the API like this
+# see examples for loading an api key from a .env file
 api = lulu.Lulu("API_KEY")
 
 # Every lulu method follows the same convention as the Riot API
