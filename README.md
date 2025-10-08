@@ -23,7 +23,8 @@ import lulu
 # We always initialize the API like this (see examples for loading an api key from a .env file)
 api = lulu.Lulu("API_KEY")
 
-# Every lulu method follows the same convention as the Riot API, for example account/v1/accounts/by-riot-id/{gameName}/{tagLine} becomes the following
+# Every lulu method follows the same convention as the Riot API
+# for example account/v1/accounts/by-riot-id/{gameName}/{tagLine} becomes the following
 account = api.account.by_riot_id(lulu.Continent.EUROPE, "game_name", "tag_line")
 
 # Every response is a pydantic model whose members can be accessed with dot notation
