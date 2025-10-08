@@ -44,3 +44,8 @@ for champion_mastery in champion_masteries:
     print(f"Champion Points: {champion_mastery.champion_points}")
 
     print("-" * 50)
+
+
+score = api.champion_mastery.score_by_puuid(REGION, account.puuid)
+
+print(f"Player's total champion mastery score: {score}")

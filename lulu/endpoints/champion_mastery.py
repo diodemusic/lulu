@@ -73,3 +73,19 @@ class ChampionMasteryEndpoint:
             champion_masteries.append(ChampionMastery(**champion_mastery))
 
         return champion_masteries
+
+    def score_by_puuid(self, region: Region, puuid: str) -> int:
+        """Get a player's total champion mastery score, which is the sum of individual champion mastery levels.
+
+        Args:
+            region (Region): Region to execute against.
+            puuid (str): Encrypted PUUID. Exact length of 78 characters.
+
+        Returns:
+            int: Player's total champion mastery score.
+        """
+
+        path = f"/lol/champion-mastery/v4/scores/by-puuid/{puuid}"
+        data = self.client.region_request(region=region, path=path)
+
+        return data

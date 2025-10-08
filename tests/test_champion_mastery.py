@@ -36,3 +36,11 @@ def test_champion_mastery_masteries_by_puuid_top(api: lulu.Lulu):  # noqa: F811
 
     for champion_mastery in champion_masteries_by_puuid_top:
         assert isinstance(champion_mastery, ChampionMastery)
+
+
+def test_champion_mastery_score_by_puuid(api: lulu.Lulu):  # noqa: F811
+    champion_mastery_score_by_puuid = api.champion_mastery.score_by_puuid(
+        region=lulu.Region.EUW, puuid=TEST_PUUID
+    )
+
+    assert isinstance(champion_mastery_score_by_puuid, int)
