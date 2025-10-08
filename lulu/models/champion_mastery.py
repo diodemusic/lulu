@@ -10,6 +10,8 @@ class RewardConfig(BaseModel):
     reward_type: str = Field(alias="rewardType")
     maximum_reward: int = Field(alias="maximumReward")
 
+    model_config = {"populate_by_name": True}
+
 
 class NextSeasonMilestones(BaseModel):
     """Maps directly to the Riot API NextSeasonMilestonesDTO."""
@@ -18,6 +20,8 @@ class NextSeasonMilestones(BaseModel):
     reward_marks: int = Field(alias="rewardMarks")
     bonus: bool
     reward_config: Optional[RewardConfig] = Field(alias="rewardConfig", default=None)
+
+    model_config = {"populate_by_name": True}
 
 
 class ChampionMastery(BaseModel):
