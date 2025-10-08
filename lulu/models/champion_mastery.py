@@ -4,12 +4,16 @@ from pydantic import BaseModel, Field
 
 
 class RewardConfig(BaseModel):
+    """Maps directly to the Riot API RewardConfigDTO."""
+
     reward_value: str = Field(alias="rewardValue")
     reward_type: str = Field(alias="rewardType")
     maximum_reward: int = Field(alias="maximumReward")
 
 
 class NextSeasonMilestones(BaseModel):
+    """Maps directly to the Riot API NextSeasonMilestonesDTO."""
+
     require_grade_counts: object = Field(alias="requireGradeCounts")
     reward_marks: int = Field(alias="rewardMarks")
     bonus: bool
@@ -17,6 +21,8 @@ class NextSeasonMilestones(BaseModel):
 
 
 class ChampionMastery(BaseModel):
+    """Maps directly to the Riot API ChampionMasteryDTO."""
+
     puuid: str
     champion_points_until_next_level: int = Field(alias="championPointsUntilNextLevel")
     chest_granted: Optional[bool] = Field(alias="chestGranted", default=None)

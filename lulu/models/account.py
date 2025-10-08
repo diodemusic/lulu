@@ -4,6 +4,8 @@ from ..enums.region import Region
 
 
 class Account(BaseModel):
+    """Maps directly to the Riot API AccountDTO."""
+
     puuid: str
     game_name: str = Field(alias="gameName")
     tag_line: str = Field(alias="tagLine")
@@ -12,6 +14,8 @@ class Account(BaseModel):
 
 
 class AccountRegion(BaseModel):
+    """Maps directly to the Riot API AccountRegionDTO."""
+
     puuid: str
     game: str = "lol"
     region: Region

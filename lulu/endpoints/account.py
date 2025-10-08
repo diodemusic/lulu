@@ -35,8 +35,9 @@ class AccountEndpoint:
             tag_line (str): Riot id tag line.
 
         Returns:
-            Account: lulu.models.account.Account model.
+            Account: lulu.models.account.Account object.
         """
+
         path = f"/riot/account/v1/accounts/by-riot-id/{game_name}/{tag_line}"
         data = self.client.continent_request(continent=continent, path=path)
 
@@ -52,8 +53,9 @@ class AccountEndpoint:
             puuid (str): Encrypted PUUID. Exact length of 78 characters.
 
         Returns:
-            AccountRegion: lulu.models.account.AccountRegion model.
+            AccountRegion: lulu.models.account.AccountRegion object.
         """
+
         path = f"/riot/account/v1/region/by-game/lol/by-puuid/{puuid}"
         data = self.client.continent_request(continent=continent, path=path)
         data["region"] = Region(data["region"])
