@@ -2,6 +2,7 @@ from typing import Any
 
 import requests
 
+from . import exceptions
 from .enums.continent import Continent
 
 
@@ -16,7 +17,35 @@ class BaseApiClient:
 
         headers = {"X-Riot-Token": self.api_key}
         response = requests.get(url, headers=headers, params=params)
-        response.raise_for_status()
+
+        code = response.status_code
+
+        if code == 400:
+            raise exceptions.BadRequest("Bad request", 400)
+        elif code == 401:
+            raise exceptions.Unauthorized("Unauthorized", 401)
+        elif code == 403:
+            raise exceptions.Forbidden("Forbidden", 403)
+        elif code == 404:
+            raise exceptions.DataNotFound("Data not found", 404)
+        elif code == 405:
+            raise exceptions.MethodNotAllowed("Method not allowed", 405)
+        elif code == 415:
+            raise exceptions.UnsupportedMediaType("Unsupported media type", 415)
+        elif code == 429:
+            raise exceptions.RateLimitExceeded("Rate limit exceeded", 429)
+        elif code == 500:
+            raise exceptions.InternalServerError("Internal server error", 500)
+        elif code == 502:
+            raise exceptions.BadGateway("Bad gateway", 502)
+        elif code == 503:
+            raise exceptions.ServiceUnavailable("Service unavailable", 503)
+        elif code == 504:
+            raise exceptions.GatewayTimeout("Gateway timeout", 504)
+        elif code == 200:
+            return response.json()
+        else:
+            print("Uncaught exception")
 
         return response.json()
 
