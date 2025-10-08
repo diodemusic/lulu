@@ -36,7 +36,7 @@ print(f"PUUID: {account.puuid}")
 # For example a request that responds with error code 429
 # Will throw lulu.exceptions.RateLimitExceeded
 try:
-    region = api.account.region_by_puuid(CONTINENT, account.puuid)
+    region = api.account.region_by_puuid(lulu.Continent.EUROPE, account.puuid)
 except lulu.exceptions.RateLimitExceeded as e:
     print(e)  # Output: Rate limit exceeded (Error Code: 429)
     quit()
