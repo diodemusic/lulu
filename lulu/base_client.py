@@ -13,11 +13,14 @@ class BaseApiClient:
         self.api_key = api_key
 
     def _get(self, url: str, params: dict[Any, Any] | None = None):
-        print(url)
-
         headers = {"X-Riot-Token": self.api_key}
         response = requests.get(url, headers=headers, params=params)
-
+        rate_limit_count = (
+            response.headers.get("X-App-Rate-Limit-Count", "")
+            .split(",")[0]
+            .replace(":", "/")
+        )
+        print(f"({rate_limit_count}) - {url}")
         code = response.status_code
 
         if code == 400:
