@@ -25,12 +25,26 @@ import lulu
 api = lulu.Lulu("API_KEY")
 
 # Every lulu method follows the same convention as the Riot API
-# for example account/v1/accounts/by-riot-id/{gameName}/{tagLine} becomes the following
+# For example account/v1/accounts/by-riot-id/{gameName}/{tagLine} becomes the following
 account = api.account.by_riot_id(lulu.Continent.EUROPE, "game_name", "tag_line")
 
 # Every response is a pydantic model whose members can be accessed with dot notation
 print(f"Riot ID: {account.game_name}#{account.tag_line}")
 print(f"PUUID: {account.puuid}")
+
+# lulu throws custom exceptions, again following the same convention as the Riot API
+# For example a request that responds with error code 429
+# Will throw lulu.exceptions.RateLimitExceeded
+try:
+    region = api.account.region_by_puuid(CONTINENT, account.puuid)
+except lulu.exceptions.RateLimitExceeded as e:
+    print(e)  # Output: Rate limit exceeded (Error Code: 429)
+    quit()
+
+# Members can be accessed with dot notation just like before
+print(f"PUUID: {region.puuid}")
+print(f"Game: {region.game}")
+print(f"Region: {region.region.value}")
 ```
 
 enjoy :)
