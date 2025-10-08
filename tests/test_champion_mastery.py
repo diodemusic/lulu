@@ -8,12 +8,12 @@ if not TEST_PUUID:
 
 
 def test_champion_mastery_masteries_by_puuid(api: lulu.Lulu):  # noqa: F811
-    champion_masteries = api.champion_mastery.masteries_by_puuid(
+    champion_mastery_masteries_by_puuid = api.champion_mastery.masteries_by_puuid(
         region=lulu.Region.EUW,
         puuid=TEST_PUUID,
     )
 
-    for champion_mastery in champion_masteries:
+    for champion_mastery in champion_mastery_masteries_by_puuid:
         assert isinstance(champion_mastery, ChampionMastery)
 
 
@@ -25,3 +25,14 @@ def test_champion_mastery_by_puuid_and_champion_id(api: lulu.Lulu):  # noqa: F81
     )
 
     assert isinstance(champion_mastery_by_puuid_and_champion_id, ChampionMastery)
+
+
+def test_champion_mastery_masteries_by_puuid_top(api: lulu.Lulu):  # noqa: F811
+    champion_masteries_by_puuid_top = api.champion_mastery.masteries_by_puuid_top(
+        region=lulu.Region.EUW, puuid=TEST_PUUID, count=10
+    )
+
+    assert len(champion_masteries_by_puuid_top) == 10
+
+    for champion_mastery in champion_masteries_by_puuid_top:
+        assert isinstance(champion_mastery, ChampionMastery)
