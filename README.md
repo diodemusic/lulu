@@ -13,7 +13,7 @@ WIP
 ## Documentation & Examples
 
 - [Documentation (WIP)](/)
-- [Example scripts](https://github.com/diodemusic/lulu/tree/master/examples)
+- [Examples](https://github.com/diodemusic/lulu/tree/master/examples)
 
 ## Example Usage
 
