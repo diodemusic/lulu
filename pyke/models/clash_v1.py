@@ -11,51 +11,51 @@ from pydantic import BaseModel, Field
 
 
 class Position(Enum):
-    unselected = 'UNSELECTED'
-    fill = 'FILL'
-    top = 'TOP'
-    jungle = 'JUNGLE'
-    middle = 'MIDDLE'
-    bottom = 'BOTTOM'
-    utility = 'UTILITY'
+    unselected = "UNSELECTED"
+    fill = "FILL"
+    top = "TOP"
+    jungle = "JUNGLE"
+    middle = "MIDDLE"
+    bottom = "BOTTOM"
+    utility = "UTILITY"
 
 
 class Role(Enum):
-    captain = 'CAPTAIN'
-    member = 'MEMBER'
+    captain = "CAPTAIN"
+    member = "MEMBER"
 
 
 class PlayerDto(BaseModel):
     puuid: str
-    team_id: Optional[str] = Field(None, alias='teamId')
+    team_id: Optional[str] = Field(None, alias="teamId")
     position: Position = Field(
         ...,
-        description='(Legal values:  UNSELECTED,  FILL,  TOP,  JUNGLE,  MIDDLE,  BOTTOM,  UTILITY)',
+        description="(Legal values:  UNSELECTED,  FILL,  TOP,  JUNGLE,  MIDDLE,  BOTTOM,  UTILITY)",
     )
-    role: Role = Field(..., description='(Legal values:  CAPTAIN,  MEMBER)')
+    role: Role = Field(..., description="(Legal values:  CAPTAIN,  MEMBER)")
 
 
 class TeamDto(BaseModel):
     id: str
-    tournament_id: int = Field(..., alias='tournamentId')
+    tournament_id: int = Field(..., alias="tournamentId")
     name: str
-    icon_id: int = Field(..., alias='iconId')
+    icon_id: int = Field(..., alias="iconId")
     tier: int
-    captain: str = Field(..., description='Summoner ID of the team captain.')
+    captain: str = Field(..., description="Summoner ID of the team captain.")
     abbreviation: str
-    players: List[PlayerDto] = Field(..., description='Team members.')
+    players: List[PlayerDto] = Field(..., description="Team members.")
 
 
 class TournamentPhaseDto(BaseModel):
     id: int
-    registration_time: int = Field(..., alias='registrationTime')
-    start_time: int = Field(..., alias='startTime')
+    registration_time: int = Field(..., alias="registrationTime")
+    start_time: int = Field(..., alias="startTime")
     cancelled: bool
 
 
 class TournamentDto(BaseModel):
     id: int
-    theme_id: int = Field(..., alias='themeId')
-    name_key: str = Field(..., alias='nameKey')
-    name_key_secondary: str = Field(..., alias='nameKeySecondary')
-    schedule: List[TournamentPhaseDto] = Field(..., description='Tournament phase.')
+    theme_id: int = Field(..., alias="themeId")
+    name_key: str = Field(..., alias="nameKey")
+    name_key_secondary: str = Field(..., alias="nameKeySecondary")
+    schedule: List[TournamentPhaseDto] = Field(..., description="Tournament phase.")

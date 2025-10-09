@@ -11,30 +11,30 @@ from pydantic import BaseModel, Field
 
 
 class MetadataDto(BaseModel):
-    data_version: str = Field(..., description='Match data version.')
-    match_id: str = Field(..., description='Match id.')
-    participants: List[str] = Field(..., description='A list of participant PUUIDs.')
+    data_version: str = Field(..., description="Match data version.")
+    match_id: str = Field(..., description="Match id.")
+    participants: List[str] = Field(..., description="A list of participant PUUIDs.")
 
 
 class GameMode(Enum):
-    constructed = 'Constructed'
-    expeditions = 'Expeditions'
-    tutorial = 'Tutorial'
+    constructed = "Constructed"
+    expeditions = "Expeditions"
+    tutorial = "Tutorial"
 
 
 class GameType(Enum):
-    ranked = 'Ranked'
-    normal = 'Normal'
-    ai = 'AI'
-    tutorial = 'Tutorial'
-    vanilla_trial = 'VanillaTrial'
-    singleton = 'Singleton'
-    standard_gauntlet = 'StandardGauntlet'
+    ranked = "Ranked"
+    normal = "Normal"
+    ai = "AI"
+    tutorial = "Tutorial"
+    vanilla_trial = "VanillaTrial"
+    singleton = "Singleton"
+    standard_gauntlet = "StandardGauntlet"
 
 
 class GameFormat(Enum):
-    standard = 'standard'
-    eternal = 'eternal'
+    standard = "standard"
+    eternal = "eternal"
 
 
 class PlayerDto(BaseModel):
@@ -42,32 +42,32 @@ class PlayerDto(BaseModel):
     deck_id: str
     deck_code: str = Field(
         ...,
-        description='Code for the deck played. Refer to LOR documentation for details on deck codes.',
+        description="Code for the deck played. Refer to LOR documentation for details on deck codes.",
     )
     factions: List[str]
     game_outcome: str
     order_of_play: int = Field(
-        ..., description='The order in which the players took turns.'
+        ..., description="The order in which the players took turns."
     )
 
 
 class InfoDto(BaseModel):
     game_mode: GameMode = Field(
-        ..., description='(Legal values:  Constructed,  Expeditions,  Tutorial)'
+        ..., description="(Legal values:  Constructed,  Expeditions,  Tutorial)"
     )
     game_type: GameType = Field(
         ...,
-        description='(Legal values:  Ranked,  Normal,  AI,  Tutorial,  VanillaTrial,  Singleton,  StandardGauntlet)',
+        description="(Legal values:  Ranked,  Normal,  AI,  Tutorial,  VanillaTrial,  Singleton,  StandardGauntlet)",
     )
     game_start_time_utc: str
     game_version: str
     game_format: GameFormat = Field(
-        ..., description='(Legal values:  standard,  eternal)'
+        ..., description="(Legal values:  standard,  eternal)"
     )
     players: List[PlayerDto]
-    total_turn_count: int = Field(..., description='Total turns taken by both players.')
+    total_turn_count: int = Field(..., description="Total turns taken by both players.")
 
 
 class MatchDto(BaseModel):
-    metadata: MetadataDto = Field(..., description='Match metadata.')
-    info: InfoDto = Field(..., description='Match info.')
+    metadata: MetadataDto = Field(..., description="Match metadata.")
+    info: InfoDto = Field(..., description="Match info.")

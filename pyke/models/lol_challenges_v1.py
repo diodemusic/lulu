@@ -11,30 +11,30 @@ from pydantic import BaseModel, Field
 
 
 class State(Enum):
-    disabled = 'DISABLED'
-    hidden = 'HIDDEN'
-    enabled = 'ENABLED'
-    archived = 'ARCHIVED'
+    disabled = "DISABLED"
+    hidden = "HIDDEN"
+    enabled = "ENABLED"
+    archived = "ARCHIVED"
 
 
 class Tracking(Enum):
-    lifetime = 'LIFETIME'
-    season = 'SEASON'
+    lifetime = "LIFETIME"
+    season = "SEASON"
 
 
 class ChallengeConfigInfoDto(BaseModel):
     id: int
-    localized_names: Dict[str, Dict[str, str]] = Field(..., alias='localizedNames')
+    localized_names: Dict[str, Dict[str, str]] = Field(..., alias="localizedNames")
     state: State = Field(
         ...,
-        description='DISABLED - not visible and not calculated, HIDDEN - not visible, but calculated, ENABLED - visible and calculated, ARCHIVED - visible, but not calculated',
+        description="DISABLED - not visible and not calculated, HIDDEN - not visible, but calculated, ENABLED - visible and calculated, ARCHIVED - visible, but not calculated",
     )
     tracking: Optional[Tracking] = Field(
         None,
-        description='LIFETIME - stats are incremented without reset, SEASON - stats are accumulated by season and reset at the beginning of new season',
+        description="LIFETIME - stats are incremented without reset, SEASON - stats are accumulated by season and reset at the beginning of new season",
     )
-    start_timestamp: Optional[int] = Field(None, alias='startTimestamp')
-    end_timestamp: Optional[int] = Field(None, alias='endTimestamp')
+    start_timestamp: Optional[int] = Field(None, alias="startTimestamp")
+    end_timestamp: Optional[int] = Field(None, alias="endTimestamp")
     leaderboard: bool
     thresholds: Dict[str, float]
 
@@ -58,41 +58,41 @@ class Level(BaseModel):
 
 
 class LevelModel(Enum):
-    none = 'NONE'
-    iron = 'IRON'
-    bronze = 'BRONZE'
-    silver = 'SILVER'
-    gold = 'GOLD'
-    platinum = 'PLATINUM'
-    diamond = 'DIAMOND'
-    master = 'MASTER'
-    grandmaster = 'GRANDMASTER'
-    challenger = 'CHALLENGER'
-    highest_not_leaderboard_only = 'HIGHEST_NOT_LEADERBOARD_ONLY'
-    highest = 'HIGHEST'
-    lowest = 'LOWEST'
+    none = "NONE"
+    iron = "IRON"
+    bronze = "BRONZE"
+    silver = "SILVER"
+    gold = "GOLD"
+    platinum = "PLATINUM"
+    diamond = "DIAMOND"
+    master = "MASTER"
+    grandmaster = "GRANDMASTER"
+    challenger = "CHALLENGER"
+    highest_not_leaderboard_only = "HIGHEST_NOT_LEADERBOARD_ONLY"
+    highest = "HIGHEST"
+    lowest = "LOWEST"
 
 
 class ChallengeInfoDto(BaseModel):
     percentile: float
-    players_in_level: Optional[int] = Field(None, alias='playersInLevel')
-    achieved_time: Optional[int] = Field(None, alias='achievedTime')
+    players_in_level: Optional[int] = Field(None, alias="playersInLevel")
+    achieved_time: Optional[int] = Field(None, alias="achievedTime")
     value: float
-    challenge_id: int = Field(..., alias='challengeId')
+    challenge_id: int = Field(..., alias="challengeId")
     level: LevelModel = Field(
         ...,
-        description='(Legal values:  NONE,  IRON,  BRONZE,  SILVER,  GOLD,  PLATINUM,  DIAMOND,  MASTER,  GRANDMASTER,  CHALLENGER,  HIGHEST_NOT_LEADERBOARD_ONLY,  HIGHEST,  LOWEST)',
+        description="(Legal values:  NONE,  IRON,  BRONZE,  SILVER,  GOLD,  PLATINUM,  DIAMOND,  MASTER,  GRANDMASTER,  CHALLENGER,  HIGHEST_NOT_LEADERBOARD_ONLY,  HIGHEST,  LOWEST)",
     )
     position: Optional[int] = None
 
 
 class PlayerClientPreferencesDto(BaseModel):
-    banner_accent: Optional[str] = Field(None, alias='bannerAccent')
+    banner_accent: Optional[str] = Field(None, alias="bannerAccent")
     title: Optional[str] = None
-    challenge_ids: Optional[List[int]] = Field(None, alias='challengeIds')
-    crest_border: Optional[str] = Field(None, alias='crestBorder')
+    challenge_ids: Optional[List[int]] = Field(None, alias="challengeIds")
+    crest_border: Optional[str] = Field(None, alias="crestBorder")
     prestige_crest_border_level: Optional[int] = Field(
-        None, alias='prestigeCrestBorderLevel'
+        None, alias="prestigeCrestBorderLevel"
     )
 
 
@@ -106,5 +106,5 @@ class ChallengePointDto(BaseModel):
 class PlayerInfoDto(BaseModel):
     challenges: List[ChallengeInfoDto]
     preferences: PlayerClientPreferencesDto
-    total_points: ChallengePointDto = Field(..., alias='totalPoints')
-    category_points: Dict[str, ChallengePointDto] = Field(..., alias='categoryPoints')
+    total_points: ChallengePointDto = Field(..., alias="totalPoints")
+    category_points: Dict[str, ChallengePointDto] = Field(..., alias="categoryPoints")

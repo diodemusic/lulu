@@ -17,48 +17,48 @@ class MiniSeriesDTO(BaseModel):
 
 
 class LeagueEntryDTO(BaseModel):
-    league_id: Optional[str] = Field(None, alias='leagueId')
+    league_id: Optional[str] = Field(None, alias="leagueId")
     puuid: str = Field(..., description="Player's encrypted puuid.")
-    queue_type: str = Field(..., alias='queueType')
+    queue_type: str = Field(..., alias="queueType")
     tier: Optional[str] = None
     rank: Optional[str] = Field(
         None, description="The player's division within a tier."
     )
-    league_points: int = Field(..., alias='leaguePoints')
-    wins: int = Field(..., description='Winning team on Summoners Rift.')
-    losses: int = Field(..., description='Losing team on Summoners Rift.')
-    hot_streak: bool = Field(..., alias='hotStreak')
+    league_points: int = Field(..., alias="leaguePoints")
+    wins: int = Field(..., description="Winning team on Summoners Rift.")
+    losses: int = Field(..., description="Losing team on Summoners Rift.")
+    hot_streak: bool = Field(..., alias="hotStreak")
     veteran: bool
-    fresh_blood: bool = Field(..., alias='freshBlood')
+    fresh_blood: bool = Field(..., alias="freshBlood")
     inactive: bool
-    mini_series: Optional[MiniSeriesDTO] = Field(None, alias='miniSeries')
+    mini_series: Optional[MiniSeriesDTO] = Field(None, alias="miniSeries")
     summoner_id: Optional[str] = Field(
         None,
-        alias='summonerId',
-        description='Encrypted summoner ID. This field is deprecated and will be removed. Use `puuid` instead.',
+        alias="summonerId",
+        description="Encrypted summoner ID. This field is deprecated and will be removed. Use `puuid` instead.",
     )
 
 
 class LeagueItemDTO(BaseModel):
-    fresh_blood: bool = Field(..., alias='freshBlood')
-    wins: int = Field(..., description='Winning team on Summoners Rift.')
-    mini_series: Optional[MiniSeriesDTO] = Field(None, alias='miniSeries')
+    fresh_blood: bool = Field(..., alias="freshBlood")
+    wins: int = Field(..., description="Winning team on Summoners Rift.")
+    mini_series: Optional[MiniSeriesDTO] = Field(None, alias="miniSeries")
     inactive: bool
     veteran: bool
-    hot_streak: bool = Field(..., alias='hotStreak')
+    hot_streak: bool = Field(..., alias="hotStreak")
     rank: str
-    league_points: int = Field(..., alias='leaguePoints')
-    losses: int = Field(..., description='Losing team on Summoners Rift.')
+    league_points: int = Field(..., alias="leaguePoints")
+    losses: int = Field(..., description="Losing team on Summoners Rift.")
     puuid: str = Field(..., description="Player's encrypted puuid.")
     summoner_id: Optional[str] = Field(
         None,
-        alias='summonerId',
-        description='Encrypted summoner ID. This field is deprecated and will be removed. Use `puuid` instead.',
+        alias="summonerId",
+        description="Encrypted summoner ID. This field is deprecated and will be removed. Use `puuid` instead.",
     )
 
 
 class LeagueListDTO(BaseModel):
-    league_id: Optional[str] = Field(None, alias='leagueId')
+    league_id: Optional[str] = Field(None, alias="leagueId")
     entries: List[LeagueItemDTO]
     tier: str
     name: Optional[str] = None

@@ -17,37 +17,37 @@ class CardStatsDTO(BaseModel):
 
 
 class CardArtDTO(BaseModel):
-    thumbnail_url: str = Field(..., alias='thumbnailURL')
-    full_url: str = Field(..., alias='fullURL')
+    thumbnail_url: str = Field(..., alias="thumbnailURL")
+    full_url: str = Field(..., alias="fullURL")
     artist: str
 
 
 class CardDTO(BaseModel):
-    id: str = Field(..., description='Card ID')
-    collector_number: int = Field(..., alias='collectorNumber')
+    id: str = Field(..., description="Card ID")
+    collector_number: int = Field(..., alias="collectorNumber")
     set: str
-    name: str = Field(..., description='Card Name')
+    name: str = Field(..., description="Card Name")
     description: str
-    type: str = Field(..., description='Card Type')
+    type: str = Field(..., description="Card Type")
     rarity: str
     faction: str
     stats: CardStatsDTO
     keywords: List[str]
     art: CardArtDTO
-    flavor_text: str = Field(..., alias='flavorText')
+    flavor_text: str = Field(..., alias="flavorText")
     tags: List[str]
 
 
 class SetDTO(BaseModel):
-    id: str = Field(..., description='Set ID')
-    name: str = Field(..., description='Set Name')
+    id: str = Field(..., description="Set ID")
+    name: str = Field(..., description="Set Name")
     cards: List[CardDTO]
 
 
 class RiftboundContentDTO(BaseModel):
-    game: str = Field(..., description='Game Name')
-    version: str = Field(..., description='Content version')
+    game: str = Field(..., description="Game Name")
+    version: str = Field(..., description="Content version")
     last_updated: str = Field(
-        ..., alias='lastUpdated', description='ISO Timestamp of content last update'
+        ..., alias="lastUpdated", description="ISO Timestamp of content last update"
     )
     sets: List[SetDTO]

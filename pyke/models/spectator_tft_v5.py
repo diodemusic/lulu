@@ -13,193 +13,193 @@ from pydantic import BaseModel, Field
 class BannedChampion(BaseModel):
     pick_turn: int = Field(
         ...,
-        alias='pickTurn',
-        description='The turn during which the champion was banned',
+        alias="pickTurn",
+        description="The turn during which the champion was banned",
     )
     champion_id: int = Field(
-        ..., alias='championId', description='The ID of the banned champion'
+        ..., alias="championId", description="The ID of the banned champion"
     )
     team_id: int = Field(
-        ..., alias='teamId', description='The ID of the team that banned the champion'
+        ..., alias="teamId", description="The ID of the team that banned the champion"
     )
 
 
 class Observer(BaseModel):
     encryption_key: str = Field(
         ...,
-        alias='encryptionKey',
-        description='Key used to decrypt the spectator grid game data for playback',
+        alias="encryptionKey",
+        description="Key used to decrypt the spectator grid game data for playback",
     )
 
 
 class Perks(BaseModel):
     perk_ids: List[int] = Field(
-        ..., alias='perkIds', description='IDs of the perks/runes assigned.'
+        ..., alias="perkIds", description="IDs of the perks/runes assigned."
     )
-    perk_style: int = Field(..., alias='perkStyle', description='Primary runes path')
+    perk_style: int = Field(..., alias="perkStyle", description="Primary runes path")
     perk_sub_style: int = Field(
-        ..., alias='perkSubStyle', description='Secondary runes path'
+        ..., alias="perkSubStyle", description="Secondary runes path"
     )
 
 
 class GameCustomizationObject(BaseModel):
-    category: str = Field(..., description='Category identifier for Game Customization')
-    content: str = Field(..., description='Game Customization content')
+    category: str = Field(..., description="Category identifier for Game Customization")
+    content: str = Field(..., description="Game Customization content")
 
 
 class GameMode(Enum):
-    tft = 'TFT'
+    tft = "TFT"
 
 
 class GameType(Enum):
-    matched = 'MATCHED'
+    matched = "MATCHED"
 
 
 class Participant(BaseModel):
     spell2_id: int = Field(
         ...,
-        alias='spell2Id',
-        description='The ID of the second summoner spell used by this participant',
+        alias="spell2Id",
+        description="The ID of the second summoner spell used by this participant",
     )
     profile_icon_id: int = Field(
         ...,
-        alias='profileIconId',
-        description='The ID of the profile icon used by this participant',
+        alias="profileIconId",
+        description="The ID of the profile icon used by this participant",
     )
     puuid: Optional[str] = Field(
-        None, description='Encrypted puuid of this participant'
+        None, description="Encrypted puuid of this participant"
     )
     champion_id: int = Field(
         ...,
-        alias='championId',
-        description='The ID of the champion played by this participant',
+        alias="championId",
+        description="The ID of the champion played by this participant",
     )
     team_id: int = Field(
         ...,
-        alias='teamId',
+        alias="teamId",
         description="The team ID of this participant, indicating the participant's team",
     )
     spell1_id: int = Field(
         ...,
-        alias='spell1Id',
-        description='The ID of the first summoner spell used by this participant',
+        alias="spell1Id",
+        description="The ID of the first summoner spell used by this participant",
     )
-    riot_id: Optional[str] = Field(None, alias='riotId')
+    riot_id: Optional[str] = Field(None, alias="riotId")
 
 
 class CurrentGameParticipant(BaseModel):
     champion_id: int = Field(
         ...,
-        alias='championId',
-        description='The ID of the champion played by this participant',
+        alias="championId",
+        description="The ID of the champion played by this participant",
     )
-    perks: Optional[Perks] = Field(None, description='Perks/Runes Reforged Information')
+    perks: Optional[Perks] = Field(None, description="Perks/Runes Reforged Information")
     profile_icon_id: int = Field(
         ...,
-        alias='profileIconId',
-        description='The ID of the profile icon used by this participant',
+        alias="profileIconId",
+        description="The ID of the profile icon used by this participant",
     )
     team_id: int = Field(
         ...,
-        alias='teamId',
+        alias="teamId",
         description="The team ID of this participant, indicating the participant's team",
     )
     puuid: Optional[str] = Field(
-        None, description='The encrypted puuid of this participant'
+        None, description="The encrypted puuid of this participant"
     )
     spell1_id: int = Field(
         ...,
-        alias='spell1Id',
-        description='The ID of the first summoner spell used by this participant',
+        alias="spell1Id",
+        description="The ID of the first summoner spell used by this participant",
     )
     spell2_id: int = Field(
         ...,
-        alias='spell2Id',
-        description='The ID of the second summoner spell used by this participant',
+        alias="spell2Id",
+        description="The ID of the second summoner spell used by this participant",
     )
     game_customization_objects: List[GameCustomizationObject] = Field(
-        ..., alias='gameCustomizationObjects', description='List of Game Customizations'
+        ..., alias="gameCustomizationObjects", description="List of Game Customizations"
     )
-    riot_id: Optional[str] = Field(None, alias='riotId')
+    riot_id: Optional[str] = Field(None, alias="riotId")
 
 
 class FeaturedGameInfo(BaseModel):
     game_mode: GameMode = Field(
         ...,
-        alias='gameMode',
-        description='The game mode\n             (Legal values:  TFT)',
+        alias="gameMode",
+        description="The game mode\n             (Legal values:  TFT)",
     )
     game_length: int = Field(
         ...,
-        alias='gameLength',
-        description='The amount of time in seconds that has passed since the game started',
+        alias="gameLength",
+        description="The amount of time in seconds that has passed since the game started",
     )
-    map_id: int = Field(..., alias='mapId', description='The ID of the map')
+    map_id: int = Field(..., alias="mapId", description="The ID of the map")
     game_type: GameType = Field(
         ...,
-        alias='gameType',
-        description='The game type\n             (Legal values:  MATCHED)',
+        alias="gameType",
+        description="The game type\n             (Legal values:  MATCHED)",
     )
     banned_champions: List[BannedChampion] = Field(
-        ..., alias='bannedChampions', description='Banned champion information'
+        ..., alias="bannedChampions", description="Banned champion information"
     )
-    game_id: int = Field(..., alias='gameId', description='The ID of the game')
-    observers: Observer = Field(..., description='The observer information')
+    game_id: int = Field(..., alias="gameId", description="The ID of the game")
+    observers: Observer = Field(..., description="The observer information")
     game_queue_config_id: int = Field(
         ...,
-        alias='gameQueueConfigId',
-        description='The queue type (queue types are documented on the Game Constants page)',
+        alias="gameQueueConfigId",
+        description="The queue type (queue types are documented on the Game Constants page)",
     )
     participants: List[Participant] = Field(
-        ..., description='The participant information'
+        ..., description="The participant information"
     )
     platform_id: str = Field(
         ...,
-        alias='platformId',
-        description='The ID of the platform on which the game is being played',
+        alias="platformId",
+        description="The ID of the platform on which the game is being played",
     )
 
 
 class CurrentGameInfo(BaseModel):
-    game_id: int = Field(..., alias='gameId', description='The ID of the game')
-    game_type: str = Field(..., alias='gameType', description='The game type')
+    game_id: int = Field(..., alias="gameId", description="The ID of the game")
+    game_type: str = Field(..., alias="gameType", description="The game type")
     game_start_time: int = Field(
         ...,
-        alias='gameStartTime',
-        description='The game start time represented in epoch milliseconds',
+        alias="gameStartTime",
+        description="The game start time represented in epoch milliseconds",
     )
-    map_id: int = Field(..., alias='mapId', description='The ID of the map')
+    map_id: int = Field(..., alias="mapId", description="The ID of the map")
     game_length: int = Field(
         ...,
-        alias='gameLength',
-        description='The amount of time in seconds that has passed since the game started',
+        alias="gameLength",
+        description="The amount of time in seconds that has passed since the game started",
     )
     platform_id: str = Field(
         ...,
-        alias='platformId',
-        description='The ID of the platform on which the game is being played',
+        alias="platformId",
+        description="The ID of the platform on which the game is being played",
     )
-    game_mode: str = Field(..., alias='gameMode', description='The game mode')
+    game_mode: str = Field(..., alias="gameMode", description="The game mode")
     banned_champions: List[BannedChampion] = Field(
-        ..., alias='bannedChampions', description='Banned champion information'
+        ..., alias="bannedChampions", description="Banned champion information"
     )
     game_queue_config_id: Optional[int] = Field(
         None,
-        alias='gameQueueConfigId',
-        description='The queue type (queue types are documented on the Game Constants page)',
+        alias="gameQueueConfigId",
+        description="The queue type (queue types are documented on the Game Constants page)",
     )
-    observers: Observer = Field(..., description='The observer information')
+    observers: Observer = Field(..., description="The observer information")
     participants: List[CurrentGameParticipant] = Field(
-        ..., description='The participant information'
+        ..., description="The participant information"
     )
 
 
 class FeaturedGames(BaseModel):
     game_list: List[FeaturedGameInfo] = Field(
-        ..., alias='gameList', description='The list of featured games'
+        ..., alias="gameList", description="The list of featured games"
     )
     client_refresh_interval: Optional[int] = Field(
         None,
-        alias='clientRefreshInterval',
-        description='The suggested interval to wait before requesting FeaturedGames again',
+        alias="clientRefreshInterval",
+        description="The suggested interval to wait before requesting FeaturedGames again",
     )

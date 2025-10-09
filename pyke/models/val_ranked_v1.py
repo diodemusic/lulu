@@ -11,47 +11,47 @@ from pydantic import BaseModel, Field
 
 class PlayerDto(BaseModel):
     puuid: Optional[str] = Field(
-        None, description='This field may be omitted if the player has been anonymized.'
+        None, description="This field may be omitted if the player has been anonymized."
     )
     game_name: Optional[str] = Field(
         None,
-        alias='gameName',
-        description='This field may be omitted if the player has been anonymized.',
+        alias="gameName",
+        description="This field may be omitted if the player has been anonymized.",
     )
     tag_line: Optional[str] = Field(
         None,
-        alias='tagLine',
-        description='This field may be omitted if the player has been anonymized.',
+        alias="tagLine",
+        description="This field may be omitted if the player has been anonymized.",
     )
-    leaderboard_rank: int = Field(..., alias='leaderboardRank')
-    ranked_rating: int = Field(..., alias='rankedRating')
-    number_of_wins: int = Field(..., alias='numberOfWins')
-    competitive_tier: Optional[int] = Field(None, alias='competitiveTier')
+    leaderboard_rank: int = Field(..., alias="leaderboardRank")
+    ranked_rating: int = Field(..., alias="rankedRating")
+    number_of_wins: int = Field(..., alias="numberOfWins")
+    competitive_tier: Optional[int] = Field(None, alias="competitiveTier")
     prefix: Optional[str] = None
 
 
 class TierDetailDto(BaseModel):
-    ranked_rating_threshold: int = Field(..., alias='rankedRatingThreshold')
-    starting_page: int = Field(..., alias='startingPage')
-    starting_index: int = Field(..., alias='startingIndex')
+    ranked_rating_threshold: int = Field(..., alias="rankedRatingThreshold")
+    starting_page: int = Field(..., alias="startingPage")
+    starting_index: int = Field(..., alias="startingIndex")
 
 
 class LeaderboardDto(BaseModel):
-    shard: str = Field(..., description='The shard for the given leaderboard.')
+    shard: str = Field(..., description="The shard for the given leaderboard.")
     act_id: str = Field(
         ...,
-        alias='actId',
-        description='The act id for the given leaderboard. Act ids can be found using the val-content API.',
+        alias="actId",
+        description="The act id for the given leaderboard. Act ids can be found using the val-content API.",
     )
     total_players: int = Field(
         ...,
-        alias='totalPlayers',
-        description='The total number of players in the leaderboard.',
+        alias="totalPlayers",
+        description="The total number of players in the leaderboard.",
     )
     players: List[PlayerDto]
-    immortal_starting_page: Optional[int] = Field(None, alias='immortalStartingPage')
-    immortal_starting_index: Optional[int] = Field(None, alias='immortalStartingIndex')
-    top_tier_rr_threshold: Optional[int] = Field(None, alias='topTierRRThreshold')
-    tier_details: Optional[Dict[str, TierDetailDto]] = Field(None, alias='tierDetails')
-    start_index: Optional[int] = Field(None, alias='startIndex')
+    immortal_starting_page: Optional[int] = Field(None, alias="immortalStartingPage")
+    immortal_starting_index: Optional[int] = Field(None, alias="immortalStartingIndex")
+    top_tier_rr_threshold: Optional[int] = Field(None, alias="topTierRRThreshold")
+    tier_details: Optional[Dict[str, TierDetailDto]] = Field(None, alias="tierDetails")
+    start_index: Optional[int] = Field(None, alias="startIndex")
     query: Optional[str] = None

@@ -11,11 +11,11 @@ from pydantic import BaseModel, Field
 
 
 class RatedTier(Enum):
-    orange = 'ORANGE'
-    purple = 'PURPLE'
-    blue = 'BLUE'
-    green = 'GREEN'
-    gray = 'GRAY'
+    orange = "ORANGE"
+    purple = "PURPLE"
+    blue = "BLUE"
+    green = "GREEN"
+    gray = "GRAY"
 
 
 class MiniSeriesDTO(BaseModel):
@@ -26,15 +26,15 @@ class MiniSeriesDTO(BaseModel):
 
 
 class LeagueItemDTO(BaseModel):
-    fresh_blood: bool = Field(..., alias='freshBlood')
-    wins: int = Field(..., description='First placement.')
-    mini_series: Optional[MiniSeriesDTO] = Field(None, alias='miniSeries')
+    fresh_blood: bool = Field(..., alias="freshBlood")
+    wins: int = Field(..., description="First placement.")
+    mini_series: Optional[MiniSeriesDTO] = Field(None, alias="miniSeries")
     inactive: bool
     veteran: bool
-    hot_streak: bool = Field(..., alias='hotStreak')
+    hot_streak: bool = Field(..., alias="hotStreak")
     rank: str
-    league_points: int = Field(..., alias='leaguePoints')
-    losses: int = Field(..., description='Second through eighth placement.')
+    league_points: int = Field(..., alias="leaguePoints")
+    losses: int = Field(..., description="Second through eighth placement.")
     puuid: str = Field(..., description="Player's encrypted puuid.")
 
 
@@ -42,39 +42,39 @@ class TopRatedLadderEntryDto(BaseModel):
     puuid: str = Field(..., description="Player's encrypted puuid.")
     rated_tier: RatedTier = Field(
         ...,
-        alias='ratedTier',
-        description='(Legal values:  ORANGE,  PURPLE,  BLUE,  GREEN,  GRAY)',
+        alias="ratedTier",
+        description="(Legal values:  ORANGE,  PURPLE,  BLUE,  GREEN,  GRAY)",
     )
-    rated_rating: int = Field(..., alias='ratedRating')
-    wins: int = Field(..., description='First placement.')
+    rated_rating: int = Field(..., alias="ratedRating")
+    wins: int = Field(..., description="First placement.")
     previous_update_ladder_position: int = Field(
-        ..., alias='previousUpdateLadderPosition'
+        ..., alias="previousUpdateLadderPosition"
     )
 
 
 class LeagueEntryDTO(BaseModel):
     puuid: Optional[str] = Field(
         None,
-        description='Player Universal Unique Identifier. Exact length of 78 characters. (Encrypted)',
+        description="Player Universal Unique Identifier. Exact length of 78 characters. (Encrypted)",
     )
     league_id: Optional[str] = Field(
         None,
-        alias='leagueId',
-        description='Not included for the RANKED_TFT_TURBO queueType.',
+        alias="leagueId",
+        description="Not included for the RANKED_TFT_TURBO queueType.",
     )
-    queue_type: str = Field(..., alias='queueType')
+    queue_type: str = Field(..., alias="queueType")
     rated_tier: Optional[RatedTier] = Field(
         None,
-        alias='ratedTier',
-        description='Only included for the RANKED_TFT_TURBO queueType.\n             (Legal values:  ORANGE,  PURPLE,  BLUE,  GREEN,  GRAY)',
+        alias="ratedTier",
+        description="Only included for the RANKED_TFT_TURBO queueType.\n             (Legal values:  ORANGE,  PURPLE,  BLUE,  GREEN,  GRAY)",
     )
     rated_rating: Optional[int] = Field(
         None,
-        alias='ratedRating',
-        description='Only included for the RANKED_TFT_TURBO queueType.',
+        alias="ratedRating",
+        description="Only included for the RANKED_TFT_TURBO queueType.",
     )
     tier: Optional[str] = Field(
-        None, description='Not included for the RANKED_TFT_TURBO queueType.'
+        None, description="Not included for the RANKED_TFT_TURBO queueType."
     )
     rank: Optional[str] = Field(
         None,
@@ -82,36 +82,36 @@ class LeagueEntryDTO(BaseModel):
     )
     league_points: Optional[int] = Field(
         None,
-        alias='leaguePoints',
-        description='Not included for the RANKED_TFT_TURBO queueType.',
+        alias="leaguePoints",
+        description="Not included for the RANKED_TFT_TURBO queueType.",
     )
-    wins: int = Field(..., description='First placement.')
-    losses: int = Field(..., description='Second through eighth placement.')
+    wins: int = Field(..., description="First placement.")
+    losses: int = Field(..., description="Second through eighth placement.")
     hot_streak: Optional[bool] = Field(
         None,
-        alias='hotStreak',
-        description='Not included for the RANKED_TFT_TURBO queueType.',
+        alias="hotStreak",
+        description="Not included for the RANKED_TFT_TURBO queueType.",
     )
     veteran: Optional[bool] = Field(
-        None, description='Not included for the RANKED_TFT_TURBO queueType.'
+        None, description="Not included for the RANKED_TFT_TURBO queueType."
     )
     fresh_blood: Optional[bool] = Field(
         None,
-        alias='freshBlood',
-        description='Not included for the RANKED_TFT_TURBO queueType.',
+        alias="freshBlood",
+        description="Not included for the RANKED_TFT_TURBO queueType.",
     )
     inactive: Optional[bool] = Field(
-        None, description='Not included for the RANKED_TFT_TURBO queueType.'
+        None, description="Not included for the RANKED_TFT_TURBO queueType."
     )
     mini_series: Optional[MiniSeriesDTO] = Field(
         None,
-        alias='miniSeries',
-        description='Not included for the RANKED_TFT_TURBO queueType.',
+        alias="miniSeries",
+        description="Not included for the RANKED_TFT_TURBO queueType.",
     )
 
 
 class LeagueListDTO(BaseModel):
-    league_id: Optional[str] = Field(None, alias='leagueId')
+    league_id: Optional[str] = Field(None, alias="leagueId")
     entries: List[LeagueItemDTO]
     tier: str
     name: Optional[str] = None

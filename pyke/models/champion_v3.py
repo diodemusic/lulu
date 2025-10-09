@@ -10,8 +10,8 @@ from pydantic import BaseModel, Field
 
 
 class ChampionInfo(BaseModel):
-    max_new_player_level: int = Field(..., alias='maxNewPlayerLevel')
+    max_new_player_level: int = Field(..., alias="maxNewPlayerLevel")
     free_champion_ids_for_new_players: List[int] = Field(
-        ..., alias='freeChampionIdsForNewPlayers'
+        ..., alias="freeChampionIdsForNewPlayers"
     )
-    free_champion_ids: List[int] = Field(..., alias='freeChampionIds')
+    free_champion_ids: List[int] = Field(..., alias="freeChampionIds")

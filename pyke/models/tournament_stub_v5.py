@@ -11,121 +11,121 @@ from pydantic import BaseModel, Field, conint
 
 
 class PickType(Enum):
-    blind_pick = 'BLIND_PICK'
-    draft_mode = 'DRAFT_MODE'
-    all_random = 'ALL_RANDOM'
-    tournament_draft = 'TOURNAMENT_DRAFT'
+    blind_pick = "BLIND_PICK"
+    draft_mode = "DRAFT_MODE"
+    all_random = "ALL_RANDOM"
+    tournament_draft = "TOURNAMENT_DRAFT"
 
 
 class MapType(Enum):
-    summoners_rift = 'SUMMONERS_RIFT'
-    howling_abyss = 'HOWLING_ABYSS'
+    summoners_rift = "SUMMONERS_RIFT"
+    howling_abyss = "HOWLING_ABYSS"
 
 
 class SpectatorType(Enum):
-    none = 'NONE'
-    lobbyonly = 'LOBBYONLY'
-    all = 'ALL'
+    none = "NONE"
+    lobbyonly = "LOBBYONLY"
+    all = "ALL"
 
 
 class TournamentCodeParametersV5(BaseModel):
     allowed_participants: Optional[List[str]] = Field(
         None,
-        alias='allowedParticipants',
-        description='Optional list of encrypted puuids in order to validate the players eligible to join the lobby. NOTE: We currently do not enforce participants at the team level, but rather the aggregate of teamOne and teamTwo. We may add the ability to enforce at the team level in the future.',
+        alias="allowedParticipants",
+        description="Optional list of encrypted puuids in order to validate the players eligible to join the lobby. NOTE: We currently do not enforce participants at the team level, but rather the aggregate of teamOne and teamTwo. We may add the ability to enforce at the team level in the future.",
     )
     metadata: Optional[str] = Field(
         None,
-        description='Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.',
+        description="Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.",
     )
     team_size: conint(ge=1, le=5) = Field(
         ...,
-        alias='teamSize',
-        description='The team size of the game. Valid values are 1-5.',
+        alias="teamSize",
+        description="The team size of the game. Valid values are 1-5.",
     )
     pick_type: PickType = Field(
         ...,
-        alias='pickType',
-        description='The pick type of the game.\n             (Legal values:  BLIND_PICK,  DRAFT_MODE,  ALL_RANDOM,  TOURNAMENT_DRAFT)',
+        alias="pickType",
+        description="The pick type of the game.\n             (Legal values:  BLIND_PICK,  DRAFT_MODE,  ALL_RANDOM,  TOURNAMENT_DRAFT)",
     )
     map_type: MapType = Field(
         ...,
-        alias='mapType',
-        description='The map type of the game.\n             (Legal values:  SUMMONERS_RIFT,  HOWLING_ABYSS)',
+        alias="mapType",
+        description="The map type of the game.\n             (Legal values:  SUMMONERS_RIFT,  HOWLING_ABYSS)",
     )
     spectator_type: SpectatorType = Field(
         ...,
-        alias='spectatorType',
-        description='The spectator type of the game.\n             (Legal values:  NONE,  LOBBYONLY,  ALL)',
+        alias="spectatorType",
+        description="The spectator type of the game.\n             (Legal values:  NONE,  LOBBYONLY,  ALL)",
     )
     enough_players: bool = Field(
         ...,
-        alias='enoughPlayers',
-        description='Checks if allowed participants are enough to make full teams.',
+        alias="enoughPlayers",
+        description="Checks if allowed participants are enough to make full teams.",
     )
 
 
 class Region(Enum):
-    br = 'BR'
-    eune = 'EUNE'
-    euw = 'EUW'
-    jp = 'JP'
-    lan = 'LAN'
-    las = 'LAS'
-    na = 'NA'
-    oce = 'OCE'
-    pbe = 'PBE'
-    ru = 'RU'
-    tr = 'TR'
-    kr = 'KR'
+    br = "BR"
+    eune = "EUNE"
+    euw = "EUW"
+    jp = "JP"
+    lan = "LAN"
+    las = "LAS"
+    na = "NA"
+    oce = "OCE"
+    pbe = "PBE"
+    ru = "RU"
+    tr = "TR"
+    kr = "KR"
 
 
 class TournamentCodeV5DTO(BaseModel):
-    code: str = Field(..., description='The tournament code.')
+    code: str = Field(..., description="The tournament code.")
     lobby_name: str = Field(
         ...,
-        alias='lobbyName',
-        description='The lobby name for the tournament code game.',
+        alias="lobbyName",
+        description="The lobby name for the tournament code game.",
     )
     meta_data: str = Field(
-        ..., alias='metaData', description='The metadata for tournament code.'
+        ..., alias="metaData", description="The metadata for tournament code."
     )
-    password: str = Field(..., description='The password for the tournament code game.')
+    password: str = Field(..., description="The password for the tournament code game.")
     team_size: int = Field(
-        ..., alias='teamSize', description='The team size for the tournament code game.'
+        ..., alias="teamSize", description="The team size for the tournament code game."
     )
-    provider_id: int = Field(..., alias='providerId', description="The provider's ID.")
+    provider_id: int = Field(..., alias="providerId", description="The provider's ID.")
     pick_type: str = Field(
-        ..., alias='pickType', description='The pick mode for tournament code game.'
+        ..., alias="pickType", description="The pick mode for tournament code game."
     )
     tournament_id: int = Field(
-        ..., alias='tournamentId', description="The tournament's ID."
+        ..., alias="tournamentId", description="The tournament's ID."
     )
     id: int = Field(..., description="The tournament code's ID.")
     region: Region = Field(
         ...,
         description="The tournament code's region.\n             (Legal values:  BR,  EUNE,  EUW,  JP,  LAN,  LAS,  NA,  OCE,  PBE,  RU,  TR,  KR)",
     )
-    map: str = Field(..., description='The game map for the tournament code game')
+    map: str = Field(..., description="The game map for the tournament code game")
     participants: List[str] = Field(
-        ..., description='The puuids of the participants (Encrypted)'
+        ..., description="The puuids of the participants (Encrypted)"
     )
 
 
 class LobbyEventV5DTO(BaseModel):
-    timestamp: str = Field(..., description='Timestamp from the event')
+    timestamp: str = Field(..., description="Timestamp from the event")
     event_type: str = Field(
-        ..., alias='eventType', description='The type of event that was triggered'
+        ..., alias="eventType", description="The type of event that was triggered"
     )
     puuid: str = Field(
-        ..., description='The puuid that triggered the event (Encrypted)'
+        ..., description="The puuid that triggered the event (Encrypted)"
     )
 
 
 class ProviderRegistrationParametersV5(BaseModel):
     region: Region = Field(
         ...,
-        description='The region in which the provider will be running tournaments.\n             (Legal values:  BR,  EUNE,  EUW,  JP,  LAN,  LAS,  NA,  OCE,  PBE,  RU,  TR,  KR)',
+        description="The region in which the provider will be running tournaments.\n             (Legal values:  BR,  EUNE,  EUW,  JP,  LAN,  LAS,  NA,  OCE,  PBE,  RU,  TR,  KR)",
     )
     url: str = Field(
         ...,
@@ -136,13 +136,13 @@ class ProviderRegistrationParametersV5(BaseModel):
 class TournamentRegistrationParametersV5(BaseModel):
     provider_id: int = Field(
         ...,
-        alias='providerId',
-        description='The provider ID to specify the regional registered provider data to associate this tournament.',
+        alias="providerId",
+        description="The provider ID to specify the regional registered provider data to associate this tournament.",
     )
     name: Optional[str] = Field(
-        None, description='The optional name of the tournament.'
+        None, description="The optional name of the tournament."
     )
 
 
 class LobbyEventV5DTOWrapper(BaseModel):
-    event_list: List[LobbyEventV5DTO] = Field(..., alias='eventList')
+    event_list: List[LobbyEventV5DTO] = Field(..., alias="eventList")

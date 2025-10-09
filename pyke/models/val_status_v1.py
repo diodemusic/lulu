@@ -11,25 +11,25 @@ from pydantic import BaseModel, Field
 
 
 class MaintenanceStatus(Enum):
-    scheduled = 'scheduled'
-    in_progress = 'in_progress'
-    complete = 'complete'
+    scheduled = "scheduled"
+    in_progress = "in_progress"
+    complete = "complete"
 
 
 class IncidentSeverity(Enum):
-    info = 'info'
-    warning = 'warning'
-    critical = 'critical'
+    info = "info"
+    warning = "warning"
+    critical = "critical"
 
 
 class Platform(Enum):
-    windows = 'windows'
-    macos = 'macos'
-    android = 'android'
-    ios = 'ios'
-    ps4 = 'ps4'
-    xbone = 'xbone'
-    switch = 'switch'
+    windows = "windows"
+    macos = "macos"
+    android = "android"
+    ios = "ios"
+    ps4 = "ps4"
+    xbone = "xbone"
+    switch = "switch"
 
 
 class ContentDto(BaseModel):
@@ -38,9 +38,9 @@ class ContentDto(BaseModel):
 
 
 class PublishLocation(Enum):
-    riotclient = 'riotclient'
-    riotstatus = 'riotstatus'
-    game = 'game'
+    riotclient = "riotclient"
+    riotstatus = "riotstatus"
+    game = "game"
 
 
 class UpdateDto(BaseModel):
@@ -48,7 +48,7 @@ class UpdateDto(BaseModel):
     author: str
     publish: bool
     publish_locations: List[PublishLocation] = Field(
-        ..., description='(Legal values: riotclient, riotstatus, game)'
+        ..., description="(Legal values: riotclient, riotstatus, game)"
     )
     translations: List[ContentDto]
     created_at: str
@@ -58,10 +58,10 @@ class UpdateDto(BaseModel):
 class StatusDto(BaseModel):
     id: int
     maintenance_status: MaintenanceStatus = Field(
-        ..., description='(Legal values:  scheduled,  in_progress,  complete)'
+        ..., description="(Legal values:  scheduled,  in_progress,  complete)"
     )
     incident_severity: IncidentSeverity = Field(
-        ..., description='(Legal values:  info,  warning,  critical)'
+        ..., description="(Legal values:  info,  warning,  critical)"
     )
     titles: List[ContentDto]
     updates: List[UpdateDto]
@@ -70,7 +70,7 @@ class StatusDto(BaseModel):
     updated_at: str
     platforms: List[Platform] = Field(
         ...,
-        description='(Legal values: windows, macos, android, ios, ps4, xbone, switch)',
+        description="(Legal values: windows, macos, android, ios, ps4, xbone, switch)",
     )
 
 

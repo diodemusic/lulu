@@ -10,69 +10,69 @@ from pydantic import BaseModel, Field
 
 
 class RewardConfigDto(BaseModel):
-    reward_value: str = Field(..., alias='rewardValue', description='Reward value')
-    reward_type: str = Field(..., alias='rewardType', description='Reward type')
+    reward_value: str = Field(..., alias="rewardValue", description="Reward value")
+    reward_type: str = Field(..., alias="rewardType", description="Reward type")
     maximum_reward: int = Field(
-        ..., alias='maximumReward', description='Maximun reward'
+        ..., alias="maximumReward", description="Maximun reward"
     )
 
 
 class NextSeasonMilestonesDto(BaseModel):
-    require_grade_counts: Dict[str, int] = Field(..., alias='requireGradeCounts')
-    reward_marks: int = Field(..., alias='rewardMarks', description='Reward marks.')
-    bonus: bool = Field(..., description='Bonus.')
+    require_grade_counts: Dict[str, int] = Field(..., alias="requireGradeCounts")
+    reward_marks: int = Field(..., alias="rewardMarks", description="Reward marks.")
+    bonus: bool = Field(..., description="Bonus.")
     reward_config: Optional[RewardConfigDto] = Field(
-        None, alias='rewardConfig', description='Reward configuration.'
+        None, alias="rewardConfig", description="Reward configuration."
     )
-    total_games_requires: int = Field(..., alias='totalGamesRequires')
+    total_games_requires: int = Field(..., alias="totalGamesRequires")
 
 
 class ChampionMasteryDto(BaseModel):
     puuid: str = Field(
         ...,
-        description='Player Universal Unique Identifier. Exact length of 78 characters. (Encrypted)',
+        description="Player Universal Unique Identifier. Exact length of 78 characters. (Encrypted)",
     )
     champion_points_until_next_level: int = Field(
         ...,
-        alias='championPointsUntilNextLevel',
-        description='Number of points needed to achieve next level. Zero if player reached maximum champion level for this champion.',
+        alias="championPointsUntilNextLevel",
+        description="Number of points needed to achieve next level. Zero if player reached maximum champion level for this champion.",
     )
     chest_granted: Optional[bool] = Field(
         None,
-        alias='chestGranted',
-        description='Is chest granted for this champion or not in current season.',
+        alias="chestGranted",
+        description="Is chest granted for this champion or not in current season.",
     )
     champion_id: int = Field(
-        ..., alias='championId', description='Champion ID for this entry.'
+        ..., alias="championId", description="Champion ID for this entry."
     )
     last_play_time: int = Field(
         ...,
-        alias='lastPlayTime',
-        description='Last time this champion was played by this player - in Unix milliseconds time format.',
+        alias="lastPlayTime",
+        description="Last time this champion was played by this player - in Unix milliseconds time format.",
     )
     champion_level: int = Field(
         ...,
-        alias='championLevel',
-        description='Champion level for specified player and champion combination.',
+        alias="championLevel",
+        description="Champion level for specified player and champion combination.",
     )
     champion_points: int = Field(
         ...,
-        alias='championPoints',
-        description='Total number of champion points for this player and champion combination - they are used to determine championLevel.',
+        alias="championPoints",
+        description="Total number of champion points for this player and champion combination - they are used to determine championLevel.",
     )
     champion_points_since_last_level: int = Field(
         ...,
-        alias='championPointsSinceLastLevel',
-        description='Number of points earned since current level has been achieved.',
+        alias="championPointsSinceLastLevel",
+        description="Number of points earned since current level has been achieved.",
     )
-    mark_required_for_next_level: int = Field(..., alias='markRequiredForNextLevel')
-    champion_season_milestone: int = Field(..., alias='championSeasonMilestone')
+    mark_required_for_next_level: int = Field(..., alias="markRequiredForNextLevel")
+    champion_season_milestone: int = Field(..., alias="championSeasonMilestone")
     next_season_milestone: NextSeasonMilestonesDto = Field(
-        ..., alias='nextSeasonMilestone'
+        ..., alias="nextSeasonMilestone"
     )
     tokens_earned: int = Field(
         ...,
-        alias='tokensEarned',
-        description='The token earned for this champion at the current championLevel. When the championLevel is advanced the tokensEarned resets to 0.',
+        alias="tokensEarned",
+        description="The token earned for this champion at the current championLevel. When the championLevel is advanced the tokensEarned resets to 0.",
     )
-    milestone_grades: Optional[List[str]] = Field(None, alias='milestoneGrades')
+    milestone_grades: Optional[List[str]] = Field(None, alias="milestoneGrades")

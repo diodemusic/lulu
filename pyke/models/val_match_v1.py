@@ -10,47 +10,47 @@ from pydantic import BaseModel, Field
 
 
 class MatchInfoDto(BaseModel):
-    match_id: str = Field(..., alias='matchId')
-    map_id: str = Field(..., alias='mapId')
-    game_version: str = Field(..., alias='gameVersion')
-    game_length_millis: Optional[int] = Field(None, alias='gameLengthMillis')
+    match_id: str = Field(..., alias="matchId")
+    map_id: str = Field(..., alias="mapId")
+    game_version: str = Field(..., alias="gameVersion")
+    game_length_millis: Optional[int] = Field(None, alias="gameLengthMillis")
     region: str
-    game_start_millis: int = Field(..., alias='gameStartMillis')
-    provisioning_flow_id: str = Field(..., alias='provisioningFlowId')
-    is_completed: bool = Field(..., alias='isCompleted')
-    custom_game_name: str = Field(..., alias='customGameName')
-    queue_id: str = Field(..., alias='queueId')
-    game_mode: str = Field(..., alias='gameMode')
-    is_ranked: bool = Field(..., alias='isRanked')
-    season_id: str = Field(..., alias='seasonId')
-    premier_match_info: Dict[str, Any] = Field(..., alias='premierMatchInfo')
+    game_start_millis: int = Field(..., alias="gameStartMillis")
+    provisioning_flow_id: str = Field(..., alias="provisioningFlowId")
+    is_completed: bool = Field(..., alias="isCompleted")
+    custom_game_name: str = Field(..., alias="customGameName")
+    queue_id: str = Field(..., alias="queueId")
+    game_mode: str = Field(..., alias="gameMode")
+    is_ranked: bool = Field(..., alias="isRanked")
+    season_id: str = Field(..., alias="seasonId")
+    premier_match_info: Dict[str, Any] = Field(..., alias="premierMatchInfo")
 
 
 class AbilityCastsDto(BaseModel):
-    grenade_casts: int = Field(..., alias='grenadeCasts')
-    ability1_casts: int = Field(..., alias='ability1Casts')
-    ability2_casts: int = Field(..., alias='ability2Casts')
-    ultimate_casts: int = Field(..., alias='ultimateCasts')
+    grenade_casts: int = Field(..., alias="grenadeCasts")
+    ability1_casts: int = Field(..., alias="ability1Casts")
+    ability2_casts: int = Field(..., alias="ability2Casts")
+    ultimate_casts: int = Field(..., alias="ultimateCasts")
 
 
 class CoachDto(BaseModel):
     puuid: str
-    team_id: str = Field(..., alias='teamId')
+    team_id: str = Field(..., alias="teamId")
 
 
 class TeamDto(BaseModel):
     team_id: str = Field(
         ...,
-        alias='teamId',
-        description='This is an arbitrary string. Red and Blue in bomb modes. The puuid of the player in deathmatch.',
+        alias="teamId",
+        description="This is an arbitrary string. Red and Blue in bomb modes. The puuid of the player in deathmatch.",
     )
     won: bool
-    rounds_played: int = Field(..., alias='roundsPlayed')
-    rounds_won: int = Field(..., alias='roundsWon')
+    rounds_played: int = Field(..., alias="roundsPlayed")
+    rounds_won: int = Field(..., alias="roundsWon")
     num_points: int = Field(
         ...,
-        alias='numPoints',
-        description='Team points scored. Number of kills in deathmatch.',
+        alias="numPoints",
+        description="Team points scored. Number of kills in deathmatch.",
     )
 
 
@@ -60,13 +60,13 @@ class LocationDto(BaseModel):
 
 
 class FinishingDamageDto(BaseModel):
-    damage_type: str = Field(..., alias='damageType')
-    damage_item: str = Field(..., alias='damageItem')
-    is_secondary_fire_mode: bool = Field(..., alias='isSecondaryFireMode')
+    damage_type: str = Field(..., alias="damageType")
+    damage_item: str = Field(..., alias="damageItem")
+    is_secondary_fire_mode: bool = Field(..., alias="isSecondaryFireMode")
 
 
 class DamageDto(BaseModel):
-    receiver: str = Field(..., description='PUUID')
+    receiver: str = Field(..., description="PUUID")
     damage: int
     legshots: int
     bodyshots: int
@@ -74,7 +74,7 @@ class DamageDto(BaseModel):
 
 
 class EconomyDto(BaseModel):
-    loadout_value: int = Field(..., alias='loadoutValue')
+    loadout_value: int = Field(..., alias="loadoutValue")
     weapon: str
     armor: str
     remaining: int
@@ -82,50 +82,50 @@ class EconomyDto(BaseModel):
 
 
 class AbilityDto(BaseModel):
-    grenade_effects: Optional[str] = Field(None, alias='grenadeEffects')
-    ability1_effects: Optional[str] = Field(None, alias='ability1Effects')
-    ability2_effects: Optional[str] = Field(None, alias='ability2Effects')
-    ultimate_effects: Optional[str] = Field(None, alias='ultimateEffects')
+    grenade_effects: Optional[str] = Field(None, alias="grenadeEffects")
+    ability1_effects: Optional[str] = Field(None, alias="ability1Effects")
+    ability2_effects: Optional[str] = Field(None, alias="ability2Effects")
+    ultimate_effects: Optional[str] = Field(None, alias="ultimateEffects")
 
 
 class MatchlistEntryDto(BaseModel):
-    match_id: str = Field(..., alias='matchId')
-    game_start_time_millis: int = Field(..., alias='gameStartTimeMillis')
-    queue_id: str = Field(..., alias='queueId')
+    match_id: str = Field(..., alias="matchId")
+    game_start_time_millis: int = Field(..., alias="gameStartTimeMillis")
+    queue_id: str = Field(..., alias="queueId")
 
 
 class RecentMatchesDto(BaseModel):
-    current_time: int = Field(..., alias='currentTime')
+    current_time: int = Field(..., alias="currentTime")
     match_ids: List[str] = Field(
-        ..., alias='matchIds', description='A list of recent match ids.'
+        ..., alias="matchIds", description="A list of recent match ids."
     )
 
 
 class PlayerStatsDto(BaseModel):
     score: int
-    rounds_played: int = Field(..., alias='roundsPlayed')
+    rounds_played: int = Field(..., alias="roundsPlayed")
     kills: int
     deaths: int
     assists: int
-    playtime_millis: int = Field(..., alias='playtimeMillis')
-    ability_casts: Optional[AbilityCastsDto] = Field(None, alias='abilityCasts')
+    playtime_millis: int = Field(..., alias="playtimeMillis")
+    ability_casts: Optional[AbilityCastsDto] = Field(None, alias="abilityCasts")
 
 
 class PlayerLocationsDto(BaseModel):
     puuid: str
-    view_radians: float = Field(..., alias='viewRadians')
+    view_radians: float = Field(..., alias="viewRadians")
     location: LocationDto
 
 
 class KillDto(BaseModel):
-    time_since_game_start_millis: int = Field(..., alias='timeSinceGameStartMillis')
-    time_since_round_start_millis: int = Field(..., alias='timeSinceRoundStartMillis')
-    killer: str = Field(..., description='PUUID')
-    victim: str = Field(..., description='PUUID')
-    victim_location: LocationDto = Field(..., alias='victimLocation')
-    assistants: List[str] = Field(..., description='List of PUUIDs')
-    player_locations: List[PlayerLocationsDto] = Field(..., alias='playerLocations')
-    finishing_damage: FinishingDamageDto = Field(..., alias='finishingDamage')
+    time_since_game_start_millis: int = Field(..., alias="timeSinceGameStartMillis")
+    time_since_round_start_millis: int = Field(..., alias="timeSinceRoundStartMillis")
+    killer: str = Field(..., description="PUUID")
+    victim: str = Field(..., description="PUUID")
+    victim_location: LocationDto = Field(..., alias="victimLocation")
+    assistants: List[str] = Field(..., description="List of PUUIDs")
+    player_locations: List[PlayerLocationsDto] = Field(..., alias="playerLocations")
+    finishing_damage: FinishingDamageDto = Field(..., alias="finishingDamage")
 
 
 class MatchlistDto(BaseModel):
@@ -135,17 +135,17 @@ class MatchlistDto(BaseModel):
 
 class PlayerDto(BaseModel):
     puuid: str
-    game_name: str = Field(..., alias='gameName')
-    tag_line: str = Field(..., alias='tagLine')
-    team_id: str = Field(..., alias='teamId')
-    party_id: str = Field(..., alias='partyId')
-    character_id: Optional[str] = Field(None, alias='characterId')
+    game_name: str = Field(..., alias="gameName")
+    tag_line: str = Field(..., alias="tagLine")
+    team_id: str = Field(..., alias="teamId")
+    party_id: str = Field(..., alias="partyId")
+    character_id: Optional[str] = Field(None, alias="characterId")
     stats: Optional[PlayerStatsDto] = None
-    competitive_tier: int = Field(..., alias='competitiveTier')
-    is_observer: bool = Field(..., alias='isObserver')
-    player_card: str = Field(..., alias='playerCard')
-    player_title: str = Field(..., alias='playerTitle')
-    account_level: int = Field(..., alias='accountLevel')
+    competitive_tier: int = Field(..., alias="competitiveTier")
+    is_observer: bool = Field(..., alias="isObserver")
+    player_card: str = Field(..., alias="playerCard")
+    player_title: str = Field(..., alias="playerTitle")
+    account_level: int = Field(..., alias="accountLevel")
 
 
 class PlayerRoundStatsDto(BaseModel):
@@ -158,35 +158,35 @@ class PlayerRoundStatsDto(BaseModel):
 
 
 class RoundResultDto(BaseModel):
-    round_num: int = Field(..., alias='roundNum')
-    round_result: str = Field(..., alias='roundResult')
-    round_ceremony: str = Field(..., alias='roundCeremony')
-    winning_team: str = Field(..., alias='winningTeam')
-    winning_team_role: str = Field(..., alias='winningTeamRole')
+    round_num: int = Field(..., alias="roundNum")
+    round_result: str = Field(..., alias="roundResult")
+    round_ceremony: str = Field(..., alias="roundCeremony")
+    winning_team: str = Field(..., alias="winningTeam")
+    winning_team_role: str = Field(..., alias="winningTeamRole")
     bomb_planter: Optional[str] = Field(
-        None, alias='bombPlanter', description='PUUID of player'
+        None, alias="bombPlanter", description="PUUID of player"
     )
     bomb_defuser: Optional[str] = Field(
-        None, alias='bombDefuser', description='PUUID of player'
+        None, alias="bombDefuser", description="PUUID of player"
     )
-    plant_round_time: int = Field(..., alias='plantRoundTime')
+    plant_round_time: int = Field(..., alias="plantRoundTime")
     plant_player_locations: Optional[List[PlayerLocationsDto]] = Field(
-        None, alias='plantPlayerLocations'
+        None, alias="plantPlayerLocations"
     )
-    plant_location: LocationDto = Field(..., alias='plantLocation')
-    plant_site: str = Field(..., alias='plantSite')
-    defuse_round_time: int = Field(..., alias='defuseRoundTime')
+    plant_location: LocationDto = Field(..., alias="plantLocation")
+    plant_site: str = Field(..., alias="plantSite")
+    defuse_round_time: int = Field(..., alias="defuseRoundTime")
     defuse_player_locations: Optional[List[PlayerLocationsDto]] = Field(
-        None, alias='defusePlayerLocations'
+        None, alias="defusePlayerLocations"
     )
-    defuse_location: LocationDto = Field(..., alias='defuseLocation')
-    player_stats: List[PlayerRoundStatsDto] = Field(..., alias='playerStats')
-    round_result_code: str = Field(..., alias='roundResultCode')
+    defuse_location: LocationDto = Field(..., alias="defuseLocation")
+    player_stats: List[PlayerRoundStatsDto] = Field(..., alias="playerStats")
+    round_result_code: str = Field(..., alias="roundResultCode")
 
 
 class MatchDto(BaseModel):
-    match_info: MatchInfoDto = Field(..., alias='matchInfo')
+    match_info: MatchInfoDto = Field(..., alias="matchInfo")
     players: List[PlayerDto]
     coaches: List[CoachDto]
     teams: Optional[List[TeamDto]] = None
-    round_results: Optional[List[RoundResultDto]] = Field(None, alias='roundResults')
+    round_results: Optional[List[RoundResultDto]] = Field(None, alias="roundResults")

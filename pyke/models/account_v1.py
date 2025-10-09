@@ -11,16 +11,16 @@ from pydantic import BaseModel, Field
 
 class AccountDto(BaseModel):
     puuid: str = Field(
-        ..., description='Encrypted PUUID. Exact length of 78 characters.'
+        ..., description="Encrypted PUUID. Exact length of 78 characters."
     )
     game_name: Optional[str] = Field(
         None,
-        alias='gameName',
+        alias="gameName",
         description="This field may be excluded from the response if the account doesn't have a gameName.",
     )
     tag_line: Optional[str] = Field(
         None,
-        alias='tagLine',
+        alias="tagLine",
         description="This field may be excluded from the response if the account doesn't have a tagLine.",
     )
 
@@ -28,13 +28,13 @@ class AccountDto(BaseModel):
 class AccountRegionDTO(BaseModel):
     puuid: str = Field(
         ...,
-        description='Player Universal Unique Identifier. Exact length of 78 characters. (Encrypted)',
+        description="Player Universal Unique Identifier. Exact length of 78 characters. (Encrypted)",
     )
-    game: str = Field(..., description='Game to lookup active region')
-    region: str = Field(..., description='Player active region')
+    game: str = Field(..., description="Game to lookup active region")
+    region: str = Field(..., description="Player active region")
 
 
 class ActiveShardDto(BaseModel):
     puuid: str
     game: str
-    active_shard: str = Field(..., alias='activeShard')
+    active_shard: str = Field(..., alias="activeShard")

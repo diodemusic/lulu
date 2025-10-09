@@ -12,10 +12,10 @@ from pydantic import BaseModel, Field
 class PlayerDto(BaseModel):
     name: str
     rank: int
-    lp: int = Field(..., description='League points.')
+    lp: int = Field(..., description="League points.")
 
 
 class LeaderboardDto(BaseModel):
     players: List[PlayerDto] = Field(
-        ..., description='A list of players in Master tier.'
+        ..., description="A list of players in Master tier."
     )

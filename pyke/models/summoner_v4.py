@@ -12,23 +12,23 @@ from pydantic import BaseModel, Field
 class SummonerDTO(BaseModel):
     profile_icon_id: int = Field(
         ...,
-        alias='profileIconId',
-        description='ID of the summoner icon associated with the summoner.',
+        alias="profileIconId",
+        description="ID of the summoner icon associated with the summoner.",
     )
     revision_date: int = Field(
         ...,
-        alias='revisionDate',
-        description='Date summoner was last modified specified as epoch milliseconds. The following events will update this timestamp: profile icon change, playing the tutorial or advanced tutorial, finishing a game, summoner name change.',
+        alias="revisionDate",
+        description="Date summoner was last modified specified as epoch milliseconds. The following events will update this timestamp: profile icon change, playing the tutorial or advanced tutorial, finishing a game, summoner name change.",
     )
     puuid: str = Field(
-        ..., description='Encrypted PUUID. Exact length of 78 characters.'
+        ..., description="Encrypted PUUID. Exact length of 78 characters."
     )
     summoner_level: int = Field(
         ...,
-        alias='summonerLevel',
-        description='Summoner level associated with the summoner.',
+        alias="summonerLevel",
+        description="Summoner level associated with the summoner.",
     )
     id: Optional[str] = Field(
         None,
-        description='Encrypted summoner ID. This field is deprecated and will be removed. Use `puuid` instead.',
+        description="Encrypted summoner ID. This field is deprecated and will be removed. Use `puuid` instead.",
     )
