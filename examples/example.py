@@ -8,7 +8,6 @@ load_dotenv()
 API_KEY = os.getenv("RIOT_API_KEY")
 
 # We always initialize the API like this
-# Check examples/ for loading an api key from a .env file
 api = Lulu(API_KEY)
 
 # Every lulu method follows the same convention as the Riot API
