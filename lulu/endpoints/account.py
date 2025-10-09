@@ -43,9 +43,7 @@ class AccountEndpoint:
 
         return Account(**data)
 
-    def region_by_puuid(
-        self, continent: Continent, puuid: str
-    ) -> AccountRegion:  # TODO add tft support
+    def region_by_puuid(self, continent: Continent, puuid: str) -> AccountRegion:
         """Get active region (lol and tft)
 
         Args:
