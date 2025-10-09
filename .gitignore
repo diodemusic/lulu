@@ -209,8 +209,8 @@ __marimo__/
 # DS Store
 .DS_Store
 
-# Local cSpell.words config
-/.vscode
-
 # Dependencies
 poetry.lock
+
+# OpenAPI Schema
+pyke/models/schema.json
