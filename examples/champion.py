@@ -2,13 +2,13 @@ import os
 
 from dotenv import load_dotenv
 
-import lulu
+from lulu import Lulu, Region
 
 load_dotenv()
 API_KEY = os.getenv("RIOT_API_KEY")
-api = lulu.Lulu(API_KEY)
+api = Lulu(API_KEY)
 
-rotations = api.champion.rotations(lulu.Region.EUW)
+rotations = api.champion.rotations(Region.EUW)
 
 print(f"Max new player level: {rotations.max_new_player_level}")
 print(

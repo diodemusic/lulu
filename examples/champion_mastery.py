@@ -2,14 +2,14 @@ import os
 
 from dotenv import load_dotenv
 
-import lulu
+from lulu import Continent, Lulu, Region, exceptions
 
 load_dotenv()
 API_KEY = os.getenv("RIOT_API_KEY")
-api = lulu.Lulu(API_KEY)
-REGION = lulu.Region.EUW
+api = Lulu(API_KEY)
+REGION = Region.EUW
 
-account = api.account.by_riot_id(lulu.Continent.EUROPE, "saves", "000")
+account = api.account.by_riot_id(Continent.EUROPE, "saves", "000")
 
 champion_masteries = api.champion_mastery.masteries_by_puuid(REGION, account.puuid)
 
@@ -26,7 +26,7 @@ try:
     champion_mastery = api.champion_mastery.by_puuid_and_champion_id(
         REGION, account.puuid, CHAMPION_ID
     )
-except lulu.exceptions.DataNotFound as e:
+except exceptions.DataNotFound as e:
     print(f"Champion id {CHAMPION_ID} not found: {e}")
     quit()
 

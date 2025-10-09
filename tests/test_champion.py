@@ -1,11 +1,11 @@
-import lulu
+from lulu import Lulu, Region
 from lulu.models.champion import ChampionInfo
 
 from .base import api  # type: ignore  # noqa: F401
 
 
-def test_champion_rotation(api: lulu.Lulu):  # noqa: F811
-    champion_rotation = api.champion.rotations(lulu.Region.EUW)
+def test_champion_rotation(api: Lulu):  # noqa: F811
+    champion_rotation = api.champion.rotations(Region.EUW)
 
     print(champion_rotation)
 
