@@ -3,6 +3,7 @@
 from .endpoints.account import AccountEndpoint
 from .endpoints.champion import ChampionEndpoint
 from .endpoints.champion_mastery import ChampionMasteryEndpoint
+from .endpoints.league_exp import LeagueExpEndpoint
 
 
 class Lulu:
@@ -12,3 +13,7 @@ class Lulu:
         self.account = AccountEndpoint(api_key)
         self.champion_mastery = ChampionMasteryEndpoint(api_key)
         self.champion = ChampionEndpoint(api_key)
+        self.league_exp = LeagueExpEndpoint(api_key)
+
+
+# TODO Add Clash endpoint when a clash is active
