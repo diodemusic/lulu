@@ -44,7 +44,7 @@ except exceptions.RateLimitExceeded as e:
 # Members can be accessed with dot notation just like before
 print(f"PUUID: {region.puuid}")
 print(f"Game: {region.game}")
-print(f"Region: {region.region.value}")
+print(f"Region: {region.region}")
 ```
 
 enjoy :)
