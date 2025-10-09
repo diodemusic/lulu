@@ -3,7 +3,7 @@ from ..enums.division import Division
 from ..enums.queue import Queue
 from ..enums.region import Region
 from ..enums.tier import Tier
-from ..models.league import LeagueEntry
+from ..models.league_exp_v4 import LeagueEntryDTO
 
 
 class LeagueExpEndpoint:
@@ -17,7 +17,7 @@ class LeagueExpEndpoint:
         tier: Tier,
         division: Division,
         page: int = 1,
-    ) -> list[LeagueEntry]:
+    ) -> list[LeagueEntryDTO]:
         """Get all the league entries.
 
         Args:
@@ -28,16 +28,16 @@ class LeagueExpEndpoint:
             page (int, optional): Starts with page 1. Defaults to 1.
 
         Returns:
-            list[LeagueEntry]: Set of pyke.models.champion.LeagueEntry objects.
+            list[LeagueEntryDTO]: Set of pyke.models.champion.LeagueEntryDTO objects.
         """
 
         path = f"/lol/league-exp/v4/entries/{queue.value}/{tier.value}/{division.value}"
         params = {"count": page}
         data = self.client.region_request(region=region, path=path, params=params)
 
-        league_entries: list[LeagueEntry] = []
+        league_entries: list[LeagueEntryDTO] = []
 
         for league_entry in data:
-            league_entries.append(LeagueEntry(**league_entry))
+            league_entries.append(LeagueEntryDTO(**league_entry))
 
         return league_entries

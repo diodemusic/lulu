@@ -1,14 +1,14 @@
 from ..base_client import BaseApiClient
 from ..enums.continent import Continent
 from ..enums.region import Region
-from ..models.account import Account, AccountRegion
+from ..models.account_v1 import AccountDto, AccountRegionDTO
 
 
 class AccountEndpoint:
     def __init__(self, api_key: str | None):
         self.client = BaseApiClient(api_key)
 
-    def by_puuid(self, continent: Continent, puuid: str) -> Account:
+    def by_puuid(self, continent: Continent, puuid: str) -> AccountDto:
         """Get account by puuid.
 
         Args:
@@ -16,17 +16,17 @@ class AccountEndpoint:
             puuid (str): Encrypted PUUID. Exact length of 78 characters.
 
         Returns:
-            Account: pyke.models.account.Account object.
+            AccountDto: pyke.models.account.AccountDto object.
         """
 
         path = f"/riot/account/v1/accounts/by-puuid/{puuid}"
         data = self.client.continent_request(continent=continent, path=path)
 
-        return Account(**data)
+        return AccountDto(**data)
 
     def by_riot_id(
         self, continent: Continent, game_name: str, tag_line: str
-    ) -> Account:
+    ) -> AccountDto:
         """Get account by riot id.
 
         Args:
@@ -35,15 +35,15 @@ class AccountEndpoint:
             tag_line (str): Riot id tag line.
 
         Returns:
-            Account: pyke.models.account.Account object.
+            AccountDto: pyke.models.account.AccountDto object.
         """
 
         path = f"/riot/account/v1/accounts/by-riot-id/{game_name}/{tag_line}"
         data = self.client.continent_request(continent=continent, path=path)
 
-        return Account(**data)
+        return AccountDto(**data)
 
-    def region_by_puuid(self, continent: Continent, puuid: str) -> AccountRegion:
+    def region_by_puuid(self, continent: Continent, puuid: str) -> AccountRegionDTO:
         """Get active region (lol and tft)
 
         Args:
@@ -51,11 +51,11 @@ class AccountEndpoint:
             puuid (str): Encrypted PUUID. Exact length of 78 characters.
 
         Returns:
-            AccountRegion: pyke.models.account.AccountRegion object.
+            AccountRegionDTO: pyke.models.account.AccountRegionDTO object.
         """
 
         path = f"/riot/account/v1/region/by-game/lol/by-puuid/{puuid}"
         data = self.client.continent_request(continent=continent, path=path)
         data["region"] = Region(data["region"])
 
-        return AccountRegion(**data)
+        return AccountRegionDTO(**data)

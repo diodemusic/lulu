@@ -1,6 +1,6 @@
 from ..base_client import BaseApiClient
 from ..enums.region import Region
-from ..models.champion import ChampionInfo
+from ..models.champion_v3 import ChampionInfo
 
 
 class ChampionEndpoint:

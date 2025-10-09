@@ -1,5 +1,5 @@
 from pyke import Pyke, Region
-from pyke.models.champion_mastery import ChampionMastery
+from pyke.models.champion_mastery_v4 import ChampionMasteryDto
 
 from .base import TEST_PUUID, api  # type: ignore  # noqa: F401
 
@@ -14,7 +14,7 @@ def test_champion_mastery_masteries_by_puuid(api: Pyke):  # noqa: F811
     )
 
     for champion_mastery in champion_mastery_masteries_by_puuid:
-        assert isinstance(champion_mastery, ChampionMastery)
+        assert isinstance(champion_mastery, ChampionMasteryDto)
 
 
 def test_champion_mastery_by_puuid_and_champion_id(api: Pyke):  # noqa: F811
@@ -24,7 +24,7 @@ def test_champion_mastery_by_puuid_and_champion_id(api: Pyke):  # noqa: F811
         )
     )
 
-    assert isinstance(champion_mastery_by_puuid_and_champion_id, ChampionMastery)
+    assert isinstance(champion_mastery_by_puuid_and_champion_id, ChampionMasteryDto)
 
 
 def test_champion_mastery_masteries_by_puuid_top(api: Pyke):  # noqa: F811
@@ -35,7 +35,7 @@ def test_champion_mastery_masteries_by_puuid_top(api: Pyke):  # noqa: F811
     assert len(champion_masteries_by_puuid_top) == 10
 
     for champion_mastery in champion_masteries_by_puuid_top:
-        assert isinstance(champion_mastery, ChampionMastery)
+        assert isinstance(champion_mastery, ChampionMasteryDto)
 
     champion_masteries_by_puuid_top = api.champion_mastery.masteries_by_puuid_top(
         region=Region.EUW, puuid=TEST_PUUID
@@ -44,7 +44,7 @@ def test_champion_mastery_masteries_by_puuid_top(api: Pyke):  # noqa: F811
     assert len(champion_masteries_by_puuid_top) == 3
 
     for champion_mastery in champion_masteries_by_puuid_top:
-        assert isinstance(champion_mastery, ChampionMastery)
+        assert isinstance(champion_mastery, ChampionMasteryDto)
 
 
 def test_champion_mastery_score_by_puuid(api: Pyke):  # noqa: F811
