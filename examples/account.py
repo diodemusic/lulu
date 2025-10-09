@@ -19,4 +19,4 @@ region = api.account.region_by_puuid(CONTINENT, account.puuid)
 
 print(f"PUUID: {region.puuid}")
 print(f"Game: {region.game}")
-print(f"Region: {region.region.value}")
+print(f"Region: {region.region}")
