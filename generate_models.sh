@@ -5,3 +5,5 @@ datamodel-codegen \
   --input-file-type openapi \
   --output pyke/models/ \
   --snake-case-field
+
+black .
