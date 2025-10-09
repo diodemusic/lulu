@@ -7,9 +7,12 @@ from __future__ import annotations
 from pydantic import BaseModel
 
 
-class MatchDto(BaseModel):
-    pass
+class DeckDto(BaseModel):
+    id: str
+    name: str
+    code: str
 
 
-class TimelineDto(BaseModel):
-    pass
+class NewDeckDto(BaseModel):
+    name: str
+    code: str

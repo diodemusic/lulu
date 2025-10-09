@@ -10,6 +10,9 @@ from pydantic import BaseModel, Field
 
 
 class SummonerDTO(BaseModel):
+    puuid: str = Field(
+        ..., description='Encrypted PUUID. Exact length of 78 characters.'
+    )
     profile_icon_id: int = Field(
         ...,
         alias='profileIconId',
@@ -19,9 +22,6 @@ class SummonerDTO(BaseModel):
         ...,
         alias='revisionDate',
         description='Date summoner was last modified specified as epoch milliseconds. The following events will update this timestamp: profile icon change, playing the tutorial or advanced tutorial, finishing a game, summoner name change.',
-    )
-    puuid: str = Field(
-        ..., description='Encrypted PUUID. Exact length of 78 characters.'
     )
     summoner_level: int = Field(
         ...,

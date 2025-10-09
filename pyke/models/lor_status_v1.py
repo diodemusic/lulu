@@ -5,7 +5,7 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import List, Optional
+from typing import List
 
 from pydantic import BaseModel, Field
 
@@ -57,17 +57,17 @@ class UpdateDto(BaseModel):
 
 class StatusDto(BaseModel):
     id: int
-    maintenance_status: Optional[MaintenanceStatus] = Field(
-        None, description='(Legal values:  scheduled,  in_progress,  complete)'
+    maintenance_status: MaintenanceStatus = Field(
+        ..., description='(Legal values:  scheduled,  in_progress,  complete)'
     )
-    incident_severity: Optional[IncidentSeverity] = Field(
-        None, description='(Legal values:  info,  warning,  critical)'
+    incident_severity: IncidentSeverity = Field(
+        ..., description='(Legal values:  info,  warning,  critical)'
     )
     titles: List[ContentDto]
     updates: List[UpdateDto]
     created_at: str
-    archive_at: Optional[str] = None
-    updated_at: Optional[str] = None
+    archive_at: str
+    updated_at: str
     platforms: List[Platform] = Field(
         ...,
         description='(Legal values: windows, macos, android, ios, ps4, xbone, switch)',

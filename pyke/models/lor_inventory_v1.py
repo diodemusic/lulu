@@ -7,9 +7,6 @@ from __future__ import annotations
 from pydantic import BaseModel
 
 
-class MatchDto(BaseModel):
-    pass
-
-
-class TimelineDto(BaseModel):
-    pass
+class CardDto(BaseModel):
+    code: str
+    count: str

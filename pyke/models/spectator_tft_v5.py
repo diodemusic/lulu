@@ -48,26 +48,14 @@ class GameCustomizationObject(BaseModel):
 
 
 class GameMode(Enum):
-    classic = 'CLASSIC'
-    odin = 'ODIN'
-    aram = 'ARAM'
-    tutorial = 'TUTORIAL'
-    oneforall = 'ONEFORALL'
-    ascension = 'ASCENSION'
-    firstblood = 'FIRSTBLOOD'
-    kingporo = 'KINGPORO'
+    tft = 'TFT'
 
 
 class GameType(Enum):
-    custom_game = 'CUSTOM_GAME'
-    matched_game = 'MATCHED_GAME'
-    tutorial_game = 'TUTORIAL_GAME'
+    matched = 'MATCHED'
 
 
 class Participant(BaseModel):
-    bot: bool = Field(
-        ..., description='Flag indicating whether or not this participant is a bot'
-    )
     spell2_id: int = Field(
         ...,
         alias='spell2Id',
@@ -111,9 +99,6 @@ class CurrentGameParticipant(BaseModel):
         alias='profileIconId',
         description='The ID of the profile icon used by this participant',
     )
-    bot: bool = Field(
-        ..., description='Flag indicating whether or not this participant is a bot'
-    )
     team_id: int = Field(
         ...,
         alias='teamId',
@@ -142,7 +127,7 @@ class FeaturedGameInfo(BaseModel):
     game_mode: GameMode = Field(
         ...,
         alias='gameMode',
-        description='The game mode\n             (Legal values:  CLASSIC,  ODIN,  ARAM,  TUTORIAL,  ONEFORALL,  ASCENSION,  FIRSTBLOOD,  KINGPORO)',
+        description='The game mode\n             (Legal values:  TFT)',
     )
     game_length: int = Field(
         ...,
@@ -153,7 +138,7 @@ class FeaturedGameInfo(BaseModel):
     game_type: GameType = Field(
         ...,
         alias='gameType',
-        description='The game type\n             (Legal values:  CUSTOM_GAME,  MATCHED_GAME,  TUTORIAL_GAME)',
+        description='The game type\n             (Legal values:  MATCHED)',
     )
     banned_champions: List[BannedChampion] = Field(
         ..., alias='bannedChampions', description='Banned champion information'
