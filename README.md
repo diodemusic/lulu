@@ -1,6 +1,6 @@
-# lulu
+# pyke
 
-**lulu** is a simple-by-design Riot API wrapper specifically for League of Legends.
+**pyke** is a simple-by-design Riot API wrapper specifically for League of Legends.
 
 ## Installation
 
@@ -13,18 +13,18 @@ WIP
 ## Documentation & Examples
 
 - [Documentation (WIP)](/)
-- [Examples](https://github.com/diodemusic/lulu/tree/master/examples)
+- [Examples](https://github.com/diodemusic/pyke/tree/master/examples)
 
 ## Example Usage
 
 ```py
-from lulu import Lulu
+from pyke import Pyke
 
 # We always initialize the API like this
 # Check examples/example.py for loading an api key from a .env file
-api = Lulu("API_KEY")
+api = Pyke("API_KEY")
 
-# Every lulu method follows the same convention as the Riot API
+# Every pyke method follows the same convention as the Riot API
 # For example account/v1/accounts/by-riot-id/{gameName}/{tagLine} becomes the following
 account = api.account.by_riot_id(Continent.EUROPE, "game_name", "tag_line")
 
@@ -32,9 +32,9 @@ account = api.account.by_riot_id(Continent.EUROPE, "game_name", "tag_line")
 print(f"Riot ID: {account.game_name}#{account.tag_line}")
 print(f"PUUID: {account.puuid}")
 
-# lulu throws custom exceptions, again following the same conventions as the Riot API
+# pyke throws custom exceptions, again following the same conventions as the Riot API
 # For example a request that responds with error code 429
-# Will throw lulu.exceptions.RateLimitExceeded
+# Will throw pyke.exceptions.RateLimitExceeded
 try:
     region = api.account.region_by_puuid(Continent.EUROPE, account.puuid)
 except exceptions.RateLimitExceeded as e:

@@ -1,5 +1,5 @@
-from lulu import Lulu, Region
-from lulu.models.champion_mastery import ChampionMastery
+from pyke import Pyke, Region
+from pyke.models.champion_mastery import ChampionMastery
 
 from .base import TEST_PUUID, api  # type: ignore  # noqa: F401
 
@@ -7,7 +7,7 @@ if not TEST_PUUID:
     quit()
 
 
-def test_champion_mastery_masteries_by_puuid(api: Lulu):  # noqa: F811
+def test_champion_mastery_masteries_by_puuid(api: Pyke):  # noqa: F811
     champion_mastery_masteries_by_puuid = api.champion_mastery.masteries_by_puuid(
         region=Region.EUW,
         puuid=TEST_PUUID,
@@ -17,7 +17,7 @@ def test_champion_mastery_masteries_by_puuid(api: Lulu):  # noqa: F811
         assert isinstance(champion_mastery, ChampionMastery)
 
 
-def test_champion_mastery_by_puuid_and_champion_id(api: Lulu):  # noqa: F811
+def test_champion_mastery_by_puuid_and_champion_id(api: Pyke):  # noqa: F811
     champion_mastery_by_puuid_and_champion_id = (
         api.champion_mastery.by_puuid_and_champion_id(
             region=Region.EUW, puuid=TEST_PUUID, champion_id=11
@@ -27,7 +27,7 @@ def test_champion_mastery_by_puuid_and_champion_id(api: Lulu):  # noqa: F811
     assert isinstance(champion_mastery_by_puuid_and_champion_id, ChampionMastery)
 
 
-def test_champion_mastery_masteries_by_puuid_top(api: Lulu):  # noqa: F811
+def test_champion_mastery_masteries_by_puuid_top(api: Pyke):  # noqa: F811
     champion_masteries_by_puuid_top = api.champion_mastery.masteries_by_puuid_top(
         region=Region.EUW, puuid=TEST_PUUID, count=10
     )
@@ -47,7 +47,7 @@ def test_champion_mastery_masteries_by_puuid_top(api: Lulu):  # noqa: F811
         assert isinstance(champion_mastery, ChampionMastery)
 
 
-def test_champion_mastery_score_by_puuid(api: Lulu):  # noqa: F811
+def test_champion_mastery_score_by_puuid(api: Pyke):  # noqa: F811
     champion_mastery_score_by_puuid = api.champion_mastery.score_by_puuid(
         region=Region.EUW, puuid=TEST_PUUID
     )

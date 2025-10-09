@@ -28,7 +28,7 @@ class LeagueExpEndpoint:
             page (int, optional): Starts with page 1. Defaults to 1.
 
         Returns:
-            list[LeagueEntry]: Set of lulu.models.champion.LeagueEntry objects.
+            list[LeagueEntry]: Set of pyke.models.champion.LeagueEntry objects.
         """
 
         path = f"/lol/league-exp/v4/entries/{queue.value}/{tier.value}/{division.value}"

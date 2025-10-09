@@ -15,7 +15,7 @@ class ChampionMasteryEndpoint:
             puuid (str): Encrypted PUUID. Exact length of 78 characters.
 
         Returns:
-            list[ChampionMastery]: List of lulu.models.champion_mastery.ChampionMastery objects.
+            list[ChampionMastery]: List of pyke.models.champion_mastery.ChampionMastery objects.
         """
 
         path = f"/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}"
@@ -39,7 +39,7 @@ class ChampionMasteryEndpoint:
             champion_id (int): Champion ID for this entry.
 
         Returns:
-            ChampionMastery: lulu.models.champion_mastery.ChampionMastery object.
+            ChampionMastery: pyke.models.champion_mastery.ChampionMastery object.
         """
 
         path = f"/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}/by-champion/{champion_id}"
@@ -58,7 +58,7 @@ class ChampionMasteryEndpoint:
             count (int | None, optional): Number of entries to retrieve. defaults to 3.
 
         Returns:
-            list[ChampionMastery]: List of lulu.models.champion_mastery.ChampionMastery objects.
+            list[ChampionMastery]: List of pyke.models.champion_mastery.ChampionMastery objects.
         """
 
         path = f"/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}/top"

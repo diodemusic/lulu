@@ -2,11 +2,11 @@ import os
 
 from dotenv import load_dotenv
 
-from lulu import Continent, Lulu
+from pyke import Continent, Pyke
 
 load_dotenv()
 API_KEY = os.getenv("RIOT_API_KEY")
-api = Lulu(API_KEY)
+api = Pyke(API_KEY)
 CONTINENT = Continent.EUROPE
 
 account = api.account.by_riot_id(CONTINENT, "saves", "000")

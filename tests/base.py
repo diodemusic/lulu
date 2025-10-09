@@ -3,7 +3,7 @@ import os
 import pytest
 from dotenv import load_dotenv
 
-from lulu import Lulu
+from pyke import Pyke
 
 load_dotenv()
 API_KEY = os.getenv("RIOT_API_KEY")
@@ -19,7 +19,7 @@ if not TEST_PUUID:
 
 
 @pytest.fixture
-def api() -> Lulu:
-    api = Lulu(API_KEY)
+def api() -> Pyke:
+    api = Pyke(API_KEY)
 
     return api

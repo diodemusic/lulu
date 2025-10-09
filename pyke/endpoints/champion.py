@@ -14,7 +14,7 @@ class ChampionEndpoint:
             region (Region): Region to execute against.
 
         Returns:
-            ChampionInfo: lulu.models.champion.ChampionInfo object.
+            ChampionInfo: pyke.models.champion.ChampionInfo object.
         """
 
         path = "/lol/platform/v3/champion-rotations"

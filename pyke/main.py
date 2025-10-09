@@ -1,4 +1,4 @@
-# lulu
+# pyke
 
 from .endpoints.account import AccountEndpoint
 from .endpoints.champion import ChampionEndpoint
@@ -6,7 +6,7 @@ from .endpoints.champion_mastery import ChampionMasteryEndpoint
 from .endpoints.league_exp import LeagueExpEndpoint
 
 
-class Lulu:
+class Pyke:
     """Main entrypoint for interacting with the Riot API."""
 
     def __init__(self, api_key: str | None):

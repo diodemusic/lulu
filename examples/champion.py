@@ -2,11 +2,11 @@ import os
 
 from dotenv import load_dotenv
 
-from lulu import Lulu, Region
+from pyke import Pyke, Region
 
 load_dotenv()
 API_KEY = os.getenv("RIOT_API_KEY")
-api = Lulu(API_KEY)
+api = Pyke(API_KEY)
 
 rotations = api.champion.rotations(Region.EUW)
 
