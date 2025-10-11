@@ -5,7 +5,7 @@ from .base import api
 
 
 def test_champion_rotation(api: Pyke):
-    champion_rotation = api.champion.rotations(Region.EUW)
+    champion_rotation = api.champion.rotations(region=Region.EUW)
 
     print(champion_rotation)
 
