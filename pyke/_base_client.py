@@ -7,7 +7,7 @@ from .enums.continent import Continent
 from .enums.region import Region
 
 
-class BaseApiClient:
+class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
     CONTINENT_BASE = "https://{continent}.api.riotgames.com"
     REGION_BASE = "https://{region}.api.riotgames.com"
 
@@ -57,13 +57,13 @@ class BaseApiClient:
 
         return response.json()
 
-    def continent_request(
+    def _continent_request(
         self, continent: Continent, path: str, params: dict[Any, Any] | None = None
     ):
         url = f"{self.CONTINENT_BASE.format(continent=continent.value)}{path}"
         return self._get(url, params)
 
-    def region_request(
+    def _region_request(
         self, region: Region, path: str, params: dict[Any, Any] | None = None
     ):
         url = f"{self.REGION_BASE.format(region=region.value)}{path}"

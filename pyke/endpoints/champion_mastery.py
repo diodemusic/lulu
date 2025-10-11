@@ -1,11 +1,11 @@
-from ..base_client import BaseApiClient
+from .._base_client import _BaseApiClient
+from .._models.champion_mastery_v4 import ChampionMasteryDto
 from ..enums.region import Region
-from ..models.champion_mastery_v4 import ChampionMasteryDto
 
 
 class ChampionMasteryEndpoint:
     def __init__(self, api_key: str | None):
-        self.client = BaseApiClient(api_key)
+        self._client = _BaseApiClient(api_key)
 
     def masteries_by_puuid(
         self, region: Region, puuid: str
@@ -21,7 +21,7 @@ class ChampionMasteryEndpoint:
         """
 
         path = f"/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}"
-        data = self.client.region_request(region=region, path=path)
+        data = self._client._region_request(region=region, path=path)
 
         champion_masteries: list[ChampionMasteryDto] = []
 
@@ -45,7 +45,7 @@ class ChampionMasteryEndpoint:
         """
 
         path = f"/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}/by-champion/{champion_id}"
-        data = self.client.region_request(region=region, path=path)
+        data = self._client._region_request(region=region, path=path)
 
         return ChampionMasteryDto(**data)
 
@@ -65,7 +65,7 @@ class ChampionMasteryEndpoint:
 
         path = f"/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}/top"
         params = {"count": count}
-        data = self.client.region_request(region=region, path=path, params=params)
+        data = self._client._region_request(region=region, path=path, params=params)
 
         champion_masteries: list[ChampionMasteryDto] = []
 
@@ -86,6 +86,6 @@ class ChampionMasteryEndpoint:
         """
 
         path = f"/lol/champion-mastery/v4/scores/by-puuid/{puuid}"
-        data = self.client.region_request(region=region, path=path)
+        data = self._client._region_request(region=region, path=path)
 
         return data

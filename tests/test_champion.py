@@ -1,5 +1,5 @@
 from pyke import Pyke, Region
-from pyke.models.champion_v3 import ChampionInfo
+from pyke._models.champion_v3 import ChampionInfo
 
 from .base import api  # type: ignore  # noqa: F401
 

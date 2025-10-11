@@ -1,14 +1,14 @@
-from ..base_client import BaseApiClient
+from .._base_client import _BaseApiClient
+from .._models.league_exp_v4 import LeagueEntryDTO
 from ..enums.division import Division
 from ..enums.queue import Queue
 from ..enums.region import Region
 from ..enums.tier import Tier
-from ..models.league_exp_v4 import LeagueEntryDTO
 
 
 class LeagueExpEndpoint:
     def __init__(self, api_key: str | None):
-        self.client = BaseApiClient(api_key)
+        self._client = _BaseApiClient(api_key)
 
     def entries_by_queue_tier_division(
         self,
@@ -33,7 +33,7 @@ class LeagueExpEndpoint:
 
         path = f"/lol/league-exp/v4/entries/{queue.value}/{tier.value}/{division.value}"
         params = {"count": page}
-        data = self.client.region_request(region=region, path=path, params=params)
+        data = self._client._region_request(region=region, path=path, params=params)
 
         league_entries: list[LeagueEntryDTO] = []
 

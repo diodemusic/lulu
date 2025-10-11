@@ -1,6 +1,6 @@
-from ..base_client import BaseApiClient
+from .._base_client import _BaseApiClient
 
 
 class SummonerEndpoint:
     def __init__(self, api_key: str | None):
-        self.client = BaseApiClient(api_key)
+        self._client = _BaseApiClient(api_key)

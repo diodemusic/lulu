@@ -1,5 +1,5 @@
 from pyke import Division, Pyke, Queue, Region, Tier
-from pyke.models.league_exp_v4 import LeagueEntryDTO
+from pyke._models.league_exp_v4 import LeagueEntryDTO
 
 from .base import api  # type: ignore  # noqa: F401
 
