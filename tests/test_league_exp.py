@@ -1,10 +1,10 @@
 from pyke import Division, Pyke, Queue, Region, Tier
 from pyke._models.league_exp_v4 import LeagueEntryDTO
 
-from .base import api  # type: ignore  # noqa: F401
+from .base import api
 
 
-def test_entries_by_queue_tier_division(api: Pyke):  # noqa: F811
+def test_entries_by_queue_tier_division(api: Pyke):
     league_entries = api.league_exp.entries_by_queue_tier_division(
         Region.EUW, Queue.SOLO_DUO, Tier.GOLD, Division.II, page=2
     )
