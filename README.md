@@ -1,6 +1,6 @@
 # pyke
 
-**pyke** is a simple-by-design Riot API wrapper specifically for League of Legends.
+**pyke** is an opinionated, simple-by-design Riot API wrapper specifically for League of Legends.
 
 ## Installation
 
