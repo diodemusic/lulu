@@ -8,7 +8,7 @@ class LeagueExpEndpoint:
     def __init__(self, api_key: str | None):
         self._client = _BaseApiClient(api_key)
 
-    def entries_by_queue_tier_division(
+    def by_queue_tier_division(
         self,
         region: Region,
         queue: Queue,

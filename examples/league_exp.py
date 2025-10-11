@@ -8,7 +8,7 @@ load_dotenv()
 API_KEY = os.getenv("RIOT_API_KEY")
 api = Pyke(API_KEY)
 
-league_entries = api.league_exp.entries_by_queue_tier_division(
+league_entries = api.league_exp.by_queue_tier_division(
     Region.EUW, Queue.SOLO_DUO, Tier.GOLD, Division.II, page=2
 )
 
