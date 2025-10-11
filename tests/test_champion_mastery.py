@@ -28,22 +28,24 @@ def test_champion_mastery_by_puuid_and_champion_id(api: Pyke):
 
 
 def test_champion_mastery_masteries_by_puuid_top(api: Pyke):
-    champion_masteries_by_puuid_top = api.champion_mastery.masteries_by_puuid_top(
-        region=Region.EUW, puuid=TEST_PUUID, count=10
+    champion_mastery_masteries_by_puuid_top = (
+        api.champion_mastery.masteries_by_puuid_top(
+            region=Region.EUW, puuid=TEST_PUUID, count=10
+        )
     )
 
-    assert len(champion_masteries_by_puuid_top) == 10
+    assert len(champion_mastery_masteries_by_puuid_top) == 10
 
-    for champion_mastery in champion_masteries_by_puuid_top:
+    for champion_mastery in champion_mastery_masteries_by_puuid_top:
         assert isinstance(champion_mastery, ChampionMasteryDto)
 
-    champion_masteries_by_puuid_top = api.champion_mastery.masteries_by_puuid_top(
-        region=Region.EUW, puuid=TEST_PUUID
+    champion_mastery_masteries_by_puuid_top = (
+        api.champion_mastery.masteries_by_puuid_top(region=Region.EUW, puuid=TEST_PUUID)
     )
 
-    assert len(champion_masteries_by_puuid_top) == 3
+    assert len(champion_mastery_masteries_by_puuid_top) == 3
 
-    for champion_mastery in champion_masteries_by_puuid_top:
+    for champion_mastery in champion_mastery_masteries_by_puuid_top:
         assert isinstance(champion_mastery, ChampionMasteryDto)
 
 
