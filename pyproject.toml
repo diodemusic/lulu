@@ -1,5 +1,5 @@
 [project]
-name = "lulu"
+name = "pyke"
 version = "0.1.0"
 description = "A Riot API wrapper specifically for League of Legends."
 authors = [{ name = "diodemusic" }]
