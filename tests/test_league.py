@@ -36,3 +36,11 @@ def test_by_queue_tier_division(api: Pyke):
 
     for league_entry in by_queue_tier_division:
         assert isinstance(league_entry, LeagueEntryDTO)
+
+
+def test_grandmaster_leagues_by_queue(api: Pyke):
+    grandmaster_leagues_by_queue = api.league.grandmaster_leagues_by_queue(
+        region=Region.EUW, queue=Queue.SOLO_DUO
+    )
+
+    assert isinstance(grandmaster_leagues_by_queue, LeagueListDTO)
