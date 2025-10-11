@@ -1,6 +1,7 @@
+from pyke import Region
+
 from .._base_client import _BaseApiClient
 from .._models.champion_v3 import ChampionInfo
-from ..enums.region import Region
 
 
 class ChampionEndpoint:
@@ -11,10 +12,10 @@ class ChampionEndpoint:
         """Returns champion rotations, including free-to-play and low-level free-to-play rotations.
 
         Args:
-            region (Region): Region to execute against.
+            region (Region): Region to execute against (pyke.enums.region.Region).
 
         Returns:
-            ChampionInfo: pyke.models.champion.ChampionInfo object.
+            ChampionInfo: pyke.models.champion_v3.ChampionInfo object.
         """
 
         path = "/lol/platform/v3/champion-rotations"

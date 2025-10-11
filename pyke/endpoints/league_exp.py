@@ -1,9 +1,7 @@
+from pyke import Division, Queue, Region, Tier
+
 from .._base_client import _BaseApiClient
 from .._models.league_exp_v4 import LeagueEntryDTO
-from ..enums.division import Division
-from ..enums.queue import Queue
-from ..enums.region import Region
-from ..enums.tier import Tier
 
 
 class LeagueExpEndpoint:
@@ -21,14 +19,14 @@ class LeagueExpEndpoint:
         """Get all the league entries.
 
         Args:
-            region (Region): Region to execute against.
-            queue (Queue): Ranked queue enum.
-            tier (Tier): Ranked tier enum.
-            division (Division): Ranked tier enum.
+            region (Region): Region to execute against (pyke.enums.region.Region).
+            queue (Queue): Ranked queue type (pyke.enums.queue.Queue).
+            tier (Tier): Ranked tier (pyke.enums.tier.Tier).
+            division (Division): Ranked division (pyke.enums.division.Division).
             page (int, optional): Starts with page 1. Defaults to 1.
 
         Returns:
-            list[LeagueEntryDTO]: Set of pyke.models.champion.LeagueEntryDTO objects.
+            list[LeagueEntryDTO]: List of pyke.models.league_exp_v4.LeagueEntryDTO objects.
         """
 
         path = f"/lol/league-exp/v4/entries/{queue.value}/{tier.value}/{division.value}"
