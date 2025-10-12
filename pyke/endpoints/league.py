@@ -100,3 +100,9 @@ class LeagueEndpoint:
         data = self._client._region_request(region=region, path=path)
 
         return LeagueListDTO(**data)
+
+    def by_league_id(self, region: Region, league_id: str) -> LeagueListDTO:
+        path = f"/lol/league/v4/leagues/{league_id}"
+        data = self._client._region_request(region=region, path=path)
+
+        return LeagueListDTO(**data)
