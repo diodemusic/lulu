@@ -116,3 +116,23 @@ class LeagueEndpoint:
         data = self._client._region_request(region=region, path=path)
 
         return LeagueListDTO(**data)
+
+    def master_leagues_by_queue(
+        self,
+        region: Region,
+        queue: Queue,
+    ) -> LeagueListDTO:
+        """Get the master league for given queue.
+
+        Args:
+            region (Region): Region to execute against (pyke.enums.region.Region).
+            queue (Queue): Ranked queue type (pyke.enums.queue.Queue).
+
+        Returns:
+            LeagueListDTO: pyke.models.league_v4.LeagueListDTO object.
+        """
+
+        path = f"/lol/league/v4/masterleagues/by-queue/{queue.value}"
+        data = self._client._region_request(region=region, path=path)
+
+        return LeagueListDTO(**data)

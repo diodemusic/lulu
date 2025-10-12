@@ -64,3 +64,14 @@ def test_by_league_id(api: Pyke):
 
     for league_entry in by_league_id.entries:
         assert isinstance(league_entry, LeagueItemDTO)
+
+
+def test_master_leagues_by_queue(api: Pyke):
+    master_leagues_by_queue = api.league.master_leagues_by_queue(
+        region=Region.EUW, queue=Queue.SOLO_DUO
+    )
+
+    assert isinstance(master_leagues_by_queue, LeagueListDTO)
+
+    for league_entry in master_leagues_by_queue.entries:
+        assert isinstance(league_entry, LeagueItemDTO)
