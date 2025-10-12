@@ -1,16 +1,16 @@
 # pyke
 
 from .endpoints.account import AccountEndpoint
+from .endpoints.challenges import ChallengesEndpoint
 from .endpoints.champion import ChampionEndpoint
 from .endpoints.champion_mastery import ChampionMasteryEndpoint
 from .endpoints.clash import ClashEndpoint
 from .endpoints.league import LeagueEndpoint
 from .endpoints.league_exp import LeagueExpEndpoint
-from .endpoints.lol_challenges import LolChallengesEndpoint
-from .endpoints.lol_rso_match import LolRsoMatchEndpoint
-from .endpoints.lol_status import LolStatusEndpoint
 from .endpoints.match import MatchEndpoint
+from .endpoints.rso_match import RsoMatchEndpoint
 from .endpoints.spectator import SpectatorEndpoint
+from .endpoints.status import StatusEndpoint
 from .endpoints.summoner import SummonerEndpoint
 from .endpoints.tournament import TournamentEndpoint
 from .endpoints.tournament_stub import TournamentStubEndpoint
@@ -26,9 +26,9 @@ class Pyke:
         self.clash = ClashEndpoint(api_key)
         self.league_exp = LeagueExpEndpoint(api_key)
         self.league = LeagueEndpoint(api_key)
-        self.lol_challenges = LolChallengesEndpoint(api_key)
-        self.lol_rso_match = LolRsoMatchEndpoint(api_key)
-        self.lol_status = LolStatusEndpoint(api_key)
+        self.challenges = ChallengesEndpoint(api_key)
+        self.rso_match = RsoMatchEndpoint(api_key)
+        self.status = StatusEndpoint(api_key)
         self.match = MatchEndpoint(api_key)
         self.spectator = SpectatorEndpoint(api_key)
         self.summoner = SummonerEndpoint(api_key)
