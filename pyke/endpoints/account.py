@@ -16,7 +16,7 @@ class AccountEndpoint:
             puuid (str): Encrypted PUUID. Exact length of 78 characters.
 
         Returns:
-            AccountDto: pyke.models.account_v1.AccountDto object.
+            AccountDto: pyke._models.account_v1.AccountDto object.
         """
 
         path = f"/riot/account/v1/accounts/by-puuid/{puuid}"
@@ -35,7 +35,7 @@ class AccountEndpoint:
             tag_line (str): Riot id tag line.
 
         Returns:
-            AccountDto: pyke.models.account_v1.AccountDto object.
+            AccountDto: pyke._models.account_v1.AccountDto object.
         """
 
         path = f"/riot/account/v1/accounts/by-riot-id/{game_name}/{tag_line}"
@@ -51,7 +51,7 @@ class AccountEndpoint:
             puuid (str): Encrypted PUUID. Exact length of 78 characters.
 
         Returns:
-            AccountRegionDTO: pyke.models.account_v1.AccountRegionDTO object.
+            AccountRegionDTO: pyke._models.account_v1.AccountRegionDTO object.
         """
 
         path = f"/riot/account/v1/region/by-game/lol/by-puuid/{puuid}"

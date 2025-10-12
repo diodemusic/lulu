@@ -20,7 +20,7 @@ class LeagueEndpoint:
             queue (Queue): Ranked queue type (pyke.enums.queue.Queue).
 
         Returns:
-            LeagueListDTO: pyke.models.league_v4.LeagueListDTO object.
+            LeagueListDTO: pyke._models.league_v4.LeagueListDTO object.
         """
 
         path = f"/lol/league/v4/challengerleagues/by-queue/{queue.value}"
@@ -36,7 +36,7 @@ class LeagueEndpoint:
             puuid (str): Encrypted PUUID. Exact length of 78 characters.
 
         Returns:
-            list[LeagueEntryDTO]: List of pyke.models.league_exp_v4.LeagueEntryDTO objects.
+            list[LeagueEntryDTO]: List of pyke._models.league_exp_v4.LeagueEntryDTO objects.
         """
 
         path = f"/lol/league/v4/entries/by-puuid/{puuid}"
@@ -67,7 +67,7 @@ class LeagueEndpoint:
             page (int, optional): Starts with page 1. Defaults to 1.
 
         Returns:
-            list[LeagueEntryDTO]: List of pyke.models.league_v4.LeagueEntryDTO objects.
+            list[LeagueEntryDTO]: List of pyke._models.league_v4.LeagueEntryDTO objects.
         """
 
         path = f"/lol/league/v4/entries/{queue.value}/{tier.value}/{division.value}"
@@ -93,7 +93,7 @@ class LeagueEndpoint:
             queue (Queue): Ranked queue type (pyke.enums.queue.Queue).
 
         Returns:
-            LeagueListDTO: pyke.models.league_v4.LeagueListDTO object.
+            LeagueListDTO: pyke._models.league_v4.LeagueListDTO object.
         """
 
         path = f"/lol/league/v4/grandmasterleagues/by-queue/{queue.value}"
@@ -109,7 +109,7 @@ class LeagueEndpoint:
             league_id (str): League id.
 
         Returns:
-            LeagueListDTO: pyke.models.league_v4.LeagueListDTO object.
+            LeagueListDTO: pyke._models.league_v4.LeagueListDTO object.
         """
 
         path = f"/lol/league/v4/leagues/{league_id}"
@@ -129,7 +129,7 @@ class LeagueEndpoint:
             queue (Queue): Ranked queue type (pyke.enums.queue.Queue).
 
         Returns:
-            LeagueListDTO: pyke.models.league_v4.LeagueListDTO object.
+            LeagueListDTO: pyke._models.league_v4.LeagueListDTO object.
         """
 
         path = f"/lol/league/v4/masterleagues/by-queue/{queue.value}"
