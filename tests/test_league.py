@@ -17,8 +17,6 @@ def test_challenger_leagues_by_queue(api: Pyke):
 
     assert isinstance(challenger_leagues_by_queue, LeagueListDTO)
 
-    print(challenger_leagues_by_queue)
-
     for league_entry in challenger_leagues_by_queue.entries:
         assert isinstance(league_entry, LeagueItemDTO)
 
