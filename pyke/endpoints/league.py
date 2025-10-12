@@ -102,6 +102,16 @@ class LeagueEndpoint:
         return LeagueListDTO(**data)
 
     def by_league_id(self, region: Region, league_id: str) -> LeagueListDTO:
+        """Get league with given ID, including inactive entries.
+
+        Args:
+            region (Region): Region to execute against (pyke.enums.region.Region).
+            league_id (str): League id.
+
+        Returns:
+            LeagueListDTO: pyke.models.league_v4.LeagueListDTO object.
+        """
+
         path = f"/lol/league/v4/leagues/{league_id}"
         data = self._client._region_request(region=region, path=path)
 
