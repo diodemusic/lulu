@@ -17,6 +17,7 @@ class ChallengesEndpoint:
         Returns:
             list[ChallengeConfigInfoDto]: List of pyke._models.challenges_v1.ChallengeConfigInfoDto objects.
         """
+
         path = "/lol/challenges/v1/challenges/config"
         data = self._client._region_request(region=region, path=path)
 
@@ -26,3 +27,18 @@ class ChallengesEndpoint:
             challenge_configs.append(ChallengeConfigInfoDto(**challenge_config))
 
         return challenge_configs
+
+    def percentiles(self, region: Region) -> dict[int, dict[int, dict[str, int]]]:
+        """Map of level to percentile of players who have achieved it - keys: ChallengeId -> Season -> Level -> percentile of players who achieved it.
+
+        Args:
+            region (Region): Region to execute against (pyke.enums.region.Region).
+
+        Returns:
+            dict[int, dict[int, dict[str, int]]]: Map of level to percentile of players who have achieved it - keys: ChallengeId -> Season -> Level -> percentile of players who achieved it.
+        """
+
+        path = "/lol/challenges/v1/challenges/percentiles"
+        data = self._client._region_request(region=region, path=path)
+
+        return data
