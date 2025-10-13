@@ -18,9 +18,15 @@ account = api.account.by_riot_id(Continent.EUROPE, "saves", "000")
 print(f"Riot ID: {account.game_name}#{account.tag_line}")
 print(f"PUUID: {account.puuid}")
 
+# We get access to all the methods that come with a pydantic model
+# For example a json string
+print(account.model_dump_json())
+# Or a python dictionary
+print(account.model_dump())
+
 # pyke throws custom exceptions, again following the same conventions as the Riot API
 # For example a request that responds with error code 429
-# Will throw exceptions.RateLimitExceeded
+# Will throw pyke.exceptions.RateLimitExceeded
 try:
     region = api.account.region_by_puuid(Continent.EUROPE, account.puuid)
 except exceptions.RateLimitExceeded as e:
