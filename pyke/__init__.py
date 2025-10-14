@@ -7,4 +7,5 @@ from .enums.level import Level
 from .enums.queue import Queue
 from .enums.region import Region
 from .enums.tier import Tier
+from .enums.type import Type
 from .main import Pyke
