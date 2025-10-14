@@ -9,14 +9,14 @@ class ChampionEndpoint:
         self._client = _BaseApiClient(api_key)
 
     def rotations(self, region: Region) -> ChampionInfo:
-        """Returns champion rotations, including free-to-play and low-level free-to-play rotations.
+        """# Returns champion rotations, including free-to-play and low-level free-to-play rotations
 
-        Args:
-            region (Region): Region to execute against (pyke.enums.region.Region).
+        **Args:**  
+            `region (Region):` Region to execute against (pyke.enums.region.Region).  
 
-        Returns:
-            ChampionInfo: pyke._models.champion_v3.ChampionInfo object.
-        """
+        **Returns:**  
+            `ChampionInfo:` pyke._models.champion_v3.ChampionInfo object.
+        """  # fmt: skip
 
         path = "/lol/platform/v3/champion-rotations"
         data = self._client._region_request(region=region, path=path)

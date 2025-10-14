@@ -13,15 +13,15 @@ class LeagueEndpoint:
         region: Region,
         queue: Queue,
     ) -> LeagueListDTO:
-        """Get the challenger league for given queue.
+        """# Get the challenger league for given queue
 
-        Args:
-            region (Region): Region to execute against (pyke.enums.region.Region).
-            queue (Queue): Ranked queue type (pyke.enums.queue.Queue).
+        **Args:**  
+            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  
 
-        Returns:
-            LeagueListDTO: pyke._models.league_v4.LeagueListDTO object.
-        """
+        **Returns:**  
+            `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.
+        """  # fmt: skip
 
         path = f"/lol/league/v4/challengerleagues/by-queue/{queue.value}"
         data = self._client._region_request(region=region, path=path)
@@ -29,15 +29,15 @@ class LeagueEndpoint:
         return LeagueListDTO(**data)
 
     def by_puuid(self, region: Region, puuid: str) -> list[LeagueEntryDTO]:
-        """Get league entries in all queues for a given puuid.
+        """# Get league entries in all queues for a given puuid
 
-        Args:
-            region (Region): Region to execute against (pyke.enums.region.Region).
-            puuid (str): Encrypted PUUID. Exact length of 78 characters.
+        **Args:**  
+            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
 
-        Returns:
-            list[LeagueEntryDTO]: List of pyke._models.league_exp_v4.LeagueEntryDTO objects.
-        """
+        **Returns:**  
+            `list[LeagueEntryDTO]:` List of pyke._models.league_exp_v4.LeagueEntryDTO objects.
+        """  # fmt: skip
 
         path = f"/lol/league/v4/entries/by-puuid/{puuid}"
         data = self._client._region_request(region=region, path=path)
@@ -57,18 +57,18 @@ class LeagueEndpoint:
         division: Division,
         page: int = 1,
     ) -> list[LeagueEntryDTO]:
-        """Get all the league entries.
+        """# Get all the league entries
 
-        Args:
-            region (Region): Region to execute against (pyke.enums.region.Region).
-            queue (Queue): Ranked queue type (pyke.enums.queue.Queue).
-            tier (Tier): Ranked tier (pyke.enums.tier.Tier).
-            division (Division): Ranked division (pyke.enums.division.Division).
-            page (int, optional): Starts with page 1. Defaults to 1.
+        **Args:**  
+            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  
+            `tier (Tier):` Ranked tier (pyke.enums.tier.Tier).  
+            `division (Division):` Ranked division (pyke.enums.division.Division).  
+            `page (int, optional):` Starts with page 1. Defaults to 1.  
 
-        Returns:
-            list[LeagueEntryDTO]: List of pyke._models.league_v4.LeagueEntryDTO objects.
-        """
+        **Returns:**  
+            `list[LeagueEntryDTO]:` List of pyke._models.league_v4.LeagueEntryDTO objects.
+        """  # fmt: skip
 
         path = f"/lol/league/v4/entries/{queue.value}/{tier.value}/{division.value}"
         params = {"count": page}
@@ -86,15 +86,15 @@ class LeagueEndpoint:
         region: Region,
         queue: Queue,
     ) -> LeagueListDTO:
-        """Get the grandmaster league for given queue.
+        """# Get the grandmaster league for given queue
 
-        Args:
-            region (Region): Region to execute against (pyke.enums.region.Region).
-            queue (Queue): Ranked queue type (pyke.enums.queue.Queue).
+        **Args:**  
+            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  
 
-        Returns:
-            LeagueListDTO: pyke._models.league_v4.LeagueListDTO object.
-        """
+        **Returns:**  
+            `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.  
+        """  # fmt: skip
 
         path = f"/lol/league/v4/grandmasterleagues/by-queue/{queue.value}"
         data = self._client._region_request(region=region, path=path)
@@ -102,15 +102,15 @@ class LeagueEndpoint:
         return LeagueListDTO(**data)
 
     def by_league_id(self, region: Region, league_id: str) -> LeagueListDTO:
-        """Get league with given ID, including inactive entries.
+        """# Get league with given ID, including inactive entries
 
-        Args:
-            region (Region): Region to execute against (pyke.enums.region.Region).
-            league_id (str): League id.
+        **Args:**  
+            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `league_id (str):` League id.  
 
-        Returns:
-            LeagueListDTO: pyke._models.league_v4.LeagueListDTO object.
-        """
+        **Returns:**  
+            `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.
+        """  # fmt: skip
 
         path = f"/lol/league/v4/leagues/{league_id}"
         data = self._client._region_request(region=region, path=path)
@@ -122,15 +122,15 @@ class LeagueEndpoint:
         region: Region,
         queue: Queue,
     ) -> LeagueListDTO:
-        """Get the master league for given queue.
+        """# Get the master league for given queue
 
-        Args:
-            region (Region): Region to execute against (pyke.enums.region.Region).
-            queue (Queue): Ranked queue type (pyke.enums.queue.Queue).
+        **Args:**  
+            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  
 
-        Returns:
-            LeagueListDTO: pyke._models.league_v4.LeagueListDTO object.
-        """
+        **Returns:**  
+            `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.
+        """  # fmt: skip
 
         path = f"/lol/league/v4/masterleagues/by-queue/{queue.value}"
         data = self._client._region_request(region=region, path=path)
