@@ -1,9 +1,13 @@
 from pyke import Pyke, Continent
-from pyke._models.match_v5 import MatchDto
+from pyke._models.match_v5 import MatchDto, TimelineDto
+import re
 
-from .base import TEST_PUUID, api
+from .base import TEST_PUUID, api, TEST_MATCH_ID
 
 if not TEST_PUUID:
+    quit()
+
+if not TEST_MATCH_ID:
     quit()
 
 
@@ -21,7 +25,7 @@ def test_match_ids_by_puuid(api: Pyke):
 
     for match_id in match_ids_by_puuid:
         assert type(match_id) is str
-        assert "_" in match_id
+        assert re.search(r"[A-Z0-9]+_\d{10}", match_id)
 
 
 def test_by_match_id(api: Pyke):
@@ -30,3 +34,11 @@ def test_by_match_id(api: Pyke):
     )
 
     assert isinstance(by_match_id, MatchDto)
+
+
+def test_timeline_by_match_id(api: Pyke):
+    timeline_by_match_id = api.match.timeline_by_match_id(
+        continent=Continent.EUROPE, match_id=TEST_MATCH_ID
+    )
+
+    assert isinstance(timeline_by_match_id, TimelineDto)
