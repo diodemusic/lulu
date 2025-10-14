@@ -7,26 +7,26 @@ if not TEST_PUUID:
     quit()
 
 
-def test_account_by_puuid(api: Pyke):
-    account_by_puuid = api.account.by_puuid(
+def test_by_puuid(api: Pyke):
+    by_puuid = api.account.by_puuid(
         continent=Continent.EUROPE,
         puuid=TEST_PUUID,
     )
 
-    assert isinstance(account_by_puuid, AccountDto)
+    assert isinstance(by_puuid, AccountDto)
 
 
-def test_account_by_riot_id(api: Pyke):
-    account_by_riot_id = api.account.by_riot_id(
+def test_by_riot_id(api: Pyke):
+    by_riot_id = api.account.by_riot_id(
         continent=Continent.EUROPE, game_name="saves", tag_line="000"
     )
 
-    assert isinstance(account_by_riot_id, AccountDto)
+    assert isinstance(by_riot_id, AccountDto)
 
 
-def test_account_region_by_puuid(api: Pyke):
-    account_region_by_puuid = api.account.region_by_puuid(
+def test_region_by_puuid(api: Pyke):
+    region_by_puuid = api.account.region_by_puuid(
         continent=Continent.EUROPE, puuid=TEST_PUUID
     )
 
-    assert isinstance(account_region_by_puuid, AccountRegionDTO)
+    assert isinstance(region_by_puuid, AccountRegionDTO)
