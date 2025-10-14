@@ -1,8 +1,9 @@
-from pyke import Pyke, Continent
-from pyke._models.match_v5 import MatchDto, TimelineDto
 import re
 
-from .base import TEST_PUUID, api, TEST_MATCH_ID
+from pyke import Continent, Pyke
+from pyke._models.match_v5 import MatchDto, TimelineDto
+
+from .base import TEST_MATCH_ID, TEST_PUUID, api
 
 if not TEST_PUUID:
     quit()
