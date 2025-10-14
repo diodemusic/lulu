@@ -1,7 +1,17 @@
 from pyke import Pyke, Region
-from pyke._models.challenges_v1 import ChallengeConfigInfoDto
+from pyke._models.challenges_v1 import (
+    ChallengeConfigInfoDto,
+    ApexPlayerInfoDto,
+    PlayerInfoDto,
+)
 
-from .base import api
+from .base import TEST_PUUID, api, TEST_CHALLENGE_ID
+
+if not TEST_PUUID:
+    quit()
+
+if not TEST_CHALLENGE_ID:
+    quit()
 
 
 def test_config(api: Pyke):
@@ -19,7 +29,7 @@ def test_percentiles(api: Pyke):
 
 def test_config_by_challenge_id(api: Pyke):
     config_by_challenge_id = api.challenges.config_by_challenge_id(
-        region=Region.EUW, challenge_id=TEST_CHELLENGE_ID
+        region=Region.EUW, challenge_id=TEST_CHALLENGE_ID
     )
 
     assert isinstance(config_by_challenge_id, ChallengeConfigInfoDto)
@@ -29,3 +39,20 @@ def test_leaderboards_by_level(api: Pyke):
     leaderboards_by_level = api.challenges.leaderboards_by_level(
         region=Region.EUW, level=Level.PLATINUM, challenge_id=TEST_CHALLENGE_ID
     )
+
+    for leaderboard in leaderboards_by_level:
+        assert isinstance(leaderboard, ApexPlayerInfoDto)
+
+
+def test_percentiles_by_challenge_id(api: Pyke):
+    percentiles_by_challenge_id = api.challenges.percentiles_by_challenge_id(
+        region=Region.EUW, challenge_id=TEST_CHALLENGE_ID
+    )
+
+    assert type(percentiles_by_challenge_id) is dict
+
+
+def test_by_puuid(api: Pyke):
+    by_puuid = api.challenges.by_puuid(region=Region.EUW, puuid=TEST_PUUID)
+
+    assert isinstance(by_puuid, PlayerInfoDto)
