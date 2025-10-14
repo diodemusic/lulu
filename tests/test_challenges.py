@@ -1,11 +1,11 @@
-from pyke import Pyke, Region
+from pyke import Level, Pyke, Region
 from pyke._models.challenges_v1 import (
-    ChallengeConfigInfoDto,
     ApexPlayerInfoDto,
+    ChallengeConfigInfoDto,
     PlayerInfoDto,
 )
 
-from .base import TEST_PUUID, api, TEST_CHALLENGE_ID
+from .base import TEST_CHALLENGE_ID, TEST_PUUID, api
 
 if not TEST_PUUID:
     quit()
@@ -37,7 +37,7 @@ def test_config_by_challenge_id(api: Pyke):
 
 def test_leaderboards_by_level(api: Pyke):
     leaderboards_by_level = api.challenges.leaderboards_by_level(
-        region=Region.EUW, level=Level.PLATINUM, challenge_id=TEST_CHALLENGE_ID
+        region=Region.EUW, level=Level.MASTER, challenge_id=TEST_CHALLENGE_ID
     )
 
     for leaderboard in leaderboards_by_level:
