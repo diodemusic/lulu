@@ -1,7 +1,7 @@
-from pyke import Continent, Region, Type
+from pyke import Continent, Type
 
 from .._base_client import _BaseApiClient
-from .._models.match_v5 import MatchDto
+from .._models.match_v5 import MatchDto, TimelineDto
 
 
 class MatchEndpoint:
@@ -49,3 +49,35 @@ class MatchEndpoint:
         )
 
         return data
+
+    def by_match_id(self, continent: Continent, match_id: str) -> MatchDto:
+        """# Get a match by match id
+
+        **Args:**  
+            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  
+            `match_id (str):` Match id string.  
+
+        **Returns:**  
+            `MatchDto:` pyke._models.match_v5.MatchDto object.
+        """  # fmt: skip
+
+        path = f"/lol/match/v5/matches/{match_id}"
+        data = self._client._continent_request(continent=continent, path=path)
+
+        return MatchDto(**data)
+
+    def timeline_by_match_id(self, continent: Continent, match_id: str) -> TimelineDto:
+        """# Get a match timeline by match id
+
+        **Args:**  
+            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  
+            `match_id (str):` Match id string.  
+
+        **Returns:**  
+            `TimelineDto:` pyke._models.match_v5.TimelineDto object.
+        """  # fmt: skip
+
+        path = f"/lol/match/v5/matches/{match_id}/timeline"
+        data = self._client._continent_request(continent=continent, path=path)
+
+        return TimelineDto(**data)
