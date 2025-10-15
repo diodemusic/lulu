@@ -5,8 +5,8 @@ from .._models.champion_v3 import ChampionInfo
 
 
 class ChampionEndpoint:
-    def __init__(self, api_key: str | None):
-        self._client = _BaseApiClient(api_key)
+    def __init__(self, client: _BaseApiClient):
+        self._client = client
 
     def rotations(self, region: Region) -> ChampionInfo:
         """# Returns champion rotations, including free-to-play and low-level free-to-play rotations

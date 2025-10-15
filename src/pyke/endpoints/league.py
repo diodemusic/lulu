@@ -5,8 +5,8 @@ from .._models.league_v4 import LeagueEntryDTO, LeagueListDTO
 
 
 class LeagueEndpoint:
-    def __init__(self, api_key: str | None):
-        self._client = _BaseApiClient(api_key)
+    def __init__(self, client: _BaseApiClient):
+        self._client = client
 
     def challenger_leagues_by_queue(
         self,

@@ -5,8 +5,8 @@ from .._models.league_exp_v4 import LeagueEntryDTO
 
 
 class LeagueExpEndpoint:
-    def __init__(self, api_key: str | None):
-        self._client = _BaseApiClient(api_key)
+    def __init__(self, client: _BaseApiClient):
+        self._client = client
 
     def by_queue_tier_division(
         self,

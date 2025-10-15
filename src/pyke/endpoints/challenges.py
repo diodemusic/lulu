@@ -9,8 +9,8 @@ from .._models.challenges_v1 import (
 
 
 class ChallengesEndpoint:
-    def __init__(self, api_key: str | None):
-        self._client = _BaseApiClient(api_key)
+    def __init__(self, client: _BaseApiClient):
+        self._client = client
 
     def config(self, region: Region) -> list[ChallengeConfigInfoDto]:
         """# List of all basic challenge configuration information (includes all translations for names and descriptions)

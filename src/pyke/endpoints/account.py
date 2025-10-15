@@ -5,8 +5,8 @@ from .._models.account_v1 import AccountDto, AccountRegionDTO
 
 
 class AccountEndpoint:
-    def __init__(self, api_key: str | None):
-        self._client = _BaseApiClient(api_key)
+    def __init__(self, client: _BaseApiClient):
+        self._client = client
 
     def by_puuid(self, continent: Continent, puuid: str) -> AccountDto:
         """# Get account by puuid
