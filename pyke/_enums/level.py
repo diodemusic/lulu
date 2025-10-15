@@ -2,6 +2,8 @@ from enum import Enum
 
 
 class Level(Enum):
+    """# Challenge level"""
+
     NONE = "NONE"
     IRON = "IRON"
     BRONZE = "BRONZE"
