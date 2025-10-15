@@ -1,3 +1,4 @@
+import time
 from typing import Any
 
 import requests
@@ -15,47 +16,51 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
         self.api_key = api_key
 
     def _get(self, url: str, params: dict[Any, Any] | None = None):
-        headers = {"X-Riot-Token": self.api_key}
-        response = requests.get(url, headers=headers, params=params)
+        while True:
+            headers = {"X-Riot-Token": self.api_key}
+            response = requests.get(url, headers=headers, params=params)
 
-        rate_limit = (
-            response.headers.get("X-App-Rate-Limit", "").split(":")[0].replace(":", "/")
-        )
-        rate_limit_count = response.headers.get("X-App-Rate-Limit-Count", "").split(
-            ":"
-        )[0]
-        print(f"({rate_limit_count}/{rate_limit}) - {url}")
+            limit = response.headers.get("X-App-Rate-Limit", "unknown")
+            count = response.headers.get("X-App-Rate-Limit-Count", "unknown")
+            print(f"({count.split(':')[0]}/{limit.split(':')[0]}) - {url}")
 
-        code = response.status_code
+            code = response.status_code
 
-        if code == 400:
-            raise exceptions.BadRequest("Bad request", 400)
-        elif code == 401:
-            raise exceptions.Unauthorized("Unauthorized", 401)
-        elif code == 403:
-            raise exceptions.Forbidden("Forbidden", 403)
-        elif code == 404:
-            raise exceptions.DataNotFound("Data not found", 404)
-        elif code == 405:
-            raise exceptions.MethodNotAllowed("Method not allowed", 405)
-        elif code == 415:
-            raise exceptions.UnsupportedMediaType("Unsupported media type", 415)
-        elif code == 429:
-            raise exceptions.RateLimitExceeded("Rate limit exceeded", 429)
-        elif code == 500:
-            raise exceptions.InternalServerError("Internal server error", 500)
-        elif code == 502:
-            raise exceptions.BadGateway("Bad gateway", 502)
-        elif code == 503:
-            raise exceptions.ServiceUnavailable("Service unavailable", 503)
-        elif code == 504:
-            raise exceptions.GatewayTimeout("Gateway timeout", 504)
-        elif code == 200:
-            return response.json()
-        else:
-            print("Uncaught exception")
+            if code == 200:
+                try:
+                    return response.json()
+                except ValueError:
+                    raise exceptions.InternalServerError("Empty JSON response", 500)
 
-        return response.json()
+            elif code == 400:
+                raise exceptions.BadRequest("Bad request", 400)
+            elif code == 401:
+                raise exceptions.Unauthorized("Unauthorized", 401)
+            elif code == 403:
+                raise exceptions.Forbidden("Forbidden", 403)
+            elif code == 404:
+                raise exceptions.DataNotFound("Data not found", 404)
+            elif code == 405:
+                raise exceptions.MethodNotAllowed("Method not allowed", 405)
+            elif code == 415:
+                raise exceptions.UnsupportedMediaType("Unsupported media type", 415)
+            elif code == 429:
+                retry_after = int(response.headers.get("Retry-After", "120"))
+                print(f"Rate limit exceeded, waiting {retry_after} seconds")
+                time.sleep(retry_after)
+                continue
+            elif code == 500:
+                raise exceptions.InternalServerError("Internal server error", 500)
+            elif code == 502:
+                raise exceptions.BadGateway("Bad gateway", 502)
+            elif code == 503:
+                raise exceptions.ServiceUnavailable("Service unavailable", 503)
+            elif code == 504:
+                raise exceptions.GatewayTimeout("Gateway timeout", 504)
+            else:
+                raise exceptions.UnknownError(
+                    "Unexpected response, something has gone terribly wrong", code
+                )
 
     def _continent_request(
         self, continent: Continent, path: str, params: dict[Any, Any] | None = None
