@@ -213,4 +213,4 @@ __marimo__/
 poetry.lock
 
 # OpenAPI Schema
-pyke/_schema/schema.json
+src/pyke/_schema/schema.json
