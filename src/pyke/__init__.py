@@ -1,4 +1,5 @@
 from . import exceptions
+from .__version__ import __author__, __title__, __version__
 from ._enums.continent import Continent
 from ._enums.division import Division
 from ._enums.level import Level
