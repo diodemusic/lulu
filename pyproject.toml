@@ -36,3 +36,8 @@ typeCheckingMode = "strict"
 root = "tests"
 reportUnusedImport = "none"
 reportMissingTypeStubs = "none"
+
+exclude = [
+    ".env",
+    "tests/*",
+]
