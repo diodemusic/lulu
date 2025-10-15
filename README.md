@@ -4,11 +4,26 @@
 
 ## Installation
 
-WIP
+Install the latest version directly from PyPI:
+
+```bash
+pip install pyke-lol
+```
+
+> **Note:** You need Python 3.8+ to use pyke.
+
+If you want the **latest development version** from GitHub:
+
+```bash
+pip install git+https://github.com/diodemusic/pyke.git
+```
 
 ## Features
 
 - Provides a simple, pythonic interface to interact with the Riot API.
+- Follows Riot API endpoints and conventions closely.
+- Returns Pydantic models for easy access to API data.
+- Custom exceptions for error handling, e.g., rate limits.
 
 ## Documentation & Examples
 
