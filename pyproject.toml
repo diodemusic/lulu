@@ -15,7 +15,7 @@ dependencies = [
     "pdoc (>=15.0.4,<16.0.0)",
     "coverage (>=7.11.0,<8.0.0)",
 ]
-
+keywords = ["riot api", "league of legends", "lol api", "riot python", "riot wrapper", "LoL", "League of Legends", "Riot Games", "API", "REST"]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
