@@ -39,9 +39,8 @@ I am currently working on adding documentation
 from pyke import Pyke
 
 # We always initialize the API like this
-# You'll need a valid api key from the Riot games developer website
-# Check examples/example.py for loading your api key from a .env file
-api = Pyke("API_KEY")
+# We can explicitly disable url logging, by default pyke will log all url calls
+api = Pyke(API_KEY, log_url=False)
 
 # Every pyke method follows the same convention as the Riot API
 # For example account/v1/accounts/by-riot-id/{gameName}/{tagLine} becomes the following
@@ -52,7 +51,7 @@ print(f"Riot ID: {account.game_name}#{account.tag_line}")
 print(f"PUUID: {account.puuid}")
 
 # We get access to all the methods that come with a pydantic model
-# We can get a json string
+# For example a json string
 print(account.model_dump_json())
 # Or a python dictionary
 print(account.model_dump())
@@ -70,7 +69,6 @@ except exceptions.RateLimitExceeded as e:
 print(f"PUUID: {region.puuid}")
 print(f"Game: {region.game}")
 print(f"Region: {region.region}")
-
 ```
 
 enjoy :)

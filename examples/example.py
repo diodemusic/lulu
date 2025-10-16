@@ -8,7 +8,8 @@ load_dotenv()
 API_KEY = os.getenv("RIOT_API_KEY")
 
 # We always initialize the API like this
-api = Pyke(API_KEY)
+# We can explicitly disable url logging, by default pyke will log all url calls
+api = Pyke(API_KEY, log_url=False)
 
 # Every pyke method follows the same convention as the Riot API
 # For example account/v1/accounts/by-riot-id/{gameName}/{tagLine} becomes the following

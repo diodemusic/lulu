@@ -12,17 +12,19 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
     CONTINENT_BASE = "https://{continent}.api.riotgames.com"
     REGION_BASE = "https://{region}.api.riotgames.com"
 
-    def __init__(self, api_key: str | None):
+    def __init__(self, api_key: str | None, log_url: bool):
         self.api_key = api_key
+        self.log_url = log_url
 
     def _get(self, url: str, params: dict[Any, Any] | None = None):
         while True:
             headers = {"X-Riot-Token": self.api_key}
             response = requests.get(url, headers=headers, params=params)
 
-            limit = response.headers.get("X-App-Rate-Limit", "unknown")
-            count = response.headers.get("X-App-Rate-Limit-Count", "unknown")
-            print(f"({count.split(':')[0]}/{limit.split(':')[0]}) - {url}")
+            if self.log_url:
+                limit = response.headers.get("X-App-Rate-Limit", "unknown")
+                count = response.headers.get("X-App-Rate-Limit-Count", "unknown")
+                print(f"({count.split(':')[0]}/{limit.split(':')[0]}) - {url}")
 
             code = response.status_code
 
