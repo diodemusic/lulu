@@ -1,6 +1,8 @@
 # pyke
 
 [![Upload Python Package](https://github.com/diodemusic/pyke/actions/workflows/python-publish.yml/badge.svg?event=release)](https://github.com/diodemusic/pyke/actions/workflows/python-publish.yml)
+![PyPI - Version](https://img.shields.io/pypi/v/pyke-lol)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
 
 **pyke** is an opinionated, simple-by-design Riot API wrapper specifically for League of Legends.
 
