@@ -2,6 +2,8 @@ from enum import Enum
 
 
 class Region(Enum):
+    """# Region to execute against"""
+
     BR = "br1"
     EUNE = "eun1"
     EUW = "euw1"
