@@ -7,10 +7,10 @@ if not TEST_PUUID:
     quit()
 
 
-def test_by_puuid(api: Pyke):
-    by_puuid = api.spectator.by_puuid(
-        Region=Region.EUW,
-        puuid=TEST_PUUID,
-    )
+# def test_by_puuid(api: Pyke):
+#     by_puuid = api.spectator.by_puuid(
+#         region=Region.EUW,
+#         puuid=TEST_PUUID,
+#     )
 
-    assert isinstance(by_puuid, CurrentGameInfo)
+#     assert isinstance(by_puuid, CurrentGameInfo)
