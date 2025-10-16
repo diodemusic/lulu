@@ -2,6 +2,8 @@
 
 **pyke** is an opinionated, simple-by-design Riot API wrapper specifically for League of Legends.
 
+![Pyke Logo](https://raw.githubusercontent.com/diodemusic/pyke-lol/main/assets/logo.png)
+
 ## Installation
 
 Install the latest version directly from PyPI:
