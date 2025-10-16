@@ -4,7 +4,7 @@ from pyke._models.status_v4 import PlatformDataDto
 from .base import api
 
 
-def test_platform(api: Pyke):
-    platform = api.status.platform(region=Region.EUW)
+def test_platform_data(api: Pyke):
+    test_platform_data = api.status.platform_data(region=Region.EUW)
 
-    assert isinstance(platform, PlatformDataDto)
+    assert isinstance(test_platform_data, PlatformDataDto)
