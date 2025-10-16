@@ -70,6 +70,11 @@ I am currently working on adding documentation
 - [Documentation (WIP)](/)
 - [Examples](https://github.com/diodemusic/pyke/tree/master/examples)
 
+## Contact me
+
+If you run into issues, or just have a question/need help, you can hit me up on discord.
+my username is `.irm`
+
 enjoy :)
 
 ![Pyke Logo](https://github.com/diodemusic/pyke/blob/main/assets/logo.png?raw=true)
