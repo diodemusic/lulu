@@ -34,7 +34,8 @@ I am currently working on adding documentation
 from pyke import Pyke
 
 # We always initialize the API like this
-# Check examples/example.py for loading an api key from a .env file
+# You'll need a valid api key from the Riot games developer website
+# Check examples/example.py for loading your api key from a .env file
 api = Pyke("API_KEY")
 
 # Every pyke method follows the same convention as the Riot API
