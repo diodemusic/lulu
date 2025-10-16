@@ -39,8 +39,8 @@ I am currently working on adding documentation
 from pyke import Pyke
 
 # We always initialize the API like this
-# We can explicitly disable url logging, by default pyke will log all url calls
-api = Pyke(API_KEY, log_url=False)
+# We can explicitly disable url logging, by default pyke will print the url of all api calls
+api = Pyke(API_KEY, print_url=False)
 
 # Every pyke method follows the same convention as the Riot API
 # For example account/v1/accounts/by-riot-id/{gameName}/{tagLine} becomes the following
