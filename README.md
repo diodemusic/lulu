@@ -7,8 +7,6 @@
 
 **pyke** is an opinionated, simple-by-design Riot API wrapper specifically for League of Legends.
 
-![Pyke Logo](https://github.com/diodemusic/pyke/blob/main/assets/logo.png?raw=true)
-
 ## Installation
 
 Install the latest version directly from PyPI:
@@ -17,23 +15,7 @@ Install the latest version directly from PyPI:
 pip install pyke-lol
 ```
 
-> **Note:** You need Python 3.13+ to use pyke.
-
-## Features
-
-- Provides a simple, pythonic interface to interact with the Riot API.
-- Follows Riot API endpoints and conventions closely.
-- Returns Pydantic models for easy access to API data.
-- Custom exceptions for error handling, e.g., rate limits.
-
-## Documentation & Examples
-
-I am currently working on adding documentation
-
-- [Documentation (WIP)](/)
-- [Examples](https://github.com/diodemusic/pyke/tree/master/examples)
-
-## Example Usage
+## Quickstart
 
 ```py
 from pyke import Pyke
@@ -71,4 +53,22 @@ print(f"Game: {region.game}")
 print(f"Region: {region.region}")
 ```
 
+> **Note:** You need Python 3.13+ to use pyke.
+
+## Features
+
+- Provides a simple, pythonic interface to interact with the Riot API.
+- Follows Riot API endpoints and conventions closely.
+- Returns Pydantic models for easy access to API data.
+- Custom exceptions for error handling, e.g., rate limits.
+
+## Documentation & Examples
+
+I am currently working on adding documentation
+
+- [Documentation (WIP)](/)
+- [Examples](https://github.com/diodemusic/pyke/tree/master/examples)
+
 enjoy :)
+
+![Pyke Logo](https://github.com/diodemusic/pyke/blob/main/assets/logo.png?raw=true)
