@@ -12,7 +12,7 @@ class ChampionEndpoint:
         """# Returns champion rotations, including free-to-play and low-level free-to-play rotations
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `region (Region):` Region to execute against (pyke._enums.region.Region).  
 
         **Returns:**  
             `ChampionInfo:` pyke._models.champion_v3.ChampionInfo object.

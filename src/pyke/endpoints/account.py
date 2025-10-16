@@ -12,7 +12,7 @@ class AccountEndpoint:
         """# Get account by puuid
 
         **Args:**  
-            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  
+            `continent (Continent):` Continent to execute against (pyke._enums.continent.Continent).  
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  
@@ -30,7 +30,7 @@ class AccountEndpoint:
         """# Get account by riot id
 
         **Args:**  
-            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  
+            `continent (Continent):` Continent to execute against (pyke._enums.continent.Continent).  
             `game_name (str):` Riot id game name.  
             `tag_line (str):` Riot id tag line.  
 
@@ -47,7 +47,7 @@ class AccountEndpoint:
         """# Get active region (lol and tft)
 
         **Args:**  
-            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  
+            `continent (Continent):` Continent to execute against (pyke._enums.continent.Continent).  
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  
