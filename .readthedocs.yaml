@@ -9,13 +9,17 @@ build:
     python: "3.13"
   jobs:
     pre_build:
-      - echo "Dummy Sphinx config to satisfy RTD"
+      - echo "Creating fake Sphinx project so RTD is happy"
       - mkdir -p _rtd_dummy
-      - echo "# dummy sphinx config" > _rtd_dummy/conf.py
+      - echo "project = 'dummy'\nextensions = []" > _rtd_dummy/conf.py
+      - mkdir -p _rtd_dummy/_build/html
+      - echo "<html><body>placeholder</body></html>" > _rtd_dummy/_build/html/index.html
     post_build:
-      - echo "Copying prebuilt pdoc HTML docs"
-      - mkdir -p $READTHEDOCS_OUTPUT/html
-      - cp -r docs/* $READTHEDOCS_OUTPUT/html
+      - echo "Replacing Sphinx output with prebuilt pdoc HTML"
+      - rm -rf _rtd_dummy/_build/html/*
+      - cp -r docs/* _rtd_dummy/_build/html/
+      - cp -r _rtd_dummy/_build/html/* $READTHEDOCS_OUTPUT/html/
 
 sphinx:
   configuration: _rtd_dummy/conf.py
+  
