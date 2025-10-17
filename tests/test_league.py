@@ -1,5 +1,5 @@
 from pyke import Division, Pyke, Queue, Region, Tier
-from pyke._models.league_v4 import LeagueEntryDTO, LeagueItemDTO, LeagueListDTO
+from pyke.models.league_v4 import LeagueEntryDTO, LeagueItemDTO, LeagueListDTO
 
 from .base import TEST_LEAGUE_ID, TEST_PUUID, api
 

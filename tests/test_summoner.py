@@ -1,5 +1,5 @@
 from pyke import Pyke, Region
-from pyke._models.summoner_v4 import SummonerDTO
+from pyke.models.summoner_v4 import SummonerDTO
 
 from .base import TEST_PUUID, api
 

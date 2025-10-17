@@ -1,5 +1,5 @@
 from pyke import Pyke, Region
-from pyke._models.champion_v3 import ChampionInfo
+from pyke.models.champion_v3 import ChampionInfo
 
 from .base import api
 

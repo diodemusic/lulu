@@ -1,7 +1,7 @@
 from pyke import Region
 
 from .._base_client import _BaseApiClient
-from .._models.summoner_v4 import SummonerDTO
+from ..models.summoner_v4 import SummonerDTO
 
 
 class SummonerEndpoint:
@@ -12,7 +12,7 @@ class SummonerEndpoint:
         """Get a summoner by PUUID.
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke._enums.region.Region).  
+            `region (Region):` Region to execute against (pyke.enums.region.Region).  
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  

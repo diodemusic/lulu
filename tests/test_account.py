@@ -1,5 +1,5 @@
 from pyke import Continent, Pyke
-from pyke._models.account_v1 import AccountDto, AccountRegionDTO
+from pyke.models.account_v1 import AccountDto, AccountRegionDTO
 
 from .base import TEST_PUUID, api
 

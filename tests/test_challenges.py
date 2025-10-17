@@ -1,5 +1,5 @@
 from pyke import Level, Pyke, Region
-from pyke._models.challenges_v1 import (
+from pyke.models.challenges_v1 import (
     ApexPlayerInfoDto,
     ChallengeConfigInfoDto,
     PlayerInfoDto,

@@ -1,7 +1,7 @@
 from pyke import Division, Queue, Region, Tier
 
 from .._base_client import _BaseApiClient
-from .._models.league_exp_v4 import LeagueEntryDTO
+from ..models.league_exp_v4 import LeagueEntryDTO
 
 
 class LeagueExpEndpoint:
@@ -19,10 +19,10 @@ class LeagueExpEndpoint:
         """# Get all the league entries
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke._enums.region.Region).  
-            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  
-            `tier (Tier):` Ranked tier (pyke._enums.tier.Tier).  
-            `division (Division):` Ranked division (pyke._enums.division.Division).  
+            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  
+            `tier (Tier):` Ranked tier (pyke.enums.tier.Tier).  
+            `division (Division):` Ranked division (pyke.enums.division.Division).  
             `page (int, optional):` Starts with page 1. Defaults to 1.  
 
         **Returns:**  

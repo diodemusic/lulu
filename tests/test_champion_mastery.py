@@ -1,5 +1,5 @@
 from pyke import Pyke, Region
-from pyke._models.champion_mastery_v4 import ChampionMasteryDto
+from pyke.models.champion_mastery_v4 import ChampionMasteryDto
 
 from .base import TEST_PUUID, api
 

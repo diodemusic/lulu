@@ -4,8 +4,8 @@ from typing import Any
 import requests
 
 from . import exceptions
-from ._enums.continent import Continent
-from ._enums.region import Region
+from .enums.continent import Continent
+from .enums.region import Region
 
 
 class _BaseApiClient:  # pyright: ignore[reportUnusedClass]

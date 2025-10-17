@@ -1,7 +1,7 @@
 import re
 
-from pyke import Continent, Pyke
-from pyke._models.match_v5 import MatchDto, TimelineDto
+from pyke import Continent, Pyke, Type
+from pyke.models.match_v5 import MatchDto, TimelineDto
 
 from .base import TEST_MATCH_ID, TEST_PUUID, api
 
@@ -19,7 +19,7 @@ def test_match_ids_by_puuid(api: Pyke):
         start_time=1744502400,
         end_time=1760313600,
         queue=420,
-        type="ranked",
+        type=Type.RANKED,
         start=17,
         count=38,
     )

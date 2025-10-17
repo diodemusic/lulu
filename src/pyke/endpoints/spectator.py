@@ -1,7 +1,7 @@
 from pyke import Region
 
 from .._base_client import _BaseApiClient
-from .._models.spectator_v5 import CurrentGameInfo
+from ..models.spectator_v5 import CurrentGameInfo
 
 
 class SpectatorEndpoint:
@@ -12,7 +12,7 @@ class SpectatorEndpoint:
         """# Get current game information for the given puuid
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke._enums.region.Region).  
+            `region (Region):` Region to execute against (pyke.enums.region.Region).  
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  

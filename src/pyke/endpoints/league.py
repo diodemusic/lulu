@@ -1,7 +1,7 @@
 from pyke import Division, Queue, Region, Tier
 
 from .._base_client import _BaseApiClient
-from .._models.league_v4 import LeagueEntryDTO, LeagueListDTO
+from ..models.league_v4 import LeagueEntryDTO, LeagueListDTO
 
 
 class LeagueEndpoint:
@@ -16,8 +16,8 @@ class LeagueEndpoint:
         """# Get the challenger league for given queue
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke._enums.region.Region).  
-            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  
+            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  
 
         **Returns:**  
             `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.
@@ -32,7 +32,7 @@ class LeagueEndpoint:
         """# Get league entries in all queues for a given puuid
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke._enums.region.Region).  
+            `region (Region):` Region to execute against (pyke.enums.region.Region).  
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  
@@ -60,10 +60,10 @@ class LeagueEndpoint:
         """# Get all the league entries
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke._enums.region.Region).  
-            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  
-            `tier (Tier):` Ranked tier (pyke._enums.tier.Tier).  
-            `division (Division):` Ranked division (pyke._enums.division.Division).  
+            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  
+            `tier (Tier):` Ranked tier (pyke.enums.tier.Tier).  
+            `division (Division):` Ranked division (pyke.enums.division.Division).  
             `page (int, optional):` Starts with page 1. Defaults to 1.  
 
         **Returns:**  
@@ -89,8 +89,8 @@ class LeagueEndpoint:
         """# Get the grandmaster league for given queue
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke._enums.region.Region).  
-            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  
+            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  
 
         **Returns:**  
             `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.  
@@ -105,7 +105,7 @@ class LeagueEndpoint:
         """# Get league with given ID, including inactive entries
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke._enums.region.Region).  
+            `region (Region):` Region to execute against (pyke.enums.region.Region).  
             `league_id (str):` League id.  
 
         **Returns:**  
@@ -125,8 +125,8 @@ class LeagueEndpoint:
         """# Get the master league for given queue
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke._enums.region.Region).  
-            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  
+            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  
 
         **Returns:**  
             `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.

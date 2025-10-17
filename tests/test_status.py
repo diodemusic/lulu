@@ -1,5 +1,5 @@
 from pyke import Pyke, Region
-from pyke._models.status_v4 import PlatformDataDto
+from pyke.models.status_v4 import PlatformDataDto
 
 from .base import api
 

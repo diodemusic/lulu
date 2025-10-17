@@ -1,5 +1,5 @@
 from pyke import Pyke, Region
-from pyke._models.spectator_v5 import CurrentGameInfo, FeaturedGames
+from pyke.models.spectator_v5 import CurrentGameInfo, FeaturedGames
 
 from .base import TEST_PUUID, api
 
