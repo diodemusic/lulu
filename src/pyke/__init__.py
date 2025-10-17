@@ -19,4 +19,7 @@ __all__ = [
     "Tier",
     "Type",
     "Pyke",
+    "__author__",
+    "__title__",
+    "__version__",
 ]
