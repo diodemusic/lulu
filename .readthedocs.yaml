@@ -7,16 +7,8 @@ build:
   os: ubuntu-24.04
   tools:
     python: "3.13"
-
-sphinx:
-  configuration: none
-mkdocs:
-  configuration: none
-
-build:
-  os: ubuntu-24.04
-  tools:
-    python: "3.13"
   jobs:
     post_build:
+      - echo "Copying prebuilt docs to Read the Docs output"
+      - mkdir -p $READTHEDOCS_OUTPUT/html
       - cp -r docs/* $READTHEDOCS_OUTPUT/html
