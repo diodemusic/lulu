@@ -8,11 +8,14 @@ build:
   tools:
     python: "3.13"
   jobs:
+    pre_build:
+      - echo "Dummy Sphinx config to satisfy RTD"
+      - mkdir -p _rtd_dummy
+      - echo "# dummy sphinx config" > _rtd_dummy/conf.py
     post_build:
-      - echo "Copying prebuilt docs to Read the Docs output"
+      - echo "Copying prebuilt pdoc HTML docs"
       - mkdir -p $READTHEDOCS_OUTPUT/html
       - cp -r docs/* $READTHEDOCS_OUTPUT/html
 
 sphinx:
-  builder: html
-  configuration: false
+  configuration: _rtd_dummy/conf.py
