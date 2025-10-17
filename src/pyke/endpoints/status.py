@@ -15,7 +15,7 @@ class StatusEndpoint:
             `region (Region):` Region to execute against (pyke.enums.region.Region).  
 
         **Returns:**  
-            `PlatformDataDto:` pyke._models.status_v4.PlatformDataDto
+            `PlatformDataDto:` pyke.models.status_v4.PlatformDataDto
         """  # fmt: skip
 
         path = "/lol/status/v4/platform-data"

@@ -15,7 +15,7 @@ class ChampionEndpoint:
             `region (Region):` Region to execute against (pyke.enums.region.Region).  
 
         **Returns:**  
-            `ChampionInfo:` pyke._models.champion_v3.ChampionInfo object.
+            `ChampionInfo:` pyke.models.champion_v3.ChampionInfo object.
         """  # fmt: skip
 
         path = "/lol/platform/v3/champion-rotations"

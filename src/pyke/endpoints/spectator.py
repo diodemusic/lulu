@@ -16,7 +16,7 @@ class SpectatorEndpoint:
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  
-            `CurrentGameInfo:` pyke._models.spectator_v5.CurrentGameInfo
+            `CurrentGameInfo:` pyke.models.spectator_v5.CurrentGameInfo
         """  # fmt: skip
 
         path = f"/lol/spectator/v5/active-games/by-summoner/{puuid}"

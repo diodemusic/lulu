@@ -58,7 +58,7 @@ class MatchEndpoint:
             `match_id (str):` Match id string.  
 
         **Returns:**  
-            `MatchDto:` pyke._models.match_v5.MatchDto object.
+            `MatchDto:` pyke.models.match_v5.MatchDto object.
         """  # fmt: skip
 
         path = f"/lol/match/v5/matches/{match_id}"
@@ -74,7 +74,7 @@ class MatchEndpoint:
             `match_id (str):` Match id string.  
 
         **Returns:**  
-            `TimelineDto:` pyke._models.match_v5.TimelineDto object.
+            `TimelineDto:` pyke.models.match_v5.TimelineDto object.
         """  # fmt: skip
 
         path = f"/lol/match/v5/matches/{match_id}/timeline"

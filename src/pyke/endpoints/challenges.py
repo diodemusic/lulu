@@ -19,7 +19,7 @@ class ChallengesEndpoint:
             `region (Region):` Region to execute against (pyke.enums.region.Region).  
 
         **Returns:**  
-            `list[ChallengeConfigInfoDto]:` List of pyke._models.challenges_v1.ChallengeConfigInfoDto objects.
+            `list[ChallengeConfigInfoDto]:` List of pyke.models.challenges_v1.ChallengeConfigInfoDto objects.
         """  # fmt: skip
 
         path = "/lol/challenges/v1/challenges/config"
@@ -57,7 +57,7 @@ class ChallengesEndpoint:
             `challenge_id (int):` Challenge id integer.  
 
         **Returns:**  
-            `ChallengeConfigInfoDto:` pyke._models.challenges_v1.ChallengeConfigInfoDto object.
+            `ChallengeConfigInfoDto:` pyke.models.challenges_v1.ChallengeConfigInfoDto object.
         """  # fmt: skip
 
         path = f"/lol/challenges/v1/challenges/{challenge_id}/config"
@@ -76,7 +76,7 @@ class ChallengesEndpoint:
             `challenge_id (int):` Challenge id integer.  
 
         **Returns:**  
-            `list[ApexPlayerInfoDto]:` List of pyke._models.challenges_v1.ApexPlayerInfoDto objects.
+            `list[ApexPlayerInfoDto]:` List of pyke.models.challenges_v1.ApexPlayerInfoDto objects.
         """  # fmt: skip
 
         path = f"/lol/challenges/v1/challenges/{challenge_id}/leaderboards/by-level/{level.value}"
@@ -115,7 +115,7 @@ class ChallengesEndpoint:
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  
-            `PlayerInfoDto:` pyke._models.challenges_v1.PlayerInfoDto object.
+            `PlayerInfoDto:` pyke.models.challenges_v1.PlayerInfoDto object.
         """  # fmt: skip
 
         path = f"/lol/challenges/v1/player-data/{puuid}"

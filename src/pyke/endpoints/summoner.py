@@ -16,7 +16,7 @@ class SummonerEndpoint:
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  
-            `CurrentGameInfo:` pyke._models.summoner_v4.SummonerDTO
+            `CurrentGameInfo:` pyke.models.summoner_v4.SummonerDTO
         """  # fmt: skip
 
         path = f"/lol/summoner/v4/summoners/by-puuid/{puuid}"
