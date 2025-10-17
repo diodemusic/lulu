@@ -36,11 +36,17 @@ class MatchEndpoint:
         """  # fmt: skip
 
         path = f"/lol/match/v5/matches/by-puuid/{puuid}/ids"
+
+        if type:
+            type_str = type.value
+        else:
+            type_str = None
+
         params = {
             "startTime": start_time,
             "endTime": end_time,
             "queue": queue,
-            "type": type,
+            "type": type_str,
             "start": start,
             "count": count,
         }
