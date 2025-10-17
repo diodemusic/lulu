@@ -12,8 +12,8 @@ dependencies = [
     "pytest (>=8.4.2,<9.0.0)",
     "pydantic (>=2.11.10,<3.0.0)",
     "datamodel-code-generator (>=0.34.0,<0.35.0)",
-    "pdoc (>=15.0.4,<16.0.0)",
     "coverage (>=7.11.0,<8.0.0)",
+    "sphinx (>=8.2.3,<9.0.0)",
 ]
 keywords = ["riot api", "league of legends", "lol api", "riot python", "riot wrapper", "LoL", "League of Legends", "Riot Games", "API", "REST", "restful api"]
 
