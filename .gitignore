@@ -214,3 +214,6 @@ poetry.lock
 
 # OpenAPI Schema
 src/pyke/_schema/schema.json
+
+# Pdoc cache
+.pdoc_cache/
