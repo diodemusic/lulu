@@ -12,3 +12,6 @@ build:
       - echo "Copying prebuilt docs to Read the Docs output"
       - mkdir -p $READTHEDOCS_OUTPUT/html
       - cp -r docs/* $READTHEDOCS_OUTPUT/html
+
+sphinx:
+  configuration: none
