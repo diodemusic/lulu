@@ -75,7 +75,7 @@
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyke</span><span class="w"> </span><span class="kn">import</span> <span class="n">Region</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.._base_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">_BaseApiClient</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.._models.champion_mastery_v4</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChampionMasteryDto</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">..models.champion_mastery_v4</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChampionMasteryDto</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>
 </span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a>
 </span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="k">class</span><span class="w"> </span><span class="nc">ChampionMasteryEndpoint</span><span class="p">:</span>
@@ -88,11 +88,11 @@
 </span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get all champion mastery entries sorted by number of champion points descending</span>
 </span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>
 </span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>
 </span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a><span class="sd">            `list[ChampionMasteryDto]:` List of pyke._models.champion_mastery_v4.ChampionMasteryDto objects.</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a><span class="sd">            `list[ChampionMasteryDto]:` List of pyke.models.champion_mastery_v4.ChampionMasteryDto objects.</span>
 </span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>
 </span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/champion-mastery/v4/champion-masteries/by-puuid/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -111,12 +111,12 @@
 </span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get a champion mastery by puuid and champion ID</span>
 </span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>
 </span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a><span class="sd">            `champion_id (int):` Champion ID for this entry.  </span>
 </span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a>
 </span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a><span class="sd">            `ChampionMasteryDto:` pyke._models.champion_mastery_v4.ChampionMasteryDto object.</span>
+</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a><span class="sd">            `ChampionMasteryDto:` pyke.models.champion_mastery_v4.ChampionMasteryDto object.</span>
 </span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>
 </span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/champion-mastery/v4/champion-masteries/by-puuid/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">/by-champion/</span><span class="si">{</span><span class="n">champion_id</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -130,12 +130,12 @@
 </span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get specified number of top champion mastery entries sorted by number of champion points descending</span>
 </span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a>
 </span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a><span class="sd">            `count (int | None, optional):` Number of entries to retrieve. defaults to 3.  </span>
 </span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a>
 </span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a><span class="sd">            `list[ChampionMasteryDTO]:` List of pyke._models.champion_mastery_v4.ChampionMasteryDTO objects.</span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a><span class="sd">            `list[ChampionMasteryDTO]:` List of pyke.models.champion_mastery_v4.ChampionMasteryDTO objects.</span>
 </span><span id="L-65"><a href="#L-65"><span class="linenos">65</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-66"><a href="#L-66"><span class="linenos">66</span></a>
 </span><span id="L-67"><a href="#L-67"><span class="linenos">67</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/champion-mastery/v4/champion-masteries/by-puuid/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">/top&quot;</span>
@@ -153,7 +153,7 @@
 </span><span id="L-79"><a href="#L-79"><span class="linenos">79</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get a player&#39;s total champion mastery score, which is the sum of individual champion mastery levels</span>
 </span><span id="L-80"><a href="#L-80"><span class="linenos">80</span></a>
 </span><span id="L-81"><a href="#L-81"><span class="linenos">81</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-82"><a href="#L-82"><span class="linenos">82</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="L-82"><a href="#L-82"><span class="linenos">82</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="L-83"><a href="#L-83"><span class="linenos">83</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="L-84"><a href="#L-84"><span class="linenos">84</span></a>
 </span><span id="L-85"><a href="#L-85"><span class="linenos">85</span></a><span class="sd">        **Returns:**  </span>
@@ -189,11 +189,11 @@
 </span><span id="ChampionMasteryEndpoint-15"><a href="#ChampionMasteryEndpoint-15"><span class="linenos">15</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get all champion mastery entries sorted by number of champion points descending</span>
 </span><span id="ChampionMasteryEndpoint-16"><a href="#ChampionMasteryEndpoint-16"><span class="linenos">16</span></a>
 </span><span id="ChampionMasteryEndpoint-17"><a href="#ChampionMasteryEndpoint-17"><span class="linenos">17</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChampionMasteryEndpoint-18"><a href="#ChampionMasteryEndpoint-18"><span class="linenos">18</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChampionMasteryEndpoint-18"><a href="#ChampionMasteryEndpoint-18"><span class="linenos">18</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChampionMasteryEndpoint-19"><a href="#ChampionMasteryEndpoint-19"><span class="linenos">19</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="ChampionMasteryEndpoint-20"><a href="#ChampionMasteryEndpoint-20"><span class="linenos">20</span></a>
 </span><span id="ChampionMasteryEndpoint-21"><a href="#ChampionMasteryEndpoint-21"><span class="linenos">21</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChampionMasteryEndpoint-22"><a href="#ChampionMasteryEndpoint-22"><span class="linenos">22</span></a><span class="sd">            `list[ChampionMasteryDto]:` List of pyke._models.champion_mastery_v4.ChampionMasteryDto objects.</span>
+</span><span id="ChampionMasteryEndpoint-22"><a href="#ChampionMasteryEndpoint-22"><span class="linenos">22</span></a><span class="sd">            `list[ChampionMasteryDto]:` List of pyke.models.champion_mastery_v4.ChampionMasteryDto objects.</span>
 </span><span id="ChampionMasteryEndpoint-23"><a href="#ChampionMasteryEndpoint-23"><span class="linenos">23</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChampionMasteryEndpoint-24"><a href="#ChampionMasteryEndpoint-24"><span class="linenos">24</span></a>
 </span><span id="ChampionMasteryEndpoint-25"><a href="#ChampionMasteryEndpoint-25"><span class="linenos">25</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/champion-mastery/v4/champion-masteries/by-puuid/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -212,12 +212,12 @@
 </span><span id="ChampionMasteryEndpoint-38"><a href="#ChampionMasteryEndpoint-38"><span class="linenos">38</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get a champion mastery by puuid and champion ID</span>
 </span><span id="ChampionMasteryEndpoint-39"><a href="#ChampionMasteryEndpoint-39"><span class="linenos">39</span></a>
 </span><span id="ChampionMasteryEndpoint-40"><a href="#ChampionMasteryEndpoint-40"><span class="linenos">40</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChampionMasteryEndpoint-41"><a href="#ChampionMasteryEndpoint-41"><span class="linenos">41</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChampionMasteryEndpoint-41"><a href="#ChampionMasteryEndpoint-41"><span class="linenos">41</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChampionMasteryEndpoint-42"><a href="#ChampionMasteryEndpoint-42"><span class="linenos">42</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="ChampionMasteryEndpoint-43"><a href="#ChampionMasteryEndpoint-43"><span class="linenos">43</span></a><span class="sd">            `champion_id (int):` Champion ID for this entry.  </span>
 </span><span id="ChampionMasteryEndpoint-44"><a href="#ChampionMasteryEndpoint-44"><span class="linenos">44</span></a>
 </span><span id="ChampionMasteryEndpoint-45"><a href="#ChampionMasteryEndpoint-45"><span class="linenos">45</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChampionMasteryEndpoint-46"><a href="#ChampionMasteryEndpoint-46"><span class="linenos">46</span></a><span class="sd">            `ChampionMasteryDto:` pyke._models.champion_mastery_v4.ChampionMasteryDto object.</span>
+</span><span id="ChampionMasteryEndpoint-46"><a href="#ChampionMasteryEndpoint-46"><span class="linenos">46</span></a><span class="sd">            `ChampionMasteryDto:` pyke.models.champion_mastery_v4.ChampionMasteryDto object.</span>
 </span><span id="ChampionMasteryEndpoint-47"><a href="#ChampionMasteryEndpoint-47"><span class="linenos">47</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChampionMasteryEndpoint-48"><a href="#ChampionMasteryEndpoint-48"><span class="linenos">48</span></a>
 </span><span id="ChampionMasteryEndpoint-49"><a href="#ChampionMasteryEndpoint-49"><span class="linenos">49</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/champion-mastery/v4/champion-masteries/by-puuid/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">/by-champion/</span><span class="si">{</span><span class="n">champion_id</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -231,12 +231,12 @@
 </span><span id="ChampionMasteryEndpoint-57"><a href="#ChampionMasteryEndpoint-57"><span class="linenos">57</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get specified number of top champion mastery entries sorted by number of champion points descending</span>
 </span><span id="ChampionMasteryEndpoint-58"><a href="#ChampionMasteryEndpoint-58"><span class="linenos">58</span></a>
 </span><span id="ChampionMasteryEndpoint-59"><a href="#ChampionMasteryEndpoint-59"><span class="linenos">59</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChampionMasteryEndpoint-60"><a href="#ChampionMasteryEndpoint-60"><span class="linenos">60</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChampionMasteryEndpoint-60"><a href="#ChampionMasteryEndpoint-60"><span class="linenos">60</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChampionMasteryEndpoint-61"><a href="#ChampionMasteryEndpoint-61"><span class="linenos">61</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="ChampionMasteryEndpoint-62"><a href="#ChampionMasteryEndpoint-62"><span class="linenos">62</span></a><span class="sd">            `count (int | None, optional):` Number of entries to retrieve. defaults to 3.  </span>
 </span><span id="ChampionMasteryEndpoint-63"><a href="#ChampionMasteryEndpoint-63"><span class="linenos">63</span></a>
 </span><span id="ChampionMasteryEndpoint-64"><a href="#ChampionMasteryEndpoint-64"><span class="linenos">64</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChampionMasteryEndpoint-65"><a href="#ChampionMasteryEndpoint-65"><span class="linenos">65</span></a><span class="sd">            `list[ChampionMasteryDTO]:` List of pyke._models.champion_mastery_v4.ChampionMasteryDTO objects.</span>
+</span><span id="ChampionMasteryEndpoint-65"><a href="#ChampionMasteryEndpoint-65"><span class="linenos">65</span></a><span class="sd">            `list[ChampionMasteryDTO]:` List of pyke.models.champion_mastery_v4.ChampionMasteryDTO objects.</span>
 </span><span id="ChampionMasteryEndpoint-66"><a href="#ChampionMasteryEndpoint-66"><span class="linenos">66</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChampionMasteryEndpoint-67"><a href="#ChampionMasteryEndpoint-67"><span class="linenos">67</span></a>
 </span><span id="ChampionMasteryEndpoint-68"><a href="#ChampionMasteryEndpoint-68"><span class="linenos">68</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/champion-mastery/v4/champion-masteries/by-puuid/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">/top&quot;</span>
@@ -254,7 +254,7 @@
 </span><span id="ChampionMasteryEndpoint-80"><a href="#ChampionMasteryEndpoint-80"><span class="linenos">80</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get a player&#39;s total champion mastery score, which is the sum of individual champion mastery levels</span>
 </span><span id="ChampionMasteryEndpoint-81"><a href="#ChampionMasteryEndpoint-81"><span class="linenos">81</span></a>
 </span><span id="ChampionMasteryEndpoint-82"><a href="#ChampionMasteryEndpoint-82"><span class="linenos">82</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChampionMasteryEndpoint-83"><a href="#ChampionMasteryEndpoint-83"><span class="linenos">83</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChampionMasteryEndpoint-83"><a href="#ChampionMasteryEndpoint-83"><span class="linenos">83</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChampionMasteryEndpoint-84"><a href="#ChampionMasteryEndpoint-84"><span class="linenos">84</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="ChampionMasteryEndpoint-85"><a href="#ChampionMasteryEndpoint-85"><span class="linenos">85</span></a>
 </span><span id="ChampionMasteryEndpoint-86"><a href="#ChampionMasteryEndpoint-86"><span class="linenos">86</span></a><span class="sd">        **Returns:**  </span>
@@ -293,7 +293,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">masteries_by_puuid</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../_models/champion_mastery_v4.html#ChampionMasteryDto">pyke._models.champion_mastery_v4.ChampionMasteryDto</a></span><span class="p">]</span>:</span></span>
+        <span class="name">masteries_by_puuid</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../models/champion_mastery_v4.html#ChampionMasteryDto">pyke.models.champion_mastery_v4.ChampionMasteryDto</a></span><span class="p">]</span>:</span></span>
 
                 <label class="view-source-button" for="ChampionMasteryEndpoint.masteries_by_puuid-view-source"><span>View Source</span></label>
 
@@ -305,11 +305,11 @@
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid-15"><a href="#ChampionMasteryEndpoint.masteries_by_puuid-15"><span class="linenos">15</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get all champion mastery entries sorted by number of champion points descending</span>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid-16"><a href="#ChampionMasteryEndpoint.masteries_by_puuid-16"><span class="linenos">16</span></a>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid-17"><a href="#ChampionMasteryEndpoint.masteries_by_puuid-17"><span class="linenos">17</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChampionMasteryEndpoint.masteries_by_puuid-18"><a href="#ChampionMasteryEndpoint.masteries_by_puuid-18"><span class="linenos">18</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChampionMasteryEndpoint.masteries_by_puuid-18"><a href="#ChampionMasteryEndpoint.masteries_by_puuid-18"><span class="linenos">18</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid-19"><a href="#ChampionMasteryEndpoint.masteries_by_puuid-19"><span class="linenos">19</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid-20"><a href="#ChampionMasteryEndpoint.masteries_by_puuid-20"><span class="linenos">20</span></a>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid-21"><a href="#ChampionMasteryEndpoint.masteries_by_puuid-21"><span class="linenos">21</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChampionMasteryEndpoint.masteries_by_puuid-22"><a href="#ChampionMasteryEndpoint.masteries_by_puuid-22"><span class="linenos">22</span></a><span class="sd">            `list[ChampionMasteryDto]:` List of pyke._models.champion_mastery_v4.ChampionMasteryDto objects.</span>
+</span><span id="ChampionMasteryEndpoint.masteries_by_puuid-22"><a href="#ChampionMasteryEndpoint.masteries_by_puuid-22"><span class="linenos">22</span></a><span class="sd">            `list[ChampionMasteryDto]:` List of pyke.models.champion_mastery_v4.ChampionMasteryDto objects.</span>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid-23"><a href="#ChampionMasteryEndpoint.masteries_by_puuid-23"><span class="linenos">23</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid-24"><a href="#ChampionMasteryEndpoint.masteries_by_puuid-24"><span class="linenos">24</span></a>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid-25"><a href="#ChampionMasteryEndpoint.masteries_by_puuid-25"><span class="linenos">25</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/champion-mastery/v4/champion-masteries/by-puuid/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -327,11 +327,11 @@
             <div class="docstring"><h1 id="get-all-champion-mastery-entries-sorted-by-number-of-champion-points-descending">Get all champion mastery entries sorted by number of champion points descending</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
     <code>puuid (str):</code> Encrypted PUUID. Exact length of 78 characters.  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>list[ChampionMasteryDto]:</code> List of <a href="../_models/champion_mastery_v4.html#ChampionMasteryDto">pyke._models.champion_mastery_v4.ChampionMasteryDto</a> objects.</p>
+    <code>list[ChampionMasteryDto]:</code> List of <a href="../models/champion_mastery_v4.html#ChampionMasteryDto">pyke.models.champion_mastery_v4.ChampionMasteryDto</a> objects.</p>
 </div>
 
 
@@ -341,7 +341,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">by_puuid_and_champion_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">champion_id</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="n"><a href="../_models/champion_mastery_v4.html#ChampionMasteryDto">pyke._models.champion_mastery_v4.ChampionMasteryDto</a></span>:</span></span>
+        <span class="name">by_puuid_and_champion_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">champion_id</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/champion_mastery_v4.html#ChampionMasteryDto">pyke.models.champion_mastery_v4.ChampionMasteryDto</a></span>:</span></span>
 
                 <label class="view-source-button" for="ChampionMasteryEndpoint.by_puuid_and_champion_id-view-source"><span>View Source</span></label>
 
@@ -353,12 +353,12 @@
 </span><span id="ChampionMasteryEndpoint.by_puuid_and_champion_id-38"><a href="#ChampionMasteryEndpoint.by_puuid_and_champion_id-38"><span class="linenos">38</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get a champion mastery by puuid and champion ID</span>
 </span><span id="ChampionMasteryEndpoint.by_puuid_and_champion_id-39"><a href="#ChampionMasteryEndpoint.by_puuid_and_champion_id-39"><span class="linenos">39</span></a>
 </span><span id="ChampionMasteryEndpoint.by_puuid_and_champion_id-40"><a href="#ChampionMasteryEndpoint.by_puuid_and_champion_id-40"><span class="linenos">40</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChampionMasteryEndpoint.by_puuid_and_champion_id-41"><a href="#ChampionMasteryEndpoint.by_puuid_and_champion_id-41"><span class="linenos">41</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChampionMasteryEndpoint.by_puuid_and_champion_id-41"><a href="#ChampionMasteryEndpoint.by_puuid_and_champion_id-41"><span class="linenos">41</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChampionMasteryEndpoint.by_puuid_and_champion_id-42"><a href="#ChampionMasteryEndpoint.by_puuid_and_champion_id-42"><span class="linenos">42</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="ChampionMasteryEndpoint.by_puuid_and_champion_id-43"><a href="#ChampionMasteryEndpoint.by_puuid_and_champion_id-43"><span class="linenos">43</span></a><span class="sd">            `champion_id (int):` Champion ID for this entry.  </span>
 </span><span id="ChampionMasteryEndpoint.by_puuid_and_champion_id-44"><a href="#ChampionMasteryEndpoint.by_puuid_and_champion_id-44"><span class="linenos">44</span></a>
 </span><span id="ChampionMasteryEndpoint.by_puuid_and_champion_id-45"><a href="#ChampionMasteryEndpoint.by_puuid_and_champion_id-45"><span class="linenos">45</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChampionMasteryEndpoint.by_puuid_and_champion_id-46"><a href="#ChampionMasteryEndpoint.by_puuid_and_champion_id-46"><span class="linenos">46</span></a><span class="sd">            `ChampionMasteryDto:` pyke._models.champion_mastery_v4.ChampionMasteryDto object.</span>
+</span><span id="ChampionMasteryEndpoint.by_puuid_and_champion_id-46"><a href="#ChampionMasteryEndpoint.by_puuid_and_champion_id-46"><span class="linenos">46</span></a><span class="sd">            `ChampionMasteryDto:` pyke.models.champion_mastery_v4.ChampionMasteryDto object.</span>
 </span><span id="ChampionMasteryEndpoint.by_puuid_and_champion_id-47"><a href="#ChampionMasteryEndpoint.by_puuid_and_champion_id-47"><span class="linenos">47</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChampionMasteryEndpoint.by_puuid_and_champion_id-48"><a href="#ChampionMasteryEndpoint.by_puuid_and_champion_id-48"><span class="linenos">48</span></a>
 </span><span id="ChampionMasteryEndpoint.by_puuid_and_champion_id-49"><a href="#ChampionMasteryEndpoint.by_puuid_and_champion_id-49"><span class="linenos">49</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/champion-mastery/v4/champion-masteries/by-puuid/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">/by-champion/</span><span class="si">{</span><span class="n">champion_id</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -371,12 +371,12 @@
             <div class="docstring"><h1 id="get-a-champion-mastery-by-puuid-and-champion-id">Get a champion mastery by puuid and champion ID</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
     <code>puuid (str):</code> Encrypted PUUID. Exact length of 78 characters.<br />
     <code>champion_id (int):</code> Champion ID for this entry.  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>ChampionMasteryDto:</code> <a href="../_models/champion_mastery_v4.html#ChampionMasteryDto">pyke._models.champion_mastery_v4.ChampionMasteryDto</a> object.</p>
+    <code>ChampionMasteryDto:</code> <a href="../models/champion_mastery_v4.html#ChampionMasteryDto">pyke.models.champion_mastery_v4.ChampionMasteryDto</a> object.</p>
 </div>
 
 
@@ -386,7 +386,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">masteries_by_puuid_top</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../_models/champion_mastery_v4.html#ChampionMasteryDto">pyke._models.champion_mastery_v4.ChampionMasteryDto</a></span><span class="p">]</span>:</span></span>
+        <span class="name">masteries_by_puuid_top</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../models/champion_mastery_v4.html#ChampionMasteryDto">pyke.models.champion_mastery_v4.ChampionMasteryDto</a></span><span class="p">]</span>:</span></span>
 
                 <label class="view-source-button" for="ChampionMasteryEndpoint.masteries_by_puuid_top-view-source"><span>View Source</span></label>
 
@@ -398,12 +398,12 @@
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid_top-57"><a href="#ChampionMasteryEndpoint.masteries_by_puuid_top-57"><span class="linenos">57</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get specified number of top champion mastery entries sorted by number of champion points descending</span>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid_top-58"><a href="#ChampionMasteryEndpoint.masteries_by_puuid_top-58"><span class="linenos">58</span></a>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid_top-59"><a href="#ChampionMasteryEndpoint.masteries_by_puuid_top-59"><span class="linenos">59</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChampionMasteryEndpoint.masteries_by_puuid_top-60"><a href="#ChampionMasteryEndpoint.masteries_by_puuid_top-60"><span class="linenos">60</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChampionMasteryEndpoint.masteries_by_puuid_top-60"><a href="#ChampionMasteryEndpoint.masteries_by_puuid_top-60"><span class="linenos">60</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid_top-61"><a href="#ChampionMasteryEndpoint.masteries_by_puuid_top-61"><span class="linenos">61</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid_top-62"><a href="#ChampionMasteryEndpoint.masteries_by_puuid_top-62"><span class="linenos">62</span></a><span class="sd">            `count (int | None, optional):` Number of entries to retrieve. defaults to 3.  </span>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid_top-63"><a href="#ChampionMasteryEndpoint.masteries_by_puuid_top-63"><span class="linenos">63</span></a>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid_top-64"><a href="#ChampionMasteryEndpoint.masteries_by_puuid_top-64"><span class="linenos">64</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChampionMasteryEndpoint.masteries_by_puuid_top-65"><a href="#ChampionMasteryEndpoint.masteries_by_puuid_top-65"><span class="linenos">65</span></a><span class="sd">            `list[ChampionMasteryDTO]:` List of pyke._models.champion_mastery_v4.ChampionMasteryDTO objects.</span>
+</span><span id="ChampionMasteryEndpoint.masteries_by_puuid_top-65"><a href="#ChampionMasteryEndpoint.masteries_by_puuid_top-65"><span class="linenos">65</span></a><span class="sd">            `list[ChampionMasteryDTO]:` List of pyke.models.champion_mastery_v4.ChampionMasteryDTO objects.</span>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid_top-66"><a href="#ChampionMasteryEndpoint.masteries_by_puuid_top-66"><span class="linenos">66</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid_top-67"><a href="#ChampionMasteryEndpoint.masteries_by_puuid_top-67"><span class="linenos">67</span></a>
 </span><span id="ChampionMasteryEndpoint.masteries_by_puuid_top-68"><a href="#ChampionMasteryEndpoint.masteries_by_puuid_top-68"><span class="linenos">68</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/champion-mastery/v4/champion-masteries/by-puuid/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">/top&quot;</span>
@@ -422,12 +422,12 @@
             <div class="docstring"><h1 id="get-specified-number-of-top-champion-mastery-entries-sorted-by-number-of-champion-points-descending">Get specified number of top champion mastery entries sorted by number of champion points descending</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
     <code>puuid (str):</code> Encrypted PUUID. Exact length of 78 characters.<br />
     <code>count (int | None, optional):</code> Number of entries to retrieve. defaults to 3.  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>list[ChampionMasteryDTO]:</code> List of pyke._models.champion_mastery_v4.ChampionMasteryDTO objects.</p>
+    <code>list[ChampionMasteryDTO]:</code> List of pyke.models.champion_mastery_v4.ChampionMasteryDTO objects.</p>
 </div>
 
 
@@ -437,7 +437,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">score_by_puuid</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span>, </span><span class="param"><span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">int</span>:</span></span>
+        <span class="name">score_by_puuid</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>, </span><span class="param"><span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">int</span>:</span></span>
 
                 <label class="view-source-button" for="ChampionMasteryEndpoint.score_by_puuid-view-source"><span>View Source</span></label>
 
@@ -447,7 +447,7 @@
 </span><span id="ChampionMasteryEndpoint.score_by_puuid-80"><a href="#ChampionMasteryEndpoint.score_by_puuid-80"><span class="linenos">80</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get a player&#39;s total champion mastery score, which is the sum of individual champion mastery levels</span>
 </span><span id="ChampionMasteryEndpoint.score_by_puuid-81"><a href="#ChampionMasteryEndpoint.score_by_puuid-81"><span class="linenos">81</span></a>
 </span><span id="ChampionMasteryEndpoint.score_by_puuid-82"><a href="#ChampionMasteryEndpoint.score_by_puuid-82"><span class="linenos">82</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChampionMasteryEndpoint.score_by_puuid-83"><a href="#ChampionMasteryEndpoint.score_by_puuid-83"><span class="linenos">83</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChampionMasteryEndpoint.score_by_puuid-83"><a href="#ChampionMasteryEndpoint.score_by_puuid-83"><span class="linenos">83</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChampionMasteryEndpoint.score_by_puuid-84"><a href="#ChampionMasteryEndpoint.score_by_puuid-84"><span class="linenos">84</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="ChampionMasteryEndpoint.score_by_puuid-85"><a href="#ChampionMasteryEndpoint.score_by_puuid-85"><span class="linenos">85</span></a>
 </span><span id="ChampionMasteryEndpoint.score_by_puuid-86"><a href="#ChampionMasteryEndpoint.score_by_puuid-86"><span class="linenos">86</span></a><span class="sd">        **Returns:**  </span>
@@ -464,7 +464,7 @@
             <div class="docstring"><h1 id="get-a-players-total-champion-mastery-score-which-is-the-sum-of-individual-champion-mastery-levels">Get a player's total champion mastery score, which is the sum of individual champion mastery levels</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
     <code>puuid (str):</code> Encrypted PUUID. Exact length of 78 characters.  </p>
 
 <p><strong>Returns:</strong><br />

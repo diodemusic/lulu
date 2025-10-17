@@ -66,7 +66,7 @@
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyke</span><span class="w"> </span><span class="kn">import</span> <span class="n">Region</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.._base_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">_BaseApiClient</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.._models.spectator_v5</span><span class="w"> </span><span class="kn">import</span> <span class="n">CurrentGameInfo</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">..models.spectator_v5</span><span class="w"> </span><span class="kn">import</span> <span class="n">CurrentGameInfo</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>
 </span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a>
 </span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="k">class</span><span class="w"> </span><span class="nc">SpectatorEndpoint</span><span class="p">:</span>
@@ -77,11 +77,11 @@
 </span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get current game information for the given puuid</span>
 </span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>
 </span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>
 </span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a><span class="sd">            `CurrentGameInfo:` pyke._models.spectator_v5.CurrentGameInfo</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a><span class="sd">            `CurrentGameInfo:` pyke.models.spectator_v5.CurrentGameInfo</span>
 </span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>
 </span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/spectator/v5/active-games/by-summoner/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -111,11 +111,11 @@
 </span><span id="SpectatorEndpoint-13"><a href="#SpectatorEndpoint-13"><span class="linenos">13</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get current game information for the given puuid</span>
 </span><span id="SpectatorEndpoint-14"><a href="#SpectatorEndpoint-14"><span class="linenos">14</span></a>
 </span><span id="SpectatorEndpoint-15"><a href="#SpectatorEndpoint-15"><span class="linenos">15</span></a><span class="sd">        **Args:**  </span>
-</span><span id="SpectatorEndpoint-16"><a href="#SpectatorEndpoint-16"><span class="linenos">16</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="SpectatorEndpoint-16"><a href="#SpectatorEndpoint-16"><span class="linenos">16</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="SpectatorEndpoint-17"><a href="#SpectatorEndpoint-17"><span class="linenos">17</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="SpectatorEndpoint-18"><a href="#SpectatorEndpoint-18"><span class="linenos">18</span></a>
 </span><span id="SpectatorEndpoint-19"><a href="#SpectatorEndpoint-19"><span class="linenos">19</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="SpectatorEndpoint-20"><a href="#SpectatorEndpoint-20"><span class="linenos">20</span></a><span class="sd">            `CurrentGameInfo:` pyke._models.spectator_v5.CurrentGameInfo</span>
+</span><span id="SpectatorEndpoint-20"><a href="#SpectatorEndpoint-20"><span class="linenos">20</span></a><span class="sd">            `CurrentGameInfo:` pyke.models.spectator_v5.CurrentGameInfo</span>
 </span><span id="SpectatorEndpoint-21"><a href="#SpectatorEndpoint-21"><span class="linenos">21</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="SpectatorEndpoint-22"><a href="#SpectatorEndpoint-22"><span class="linenos">22</span></a>
 </span><span id="SpectatorEndpoint-23"><a href="#SpectatorEndpoint-23"><span class="linenos">23</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/spectator/v5/active-games/by-summoner/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -150,7 +150,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">by_puuid</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n"><a href="../_models/spectator_v5.html#CurrentGameInfo">pyke._models.spectator_v5.CurrentGameInfo</a></span>:</span></span>
+        <span class="name">by_puuid</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/spectator_v5.html#CurrentGameInfo">pyke.models.spectator_v5.CurrentGameInfo</a></span>:</span></span>
 
                 <label class="view-source-button" for="SpectatorEndpoint.by_puuid-view-source"><span>View Source</span></label>
 
@@ -160,11 +160,11 @@
 </span><span id="SpectatorEndpoint.by_puuid-13"><a href="#SpectatorEndpoint.by_puuid-13"><span class="linenos">13</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get current game information for the given puuid</span>
 </span><span id="SpectatorEndpoint.by_puuid-14"><a href="#SpectatorEndpoint.by_puuid-14"><span class="linenos">14</span></a>
 </span><span id="SpectatorEndpoint.by_puuid-15"><a href="#SpectatorEndpoint.by_puuid-15"><span class="linenos">15</span></a><span class="sd">        **Args:**  </span>
-</span><span id="SpectatorEndpoint.by_puuid-16"><a href="#SpectatorEndpoint.by_puuid-16"><span class="linenos">16</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="SpectatorEndpoint.by_puuid-16"><a href="#SpectatorEndpoint.by_puuid-16"><span class="linenos">16</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="SpectatorEndpoint.by_puuid-17"><a href="#SpectatorEndpoint.by_puuid-17"><span class="linenos">17</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="SpectatorEndpoint.by_puuid-18"><a href="#SpectatorEndpoint.by_puuid-18"><span class="linenos">18</span></a>
 </span><span id="SpectatorEndpoint.by_puuid-19"><a href="#SpectatorEndpoint.by_puuid-19"><span class="linenos">19</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="SpectatorEndpoint.by_puuid-20"><a href="#SpectatorEndpoint.by_puuid-20"><span class="linenos">20</span></a><span class="sd">            `CurrentGameInfo:` pyke._models.spectator_v5.CurrentGameInfo</span>
+</span><span id="SpectatorEndpoint.by_puuid-20"><a href="#SpectatorEndpoint.by_puuid-20"><span class="linenos">20</span></a><span class="sd">            `CurrentGameInfo:` pyke.models.spectator_v5.CurrentGameInfo</span>
 </span><span id="SpectatorEndpoint.by_puuid-21"><a href="#SpectatorEndpoint.by_puuid-21"><span class="linenos">21</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="SpectatorEndpoint.by_puuid-22"><a href="#SpectatorEndpoint.by_puuid-22"><span class="linenos">22</span></a>
 </span><span id="SpectatorEndpoint.by_puuid-23"><a href="#SpectatorEndpoint.by_puuid-23"><span class="linenos">23</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/spectator/v5/active-games/by-summoner/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -177,11 +177,11 @@
             <div class="docstring"><h1 id="get-current-game-information-for-the-given-puuid">Get current game information for the given puuid</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
     <code>puuid (str):</code> Encrypted PUUID. Exact length of 78 characters.  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>CurrentGameInfo:</code> <a href="../_models/spectator_v5.html#CurrentGameInfo">pyke._models.spectator_v5.CurrentGameInfo</a></p>
+    <code>CurrentGameInfo:</code> <a href="../models/spectator_v5.html#CurrentGameInfo">pyke.models.spectator_v5.CurrentGameInfo</a></p>
 </div>
 
 

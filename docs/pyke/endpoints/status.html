@@ -66,7 +66,7 @@
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyke</span><span class="w"> </span><span class="kn">import</span> <span class="n">Region</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.._base_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">_BaseApiClient</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.._models.status_v4</span><span class="w"> </span><span class="kn">import</span> <span class="n">PlatformDataDto</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">..models.status_v4</span><span class="w"> </span><span class="kn">import</span> <span class="n">PlatformDataDto</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>
 </span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a>
 </span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="k">class</span><span class="w"> </span><span class="nc">StatusEndpoint</span><span class="p">:</span>
@@ -77,10 +77,10 @@
 </span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get League of Legends status for the given platform</span>
 </span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>
 </span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>
 </span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="sd">            `PlatformDataDto:` pyke._models.status_v4.PlatformDataDto</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="sd">            `PlatformDataDto:` pyke.models.status_v4.PlatformDataDto</span>
 </span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>
 </span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/lol/status/v4/platform-data&quot;</span>
@@ -110,10 +110,10 @@
 </span><span id="StatusEndpoint-13"><a href="#StatusEndpoint-13"><span class="linenos">13</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get League of Legends status for the given platform</span>
 </span><span id="StatusEndpoint-14"><a href="#StatusEndpoint-14"><span class="linenos">14</span></a>
 </span><span id="StatusEndpoint-15"><a href="#StatusEndpoint-15"><span class="linenos">15</span></a><span class="sd">        **Args:**  </span>
-</span><span id="StatusEndpoint-16"><a href="#StatusEndpoint-16"><span class="linenos">16</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="StatusEndpoint-16"><a href="#StatusEndpoint-16"><span class="linenos">16</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="StatusEndpoint-17"><a href="#StatusEndpoint-17"><span class="linenos">17</span></a>
 </span><span id="StatusEndpoint-18"><a href="#StatusEndpoint-18"><span class="linenos">18</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="StatusEndpoint-19"><a href="#StatusEndpoint-19"><span class="linenos">19</span></a><span class="sd">            `PlatformDataDto:` pyke._models.status_v4.PlatformDataDto</span>
+</span><span id="StatusEndpoint-19"><a href="#StatusEndpoint-19"><span class="linenos">19</span></a><span class="sd">            `PlatformDataDto:` pyke.models.status_v4.PlatformDataDto</span>
 </span><span id="StatusEndpoint-20"><a href="#StatusEndpoint-20"><span class="linenos">20</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="StatusEndpoint-21"><a href="#StatusEndpoint-21"><span class="linenos">21</span></a>
 </span><span id="StatusEndpoint-22"><a href="#StatusEndpoint-22"><span class="linenos">22</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/lol/status/v4/platform-data&quot;</span>
@@ -148,7 +148,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">platform_data</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span></span><span class="return-annotation">) -> <span class="n"><a href="../_models/status_v4.html#PlatformDataDto">pyke._models.status_v4.PlatformDataDto</a></span>:</span></span>
+        <span class="name">platform_data</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span></span><span class="return-annotation">) -> <span class="n"><a href="../models/status_v4.html#PlatformDataDto">pyke.models.status_v4.PlatformDataDto</a></span>:</span></span>
 
                 <label class="view-source-button" for="StatusEndpoint.platform_data-view-source"><span>View Source</span></label>
 
@@ -158,10 +158,10 @@
 </span><span id="StatusEndpoint.platform_data-13"><a href="#StatusEndpoint.platform_data-13"><span class="linenos">13</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get League of Legends status for the given platform</span>
 </span><span id="StatusEndpoint.platform_data-14"><a href="#StatusEndpoint.platform_data-14"><span class="linenos">14</span></a>
 </span><span id="StatusEndpoint.platform_data-15"><a href="#StatusEndpoint.platform_data-15"><span class="linenos">15</span></a><span class="sd">        **Args:**  </span>
-</span><span id="StatusEndpoint.platform_data-16"><a href="#StatusEndpoint.platform_data-16"><span class="linenos">16</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="StatusEndpoint.platform_data-16"><a href="#StatusEndpoint.platform_data-16"><span class="linenos">16</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="StatusEndpoint.platform_data-17"><a href="#StatusEndpoint.platform_data-17"><span class="linenos">17</span></a>
 </span><span id="StatusEndpoint.platform_data-18"><a href="#StatusEndpoint.platform_data-18"><span class="linenos">18</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="StatusEndpoint.platform_data-19"><a href="#StatusEndpoint.platform_data-19"><span class="linenos">19</span></a><span class="sd">            `PlatformDataDto:` pyke._models.status_v4.PlatformDataDto</span>
+</span><span id="StatusEndpoint.platform_data-19"><a href="#StatusEndpoint.platform_data-19"><span class="linenos">19</span></a><span class="sd">            `PlatformDataDto:` pyke.models.status_v4.PlatformDataDto</span>
 </span><span id="StatusEndpoint.platform_data-20"><a href="#StatusEndpoint.platform_data-20"><span class="linenos">20</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="StatusEndpoint.platform_data-21"><a href="#StatusEndpoint.platform_data-21"><span class="linenos">21</span></a>
 </span><span id="StatusEndpoint.platform_data-22"><a href="#StatusEndpoint.platform_data-22"><span class="linenos">22</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/lol/status/v4/platform-data&quot;</span>
@@ -174,10 +174,10 @@
             <div class="docstring"><h1 id="get-league-of-legends-status-for-the-given-platform">Get League of Legends status for the given platform</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).  </p>
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>PlatformDataDto:</code> <a href="../_models/status_v4.html#PlatformDataDto">pyke._models.status_v4.PlatformDataDto</a></p>
+    <code>PlatformDataDto:</code> <a href="../models/status_v4.html#PlatformDataDto">pyke.models.status_v4.PlatformDataDto</a></p>
 </div>
 
 

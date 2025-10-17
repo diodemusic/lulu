@@ -81,7 +81,7 @@
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyke</span><span class="w"> </span><span class="kn">import</span> <span class="n">Division</span><span class="p">,</span> <span class="n">Queue</span><span class="p">,</span> <span class="n">Region</span><span class="p">,</span> <span class="n">Tier</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a>
 </span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.._base_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">_BaseApiClient</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.._models.league_v4</span><span class="w"> </span><span class="kn">import</span> <span class="n">LeagueEntryDTO</span><span class="p">,</span> <span class="n">LeagueListDTO</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">..models.league_v4</span><span class="w"> </span><span class="kn">import</span> <span class="n">LeagueEntryDTO</span><span class="p">,</span> <span class="n">LeagueListDTO</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a>
 </span><span id="L-6"><a href="#L-6"><span class="linenos">  6</span></a>
 </span><span id="L-7"><a href="#L-7"><span class="linenos">  7</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LeagueEndpoint</span><span class="p">:</span>
@@ -96,11 +96,11 @@
 </span><span id="L-16"><a href="#L-16"><span class="linenos"> 16</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get the challenger league for given queue</span>
 </span><span id="L-17"><a href="#L-17"><span class="linenos"> 17</span></a>
 </span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
-</span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  </span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  </span>
 </span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a>
 </span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a><span class="sd">            `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a><span class="sd">            `LeagueListDTO:` pyke.models.league_v4.LeagueListDTO object.</span>
 </span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a>
 </span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/challengerleagues/by-queue/</span><span class="si">{</span><span class="n">queue</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -112,11 +112,11 @@
 </span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get league entries in all queues for a given puuid</span>
 </span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a>
 </span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a>
 </span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a><span class="sd">            `list[LeagueEntryDTO]:` List of pyke._models.league_exp_v4.LeagueEntryDTO objects.</span>
+</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a><span class="sd">            `list[LeagueEntryDTO]:` List of pyke.models.league_exp_v4.LeagueEntryDTO objects.</span>
 </span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a>
 </span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/entries/by-puuid/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -140,14 +140,14 @@
 </span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get all the league entries</span>
 </span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a>
 </span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
-</span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  </span>
-</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a><span class="sd">            `tier (Tier):` Ranked tier (pyke._enums.tier.Tier).  </span>
-</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a><span class="sd">            `division (Division):` Ranked division (pyke._enums.division.Division).  </span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  </span>
+</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a><span class="sd">            `tier (Tier):` Ranked tier (pyke.enums.tier.Tier).  </span>
+</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a><span class="sd">            `division (Division):` Ranked division (pyke.enums.division.Division).  </span>
 </span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a><span class="sd">            `page (int, optional):` Starts with page 1. Defaults to 1.  </span>
 </span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>
 </span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="sd">            `list[LeagueEntryDTO]:` List of pyke._models.league_v4.LeagueEntryDTO objects.</span>
+</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="sd">            `list[LeagueEntryDTO]:` List of pyke.models.league_v4.LeagueEntryDTO objects.</span>
 </span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a>
 </span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/entries/</span><span class="si">{</span><span class="n">queue</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">tier</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">division</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -169,11 +169,11 @@
 </span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get the grandmaster league for given queue</span>
 </span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a>
 </span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
-</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  </span>
+</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
+</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  </span>
 </span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a>
 </span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a><span class="sd">            `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.  </span>
+</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a><span class="sd">            `LeagueListDTO:` pyke.models.league_v4.LeagueListDTO object.  </span>
 </span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a>
 </span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/grandmasterleagues/by-queue/</span><span class="si">{</span><span class="n">queue</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -185,11 +185,11 @@
 </span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get league with given ID, including inactive entries</span>
 </span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a>
 </span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a><span class="sd">            `league_id (str):` League id.  </span>
 </span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a>
 </span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a><span class="sd">            `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.</span>
+</span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a><span class="sd">            `LeagueListDTO:` pyke.models.league_v4.LeagueListDTO object.</span>
 </span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a>
 </span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/leagues/</span><span class="si">{</span><span class="n">league_id</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -205,11 +205,11 @@
 </span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get the master league for given queue</span>
 </span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>
 </span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
-</span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  </span>
+</span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
+</span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  </span>
 </span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a>
 </span><span id="L-131"><a href="#L-131"><span class="linenos">131</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a><span class="sd">            `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.</span>
+</span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a><span class="sd">            `LeagueListDTO:` pyke.models.league_v4.LeagueListDTO object.</span>
 </span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a>
 </span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/masterleagues/by-queue/</span><span class="si">{</span><span class="n">queue</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -243,11 +243,11 @@
 </span><span id="LeagueEndpoint-17"><a href="#LeagueEndpoint-17"><span class="linenos"> 17</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get the challenger league for given queue</span>
 </span><span id="LeagueEndpoint-18"><a href="#LeagueEndpoint-18"><span class="linenos"> 18</span></a>
 </span><span id="LeagueEndpoint-19"><a href="#LeagueEndpoint-19"><span class="linenos"> 19</span></a><span class="sd">        **Args:**  </span>
-</span><span id="LeagueEndpoint-20"><a href="#LeagueEndpoint-20"><span class="linenos"> 20</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
-</span><span id="LeagueEndpoint-21"><a href="#LeagueEndpoint-21"><span class="linenos"> 21</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  </span>
+</span><span id="LeagueEndpoint-20"><a href="#LeagueEndpoint-20"><span class="linenos"> 20</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
+</span><span id="LeagueEndpoint-21"><a href="#LeagueEndpoint-21"><span class="linenos"> 21</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  </span>
 </span><span id="LeagueEndpoint-22"><a href="#LeagueEndpoint-22"><span class="linenos"> 22</span></a>
 </span><span id="LeagueEndpoint-23"><a href="#LeagueEndpoint-23"><span class="linenos"> 23</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="LeagueEndpoint-24"><a href="#LeagueEndpoint-24"><span class="linenos"> 24</span></a><span class="sd">            `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.</span>
+</span><span id="LeagueEndpoint-24"><a href="#LeagueEndpoint-24"><span class="linenos"> 24</span></a><span class="sd">            `LeagueListDTO:` pyke.models.league_v4.LeagueListDTO object.</span>
 </span><span id="LeagueEndpoint-25"><a href="#LeagueEndpoint-25"><span class="linenos"> 25</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="LeagueEndpoint-26"><a href="#LeagueEndpoint-26"><span class="linenos"> 26</span></a>
 </span><span id="LeagueEndpoint-27"><a href="#LeagueEndpoint-27"><span class="linenos"> 27</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/challengerleagues/by-queue/</span><span class="si">{</span><span class="n">queue</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -259,11 +259,11 @@
 </span><span id="LeagueEndpoint-33"><a href="#LeagueEndpoint-33"><span class="linenos"> 33</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get league entries in all queues for a given puuid</span>
 </span><span id="LeagueEndpoint-34"><a href="#LeagueEndpoint-34"><span class="linenos"> 34</span></a>
 </span><span id="LeagueEndpoint-35"><a href="#LeagueEndpoint-35"><span class="linenos"> 35</span></a><span class="sd">        **Args:**  </span>
-</span><span id="LeagueEndpoint-36"><a href="#LeagueEndpoint-36"><span class="linenos"> 36</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="LeagueEndpoint-36"><a href="#LeagueEndpoint-36"><span class="linenos"> 36</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="LeagueEndpoint-37"><a href="#LeagueEndpoint-37"><span class="linenos"> 37</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="LeagueEndpoint-38"><a href="#LeagueEndpoint-38"><span class="linenos"> 38</span></a>
 </span><span id="LeagueEndpoint-39"><a href="#LeagueEndpoint-39"><span class="linenos"> 39</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="LeagueEndpoint-40"><a href="#LeagueEndpoint-40"><span class="linenos"> 40</span></a><span class="sd">            `list[LeagueEntryDTO]:` List of pyke._models.league_exp_v4.LeagueEntryDTO objects.</span>
+</span><span id="LeagueEndpoint-40"><a href="#LeagueEndpoint-40"><span class="linenos"> 40</span></a><span class="sd">            `list[LeagueEntryDTO]:` List of pyke.models.league_exp_v4.LeagueEntryDTO objects.</span>
 </span><span id="LeagueEndpoint-41"><a href="#LeagueEndpoint-41"><span class="linenos"> 41</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="LeagueEndpoint-42"><a href="#LeagueEndpoint-42"><span class="linenos"> 42</span></a>
 </span><span id="LeagueEndpoint-43"><a href="#LeagueEndpoint-43"><span class="linenos"> 43</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/entries/by-puuid/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -287,14 +287,14 @@
 </span><span id="LeagueEndpoint-61"><a href="#LeagueEndpoint-61"><span class="linenos"> 61</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get all the league entries</span>
 </span><span id="LeagueEndpoint-62"><a href="#LeagueEndpoint-62"><span class="linenos"> 62</span></a>
 </span><span id="LeagueEndpoint-63"><a href="#LeagueEndpoint-63"><span class="linenos"> 63</span></a><span class="sd">        **Args:**  </span>
-</span><span id="LeagueEndpoint-64"><a href="#LeagueEndpoint-64"><span class="linenos"> 64</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
-</span><span id="LeagueEndpoint-65"><a href="#LeagueEndpoint-65"><span class="linenos"> 65</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  </span>
-</span><span id="LeagueEndpoint-66"><a href="#LeagueEndpoint-66"><span class="linenos"> 66</span></a><span class="sd">            `tier (Tier):` Ranked tier (pyke._enums.tier.Tier).  </span>
-</span><span id="LeagueEndpoint-67"><a href="#LeagueEndpoint-67"><span class="linenos"> 67</span></a><span class="sd">            `division (Division):` Ranked division (pyke._enums.division.Division).  </span>
+</span><span id="LeagueEndpoint-64"><a href="#LeagueEndpoint-64"><span class="linenos"> 64</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
+</span><span id="LeagueEndpoint-65"><a href="#LeagueEndpoint-65"><span class="linenos"> 65</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  </span>
+</span><span id="LeagueEndpoint-66"><a href="#LeagueEndpoint-66"><span class="linenos"> 66</span></a><span class="sd">            `tier (Tier):` Ranked tier (pyke.enums.tier.Tier).  </span>
+</span><span id="LeagueEndpoint-67"><a href="#LeagueEndpoint-67"><span class="linenos"> 67</span></a><span class="sd">            `division (Division):` Ranked division (pyke.enums.division.Division).  </span>
 </span><span id="LeagueEndpoint-68"><a href="#LeagueEndpoint-68"><span class="linenos"> 68</span></a><span class="sd">            `page (int, optional):` Starts with page 1. Defaults to 1.  </span>
 </span><span id="LeagueEndpoint-69"><a href="#LeagueEndpoint-69"><span class="linenos"> 69</span></a>
 </span><span id="LeagueEndpoint-70"><a href="#LeagueEndpoint-70"><span class="linenos"> 70</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="LeagueEndpoint-71"><a href="#LeagueEndpoint-71"><span class="linenos"> 71</span></a><span class="sd">            `list[LeagueEntryDTO]:` List of pyke._models.league_v4.LeagueEntryDTO objects.</span>
+</span><span id="LeagueEndpoint-71"><a href="#LeagueEndpoint-71"><span class="linenos"> 71</span></a><span class="sd">            `list[LeagueEntryDTO]:` List of pyke.models.league_v4.LeagueEntryDTO objects.</span>
 </span><span id="LeagueEndpoint-72"><a href="#LeagueEndpoint-72"><span class="linenos"> 72</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="LeagueEndpoint-73"><a href="#LeagueEndpoint-73"><span class="linenos"> 73</span></a>
 </span><span id="LeagueEndpoint-74"><a href="#LeagueEndpoint-74"><span class="linenos"> 74</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/entries/</span><span class="si">{</span><span class="n">queue</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">tier</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">division</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -316,11 +316,11 @@
 </span><span id="LeagueEndpoint-90"><a href="#LeagueEndpoint-90"><span class="linenos"> 90</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get the grandmaster league for given queue</span>
 </span><span id="LeagueEndpoint-91"><a href="#LeagueEndpoint-91"><span class="linenos"> 91</span></a>
 </span><span id="LeagueEndpoint-92"><a href="#LeagueEndpoint-92"><span class="linenos"> 92</span></a><span class="sd">        **Args:**  </span>
-</span><span id="LeagueEndpoint-93"><a href="#LeagueEndpoint-93"><span class="linenos"> 93</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
-</span><span id="LeagueEndpoint-94"><a href="#LeagueEndpoint-94"><span class="linenos"> 94</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  </span>
+</span><span id="LeagueEndpoint-93"><a href="#LeagueEndpoint-93"><span class="linenos"> 93</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
+</span><span id="LeagueEndpoint-94"><a href="#LeagueEndpoint-94"><span class="linenos"> 94</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  </span>
 </span><span id="LeagueEndpoint-95"><a href="#LeagueEndpoint-95"><span class="linenos"> 95</span></a>
 </span><span id="LeagueEndpoint-96"><a href="#LeagueEndpoint-96"><span class="linenos"> 96</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="LeagueEndpoint-97"><a href="#LeagueEndpoint-97"><span class="linenos"> 97</span></a><span class="sd">            `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.  </span>
+</span><span id="LeagueEndpoint-97"><a href="#LeagueEndpoint-97"><span class="linenos"> 97</span></a><span class="sd">            `LeagueListDTO:` pyke.models.league_v4.LeagueListDTO object.  </span>
 </span><span id="LeagueEndpoint-98"><a href="#LeagueEndpoint-98"><span class="linenos"> 98</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="LeagueEndpoint-99"><a href="#LeagueEndpoint-99"><span class="linenos"> 99</span></a>
 </span><span id="LeagueEndpoint-100"><a href="#LeagueEndpoint-100"><span class="linenos">100</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/grandmasterleagues/by-queue/</span><span class="si">{</span><span class="n">queue</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -332,11 +332,11 @@
 </span><span id="LeagueEndpoint-106"><a href="#LeagueEndpoint-106"><span class="linenos">106</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get league with given ID, including inactive entries</span>
 </span><span id="LeagueEndpoint-107"><a href="#LeagueEndpoint-107"><span class="linenos">107</span></a>
 </span><span id="LeagueEndpoint-108"><a href="#LeagueEndpoint-108"><span class="linenos">108</span></a><span class="sd">        **Args:**  </span>
-</span><span id="LeagueEndpoint-109"><a href="#LeagueEndpoint-109"><span class="linenos">109</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="LeagueEndpoint-109"><a href="#LeagueEndpoint-109"><span class="linenos">109</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="LeagueEndpoint-110"><a href="#LeagueEndpoint-110"><span class="linenos">110</span></a><span class="sd">            `league_id (str):` League id.  </span>
 </span><span id="LeagueEndpoint-111"><a href="#LeagueEndpoint-111"><span class="linenos">111</span></a>
 </span><span id="LeagueEndpoint-112"><a href="#LeagueEndpoint-112"><span class="linenos">112</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="LeagueEndpoint-113"><a href="#LeagueEndpoint-113"><span class="linenos">113</span></a><span class="sd">            `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.</span>
+</span><span id="LeagueEndpoint-113"><a href="#LeagueEndpoint-113"><span class="linenos">113</span></a><span class="sd">            `LeagueListDTO:` pyke.models.league_v4.LeagueListDTO object.</span>
 </span><span id="LeagueEndpoint-114"><a href="#LeagueEndpoint-114"><span class="linenos">114</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="LeagueEndpoint-115"><a href="#LeagueEndpoint-115"><span class="linenos">115</span></a>
 </span><span id="LeagueEndpoint-116"><a href="#LeagueEndpoint-116"><span class="linenos">116</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/leagues/</span><span class="si">{</span><span class="n">league_id</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -352,11 +352,11 @@
 </span><span id="LeagueEndpoint-126"><a href="#LeagueEndpoint-126"><span class="linenos">126</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get the master league for given queue</span>
 </span><span id="LeagueEndpoint-127"><a href="#LeagueEndpoint-127"><span class="linenos">127</span></a>
 </span><span id="LeagueEndpoint-128"><a href="#LeagueEndpoint-128"><span class="linenos">128</span></a><span class="sd">        **Args:**  </span>
-</span><span id="LeagueEndpoint-129"><a href="#LeagueEndpoint-129"><span class="linenos">129</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
-</span><span id="LeagueEndpoint-130"><a href="#LeagueEndpoint-130"><span class="linenos">130</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  </span>
+</span><span id="LeagueEndpoint-129"><a href="#LeagueEndpoint-129"><span class="linenos">129</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
+</span><span id="LeagueEndpoint-130"><a href="#LeagueEndpoint-130"><span class="linenos">130</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  </span>
 </span><span id="LeagueEndpoint-131"><a href="#LeagueEndpoint-131"><span class="linenos">131</span></a>
 </span><span id="LeagueEndpoint-132"><a href="#LeagueEndpoint-132"><span class="linenos">132</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="LeagueEndpoint-133"><a href="#LeagueEndpoint-133"><span class="linenos">133</span></a><span class="sd">            `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.</span>
+</span><span id="LeagueEndpoint-133"><a href="#LeagueEndpoint-133"><span class="linenos">133</span></a><span class="sd">            `LeagueListDTO:` pyke.models.league_v4.LeagueListDTO object.</span>
 </span><span id="LeagueEndpoint-134"><a href="#LeagueEndpoint-134"><span class="linenos">134</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="LeagueEndpoint-135"><a href="#LeagueEndpoint-135"><span class="linenos">135</span></a>
 </span><span id="LeagueEndpoint-136"><a href="#LeagueEndpoint-136"><span class="linenos">136</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/masterleagues/by-queue/</span><span class="si">{</span><span class="n">queue</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -391,7 +391,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">challenger_leagues_by_queue</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span>,</span><span class="param">	<span class="n">queue</span><span class="p">:</span> <span class="n"><a href="../_enums/queue.html#Queue">pyke._enums.queue.Queue</a></span></span><span class="return-annotation">) -> <span class="n"><a href="../_models/league_v4.html#LeagueListDTO">pyke._models.league_v4.LeagueListDTO</a></span>:</span></span>
+        <span class="name">challenger_leagues_by_queue</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">queue</span><span class="p">:</span> <span class="n"><a href="../enums/queue.html#Queue">pyke.enums.queue.Queue</a></span></span><span class="return-annotation">) -> <span class="n"><a href="../models/league_v4.html#LeagueListDTO">pyke.models.league_v4.LeagueListDTO</a></span>:</span></span>
 
                 <label class="view-source-button" for="LeagueEndpoint.challenger_leagues_by_queue-view-source"><span>View Source</span></label>
 
@@ -405,11 +405,11 @@
 </span><span id="LeagueEndpoint.challenger_leagues_by_queue-17"><a href="#LeagueEndpoint.challenger_leagues_by_queue-17"><span class="linenos">17</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get the challenger league for given queue</span>
 </span><span id="LeagueEndpoint.challenger_leagues_by_queue-18"><a href="#LeagueEndpoint.challenger_leagues_by_queue-18"><span class="linenos">18</span></a>
 </span><span id="LeagueEndpoint.challenger_leagues_by_queue-19"><a href="#LeagueEndpoint.challenger_leagues_by_queue-19"><span class="linenos">19</span></a><span class="sd">        **Args:**  </span>
-</span><span id="LeagueEndpoint.challenger_leagues_by_queue-20"><a href="#LeagueEndpoint.challenger_leagues_by_queue-20"><span class="linenos">20</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
-</span><span id="LeagueEndpoint.challenger_leagues_by_queue-21"><a href="#LeagueEndpoint.challenger_leagues_by_queue-21"><span class="linenos">21</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  </span>
+</span><span id="LeagueEndpoint.challenger_leagues_by_queue-20"><a href="#LeagueEndpoint.challenger_leagues_by_queue-20"><span class="linenos">20</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
+</span><span id="LeagueEndpoint.challenger_leagues_by_queue-21"><a href="#LeagueEndpoint.challenger_leagues_by_queue-21"><span class="linenos">21</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  </span>
 </span><span id="LeagueEndpoint.challenger_leagues_by_queue-22"><a href="#LeagueEndpoint.challenger_leagues_by_queue-22"><span class="linenos">22</span></a>
 </span><span id="LeagueEndpoint.challenger_leagues_by_queue-23"><a href="#LeagueEndpoint.challenger_leagues_by_queue-23"><span class="linenos">23</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="LeagueEndpoint.challenger_leagues_by_queue-24"><a href="#LeagueEndpoint.challenger_leagues_by_queue-24"><span class="linenos">24</span></a><span class="sd">            `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.</span>
+</span><span id="LeagueEndpoint.challenger_leagues_by_queue-24"><a href="#LeagueEndpoint.challenger_leagues_by_queue-24"><span class="linenos">24</span></a><span class="sd">            `LeagueListDTO:` pyke.models.league_v4.LeagueListDTO object.</span>
 </span><span id="LeagueEndpoint.challenger_leagues_by_queue-25"><a href="#LeagueEndpoint.challenger_leagues_by_queue-25"><span class="linenos">25</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="LeagueEndpoint.challenger_leagues_by_queue-26"><a href="#LeagueEndpoint.challenger_leagues_by_queue-26"><span class="linenos">26</span></a>
 </span><span id="LeagueEndpoint.challenger_leagues_by_queue-27"><a href="#LeagueEndpoint.challenger_leagues_by_queue-27"><span class="linenos">27</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/challengerleagues/by-queue/</span><span class="si">{</span><span class="n">queue</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -422,11 +422,11 @@
             <div class="docstring"><h1 id="get-the-challenger-league-for-given-queue">Get the challenger league for given queue</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).<br />
-    <code>queue (Queue):</code> Ranked queue type (<a href="../_enums/queue.html#Queue">pyke._enums.queue.Queue</a>).  </p>
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
+    <code>queue (Queue):</code> Ranked queue type (<a href="../enums/queue.html#Queue">pyke.enums.queue.Queue</a>).  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>LeagueListDTO:</code> <a href="../_models/league_v4.html#LeagueListDTO">pyke._models.league_v4.LeagueListDTO</a> object.</p>
+    <code>LeagueListDTO:</code> <a href="../models/league_v4.html#LeagueListDTO">pyke.models.league_v4.LeagueListDTO</a> object.</p>
 </div>
 
 
@@ -436,7 +436,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">by_puuid</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../_models/league_v4.html#LeagueEntryDTO">pyke._models.league_v4.LeagueEntryDTO</a></span><span class="p">]</span>:</span></span>
+        <span class="name">by_puuid</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../models/league_v4.html#LeagueEntryDTO">pyke.models.league_v4.LeagueEntryDTO</a></span><span class="p">]</span>:</span></span>
 
                 <label class="view-source-button" for="LeagueEndpoint.by_puuid-view-source"><span>View Source</span></label>
 
@@ -446,11 +446,11 @@
 </span><span id="LeagueEndpoint.by_puuid-33"><a href="#LeagueEndpoint.by_puuid-33"><span class="linenos">33</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get league entries in all queues for a given puuid</span>
 </span><span id="LeagueEndpoint.by_puuid-34"><a href="#LeagueEndpoint.by_puuid-34"><span class="linenos">34</span></a>
 </span><span id="LeagueEndpoint.by_puuid-35"><a href="#LeagueEndpoint.by_puuid-35"><span class="linenos">35</span></a><span class="sd">        **Args:**  </span>
-</span><span id="LeagueEndpoint.by_puuid-36"><a href="#LeagueEndpoint.by_puuid-36"><span class="linenos">36</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="LeagueEndpoint.by_puuid-36"><a href="#LeagueEndpoint.by_puuid-36"><span class="linenos">36</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="LeagueEndpoint.by_puuid-37"><a href="#LeagueEndpoint.by_puuid-37"><span class="linenos">37</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="LeagueEndpoint.by_puuid-38"><a href="#LeagueEndpoint.by_puuid-38"><span class="linenos">38</span></a>
 </span><span id="LeagueEndpoint.by_puuid-39"><a href="#LeagueEndpoint.by_puuid-39"><span class="linenos">39</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="LeagueEndpoint.by_puuid-40"><a href="#LeagueEndpoint.by_puuid-40"><span class="linenos">40</span></a><span class="sd">            `list[LeagueEntryDTO]:` List of pyke._models.league_exp_v4.LeagueEntryDTO objects.</span>
+</span><span id="LeagueEndpoint.by_puuid-40"><a href="#LeagueEndpoint.by_puuid-40"><span class="linenos">40</span></a><span class="sd">            `list[LeagueEntryDTO]:` List of pyke.models.league_exp_v4.LeagueEntryDTO objects.</span>
 </span><span id="LeagueEndpoint.by_puuid-41"><a href="#LeagueEndpoint.by_puuid-41"><span class="linenos">41</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="LeagueEndpoint.by_puuid-42"><a href="#LeagueEndpoint.by_puuid-42"><span class="linenos">42</span></a>
 </span><span id="LeagueEndpoint.by_puuid-43"><a href="#LeagueEndpoint.by_puuid-43"><span class="linenos">43</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/entries/by-puuid/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -468,11 +468,11 @@
             <div class="docstring"><h1 id="get-league-entries-in-all-queues-for-a-given-puuid">Get league entries in all queues for a given puuid</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
     <code>puuid (str):</code> Encrypted PUUID. Exact length of 78 characters.  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>list[LeagueEntryDTO]:</code> List of <a href="../_models/league_exp_v4.html#LeagueEntryDTO">pyke._models.league_exp_v4.LeagueEntryDTO</a> objects.</p>
+    <code>list[LeagueEntryDTO]:</code> List of <a href="../models/league_exp_v4.html#LeagueEntryDTO">pyke.models.league_exp_v4.LeagueEntryDTO</a> objects.</p>
 </div>
 
 
@@ -482,7 +482,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">by_queue_tier_division</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span>,</span><span class="param">	<span class="n">queue</span><span class="p">:</span> <span class="n"><a href="../_enums/queue.html#Queue">pyke._enums.queue.Queue</a></span>,</span><span class="param">	<span class="n">tier</span><span class="p">:</span> <span class="n"><a href="../_enums/tier.html#Tier">pyke._enums.tier.Tier</a></span>,</span><span class="param">	<span class="n">division</span><span class="p">:</span> <span class="n"><a href="../_enums/division.html#Division">pyke._enums.division.Division</a></span>,</span><span class="param">	<span class="n">page</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../_models/league_v4.html#LeagueEntryDTO">pyke._models.league_v4.LeagueEntryDTO</a></span><span class="p">]</span>:</span></span>
+        <span class="name">by_queue_tier_division</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">queue</span><span class="p">:</span> <span class="n"><a href="../enums/queue.html#Queue">pyke.enums.queue.Queue</a></span>,</span><span class="param">	<span class="n">tier</span><span class="p">:</span> <span class="n"><a href="../enums/tier.html#Tier">pyke.enums.tier.Tier</a></span>,</span><span class="param">	<span class="n">division</span><span class="p">:</span> <span class="n"><a href="../enums/division.html#Division">pyke.enums.division.Division</a></span>,</span><span class="param">	<span class="n">page</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../models/league_v4.html#LeagueEntryDTO">pyke.models.league_v4.LeagueEntryDTO</a></span><span class="p">]</span>:</span></span>
 
                 <label class="view-source-button" for="LeagueEndpoint.by_queue_tier_division-view-source"><span>View Source</span></label>
 
@@ -499,14 +499,14 @@
 </span><span id="LeagueEndpoint.by_queue_tier_division-61"><a href="#LeagueEndpoint.by_queue_tier_division-61"><span class="linenos">61</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get all the league entries</span>
 </span><span id="LeagueEndpoint.by_queue_tier_division-62"><a href="#LeagueEndpoint.by_queue_tier_division-62"><span class="linenos">62</span></a>
 </span><span id="LeagueEndpoint.by_queue_tier_division-63"><a href="#LeagueEndpoint.by_queue_tier_division-63"><span class="linenos">63</span></a><span class="sd">        **Args:**  </span>
-</span><span id="LeagueEndpoint.by_queue_tier_division-64"><a href="#LeagueEndpoint.by_queue_tier_division-64"><span class="linenos">64</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
-</span><span id="LeagueEndpoint.by_queue_tier_division-65"><a href="#LeagueEndpoint.by_queue_tier_division-65"><span class="linenos">65</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  </span>
-</span><span id="LeagueEndpoint.by_queue_tier_division-66"><a href="#LeagueEndpoint.by_queue_tier_division-66"><span class="linenos">66</span></a><span class="sd">            `tier (Tier):` Ranked tier (pyke._enums.tier.Tier).  </span>
-</span><span id="LeagueEndpoint.by_queue_tier_division-67"><a href="#LeagueEndpoint.by_queue_tier_division-67"><span class="linenos">67</span></a><span class="sd">            `division (Division):` Ranked division (pyke._enums.division.Division).  </span>
+</span><span id="LeagueEndpoint.by_queue_tier_division-64"><a href="#LeagueEndpoint.by_queue_tier_division-64"><span class="linenos">64</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
+</span><span id="LeagueEndpoint.by_queue_tier_division-65"><a href="#LeagueEndpoint.by_queue_tier_division-65"><span class="linenos">65</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  </span>
+</span><span id="LeagueEndpoint.by_queue_tier_division-66"><a href="#LeagueEndpoint.by_queue_tier_division-66"><span class="linenos">66</span></a><span class="sd">            `tier (Tier):` Ranked tier (pyke.enums.tier.Tier).  </span>
+</span><span id="LeagueEndpoint.by_queue_tier_division-67"><a href="#LeagueEndpoint.by_queue_tier_division-67"><span class="linenos">67</span></a><span class="sd">            `division (Division):` Ranked division (pyke.enums.division.Division).  </span>
 </span><span id="LeagueEndpoint.by_queue_tier_division-68"><a href="#LeagueEndpoint.by_queue_tier_division-68"><span class="linenos">68</span></a><span class="sd">            `page (int, optional):` Starts with page 1. Defaults to 1.  </span>
 </span><span id="LeagueEndpoint.by_queue_tier_division-69"><a href="#LeagueEndpoint.by_queue_tier_division-69"><span class="linenos">69</span></a>
 </span><span id="LeagueEndpoint.by_queue_tier_division-70"><a href="#LeagueEndpoint.by_queue_tier_division-70"><span class="linenos">70</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="LeagueEndpoint.by_queue_tier_division-71"><a href="#LeagueEndpoint.by_queue_tier_division-71"><span class="linenos">71</span></a><span class="sd">            `list[LeagueEntryDTO]:` List of pyke._models.league_v4.LeagueEntryDTO objects.</span>
+</span><span id="LeagueEndpoint.by_queue_tier_division-71"><a href="#LeagueEndpoint.by_queue_tier_division-71"><span class="linenos">71</span></a><span class="sd">            `list[LeagueEntryDTO]:` List of pyke.models.league_v4.LeagueEntryDTO objects.</span>
 </span><span id="LeagueEndpoint.by_queue_tier_division-72"><a href="#LeagueEndpoint.by_queue_tier_division-72"><span class="linenos">72</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="LeagueEndpoint.by_queue_tier_division-73"><a href="#LeagueEndpoint.by_queue_tier_division-73"><span class="linenos">73</span></a>
 </span><span id="LeagueEndpoint.by_queue_tier_division-74"><a href="#LeagueEndpoint.by_queue_tier_division-74"><span class="linenos">74</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/entries/</span><span class="si">{</span><span class="n">queue</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">tier</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">division</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -525,14 +525,14 @@
             <div class="docstring"><h1 id="get-all-the-league-entries">Get all the league entries</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).<br />
-    <code>queue (Queue):</code> Ranked queue type (<a href="../_enums/queue.html#Queue">pyke._enums.queue.Queue</a>).<br />
-    <code>tier (Tier):</code> Ranked tier (<a href="../_enums/tier.html#Tier">pyke._enums.tier.Tier</a>).<br />
-    <code>division (Division):</code> Ranked division (<a href="../_enums/division.html#Division">pyke._enums.division.Division</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
+    <code>queue (Queue):</code> Ranked queue type (<a href="../enums/queue.html#Queue">pyke.enums.queue.Queue</a>).<br />
+    <code>tier (Tier):</code> Ranked tier (<a href="../enums/tier.html#Tier">pyke.enums.tier.Tier</a>).<br />
+    <code>division (Division):</code> Ranked division (<a href="../enums/division.html#Division">pyke.enums.division.Division</a>).<br />
     <code>page (int, optional):</code> Starts with page 1. Defaults to 1.  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>list[LeagueEntryDTO]:</code> List of <a href="../_models/league_v4.html#LeagueEntryDTO">pyke._models.league_v4.LeagueEntryDTO</a> objects.</p>
+    <code>list[LeagueEntryDTO]:</code> List of <a href="../models/league_v4.html#LeagueEntryDTO">pyke.models.league_v4.LeagueEntryDTO</a> objects.</p>
 </div>
 
 
@@ -542,7 +542,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">grandmaster_leagues_by_queue</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span>,</span><span class="param">	<span class="n">queue</span><span class="p">:</span> <span class="n"><a href="../_enums/queue.html#Queue">pyke._enums.queue.Queue</a></span></span><span class="return-annotation">) -> <span class="n"><a href="../_models/league_v4.html#LeagueListDTO">pyke._models.league_v4.LeagueListDTO</a></span>:</span></span>
+        <span class="name">grandmaster_leagues_by_queue</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">queue</span><span class="p">:</span> <span class="n"><a href="../enums/queue.html#Queue">pyke.enums.queue.Queue</a></span></span><span class="return-annotation">) -> <span class="n"><a href="../models/league_v4.html#LeagueListDTO">pyke.models.league_v4.LeagueListDTO</a></span>:</span></span>
 
                 <label class="view-source-button" for="LeagueEndpoint.grandmaster_leagues_by_queue-view-source"><span>View Source</span></label>
 
@@ -556,11 +556,11 @@
 </span><span id="LeagueEndpoint.grandmaster_leagues_by_queue-90"><a href="#LeagueEndpoint.grandmaster_leagues_by_queue-90"><span class="linenos"> 90</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get the grandmaster league for given queue</span>
 </span><span id="LeagueEndpoint.grandmaster_leagues_by_queue-91"><a href="#LeagueEndpoint.grandmaster_leagues_by_queue-91"><span class="linenos"> 91</span></a>
 </span><span id="LeagueEndpoint.grandmaster_leagues_by_queue-92"><a href="#LeagueEndpoint.grandmaster_leagues_by_queue-92"><span class="linenos"> 92</span></a><span class="sd">        **Args:**  </span>
-</span><span id="LeagueEndpoint.grandmaster_leagues_by_queue-93"><a href="#LeagueEndpoint.grandmaster_leagues_by_queue-93"><span class="linenos"> 93</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
-</span><span id="LeagueEndpoint.grandmaster_leagues_by_queue-94"><a href="#LeagueEndpoint.grandmaster_leagues_by_queue-94"><span class="linenos"> 94</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  </span>
+</span><span id="LeagueEndpoint.grandmaster_leagues_by_queue-93"><a href="#LeagueEndpoint.grandmaster_leagues_by_queue-93"><span class="linenos"> 93</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
+</span><span id="LeagueEndpoint.grandmaster_leagues_by_queue-94"><a href="#LeagueEndpoint.grandmaster_leagues_by_queue-94"><span class="linenos"> 94</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  </span>
 </span><span id="LeagueEndpoint.grandmaster_leagues_by_queue-95"><a href="#LeagueEndpoint.grandmaster_leagues_by_queue-95"><span class="linenos"> 95</span></a>
 </span><span id="LeagueEndpoint.grandmaster_leagues_by_queue-96"><a href="#LeagueEndpoint.grandmaster_leagues_by_queue-96"><span class="linenos"> 96</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="LeagueEndpoint.grandmaster_leagues_by_queue-97"><a href="#LeagueEndpoint.grandmaster_leagues_by_queue-97"><span class="linenos"> 97</span></a><span class="sd">            `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.  </span>
+</span><span id="LeagueEndpoint.grandmaster_leagues_by_queue-97"><a href="#LeagueEndpoint.grandmaster_leagues_by_queue-97"><span class="linenos"> 97</span></a><span class="sd">            `LeagueListDTO:` pyke.models.league_v4.LeagueListDTO object.  </span>
 </span><span id="LeagueEndpoint.grandmaster_leagues_by_queue-98"><a href="#LeagueEndpoint.grandmaster_leagues_by_queue-98"><span class="linenos"> 98</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="LeagueEndpoint.grandmaster_leagues_by_queue-99"><a href="#LeagueEndpoint.grandmaster_leagues_by_queue-99"><span class="linenos"> 99</span></a>
 </span><span id="LeagueEndpoint.grandmaster_leagues_by_queue-100"><a href="#LeagueEndpoint.grandmaster_leagues_by_queue-100"><span class="linenos">100</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/grandmasterleagues/by-queue/</span><span class="si">{</span><span class="n">queue</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -573,11 +573,11 @@
             <div class="docstring"><h1 id="get-the-grandmaster-league-for-given-queue">Get the grandmaster league for given queue</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).<br />
-    <code>queue (Queue):</code> Ranked queue type (<a href="../_enums/queue.html#Queue">pyke._enums.queue.Queue</a>).  </p>
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
+    <code>queue (Queue):</code> Ranked queue type (<a href="../enums/queue.html#Queue">pyke.enums.queue.Queue</a>).  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>LeagueListDTO:</code> <a href="../_models/league_v4.html#LeagueListDTO">pyke._models.league_v4.LeagueListDTO</a> object.</p>
+    <code>LeagueListDTO:</code> <a href="../models/league_v4.html#LeagueListDTO">pyke.models.league_v4.LeagueListDTO</a> object.</p>
 </div>
 
 
@@ -587,7 +587,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">by_league_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span>,</span><span class="param">	<span class="n">league_id</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n"><a href="../_models/league_v4.html#LeagueListDTO">pyke._models.league_v4.LeagueListDTO</a></span>:</span></span>
+        <span class="name">by_league_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">league_id</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/league_v4.html#LeagueListDTO">pyke.models.league_v4.LeagueListDTO</a></span>:</span></span>
 
                 <label class="view-source-button" for="LeagueEndpoint.by_league_id-view-source"><span>View Source</span></label>
 
@@ -597,11 +597,11 @@
 </span><span id="LeagueEndpoint.by_league_id-106"><a href="#LeagueEndpoint.by_league_id-106"><span class="linenos">106</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get league with given ID, including inactive entries</span>
 </span><span id="LeagueEndpoint.by_league_id-107"><a href="#LeagueEndpoint.by_league_id-107"><span class="linenos">107</span></a>
 </span><span id="LeagueEndpoint.by_league_id-108"><a href="#LeagueEndpoint.by_league_id-108"><span class="linenos">108</span></a><span class="sd">        **Args:**  </span>
-</span><span id="LeagueEndpoint.by_league_id-109"><a href="#LeagueEndpoint.by_league_id-109"><span class="linenos">109</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="LeagueEndpoint.by_league_id-109"><a href="#LeagueEndpoint.by_league_id-109"><span class="linenos">109</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="LeagueEndpoint.by_league_id-110"><a href="#LeagueEndpoint.by_league_id-110"><span class="linenos">110</span></a><span class="sd">            `league_id (str):` League id.  </span>
 </span><span id="LeagueEndpoint.by_league_id-111"><a href="#LeagueEndpoint.by_league_id-111"><span class="linenos">111</span></a>
 </span><span id="LeagueEndpoint.by_league_id-112"><a href="#LeagueEndpoint.by_league_id-112"><span class="linenos">112</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="LeagueEndpoint.by_league_id-113"><a href="#LeagueEndpoint.by_league_id-113"><span class="linenos">113</span></a><span class="sd">            `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.</span>
+</span><span id="LeagueEndpoint.by_league_id-113"><a href="#LeagueEndpoint.by_league_id-113"><span class="linenos">113</span></a><span class="sd">            `LeagueListDTO:` pyke.models.league_v4.LeagueListDTO object.</span>
 </span><span id="LeagueEndpoint.by_league_id-114"><a href="#LeagueEndpoint.by_league_id-114"><span class="linenos">114</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="LeagueEndpoint.by_league_id-115"><a href="#LeagueEndpoint.by_league_id-115"><span class="linenos">115</span></a>
 </span><span id="LeagueEndpoint.by_league_id-116"><a href="#LeagueEndpoint.by_league_id-116"><span class="linenos">116</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/leagues/</span><span class="si">{</span><span class="n">league_id</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -614,11 +614,11 @@
             <div class="docstring"><h1 id="get-league-with-given-id-including-inactive-entries">Get league with given ID, including inactive entries</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
     <code>league_id (str):</code> League id.  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>LeagueListDTO:</code> <a href="../_models/league_v4.html#LeagueListDTO">pyke._models.league_v4.LeagueListDTO</a> object.</p>
+    <code>LeagueListDTO:</code> <a href="../models/league_v4.html#LeagueListDTO">pyke.models.league_v4.LeagueListDTO</a> object.</p>
 </div>
 
 
@@ -628,7 +628,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">master_leagues_by_queue</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span>,</span><span class="param">	<span class="n">queue</span><span class="p">:</span> <span class="n"><a href="../_enums/queue.html#Queue">pyke._enums.queue.Queue</a></span></span><span class="return-annotation">) -> <span class="n"><a href="../_models/league_v4.html#LeagueListDTO">pyke._models.league_v4.LeagueListDTO</a></span>:</span></span>
+        <span class="name">master_leagues_by_queue</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">queue</span><span class="p">:</span> <span class="n"><a href="../enums/queue.html#Queue">pyke.enums.queue.Queue</a></span></span><span class="return-annotation">) -> <span class="n"><a href="../models/league_v4.html#LeagueListDTO">pyke.models.league_v4.LeagueListDTO</a></span>:</span></span>
 
                 <label class="view-source-button" for="LeagueEndpoint.master_leagues_by_queue-view-source"><span>View Source</span></label>
 
@@ -642,11 +642,11 @@
 </span><span id="LeagueEndpoint.master_leagues_by_queue-126"><a href="#LeagueEndpoint.master_leagues_by_queue-126"><span class="linenos">126</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get the master league for given queue</span>
 </span><span id="LeagueEndpoint.master_leagues_by_queue-127"><a href="#LeagueEndpoint.master_leagues_by_queue-127"><span class="linenos">127</span></a>
 </span><span id="LeagueEndpoint.master_leagues_by_queue-128"><a href="#LeagueEndpoint.master_leagues_by_queue-128"><span class="linenos">128</span></a><span class="sd">        **Args:**  </span>
-</span><span id="LeagueEndpoint.master_leagues_by_queue-129"><a href="#LeagueEndpoint.master_leagues_by_queue-129"><span class="linenos">129</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
-</span><span id="LeagueEndpoint.master_leagues_by_queue-130"><a href="#LeagueEndpoint.master_leagues_by_queue-130"><span class="linenos">130</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke._enums.queue.Queue).  </span>
+</span><span id="LeagueEndpoint.master_leagues_by_queue-129"><a href="#LeagueEndpoint.master_leagues_by_queue-129"><span class="linenos">129</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
+</span><span id="LeagueEndpoint.master_leagues_by_queue-130"><a href="#LeagueEndpoint.master_leagues_by_queue-130"><span class="linenos">130</span></a><span class="sd">            `queue (Queue):` Ranked queue type (pyke.enums.queue.Queue).  </span>
 </span><span id="LeagueEndpoint.master_leagues_by_queue-131"><a href="#LeagueEndpoint.master_leagues_by_queue-131"><span class="linenos">131</span></a>
 </span><span id="LeagueEndpoint.master_leagues_by_queue-132"><a href="#LeagueEndpoint.master_leagues_by_queue-132"><span class="linenos">132</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="LeagueEndpoint.master_leagues_by_queue-133"><a href="#LeagueEndpoint.master_leagues_by_queue-133"><span class="linenos">133</span></a><span class="sd">            `LeagueListDTO:` pyke._models.league_v4.LeagueListDTO object.</span>
+</span><span id="LeagueEndpoint.master_leagues_by_queue-133"><a href="#LeagueEndpoint.master_leagues_by_queue-133"><span class="linenos">133</span></a><span class="sd">            `LeagueListDTO:` pyke.models.league_v4.LeagueListDTO object.</span>
 </span><span id="LeagueEndpoint.master_leagues_by_queue-134"><a href="#LeagueEndpoint.master_leagues_by_queue-134"><span class="linenos">134</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="LeagueEndpoint.master_leagues_by_queue-135"><a href="#LeagueEndpoint.master_leagues_by_queue-135"><span class="linenos">135</span></a>
 </span><span id="LeagueEndpoint.master_leagues_by_queue-136"><a href="#LeagueEndpoint.master_leagues_by_queue-136"><span class="linenos">136</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/league/v4/masterleagues/by-queue/</span><span class="si">{</span><span class="n">queue</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -659,11 +659,11 @@
             <div class="docstring"><h1 id="get-the-master-league-for-given-queue">Get the master league for given queue</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).<br />
-    <code>queue (Queue):</code> Ranked queue type (<a href="../_enums/queue.html#Queue">pyke._enums.queue.Queue</a>).  </p>
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
+    <code>queue (Queue):</code> Ranked queue type (<a href="../enums/queue.html#Queue">pyke.enums.queue.Queue</a>).  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>LeagueListDTO:</code> <a href="../_models/league_v4.html#LeagueListDTO">pyke._models.league_v4.LeagueListDTO</a> object.</p>
+    <code>LeagueListDTO:</code> <a href="../models/league_v4.html#LeagueListDTO">pyke.models.league_v4.LeagueListDTO</a> object.</p>
 </div>
 
 

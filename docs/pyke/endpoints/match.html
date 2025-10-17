@@ -72,7 +72,7 @@
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyke</span><span class="w"> </span><span class="kn">import</span> <span class="n">Continent</span><span class="p">,</span> <span class="n">Type</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.._base_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">_BaseApiClient</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.._models.match_v5</span><span class="w"> </span><span class="kn">import</span> <span class="n">MatchDto</span><span class="p">,</span> <span class="n">TimelineDto</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">..models.match_v5</span><span class="w"> </span><span class="kn">import</span> <span class="n">MatchDto</span><span class="p">,</span> <span class="n">TimelineDto</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>
 </span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a>
 </span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="k">class</span><span class="w"> </span><span class="nc">MatchEndpoint</span><span class="p">:</span>
@@ -93,12 +93,12 @@
 </span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get a list of match ids by puuid</span>
 </span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>
 </span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke._enums.continent.Continent).  </span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  </span>
 </span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a><span class="sd">            `start_time (int | None, optional):` Epoch timestamp in seconds. The matchlist started storing timestamps on June 16th, 2021. Any matches played before June 16th, 2021 won&#39;t be included in the results if the startTime filter is set. Defaults to None.  </span>
 </span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a><span class="sd">            `end_time (int | None, optional):` Epoch timestamp in seconds. Defaults to None.  </span>
 </span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a><span class="sd">            `queue (int | None, optional):` Filter the list of match ids by a specific queue id. This filter is mutually inclusive of the type filter meaning any match ids returned must match both the queue and type filters. Defaults to None.  </span>
-</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a><span class="sd">            `type (Type | None, optional):` Filter the list of match ids by the type of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters (pyke._enums.type.Type). Defaults to None.  </span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a><span class="sd">            `type (Type | None, optional):` Filter the list of match ids by the type of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters (pyke.enums.type.Type). Defaults to None.  </span>
 </span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a><span class="sd">            `start (int | None, optional):` Start index. Defaults to 0.  </span>
 </span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a><span class="sd">            `count (int | None, optional):` Valid values: 0 to 100. Number of match ids to return. Defaults to 20.  </span>
 </span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>
@@ -125,11 +125,11 @@
 </span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get a match by match id</span>
 </span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a>
 </span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke._enums.continent.Continent).  </span>
+</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  </span>
 </span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a><span class="sd">            `match_id (str):` Match id string.  </span>
 </span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a>
 </span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a><span class="sd">            `MatchDto:` pyke._models.match_v5.MatchDto object.</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a><span class="sd">            `MatchDto:` pyke.models.match_v5.MatchDto object.</span>
 </span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a>
 </span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/match/v5/matches/</span><span class="si">{</span><span class="n">match_id</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -141,11 +141,11 @@
 </span><span id="L-70"><a href="#L-70"><span class="linenos">70</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get a match timeline by match id</span>
 </span><span id="L-71"><a href="#L-71"><span class="linenos">71</span></a>
 </span><span id="L-72"><a href="#L-72"><span class="linenos">72</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-73"><a href="#L-73"><span class="linenos">73</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke._enums.continent.Continent).  </span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos">73</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  </span>
 </span><span id="L-74"><a href="#L-74"><span class="linenos">74</span></a><span class="sd">            `match_id (str):` Match id string.  </span>
 </span><span id="L-75"><a href="#L-75"><span class="linenos">75</span></a>
 </span><span id="L-76"><a href="#L-76"><span class="linenos">76</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-77"><a href="#L-77"><span class="linenos">77</span></a><span class="sd">            `TimelineDto:` pyke._models.match_v5.TimelineDto object.</span>
+</span><span id="L-77"><a href="#L-77"><span class="linenos">77</span></a><span class="sd">            `TimelineDto:` pyke.models.match_v5.TimelineDto object.</span>
 </span><span id="L-78"><a href="#L-78"><span class="linenos">78</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-79"><a href="#L-79"><span class="linenos">79</span></a>
 </span><span id="L-80"><a href="#L-80"><span class="linenos">80</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/match/v5/matches/</span><span class="si">{</span><span class="n">match_id</span><span class="si">}</span><span class="s2">/timeline&quot;</span>
@@ -185,12 +185,12 @@
 </span><span id="MatchEndpoint-23"><a href="#MatchEndpoint-23"><span class="linenos">23</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get a list of match ids by puuid</span>
 </span><span id="MatchEndpoint-24"><a href="#MatchEndpoint-24"><span class="linenos">24</span></a>
 </span><span id="MatchEndpoint-25"><a href="#MatchEndpoint-25"><span class="linenos">25</span></a><span class="sd">        **Args:**  </span>
-</span><span id="MatchEndpoint-26"><a href="#MatchEndpoint-26"><span class="linenos">26</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke._enums.continent.Continent).  </span>
+</span><span id="MatchEndpoint-26"><a href="#MatchEndpoint-26"><span class="linenos">26</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  </span>
 </span><span id="MatchEndpoint-27"><a href="#MatchEndpoint-27"><span class="linenos">27</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="MatchEndpoint-28"><a href="#MatchEndpoint-28"><span class="linenos">28</span></a><span class="sd">            `start_time (int | None, optional):` Epoch timestamp in seconds. The matchlist started storing timestamps on June 16th, 2021. Any matches played before June 16th, 2021 won&#39;t be included in the results if the startTime filter is set. Defaults to None.  </span>
 </span><span id="MatchEndpoint-29"><a href="#MatchEndpoint-29"><span class="linenos">29</span></a><span class="sd">            `end_time (int | None, optional):` Epoch timestamp in seconds. Defaults to None.  </span>
 </span><span id="MatchEndpoint-30"><a href="#MatchEndpoint-30"><span class="linenos">30</span></a><span class="sd">            `queue (int | None, optional):` Filter the list of match ids by a specific queue id. This filter is mutually inclusive of the type filter meaning any match ids returned must match both the queue and type filters. Defaults to None.  </span>
-</span><span id="MatchEndpoint-31"><a href="#MatchEndpoint-31"><span class="linenos">31</span></a><span class="sd">            `type (Type | None, optional):` Filter the list of match ids by the type of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters (pyke._enums.type.Type). Defaults to None.  </span>
+</span><span id="MatchEndpoint-31"><a href="#MatchEndpoint-31"><span class="linenos">31</span></a><span class="sd">            `type (Type | None, optional):` Filter the list of match ids by the type of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters (pyke.enums.type.Type). Defaults to None.  </span>
 </span><span id="MatchEndpoint-32"><a href="#MatchEndpoint-32"><span class="linenos">32</span></a><span class="sd">            `start (int | None, optional):` Start index. Defaults to 0.  </span>
 </span><span id="MatchEndpoint-33"><a href="#MatchEndpoint-33"><span class="linenos">33</span></a><span class="sd">            `count (int | None, optional):` Valid values: 0 to 100. Number of match ids to return. Defaults to 20.  </span>
 </span><span id="MatchEndpoint-34"><a href="#MatchEndpoint-34"><span class="linenos">34</span></a>
@@ -217,11 +217,11 @@
 </span><span id="MatchEndpoint-55"><a href="#MatchEndpoint-55"><span class="linenos">55</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get a match by match id</span>
 </span><span id="MatchEndpoint-56"><a href="#MatchEndpoint-56"><span class="linenos">56</span></a>
 </span><span id="MatchEndpoint-57"><a href="#MatchEndpoint-57"><span class="linenos">57</span></a><span class="sd">        **Args:**  </span>
-</span><span id="MatchEndpoint-58"><a href="#MatchEndpoint-58"><span class="linenos">58</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke._enums.continent.Continent).  </span>
+</span><span id="MatchEndpoint-58"><a href="#MatchEndpoint-58"><span class="linenos">58</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  </span>
 </span><span id="MatchEndpoint-59"><a href="#MatchEndpoint-59"><span class="linenos">59</span></a><span class="sd">            `match_id (str):` Match id string.  </span>
 </span><span id="MatchEndpoint-60"><a href="#MatchEndpoint-60"><span class="linenos">60</span></a>
 </span><span id="MatchEndpoint-61"><a href="#MatchEndpoint-61"><span class="linenos">61</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="MatchEndpoint-62"><a href="#MatchEndpoint-62"><span class="linenos">62</span></a><span class="sd">            `MatchDto:` pyke._models.match_v5.MatchDto object.</span>
+</span><span id="MatchEndpoint-62"><a href="#MatchEndpoint-62"><span class="linenos">62</span></a><span class="sd">            `MatchDto:` pyke.models.match_v5.MatchDto object.</span>
 </span><span id="MatchEndpoint-63"><a href="#MatchEndpoint-63"><span class="linenos">63</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="MatchEndpoint-64"><a href="#MatchEndpoint-64"><span class="linenos">64</span></a>
 </span><span id="MatchEndpoint-65"><a href="#MatchEndpoint-65"><span class="linenos">65</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/match/v5/matches/</span><span class="si">{</span><span class="n">match_id</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -233,11 +233,11 @@
 </span><span id="MatchEndpoint-71"><a href="#MatchEndpoint-71"><span class="linenos">71</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get a match timeline by match id</span>
 </span><span id="MatchEndpoint-72"><a href="#MatchEndpoint-72"><span class="linenos">72</span></a>
 </span><span id="MatchEndpoint-73"><a href="#MatchEndpoint-73"><span class="linenos">73</span></a><span class="sd">        **Args:**  </span>
-</span><span id="MatchEndpoint-74"><a href="#MatchEndpoint-74"><span class="linenos">74</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke._enums.continent.Continent).  </span>
+</span><span id="MatchEndpoint-74"><a href="#MatchEndpoint-74"><span class="linenos">74</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  </span>
 </span><span id="MatchEndpoint-75"><a href="#MatchEndpoint-75"><span class="linenos">75</span></a><span class="sd">            `match_id (str):` Match id string.  </span>
 </span><span id="MatchEndpoint-76"><a href="#MatchEndpoint-76"><span class="linenos">76</span></a>
 </span><span id="MatchEndpoint-77"><a href="#MatchEndpoint-77"><span class="linenos">77</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="MatchEndpoint-78"><a href="#MatchEndpoint-78"><span class="linenos">78</span></a><span class="sd">            `TimelineDto:` pyke._models.match_v5.TimelineDto object.</span>
+</span><span id="MatchEndpoint-78"><a href="#MatchEndpoint-78"><span class="linenos">78</span></a><span class="sd">            `TimelineDto:` pyke.models.match_v5.TimelineDto object.</span>
 </span><span id="MatchEndpoint-79"><a href="#MatchEndpoint-79"><span class="linenos">79</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="MatchEndpoint-80"><a href="#MatchEndpoint-80"><span class="linenos">80</span></a>
 </span><span id="MatchEndpoint-81"><a href="#MatchEndpoint-81"><span class="linenos">81</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/match/v5/matches/</span><span class="si">{</span><span class="n">match_id</span><span class="si">}</span><span class="s2">/timeline&quot;</span>
@@ -272,7 +272,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">match_ids_by_puuid</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">continent</span><span class="p">:</span> <span class="n"><a href="../_enums/continent.html#Continent">pyke._enums.continent.Continent</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">start_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">end_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">queue</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="nb">type</span><span class="p">:</span> <span class="n"><a href="../_enums/type.html#Type">pyke._enums.type.Type</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">start</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>:</span></span>
+        <span class="name">match_ids_by_puuid</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">continent</span><span class="p">:</span> <span class="n"><a href="../enums/continent.html#Continent">pyke.enums.continent.Continent</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">start_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">end_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">queue</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="nb">type</span><span class="p">:</span> <span class="n"><a href="../enums/type.html#Type">pyke.enums.type.Type</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">start</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>:</span></span>
 
                 <label class="view-source-button" for="MatchEndpoint.match_ids_by_puuid-view-source"><span>View Source</span></label>
 
@@ -292,12 +292,12 @@
 </span><span id="MatchEndpoint.match_ids_by_puuid-23"><a href="#MatchEndpoint.match_ids_by_puuid-23"><span class="linenos">23</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get a list of match ids by puuid</span>
 </span><span id="MatchEndpoint.match_ids_by_puuid-24"><a href="#MatchEndpoint.match_ids_by_puuid-24"><span class="linenos">24</span></a>
 </span><span id="MatchEndpoint.match_ids_by_puuid-25"><a href="#MatchEndpoint.match_ids_by_puuid-25"><span class="linenos">25</span></a><span class="sd">        **Args:**  </span>
-</span><span id="MatchEndpoint.match_ids_by_puuid-26"><a href="#MatchEndpoint.match_ids_by_puuid-26"><span class="linenos">26</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke._enums.continent.Continent).  </span>
+</span><span id="MatchEndpoint.match_ids_by_puuid-26"><a href="#MatchEndpoint.match_ids_by_puuid-26"><span class="linenos">26</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  </span>
 </span><span id="MatchEndpoint.match_ids_by_puuid-27"><a href="#MatchEndpoint.match_ids_by_puuid-27"><span class="linenos">27</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="MatchEndpoint.match_ids_by_puuid-28"><a href="#MatchEndpoint.match_ids_by_puuid-28"><span class="linenos">28</span></a><span class="sd">            `start_time (int | None, optional):` Epoch timestamp in seconds. The matchlist started storing timestamps on June 16th, 2021. Any matches played before June 16th, 2021 won&#39;t be included in the results if the startTime filter is set. Defaults to None.  </span>
 </span><span id="MatchEndpoint.match_ids_by_puuid-29"><a href="#MatchEndpoint.match_ids_by_puuid-29"><span class="linenos">29</span></a><span class="sd">            `end_time (int | None, optional):` Epoch timestamp in seconds. Defaults to None.  </span>
 </span><span id="MatchEndpoint.match_ids_by_puuid-30"><a href="#MatchEndpoint.match_ids_by_puuid-30"><span class="linenos">30</span></a><span class="sd">            `queue (int | None, optional):` Filter the list of match ids by a specific queue id. This filter is mutually inclusive of the type filter meaning any match ids returned must match both the queue and type filters. Defaults to None.  </span>
-</span><span id="MatchEndpoint.match_ids_by_puuid-31"><a href="#MatchEndpoint.match_ids_by_puuid-31"><span class="linenos">31</span></a><span class="sd">            `type (Type | None, optional):` Filter the list of match ids by the type of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters (pyke._enums.type.Type). Defaults to None.  </span>
+</span><span id="MatchEndpoint.match_ids_by_puuid-31"><a href="#MatchEndpoint.match_ids_by_puuid-31"><span class="linenos">31</span></a><span class="sd">            `type (Type | None, optional):` Filter the list of match ids by the type of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters (pyke.enums.type.Type). Defaults to None.  </span>
 </span><span id="MatchEndpoint.match_ids_by_puuid-32"><a href="#MatchEndpoint.match_ids_by_puuid-32"><span class="linenos">32</span></a><span class="sd">            `start (int | None, optional):` Start index. Defaults to 0.  </span>
 </span><span id="MatchEndpoint.match_ids_by_puuid-33"><a href="#MatchEndpoint.match_ids_by_puuid-33"><span class="linenos">33</span></a><span class="sd">            `count (int | None, optional):` Valid values: 0 to 100. Number of match ids to return. Defaults to 20.  </span>
 </span><span id="MatchEndpoint.match_ids_by_puuid-34"><a href="#MatchEndpoint.match_ids_by_puuid-34"><span class="linenos">34</span></a>
@@ -325,12 +325,12 @@
             <div class="docstring"><h1 id="get-a-list-of-match-ids-by-puuid">Get a list of match ids by puuid</h1>
 
 <p><strong>Args:</strong><br />
-    <code>continent (Continent):</code> Continent to execute against (<a href="../_enums/continent.html#Continent">pyke._enums.continent.Continent</a>).<br />
+    <code>continent (Continent):</code> Continent to execute against (<a href="../enums/continent.html#Continent">pyke.enums.continent.Continent</a>).<br />
     <code>puuid (str):</code> Encrypted PUUID. Exact length of 78 characters.<br />
     <code>start_time (int | None, optional):</code> Epoch timestamp in seconds. The matchlist started storing timestamps on June 16th, 2021. Any matches played before June 16th, 2021 won't be included in the results if the startTime filter is set. Defaults to None.<br />
     <code>end_time (int | None, optional):</code> Epoch timestamp in seconds. Defaults to None.<br />
     <code>queue (int | None, optional):</code> Filter the list of match ids by a specific queue id. This filter is mutually inclusive of the type filter meaning any match ids returned must match both the queue and type filters. Defaults to None.<br />
-    <code>type (Type | None, optional):</code> Filter the list of match ids by the type of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters (<a href="../_enums/type.html#Type">pyke._enums.type.Type</a>). Defaults to None.<br />
+    <code>type (Type | None, optional):</code> Filter the list of match ids by the type of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters (<a href="../enums/type.html#Type">pyke.enums.type.Type</a>). Defaults to None.<br />
     <code>start (int | None, optional):</code> Start index. Defaults to 0.<br />
     <code>count (int | None, optional):</code> Valid values: 0 to 100. Number of match ids to return. Defaults to 20.  </p>
 
@@ -345,7 +345,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">by_match_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">continent</span><span class="p">:</span> <span class="n"><a href="../_enums/continent.html#Continent">pyke._enums.continent.Continent</a></span>,</span><span class="param">	<span class="n">match_id</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n"><a href="../_models/match_v5.html#MatchDto">pyke._models.match_v5.MatchDto</a></span>:</span></span>
+        <span class="name">by_match_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">continent</span><span class="p">:</span> <span class="n"><a href="../enums/continent.html#Continent">pyke.enums.continent.Continent</a></span>,</span><span class="param">	<span class="n">match_id</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/match_v5.html#MatchDto">pyke.models.match_v5.MatchDto</a></span>:</span></span>
 
                 <label class="view-source-button" for="MatchEndpoint.by_match_id-view-source"><span>View Source</span></label>
 
@@ -355,11 +355,11 @@
 </span><span id="MatchEndpoint.by_match_id-55"><a href="#MatchEndpoint.by_match_id-55"><span class="linenos">55</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get a match by match id</span>
 </span><span id="MatchEndpoint.by_match_id-56"><a href="#MatchEndpoint.by_match_id-56"><span class="linenos">56</span></a>
 </span><span id="MatchEndpoint.by_match_id-57"><a href="#MatchEndpoint.by_match_id-57"><span class="linenos">57</span></a><span class="sd">        **Args:**  </span>
-</span><span id="MatchEndpoint.by_match_id-58"><a href="#MatchEndpoint.by_match_id-58"><span class="linenos">58</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke._enums.continent.Continent).  </span>
+</span><span id="MatchEndpoint.by_match_id-58"><a href="#MatchEndpoint.by_match_id-58"><span class="linenos">58</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  </span>
 </span><span id="MatchEndpoint.by_match_id-59"><a href="#MatchEndpoint.by_match_id-59"><span class="linenos">59</span></a><span class="sd">            `match_id (str):` Match id string.  </span>
 </span><span id="MatchEndpoint.by_match_id-60"><a href="#MatchEndpoint.by_match_id-60"><span class="linenos">60</span></a>
 </span><span id="MatchEndpoint.by_match_id-61"><a href="#MatchEndpoint.by_match_id-61"><span class="linenos">61</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="MatchEndpoint.by_match_id-62"><a href="#MatchEndpoint.by_match_id-62"><span class="linenos">62</span></a><span class="sd">            `MatchDto:` pyke._models.match_v5.MatchDto object.</span>
+</span><span id="MatchEndpoint.by_match_id-62"><a href="#MatchEndpoint.by_match_id-62"><span class="linenos">62</span></a><span class="sd">            `MatchDto:` pyke.models.match_v5.MatchDto object.</span>
 </span><span id="MatchEndpoint.by_match_id-63"><a href="#MatchEndpoint.by_match_id-63"><span class="linenos">63</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="MatchEndpoint.by_match_id-64"><a href="#MatchEndpoint.by_match_id-64"><span class="linenos">64</span></a>
 </span><span id="MatchEndpoint.by_match_id-65"><a href="#MatchEndpoint.by_match_id-65"><span class="linenos">65</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/match/v5/matches/</span><span class="si">{</span><span class="n">match_id</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -372,11 +372,11 @@
             <div class="docstring"><h1 id="get-a-match-by-match-id">Get a match by match id</h1>
 
 <p><strong>Args:</strong><br />
-    <code>continent (Continent):</code> Continent to execute against (<a href="../_enums/continent.html#Continent">pyke._enums.continent.Continent</a>).<br />
+    <code>continent (Continent):</code> Continent to execute against (<a href="../enums/continent.html#Continent">pyke.enums.continent.Continent</a>).<br />
     <code>match_id (str):</code> Match id string.  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>MatchDto:</code> <a href="../_models/match_v5.html#MatchDto">pyke._models.match_v5.MatchDto</a> object.</p>
+    <code>MatchDto:</code> <a href="../models/match_v5.html#MatchDto">pyke.models.match_v5.MatchDto</a> object.</p>
 </div>
 
 
@@ -386,7 +386,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">timeline_by_match_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">continent</span><span class="p">:</span> <span class="n"><a href="../_enums/continent.html#Continent">pyke._enums.continent.Continent</a></span>,</span><span class="param">	<span class="n">match_id</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n"><a href="../_models/match_v5.html#TimelineDto">pyke._models.match_v5.TimelineDto</a></span>:</span></span>
+        <span class="name">timeline_by_match_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">continent</span><span class="p">:</span> <span class="n"><a href="../enums/continent.html#Continent">pyke.enums.continent.Continent</a></span>,</span><span class="param">	<span class="n">match_id</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/match_v5.html#TimelineDto">pyke.models.match_v5.TimelineDto</a></span>:</span></span>
 
                 <label class="view-source-button" for="MatchEndpoint.timeline_by_match_id-view-source"><span>View Source</span></label>
 
@@ -396,11 +396,11 @@
 </span><span id="MatchEndpoint.timeline_by_match_id-71"><a href="#MatchEndpoint.timeline_by_match_id-71"><span class="linenos">71</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get a match timeline by match id</span>
 </span><span id="MatchEndpoint.timeline_by_match_id-72"><a href="#MatchEndpoint.timeline_by_match_id-72"><span class="linenos">72</span></a>
 </span><span id="MatchEndpoint.timeline_by_match_id-73"><a href="#MatchEndpoint.timeline_by_match_id-73"><span class="linenos">73</span></a><span class="sd">        **Args:**  </span>
-</span><span id="MatchEndpoint.timeline_by_match_id-74"><a href="#MatchEndpoint.timeline_by_match_id-74"><span class="linenos">74</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke._enums.continent.Continent).  </span>
+</span><span id="MatchEndpoint.timeline_by_match_id-74"><a href="#MatchEndpoint.timeline_by_match_id-74"><span class="linenos">74</span></a><span class="sd">            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  </span>
 </span><span id="MatchEndpoint.timeline_by_match_id-75"><a href="#MatchEndpoint.timeline_by_match_id-75"><span class="linenos">75</span></a><span class="sd">            `match_id (str):` Match id string.  </span>
 </span><span id="MatchEndpoint.timeline_by_match_id-76"><a href="#MatchEndpoint.timeline_by_match_id-76"><span class="linenos">76</span></a>
 </span><span id="MatchEndpoint.timeline_by_match_id-77"><a href="#MatchEndpoint.timeline_by_match_id-77"><span class="linenos">77</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="MatchEndpoint.timeline_by_match_id-78"><a href="#MatchEndpoint.timeline_by_match_id-78"><span class="linenos">78</span></a><span class="sd">            `TimelineDto:` pyke._models.match_v5.TimelineDto object.</span>
+</span><span id="MatchEndpoint.timeline_by_match_id-78"><a href="#MatchEndpoint.timeline_by_match_id-78"><span class="linenos">78</span></a><span class="sd">            `TimelineDto:` pyke.models.match_v5.TimelineDto object.</span>
 </span><span id="MatchEndpoint.timeline_by_match_id-79"><a href="#MatchEndpoint.timeline_by_match_id-79"><span class="linenos">79</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="MatchEndpoint.timeline_by_match_id-80"><a href="#MatchEndpoint.timeline_by_match_id-80"><span class="linenos">80</span></a>
 </span><span id="MatchEndpoint.timeline_by_match_id-81"><a href="#MatchEndpoint.timeline_by_match_id-81"><span class="linenos">81</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/match/v5/matches/</span><span class="si">{</span><span class="n">match_id</span><span class="si">}</span><span class="s2">/timeline&quot;</span>
@@ -413,11 +413,11 @@
             <div class="docstring"><h1 id="get-a-match-timeline-by-match-id">Get a match timeline by match id</h1>
 
 <p><strong>Args:</strong><br />
-    <code>continent (Continent):</code> Continent to execute against (<a href="../_enums/continent.html#Continent">pyke._enums.continent.Continent</a>).<br />
+    <code>continent (Continent):</code> Continent to execute against (<a href="../enums/continent.html#Continent">pyke.enums.continent.Continent</a>).<br />
     <code>match_id (str):</code> Match id string.  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>TimelineDto:</code> <a href="../_models/match_v5.html#TimelineDto">pyke._models.match_v5.TimelineDto</a> object.</p>
+    <code>TimelineDto:</code> <a href="../models/match_v5.html#TimelineDto">pyke.models.match_v5.TimelineDto</a> object.</p>
 </div>
 
 

@@ -81,7 +81,7 @@
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyke</span><span class="w"> </span><span class="kn">import</span> <span class="n">Level</span><span class="p">,</span> <span class="n">Region</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a>
 </span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.._base_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">_BaseApiClient</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.._models.challenges_v1</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">..models.challenges_v1</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a>    <span class="n">ApexPlayerInfoDto</span><span class="p">,</span>
 </span><span id="L-6"><a href="#L-6"><span class="linenos">  6</span></a>    <span class="n">ChallengeConfigInfoDto</span><span class="p">,</span>
 </span><span id="L-7"><a href="#L-7"><span class="linenos">  7</span></a>    <span class="n">PlayerInfoDto</span><span class="p">,</span>
@@ -96,10 +96,10 @@
 </span><span id="L-16"><a href="#L-16"><span class="linenos"> 16</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# List of all basic challenge configuration information (includes all translations for names and descriptions)</span>
 </span><span id="L-17"><a href="#L-17"><span class="linenos"> 17</span></a>
 </span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a>
 </span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a><span class="sd">            `list[ChallengeConfigInfoDto]:` List of pyke._models.challenges_v1.ChallengeConfigInfoDto objects.</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a><span class="sd">            `list[ChallengeConfigInfoDto]:` List of pyke.models.challenges_v1.ChallengeConfigInfoDto objects.</span>
 </span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a>
 </span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/lol/challenges/v1/challenges/config&quot;</span>
@@ -116,7 +116,7 @@
 </span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Map of level to percentile of players who have achieved it - keys: ChallengeId -&gt; Season -&gt; Level -&gt; percentile of players who achieved it</span>
 </span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a>
 </span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>
 </span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a><span class="sd">        **Returns:**  </span>
 </span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a><span class="sd">            `dict[int, dict[int, dict[str, int]]]:` Map of level to percentile of players who have achieved it - keys: ChallengeId -&gt; Season -&gt; Level -&gt; percentile of players who achieved it.</span>
@@ -133,11 +133,11 @@
 </span><span id="L-53"><a href="#L-53"><span class="linenos"> 53</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get challenge configuration (REST)</span>
 </span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a>
 </span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a><span class="sd">            `challenge_id (int):` Challenge id integer.  </span>
 </span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a>
 </span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a><span class="sd">            `ChallengeConfigInfoDto:` pyke._models.challenges_v1.ChallengeConfigInfoDto object.</span>
+</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a><span class="sd">            `ChallengeConfigInfoDto:` pyke.models.challenges_v1.ChallengeConfigInfoDto object.</span>
 </span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a>
 </span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/challenges/v1/challenges/</span><span class="si">{</span><span class="n">challenge_id</span><span class="si">}</span><span class="s2">/config&quot;</span>
@@ -151,12 +151,12 @@
 </span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Return top players for each level. Level must be MASTER, GRANDMASTER or CHALLENGER</span>
 </span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a>
 </span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
-</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">            `level (Level):` Challenge level (pyke._enums.level.Level).  </span>
+</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
+</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">            `level (Level):` Challenge level (pyke.enums.level.Level).  </span>
 </span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a><span class="sd">            `challenge_id (int):` Challenge id integer.  </span>
 </span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>
 </span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a><span class="sd">            `list[ApexPlayerInfoDto]:` List of pyke._models.challenges_v1.ApexPlayerInfoDto objects.</span>
+</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a><span class="sd">            `list[ApexPlayerInfoDto]:` List of pyke.models.challenges_v1.ApexPlayerInfoDto objects.</span>
 </span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>
 </span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/challenges/v1/challenges/</span><span class="si">{</span><span class="n">challenge_id</span><span class="si">}</span><span class="s2">/leaderboards/by-level/</span><span class="si">{</span><span class="n">level</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -175,11 +175,11 @@
 </span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Dictionary of level to percentile of players who have achieved it</span>
 </span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a>
 </span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a><span class="sd">            `challenge_id (int):` Challenge id integer.  </span>
 </span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>
 </span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a><span class="sd">            `dict[Level, int]:` Python dictionary {pyke._enums.level.Level: percentile of players who achieved the challenge}</span>
+</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a><span class="sd">            `dict[Level, int]:` Python dictionary {pyke.enums.level.Level: percentile of players who achieved the challenge}</span>
 </span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a>
 </span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/challenges/v1/challenges/</span><span class="si">{</span><span class="n">challenge_id</span><span class="si">}</span><span class="s2">/percentiles&quot;</span>
@@ -191,11 +191,11 @@
 </span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Returns player information with list of all progressed challenges (REST)</span>
 </span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a>
 </span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a>
 </span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a><span class="sd">            `PlayerInfoDto:` pyke._models.challenges_v1.PlayerInfoDto object.</span>
+</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a><span class="sd">            `PlayerInfoDto:` pyke.models.challenges_v1.PlayerInfoDto object.</span>
 </span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-120"><a href="#L-120"><span class="linenos">120</span></a>
 </span><span id="L-121"><a href="#L-121"><span class="linenos">121</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/challenges/v1/player-data/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -225,10 +225,10 @@
 </span><span id="ChallengesEndpoint-17"><a href="#ChallengesEndpoint-17"><span class="linenos"> 17</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# List of all basic challenge configuration information (includes all translations for names and descriptions)</span>
 </span><span id="ChallengesEndpoint-18"><a href="#ChallengesEndpoint-18"><span class="linenos"> 18</span></a>
 </span><span id="ChallengesEndpoint-19"><a href="#ChallengesEndpoint-19"><span class="linenos"> 19</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChallengesEndpoint-20"><a href="#ChallengesEndpoint-20"><span class="linenos"> 20</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChallengesEndpoint-20"><a href="#ChallengesEndpoint-20"><span class="linenos"> 20</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChallengesEndpoint-21"><a href="#ChallengesEndpoint-21"><span class="linenos"> 21</span></a>
 </span><span id="ChallengesEndpoint-22"><a href="#ChallengesEndpoint-22"><span class="linenos"> 22</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChallengesEndpoint-23"><a href="#ChallengesEndpoint-23"><span class="linenos"> 23</span></a><span class="sd">            `list[ChallengeConfigInfoDto]:` List of pyke._models.challenges_v1.ChallengeConfigInfoDto objects.</span>
+</span><span id="ChallengesEndpoint-23"><a href="#ChallengesEndpoint-23"><span class="linenos"> 23</span></a><span class="sd">            `list[ChallengeConfigInfoDto]:` List of pyke.models.challenges_v1.ChallengeConfigInfoDto objects.</span>
 </span><span id="ChallengesEndpoint-24"><a href="#ChallengesEndpoint-24"><span class="linenos"> 24</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChallengesEndpoint-25"><a href="#ChallengesEndpoint-25"><span class="linenos"> 25</span></a>
 </span><span id="ChallengesEndpoint-26"><a href="#ChallengesEndpoint-26"><span class="linenos"> 26</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/lol/challenges/v1/challenges/config&quot;</span>
@@ -245,7 +245,7 @@
 </span><span id="ChallengesEndpoint-37"><a href="#ChallengesEndpoint-37"><span class="linenos"> 37</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Map of level to percentile of players who have achieved it - keys: ChallengeId -&gt; Season -&gt; Level -&gt; percentile of players who achieved it</span>
 </span><span id="ChallengesEndpoint-38"><a href="#ChallengesEndpoint-38"><span class="linenos"> 38</span></a>
 </span><span id="ChallengesEndpoint-39"><a href="#ChallengesEndpoint-39"><span class="linenos"> 39</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChallengesEndpoint-40"><a href="#ChallengesEndpoint-40"><span class="linenos"> 40</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChallengesEndpoint-40"><a href="#ChallengesEndpoint-40"><span class="linenos"> 40</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChallengesEndpoint-41"><a href="#ChallengesEndpoint-41"><span class="linenos"> 41</span></a>
 </span><span id="ChallengesEndpoint-42"><a href="#ChallengesEndpoint-42"><span class="linenos"> 42</span></a><span class="sd">        **Returns:**  </span>
 </span><span id="ChallengesEndpoint-43"><a href="#ChallengesEndpoint-43"><span class="linenos"> 43</span></a><span class="sd">            `dict[int, dict[int, dict[str, int]]]:` Map of level to percentile of players who have achieved it - keys: ChallengeId -&gt; Season -&gt; Level -&gt; percentile of players who achieved it.</span>
@@ -262,11 +262,11 @@
 </span><span id="ChallengesEndpoint-54"><a href="#ChallengesEndpoint-54"><span class="linenos"> 54</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get challenge configuration (REST)</span>
 </span><span id="ChallengesEndpoint-55"><a href="#ChallengesEndpoint-55"><span class="linenos"> 55</span></a>
 </span><span id="ChallengesEndpoint-56"><a href="#ChallengesEndpoint-56"><span class="linenos"> 56</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChallengesEndpoint-57"><a href="#ChallengesEndpoint-57"><span class="linenos"> 57</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChallengesEndpoint-57"><a href="#ChallengesEndpoint-57"><span class="linenos"> 57</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChallengesEndpoint-58"><a href="#ChallengesEndpoint-58"><span class="linenos"> 58</span></a><span class="sd">            `challenge_id (int):` Challenge id integer.  </span>
 </span><span id="ChallengesEndpoint-59"><a href="#ChallengesEndpoint-59"><span class="linenos"> 59</span></a>
 </span><span id="ChallengesEndpoint-60"><a href="#ChallengesEndpoint-60"><span class="linenos"> 60</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChallengesEndpoint-61"><a href="#ChallengesEndpoint-61"><span class="linenos"> 61</span></a><span class="sd">            `ChallengeConfigInfoDto:` pyke._models.challenges_v1.ChallengeConfigInfoDto object.</span>
+</span><span id="ChallengesEndpoint-61"><a href="#ChallengesEndpoint-61"><span class="linenos"> 61</span></a><span class="sd">            `ChallengeConfigInfoDto:` pyke.models.challenges_v1.ChallengeConfigInfoDto object.</span>
 </span><span id="ChallengesEndpoint-62"><a href="#ChallengesEndpoint-62"><span class="linenos"> 62</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChallengesEndpoint-63"><a href="#ChallengesEndpoint-63"><span class="linenos"> 63</span></a>
 </span><span id="ChallengesEndpoint-64"><a href="#ChallengesEndpoint-64"><span class="linenos"> 64</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/challenges/v1/challenges/</span><span class="si">{</span><span class="n">challenge_id</span><span class="si">}</span><span class="s2">/config&quot;</span>
@@ -280,12 +280,12 @@
 </span><span id="ChallengesEndpoint-72"><a href="#ChallengesEndpoint-72"><span class="linenos"> 72</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Return top players for each level. Level must be MASTER, GRANDMASTER or CHALLENGER</span>
 </span><span id="ChallengesEndpoint-73"><a href="#ChallengesEndpoint-73"><span class="linenos"> 73</span></a>
 </span><span id="ChallengesEndpoint-74"><a href="#ChallengesEndpoint-74"><span class="linenos"> 74</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChallengesEndpoint-75"><a href="#ChallengesEndpoint-75"><span class="linenos"> 75</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
-</span><span id="ChallengesEndpoint-76"><a href="#ChallengesEndpoint-76"><span class="linenos"> 76</span></a><span class="sd">            `level (Level):` Challenge level (pyke._enums.level.Level).  </span>
+</span><span id="ChallengesEndpoint-75"><a href="#ChallengesEndpoint-75"><span class="linenos"> 75</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
+</span><span id="ChallengesEndpoint-76"><a href="#ChallengesEndpoint-76"><span class="linenos"> 76</span></a><span class="sd">            `level (Level):` Challenge level (pyke.enums.level.Level).  </span>
 </span><span id="ChallengesEndpoint-77"><a href="#ChallengesEndpoint-77"><span class="linenos"> 77</span></a><span class="sd">            `challenge_id (int):` Challenge id integer.  </span>
 </span><span id="ChallengesEndpoint-78"><a href="#ChallengesEndpoint-78"><span class="linenos"> 78</span></a>
 </span><span id="ChallengesEndpoint-79"><a href="#ChallengesEndpoint-79"><span class="linenos"> 79</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChallengesEndpoint-80"><a href="#ChallengesEndpoint-80"><span class="linenos"> 80</span></a><span class="sd">            `list[ApexPlayerInfoDto]:` List of pyke._models.challenges_v1.ApexPlayerInfoDto objects.</span>
+</span><span id="ChallengesEndpoint-80"><a href="#ChallengesEndpoint-80"><span class="linenos"> 80</span></a><span class="sd">            `list[ApexPlayerInfoDto]:` List of pyke.models.challenges_v1.ApexPlayerInfoDto objects.</span>
 </span><span id="ChallengesEndpoint-81"><a href="#ChallengesEndpoint-81"><span class="linenos"> 81</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChallengesEndpoint-82"><a href="#ChallengesEndpoint-82"><span class="linenos"> 82</span></a>
 </span><span id="ChallengesEndpoint-83"><a href="#ChallengesEndpoint-83"><span class="linenos"> 83</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/challenges/v1/challenges/</span><span class="si">{</span><span class="n">challenge_id</span><span class="si">}</span><span class="s2">/leaderboards/by-level/</span><span class="si">{</span><span class="n">level</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -304,11 +304,11 @@
 </span><span id="ChallengesEndpoint-96"><a href="#ChallengesEndpoint-96"><span class="linenos"> 96</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Dictionary of level to percentile of players who have achieved it</span>
 </span><span id="ChallengesEndpoint-97"><a href="#ChallengesEndpoint-97"><span class="linenos"> 97</span></a>
 </span><span id="ChallengesEndpoint-98"><a href="#ChallengesEndpoint-98"><span class="linenos"> 98</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChallengesEndpoint-99"><a href="#ChallengesEndpoint-99"><span class="linenos"> 99</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChallengesEndpoint-99"><a href="#ChallengesEndpoint-99"><span class="linenos"> 99</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChallengesEndpoint-100"><a href="#ChallengesEndpoint-100"><span class="linenos">100</span></a><span class="sd">            `challenge_id (int):` Challenge id integer.  </span>
 </span><span id="ChallengesEndpoint-101"><a href="#ChallengesEndpoint-101"><span class="linenos">101</span></a>
 </span><span id="ChallengesEndpoint-102"><a href="#ChallengesEndpoint-102"><span class="linenos">102</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChallengesEndpoint-103"><a href="#ChallengesEndpoint-103"><span class="linenos">103</span></a><span class="sd">            `dict[Level, int]:` Python dictionary {pyke._enums.level.Level: percentile of players who achieved the challenge}</span>
+</span><span id="ChallengesEndpoint-103"><a href="#ChallengesEndpoint-103"><span class="linenos">103</span></a><span class="sd">            `dict[Level, int]:` Python dictionary {pyke.enums.level.Level: percentile of players who achieved the challenge}</span>
 </span><span id="ChallengesEndpoint-104"><a href="#ChallengesEndpoint-104"><span class="linenos">104</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChallengesEndpoint-105"><a href="#ChallengesEndpoint-105"><span class="linenos">105</span></a>
 </span><span id="ChallengesEndpoint-106"><a href="#ChallengesEndpoint-106"><span class="linenos">106</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/challenges/v1/challenges/</span><span class="si">{</span><span class="n">challenge_id</span><span class="si">}</span><span class="s2">/percentiles&quot;</span>
@@ -320,11 +320,11 @@
 </span><span id="ChallengesEndpoint-112"><a href="#ChallengesEndpoint-112"><span class="linenos">112</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Returns player information with list of all progressed challenges (REST)</span>
 </span><span id="ChallengesEndpoint-113"><a href="#ChallengesEndpoint-113"><span class="linenos">113</span></a>
 </span><span id="ChallengesEndpoint-114"><a href="#ChallengesEndpoint-114"><span class="linenos">114</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChallengesEndpoint-115"><a href="#ChallengesEndpoint-115"><span class="linenos">115</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChallengesEndpoint-115"><a href="#ChallengesEndpoint-115"><span class="linenos">115</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChallengesEndpoint-116"><a href="#ChallengesEndpoint-116"><span class="linenos">116</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="ChallengesEndpoint-117"><a href="#ChallengesEndpoint-117"><span class="linenos">117</span></a>
 </span><span id="ChallengesEndpoint-118"><a href="#ChallengesEndpoint-118"><span class="linenos">118</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChallengesEndpoint-119"><a href="#ChallengesEndpoint-119"><span class="linenos">119</span></a><span class="sd">            `PlayerInfoDto:` pyke._models.challenges_v1.PlayerInfoDto object.</span>
+</span><span id="ChallengesEndpoint-119"><a href="#ChallengesEndpoint-119"><span class="linenos">119</span></a><span class="sd">            `PlayerInfoDto:` pyke.models.challenges_v1.PlayerInfoDto object.</span>
 </span><span id="ChallengesEndpoint-120"><a href="#ChallengesEndpoint-120"><span class="linenos">120</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChallengesEndpoint-121"><a href="#ChallengesEndpoint-121"><span class="linenos">121</span></a>
 </span><span id="ChallengesEndpoint-122"><a href="#ChallengesEndpoint-122"><span class="linenos">122</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/challenges/v1/player-data/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -359,7 +359,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">config</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../_models/challenges_v1.html#ChallengeConfigInfoDto">pyke._models.challenges_v1.ChallengeConfigInfoDto</a></span><span class="p">]</span>:</span></span>
+        <span class="name">config</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../models/challenges_v1.html#ChallengeConfigInfoDto">pyke.models.challenges_v1.ChallengeConfigInfoDto</a></span><span class="p">]</span>:</span></span>
 
                 <label class="view-source-button" for="ChallengesEndpoint.config-view-source"><span>View Source</span></label>
 
@@ -369,10 +369,10 @@
 </span><span id="ChallengesEndpoint.config-17"><a href="#ChallengesEndpoint.config-17"><span class="linenos">17</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# List of all basic challenge configuration information (includes all translations for names and descriptions)</span>
 </span><span id="ChallengesEndpoint.config-18"><a href="#ChallengesEndpoint.config-18"><span class="linenos">18</span></a>
 </span><span id="ChallengesEndpoint.config-19"><a href="#ChallengesEndpoint.config-19"><span class="linenos">19</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChallengesEndpoint.config-20"><a href="#ChallengesEndpoint.config-20"><span class="linenos">20</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChallengesEndpoint.config-20"><a href="#ChallengesEndpoint.config-20"><span class="linenos">20</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChallengesEndpoint.config-21"><a href="#ChallengesEndpoint.config-21"><span class="linenos">21</span></a>
 </span><span id="ChallengesEndpoint.config-22"><a href="#ChallengesEndpoint.config-22"><span class="linenos">22</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChallengesEndpoint.config-23"><a href="#ChallengesEndpoint.config-23"><span class="linenos">23</span></a><span class="sd">            `list[ChallengeConfigInfoDto]:` List of pyke._models.challenges_v1.ChallengeConfigInfoDto objects.</span>
+</span><span id="ChallengesEndpoint.config-23"><a href="#ChallengesEndpoint.config-23"><span class="linenos">23</span></a><span class="sd">            `list[ChallengeConfigInfoDto]:` List of pyke.models.challenges_v1.ChallengeConfigInfoDto objects.</span>
 </span><span id="ChallengesEndpoint.config-24"><a href="#ChallengesEndpoint.config-24"><span class="linenos">24</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChallengesEndpoint.config-25"><a href="#ChallengesEndpoint.config-25"><span class="linenos">25</span></a>
 </span><span id="ChallengesEndpoint.config-26"><a href="#ChallengesEndpoint.config-26"><span class="linenos">26</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/lol/challenges/v1/challenges/config&quot;</span>
@@ -390,10 +390,10 @@
             <div class="docstring"><h1 id="list-of-all-basic-challenge-configuration-information-includes-all-translations-for-names-and-descriptions">List of all basic challenge configuration information (includes all translations for names and descriptions)</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).  </p>
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>list[ChallengeConfigInfoDto]:</code> List of <a href="../_models/challenges_v1.html#ChallengeConfigInfoDto">pyke._models.challenges_v1.ChallengeConfigInfoDto</a> objects.</p>
+    <code>list[ChallengeConfigInfoDto]:</code> List of <a href="../models/challenges_v1.html#ChallengeConfigInfoDto">pyke.models.challenges_v1.ChallengeConfigInfoDto</a> objects.</p>
 </div>
 
 
@@ -403,7 +403,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">percentiles</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span>:</span></span>
+        <span class="name">percentiles</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span>:</span></span>
 
                 <label class="view-source-button" for="ChallengesEndpoint.percentiles-view-source"><span>View Source</span></label>
 
@@ -413,7 +413,7 @@
 </span><span id="ChallengesEndpoint.percentiles-37"><a href="#ChallengesEndpoint.percentiles-37"><span class="linenos">37</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Map of level to percentile of players who have achieved it - keys: ChallengeId -&gt; Season -&gt; Level -&gt; percentile of players who achieved it</span>
 </span><span id="ChallengesEndpoint.percentiles-38"><a href="#ChallengesEndpoint.percentiles-38"><span class="linenos">38</span></a>
 </span><span id="ChallengesEndpoint.percentiles-39"><a href="#ChallengesEndpoint.percentiles-39"><span class="linenos">39</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChallengesEndpoint.percentiles-40"><a href="#ChallengesEndpoint.percentiles-40"><span class="linenos">40</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChallengesEndpoint.percentiles-40"><a href="#ChallengesEndpoint.percentiles-40"><span class="linenos">40</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChallengesEndpoint.percentiles-41"><a href="#ChallengesEndpoint.percentiles-41"><span class="linenos">41</span></a>
 </span><span id="ChallengesEndpoint.percentiles-42"><a href="#ChallengesEndpoint.percentiles-42"><span class="linenos">42</span></a><span class="sd">        **Returns:**  </span>
 </span><span id="ChallengesEndpoint.percentiles-43"><a href="#ChallengesEndpoint.percentiles-43"><span class="linenos">43</span></a><span class="sd">            `dict[int, dict[int, dict[str, int]]]:` Map of level to percentile of players who have achieved it - keys: ChallengeId -&gt; Season -&gt; Level -&gt; percentile of players who achieved it.</span>
@@ -429,7 +429,7 @@
             <div class="docstring"><h1 id="map-of-level-to-percentile-of-players-who-have-achieved-it-keys-challengeid-season-level-percentile-of-players-who-achieved-it">Map of level to percentile of players who have achieved it - keys: ChallengeId -> Season -> Level -> percentile of players who achieved it</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).  </p>
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).  </p>
 
 <p><strong>Returns:</strong><br />
     <code>dict[int, dict[int, dict[str, int]]]:</code> Map of level to percentile of players who have achieved it - keys: ChallengeId -> Season -> Level -> percentile of players who achieved it.</p>
@@ -442,7 +442,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">config_by_challenge_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span>,</span><span class="param">	<span class="n">challenge_id</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="n"><a href="../_models/challenges_v1.html#ChallengeConfigInfoDto">pyke._models.challenges_v1.ChallengeConfigInfoDto</a></span>:</span></span>
+        <span class="name">config_by_challenge_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">challenge_id</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/challenges_v1.html#ChallengeConfigInfoDto">pyke.models.challenges_v1.ChallengeConfigInfoDto</a></span>:</span></span>
 
                 <label class="view-source-button" for="ChallengesEndpoint.config_by_challenge_id-view-source"><span>View Source</span></label>
 
@@ -454,11 +454,11 @@
 </span><span id="ChallengesEndpoint.config_by_challenge_id-54"><a href="#ChallengesEndpoint.config_by_challenge_id-54"><span class="linenos">54</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Get challenge configuration (REST)</span>
 </span><span id="ChallengesEndpoint.config_by_challenge_id-55"><a href="#ChallengesEndpoint.config_by_challenge_id-55"><span class="linenos">55</span></a>
 </span><span id="ChallengesEndpoint.config_by_challenge_id-56"><a href="#ChallengesEndpoint.config_by_challenge_id-56"><span class="linenos">56</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChallengesEndpoint.config_by_challenge_id-57"><a href="#ChallengesEndpoint.config_by_challenge_id-57"><span class="linenos">57</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChallengesEndpoint.config_by_challenge_id-57"><a href="#ChallengesEndpoint.config_by_challenge_id-57"><span class="linenos">57</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChallengesEndpoint.config_by_challenge_id-58"><a href="#ChallengesEndpoint.config_by_challenge_id-58"><span class="linenos">58</span></a><span class="sd">            `challenge_id (int):` Challenge id integer.  </span>
 </span><span id="ChallengesEndpoint.config_by_challenge_id-59"><a href="#ChallengesEndpoint.config_by_challenge_id-59"><span class="linenos">59</span></a>
 </span><span id="ChallengesEndpoint.config_by_challenge_id-60"><a href="#ChallengesEndpoint.config_by_challenge_id-60"><span class="linenos">60</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChallengesEndpoint.config_by_challenge_id-61"><a href="#ChallengesEndpoint.config_by_challenge_id-61"><span class="linenos">61</span></a><span class="sd">            `ChallengeConfigInfoDto:` pyke._models.challenges_v1.ChallengeConfigInfoDto object.</span>
+</span><span id="ChallengesEndpoint.config_by_challenge_id-61"><a href="#ChallengesEndpoint.config_by_challenge_id-61"><span class="linenos">61</span></a><span class="sd">            `ChallengeConfigInfoDto:` pyke.models.challenges_v1.ChallengeConfigInfoDto object.</span>
 </span><span id="ChallengesEndpoint.config_by_challenge_id-62"><a href="#ChallengesEndpoint.config_by_challenge_id-62"><span class="linenos">62</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChallengesEndpoint.config_by_challenge_id-63"><a href="#ChallengesEndpoint.config_by_challenge_id-63"><span class="linenos">63</span></a>
 </span><span id="ChallengesEndpoint.config_by_challenge_id-64"><a href="#ChallengesEndpoint.config_by_challenge_id-64"><span class="linenos">64</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/challenges/v1/challenges/</span><span class="si">{</span><span class="n">challenge_id</span><span class="si">}</span><span class="s2">/config&quot;</span>
@@ -471,11 +471,11 @@
             <div class="docstring"><h1 id="get-challenge-configuration-rest">Get challenge configuration (REST)</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
     <code>challenge_id (int):</code> Challenge id integer.  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>ChallengeConfigInfoDto:</code> <a href="../_models/challenges_v1.html#ChallengeConfigInfoDto">pyke._models.challenges_v1.ChallengeConfigInfoDto</a> object.</p>
+    <code>ChallengeConfigInfoDto:</code> <a href="../models/challenges_v1.html#ChallengeConfigInfoDto">pyke.models.challenges_v1.ChallengeConfigInfoDto</a> object.</p>
 </div>
 
 
@@ -485,7 +485,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">leaderboards_by_level</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span>,</span><span class="param">	<span class="n">level</span><span class="p">:</span> <span class="n"><a href="../_enums/level.html#Level">pyke._enums.level.Level</a></span>,</span><span class="param">	<span class="n">challenge_id</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../_models/challenges_v1.html#ApexPlayerInfoDto">pyke._models.challenges_v1.ApexPlayerInfoDto</a></span><span class="p">]</span>:</span></span>
+        <span class="name">leaderboards_by_level</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">level</span><span class="p">:</span> <span class="n"><a href="../enums/level.html#Level">pyke.enums.level.Level</a></span>,</span><span class="param">	<span class="n">challenge_id</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../models/challenges_v1.html#ApexPlayerInfoDto">pyke.models.challenges_v1.ApexPlayerInfoDto</a></span><span class="p">]</span>:</span></span>
 
                 <label class="view-source-button" for="ChallengesEndpoint.leaderboards_by_level-view-source"><span>View Source</span></label>
 
@@ -497,12 +497,12 @@
 </span><span id="ChallengesEndpoint.leaderboards_by_level-72"><a href="#ChallengesEndpoint.leaderboards_by_level-72"><span class="linenos">72</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Return top players for each level. Level must be MASTER, GRANDMASTER or CHALLENGER</span>
 </span><span id="ChallengesEndpoint.leaderboards_by_level-73"><a href="#ChallengesEndpoint.leaderboards_by_level-73"><span class="linenos">73</span></a>
 </span><span id="ChallengesEndpoint.leaderboards_by_level-74"><a href="#ChallengesEndpoint.leaderboards_by_level-74"><span class="linenos">74</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChallengesEndpoint.leaderboards_by_level-75"><a href="#ChallengesEndpoint.leaderboards_by_level-75"><span class="linenos">75</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
-</span><span id="ChallengesEndpoint.leaderboards_by_level-76"><a href="#ChallengesEndpoint.leaderboards_by_level-76"><span class="linenos">76</span></a><span class="sd">            `level (Level):` Challenge level (pyke._enums.level.Level).  </span>
+</span><span id="ChallengesEndpoint.leaderboards_by_level-75"><a href="#ChallengesEndpoint.leaderboards_by_level-75"><span class="linenos">75</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
+</span><span id="ChallengesEndpoint.leaderboards_by_level-76"><a href="#ChallengesEndpoint.leaderboards_by_level-76"><span class="linenos">76</span></a><span class="sd">            `level (Level):` Challenge level (pyke.enums.level.Level).  </span>
 </span><span id="ChallengesEndpoint.leaderboards_by_level-77"><a href="#ChallengesEndpoint.leaderboards_by_level-77"><span class="linenos">77</span></a><span class="sd">            `challenge_id (int):` Challenge id integer.  </span>
 </span><span id="ChallengesEndpoint.leaderboards_by_level-78"><a href="#ChallengesEndpoint.leaderboards_by_level-78"><span class="linenos">78</span></a>
 </span><span id="ChallengesEndpoint.leaderboards_by_level-79"><a href="#ChallengesEndpoint.leaderboards_by_level-79"><span class="linenos">79</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChallengesEndpoint.leaderboards_by_level-80"><a href="#ChallengesEndpoint.leaderboards_by_level-80"><span class="linenos">80</span></a><span class="sd">            `list[ApexPlayerInfoDto]:` List of pyke._models.challenges_v1.ApexPlayerInfoDto objects.</span>
+</span><span id="ChallengesEndpoint.leaderboards_by_level-80"><a href="#ChallengesEndpoint.leaderboards_by_level-80"><span class="linenos">80</span></a><span class="sd">            `list[ApexPlayerInfoDto]:` List of pyke.models.challenges_v1.ApexPlayerInfoDto objects.</span>
 </span><span id="ChallengesEndpoint.leaderboards_by_level-81"><a href="#ChallengesEndpoint.leaderboards_by_level-81"><span class="linenos">81</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChallengesEndpoint.leaderboards_by_level-82"><a href="#ChallengesEndpoint.leaderboards_by_level-82"><span class="linenos">82</span></a>
 </span><span id="ChallengesEndpoint.leaderboards_by_level-83"><a href="#ChallengesEndpoint.leaderboards_by_level-83"><span class="linenos">83</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/challenges/v1/challenges/</span><span class="si">{</span><span class="n">challenge_id</span><span class="si">}</span><span class="s2">/leaderboards/by-level/</span><span class="si">{</span><span class="n">level</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -520,12 +520,12 @@
             <div class="docstring"><h1 id="return-top-players-for-each-level-level-must-be-master-grandmaster-or-challenger">Return top players for each level. Level must be MASTER, GRANDMASTER or CHALLENGER</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).<br />
-    <code>level (Level):</code> Challenge level (<a href="../_enums/level.html#Level">pyke._enums.level.Level</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
+    <code>level (Level):</code> Challenge level (<a href="../enums/level.html#Level">pyke.enums.level.Level</a>).<br />
     <code>challenge_id (int):</code> Challenge id integer.  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>list[ApexPlayerInfoDto]:</code> List of <a href="../_models/challenges_v1.html#ApexPlayerInfoDto">pyke._models.challenges_v1.ApexPlayerInfoDto</a> objects.</p>
+    <code>list[ApexPlayerInfoDto]:</code> List of <a href="../models/challenges_v1.html#ApexPlayerInfoDto">pyke.models.challenges_v1.ApexPlayerInfoDto</a> objects.</p>
 </div>
 
 
@@ -535,7 +535,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">percentiles_by_challenge_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span>,</span><span class="param">	<span class="n">challenge_id</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="n"><a href="../_enums/level.html#Level">pyke._enums.level.Level</a></span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>:</span></span>
+        <span class="name">percentiles_by_challenge_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">challenge_id</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="n"><a href="../enums/level.html#Level">pyke.enums.level.Level</a></span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>:</span></span>
 
                 <label class="view-source-button" for="ChallengesEndpoint.percentiles_by_challenge_id-view-source"><span>View Source</span></label>
 
@@ -547,11 +547,11 @@
 </span><span id="ChallengesEndpoint.percentiles_by_challenge_id-96"><a href="#ChallengesEndpoint.percentiles_by_challenge_id-96"><span class="linenos"> 96</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Dictionary of level to percentile of players who have achieved it</span>
 </span><span id="ChallengesEndpoint.percentiles_by_challenge_id-97"><a href="#ChallengesEndpoint.percentiles_by_challenge_id-97"><span class="linenos"> 97</span></a>
 </span><span id="ChallengesEndpoint.percentiles_by_challenge_id-98"><a href="#ChallengesEndpoint.percentiles_by_challenge_id-98"><span class="linenos"> 98</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChallengesEndpoint.percentiles_by_challenge_id-99"><a href="#ChallengesEndpoint.percentiles_by_challenge_id-99"><span class="linenos"> 99</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChallengesEndpoint.percentiles_by_challenge_id-99"><a href="#ChallengesEndpoint.percentiles_by_challenge_id-99"><span class="linenos"> 99</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChallengesEndpoint.percentiles_by_challenge_id-100"><a href="#ChallengesEndpoint.percentiles_by_challenge_id-100"><span class="linenos">100</span></a><span class="sd">            `challenge_id (int):` Challenge id integer.  </span>
 </span><span id="ChallengesEndpoint.percentiles_by_challenge_id-101"><a href="#ChallengesEndpoint.percentiles_by_challenge_id-101"><span class="linenos">101</span></a>
 </span><span id="ChallengesEndpoint.percentiles_by_challenge_id-102"><a href="#ChallengesEndpoint.percentiles_by_challenge_id-102"><span class="linenos">102</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChallengesEndpoint.percentiles_by_challenge_id-103"><a href="#ChallengesEndpoint.percentiles_by_challenge_id-103"><span class="linenos">103</span></a><span class="sd">            `dict[Level, int]:` Python dictionary {pyke._enums.level.Level: percentile of players who achieved the challenge}</span>
+</span><span id="ChallengesEndpoint.percentiles_by_challenge_id-103"><a href="#ChallengesEndpoint.percentiles_by_challenge_id-103"><span class="linenos">103</span></a><span class="sd">            `dict[Level, int]:` Python dictionary {pyke.enums.level.Level: percentile of players who achieved the challenge}</span>
 </span><span id="ChallengesEndpoint.percentiles_by_challenge_id-104"><a href="#ChallengesEndpoint.percentiles_by_challenge_id-104"><span class="linenos">104</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChallengesEndpoint.percentiles_by_challenge_id-105"><a href="#ChallengesEndpoint.percentiles_by_challenge_id-105"><span class="linenos">105</span></a>
 </span><span id="ChallengesEndpoint.percentiles_by_challenge_id-106"><a href="#ChallengesEndpoint.percentiles_by_challenge_id-106"><span class="linenos">106</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/challenges/v1/challenges/</span><span class="si">{</span><span class="n">challenge_id</span><span class="si">}</span><span class="s2">/percentiles&quot;</span>
@@ -564,11 +564,11 @@
             <div class="docstring"><h1 id="dictionary-of-level-to-percentile-of-players-who-have-achieved-it">Dictionary of level to percentile of players who have achieved it</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
     <code>challenge_id (int):</code> Challenge id integer.  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>dict[Level, int]:</code> Python dictionary {<a href="../_enums/level.html#Level">pyke._enums.level.Level</a>: percentile of players who achieved the challenge}</p>
+    <code>dict[Level, int]:</code> Python dictionary {<a href="../enums/level.html#Level">pyke.enums.level.Level</a>: percentile of players who achieved the challenge}</p>
 </div>
 
 
@@ -578,7 +578,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">by_puuid</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n"><a href="../_models/challenges_v1.html#PlayerInfoDto">pyke._models.challenges_v1.PlayerInfoDto</a></span>:</span></span>
+        <span class="name">by_puuid</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/challenges_v1.html#PlayerInfoDto">pyke.models.challenges_v1.PlayerInfoDto</a></span>:</span></span>
 
                 <label class="view-source-button" for="ChallengesEndpoint.by_puuid-view-source"><span>View Source</span></label>
 
@@ -588,11 +588,11 @@
 </span><span id="ChallengesEndpoint.by_puuid-112"><a href="#ChallengesEndpoint.by_puuid-112"><span class="linenos">112</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Returns player information with list of all progressed challenges (REST)</span>
 </span><span id="ChallengesEndpoint.by_puuid-113"><a href="#ChallengesEndpoint.by_puuid-113"><span class="linenos">113</span></a>
 </span><span id="ChallengesEndpoint.by_puuid-114"><a href="#ChallengesEndpoint.by_puuid-114"><span class="linenos">114</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChallengesEndpoint.by_puuid-115"><a href="#ChallengesEndpoint.by_puuid-115"><span class="linenos">115</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChallengesEndpoint.by_puuid-115"><a href="#ChallengesEndpoint.by_puuid-115"><span class="linenos">115</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChallengesEndpoint.by_puuid-116"><a href="#ChallengesEndpoint.by_puuid-116"><span class="linenos">116</span></a><span class="sd">            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  </span>
 </span><span id="ChallengesEndpoint.by_puuid-117"><a href="#ChallengesEndpoint.by_puuid-117"><span class="linenos">117</span></a>
 </span><span id="ChallengesEndpoint.by_puuid-118"><a href="#ChallengesEndpoint.by_puuid-118"><span class="linenos">118</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChallengesEndpoint.by_puuid-119"><a href="#ChallengesEndpoint.by_puuid-119"><span class="linenos">119</span></a><span class="sd">            `PlayerInfoDto:` pyke._models.challenges_v1.PlayerInfoDto object.</span>
+</span><span id="ChallengesEndpoint.by_puuid-119"><a href="#ChallengesEndpoint.by_puuid-119"><span class="linenos">119</span></a><span class="sd">            `PlayerInfoDto:` pyke.models.challenges_v1.PlayerInfoDto object.</span>
 </span><span id="ChallengesEndpoint.by_puuid-120"><a href="#ChallengesEndpoint.by_puuid-120"><span class="linenos">120</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChallengesEndpoint.by_puuid-121"><a href="#ChallengesEndpoint.by_puuid-121"><span class="linenos">121</span></a>
 </span><span id="ChallengesEndpoint.by_puuid-122"><a href="#ChallengesEndpoint.by_puuid-122"><span class="linenos">122</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/lol/challenges/v1/player-data/</span><span class="si">{</span><span class="n">puuid</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -605,11 +605,11 @@
             <div class="docstring"><h1 id="returns-player-information-with-list-of-all-progressed-challenges-rest">Returns player information with list of all progressed challenges (REST)</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
     <code>puuid (str):</code> Encrypted PUUID. Exact length of 78 characters.  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>PlayerInfoDto:</code> <a href="../_models/challenges_v1.html#PlayerInfoDto">pyke._models.challenges_v1.PlayerInfoDto</a> object.</p>
+    <code>PlayerInfoDto:</code> <a href="../models/challenges_v1.html#PlayerInfoDto">pyke.models.challenges_v1.PlayerInfoDto</a> object.</p>
 </div>
 
 

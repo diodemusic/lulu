@@ -66,7 +66,7 @@
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyke</span><span class="w"> </span><span class="kn">import</span> <span class="n">Region</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.._base_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">_BaseApiClient</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">.._models.champion_v3</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChampionInfo</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">..models.champion_v3</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChampionInfo</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>
 </span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a>
 </span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="k">class</span><span class="w"> </span><span class="nc">ChampionEndpoint</span><span class="p">:</span>
@@ -77,10 +77,10 @@
 </span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Returns champion rotations, including free-to-play and low-level free-to-play rotations</span>
 </span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>
 </span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a><span class="sd">        **Args:**  </span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>
 </span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="sd">            `ChampionInfo:` pyke._models.champion_v3.ChampionInfo object.</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="sd">            `ChampionInfo:` pyke.models.champion_v3.ChampionInfo object.</span>
 </span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>
 </span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/lol/platform/v3/champion-rotations&quot;</span>
@@ -110,10 +110,10 @@
 </span><span id="ChampionEndpoint-13"><a href="#ChampionEndpoint-13"><span class="linenos">13</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Returns champion rotations, including free-to-play and low-level free-to-play rotations</span>
 </span><span id="ChampionEndpoint-14"><a href="#ChampionEndpoint-14"><span class="linenos">14</span></a>
 </span><span id="ChampionEndpoint-15"><a href="#ChampionEndpoint-15"><span class="linenos">15</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChampionEndpoint-16"><a href="#ChampionEndpoint-16"><span class="linenos">16</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChampionEndpoint-16"><a href="#ChampionEndpoint-16"><span class="linenos">16</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChampionEndpoint-17"><a href="#ChampionEndpoint-17"><span class="linenos">17</span></a>
 </span><span id="ChampionEndpoint-18"><a href="#ChampionEndpoint-18"><span class="linenos">18</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChampionEndpoint-19"><a href="#ChampionEndpoint-19"><span class="linenos">19</span></a><span class="sd">            `ChampionInfo:` pyke._models.champion_v3.ChampionInfo object.</span>
+</span><span id="ChampionEndpoint-19"><a href="#ChampionEndpoint-19"><span class="linenos">19</span></a><span class="sd">            `ChampionInfo:` pyke.models.champion_v3.ChampionInfo object.</span>
 </span><span id="ChampionEndpoint-20"><a href="#ChampionEndpoint-20"><span class="linenos">20</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChampionEndpoint-21"><a href="#ChampionEndpoint-21"><span class="linenos">21</span></a>
 </span><span id="ChampionEndpoint-22"><a href="#ChampionEndpoint-22"><span class="linenos">22</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/lol/platform/v3/champion-rotations&quot;</span>
@@ -148,7 +148,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">rotations</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../_enums/region.html#Region">pyke._enums.region.Region</a></span></span><span class="return-annotation">) -> <span class="n"><a href="../_models/champion_v3.html#ChampionInfo">pyke._models.champion_v3.ChampionInfo</a></span>:</span></span>
+        <span class="name">rotations</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span></span><span class="return-annotation">) -> <span class="n"><a href="../models/champion_v3.html#ChampionInfo">pyke.models.champion_v3.ChampionInfo</a></span>:</span></span>
 
                 <label class="view-source-button" for="ChampionEndpoint.rotations-view-source"><span>View Source</span></label>
 
@@ -158,10 +158,10 @@
 </span><span id="ChampionEndpoint.rotations-13"><a href="#ChampionEndpoint.rotations-13"><span class="linenos">13</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;# Returns champion rotations, including free-to-play and low-level free-to-play rotations</span>
 </span><span id="ChampionEndpoint.rotations-14"><a href="#ChampionEndpoint.rotations-14"><span class="linenos">14</span></a>
 </span><span id="ChampionEndpoint.rotations-15"><a href="#ChampionEndpoint.rotations-15"><span class="linenos">15</span></a><span class="sd">        **Args:**  </span>
-</span><span id="ChampionEndpoint.rotations-16"><a href="#ChampionEndpoint.rotations-16"><span class="linenos">16</span></a><span class="sd">            `region (Region):` Region to execute against (pyke._enums.region.Region).  </span>
+</span><span id="ChampionEndpoint.rotations-16"><a href="#ChampionEndpoint.rotations-16"><span class="linenos">16</span></a><span class="sd">            `region (Region):` Region to execute against (pyke.enums.region.Region).  </span>
 </span><span id="ChampionEndpoint.rotations-17"><a href="#ChampionEndpoint.rotations-17"><span class="linenos">17</span></a>
 </span><span id="ChampionEndpoint.rotations-18"><a href="#ChampionEndpoint.rotations-18"><span class="linenos">18</span></a><span class="sd">        **Returns:**  </span>
-</span><span id="ChampionEndpoint.rotations-19"><a href="#ChampionEndpoint.rotations-19"><span class="linenos">19</span></a><span class="sd">            `ChampionInfo:` pyke._models.champion_v3.ChampionInfo object.</span>
+</span><span id="ChampionEndpoint.rotations-19"><a href="#ChampionEndpoint.rotations-19"><span class="linenos">19</span></a><span class="sd">            `ChampionInfo:` pyke.models.champion_v3.ChampionInfo object.</span>
 </span><span id="ChampionEndpoint.rotations-20"><a href="#ChampionEndpoint.rotations-20"><span class="linenos">20</span></a><span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># fmt: skip</span>
 </span><span id="ChampionEndpoint.rotations-21"><a href="#ChampionEndpoint.rotations-21"><span class="linenos">21</span></a>
 </span><span id="ChampionEndpoint.rotations-22"><a href="#ChampionEndpoint.rotations-22"><span class="linenos">22</span></a>        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/lol/platform/v3/champion-rotations&quot;</span>
@@ -174,10 +174,10 @@
             <div class="docstring"><h1 id="returns-champion-rotations-including-free-to-play-and-low-level-free-to-play-rotations">Returns champion rotations, including free-to-play and low-level free-to-play rotations</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../_enums/region.html#Region">pyke._enums.region.Region</a>).  </p>
+    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>ChampionInfo:</code> <a href="../_models/champion_v3.html#ChampionInfo">pyke._models.champion_v3.ChampionInfo</a> object.</p>
+    <code>ChampionInfo:</code> <a href="../models/champion_v3.html#ChampionInfo">pyke.models.champion_v3.ChampionInfo</a> object.</p>
 </div>
 
 
