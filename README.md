@@ -19,11 +19,11 @@ pip install pyke-lol
 ## Quickstart
 
 ```py
-from pyke import Pyke
+from pyke import Continent, Pyke, exceptions
 
 # We always initialize the API like this
 # We can explicitly disable url logging, by default pyke will print the url of all api calls
-api = Pyke(API_KEY, print_url=False)
+api = Pyke("API_KEY", print_url=False)
 
 # Every pyke method follows the same convention as the Riot API
 # For example account/v1/accounts/by-riot-id/{gameName}/{tagLine} becomes the following
@@ -44,8 +44,8 @@ print(account.model_dump())
 # Will throw pyke.exceptions.RateLimitExceeded
 try:
     region = api.account.region_by_puuid(Continent.EUROPE, account.puuid)
-except exceptions.RateLimitExceeded as e:
-    print(e)  # Output: Rate limit exceeded (Error Code: 429)
+except exceptions.DataNotFound as e:
+    print(e)  # Output: Data not found (Error Code: 404)
     quit()
 
 # Members can be accessed with dot notation just like before
