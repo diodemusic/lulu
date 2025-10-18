@@ -6,6 +6,7 @@
 * [x] **Encapsulate endpoints as modules or classes** (account, summoner, match, league, etc).
 * [x] **Provide clear data models** (e.g., Pydantic models for responses — `SummonerDTO`, `MatchDTO`).
 * [x] **Handle authentication** cleanly (API key via env var, config file, or parameter).
+* [ ] **TFT** add support for all TFT endpoints.
 
 ---
 
