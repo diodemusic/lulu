@@ -7,15 +7,14 @@ from pyke import Continent, Pyke
 load_dotenv()
 API_KEY = os.getenv("RIOT_API_KEY")
 api = Pyke(API_KEY)
-CONTINENT = Continent.EUROPE
 
-account = api.account.by_riot_id(CONTINENT, "saves", "000")
+account = api.account.by_riot_id(Continent.EUROPE, "saves", "000")
 
 print(f"PUUID: {account.puuid}")
 print(f"Game name: {account.game_name}")
 print(f"Tag line: {account.tag_line}")
 
-region = api.account.region_by_puuid(CONTINENT, account.puuid)
+region = api.account.region_by_puuid(Continent.EUROPE, account.puuid)
 
 print(f"PUUID: {region.puuid}")
 print(f"Game: {region.game}")
