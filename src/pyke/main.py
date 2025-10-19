@@ -9,7 +9,8 @@ from .endpoints.clash import ClashEndpoint
 from .endpoints.league import LeagueEndpoint
 from .endpoints.league_exp import LeagueExpEndpoint
 from .endpoints.match import MatchEndpoint
-from .endpoints.spectator import SpectatorEndpoint
+
+# from .endpoints.spectator import SpectatorEndpoint
 from .endpoints.status import StatusEndpoint
 from .endpoints.summoner import SummonerEndpoint
 from .endpoints.tournament import TournamentEndpoint
@@ -31,7 +32,8 @@ class Pyke:
         self.challenges = ChallengesEndpoint(self._client)
         self.status = StatusEndpoint(self._client)
         self.match = MatchEndpoint(self._client)
-        self.spectator = SpectatorEndpoint(self._client)
+        # self.spectator = SpectatorEndpoint(self._client)
         self.summoner = SummonerEndpoint(self._client)
         self.tournament_stub = TournamentStubEndpoint(self._client)
+        self.tournament = TournamentEndpoint(self._client)
         self.tournament = TournamentEndpoint(self._client)
