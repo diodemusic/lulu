@@ -99,9 +99,6 @@
                         <li>
                                 <a class="variable" href="#TournamentCodeParametersV5.enough_players">enough_players</a>
                         </li>
-                        <li>
-                                <a class="variable" href="#TournamentCodeParametersV5.model_config">model_config</a>
-                        </li>
                 </ul>
 
             </li>
@@ -186,9 +183,6 @@
                         <li>
                                 <a class="variable" href="#TournamentCodeV5DTO.participants">participants</a>
                         </li>
-                        <li>
-                                <a class="variable" href="#TournamentCodeV5DTO.model_config">model_config</a>
-                        </li>
                 </ul>
 
             </li>
@@ -204,9 +198,6 @@
                         <li>
                                 <a class="variable" href="#LobbyEventV5DTO.puuid">puuid</a>
                         </li>
-                        <li>
-                                <a class="variable" href="#LobbyEventV5DTO.model_config">model_config</a>
-                        </li>
                 </ul>
 
             </li>
@@ -218,9 +209,6 @@
                         </li>
                         <li>
                                 <a class="variable" href="#ProviderRegistrationParametersV5.url">url</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#ProviderRegistrationParametersV5.model_config">model_config</a>
                         </li>
                 </ul>
 
@@ -234,9 +222,6 @@
                         <li>
                                 <a class="variable" href="#TournamentRegistrationParametersV5.name">name</a>
                         </li>
-                        <li>
-                                <a class="variable" href="#TournamentRegistrationParametersV5.model_config">model_config</a>
-                        </li>
                 </ul>
 
             </li>
@@ -245,9 +230,6 @@
                             <ul class="memberlist">
                         <li>
                                 <a class="variable" href="#LobbyEventV5DTOWrapper.event_list">event_list</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#LobbyEventV5DTOWrapper.model_config">model_config</a>
                         </li>
                 </ul>
 
@@ -286,141 +268,161 @@
 </span><span id="L-11"><a href="#L-11"><span class="linenos"> 11</span></a>
 </span><span id="L-12"><a href="#L-12"><span class="linenos"> 12</span></a>
 </span><span id="L-13"><a href="#L-13"><span class="linenos"> 13</span></a><span class="k">class</span><span class="w"> </span><span class="nc">PickType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos"> 14</span></a>    <span class="n">blind_pick</span> <span class="o">=</span> <span class="s2">&quot;BLIND_PICK&quot;</span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos"> 15</span></a>    <span class="n">draft_mode</span> <span class="o">=</span> <span class="s2">&quot;DRAFT_MODE&quot;</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos"> 16</span></a>    <span class="n">all_random</span> <span class="o">=</span> <span class="s2">&quot;ALL_RANDOM&quot;</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos"> 17</span></a>    <span class="n">tournament_draft</span> <span class="o">=</span> <span class="s2">&quot;TOURNAMENT_DRAFT&quot;</span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a>
-</span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a>
-</span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a><span class="k">class</span><span class="w"> </span><span class="nc">MapType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a>    <span class="n">summoners_rift</span> <span class="o">=</span> <span class="s2">&quot;SUMMONERS_RIFT&quot;</span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a>    <span class="n">howling_abyss</span> <span class="o">=</span> <span class="s2">&quot;HOWLING_ABYSS&quot;</span>
-</span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a>
+</span><span id="L-14"><a href="#L-14"><span class="linenos"> 14</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos"> 15</span></a>
+</span><span id="L-16"><a href="#L-16"><span class="linenos"> 16</span></a>    <span class="n">blind_pick</span> <span class="o">=</span> <span class="s2">&quot;BLIND_PICK&quot;</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos"> 17</span></a>    <span class="n">draft_mode</span> <span class="o">=</span> <span class="s2">&quot;DRAFT_MODE&quot;</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a>    <span class="n">all_random</span> <span class="o">=</span> <span class="s2">&quot;ALL_RANDOM&quot;</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a>    <span class="n">tournament_draft</span> <span class="o">=</span> <span class="s2">&quot;TOURNAMENT_DRAFT&quot;</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a>
+</span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a>
+</span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a><span class="k">class</span><span class="w"> </span><span class="nc">MapType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
 </span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a>
-</span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a><span class="k">class</span><span class="w"> </span><span class="nc">SpectatorType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a>    <span class="n">none</span> <span class="o">=</span> <span class="s2">&quot;NONE&quot;</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a>    <span class="n">lobbyonly</span> <span class="o">=</span> <span class="s2">&quot;LOBBYONLY&quot;</span>
-</span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a>    <span class="nb">all</span> <span class="o">=</span> <span class="s2">&quot;ALL&quot;</span>
-</span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a>
-</span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a>
-</span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentCodeParametersV5</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a>    <span class="n">allowed_participants</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;allowedParticipants&quot;</span><span class="p">,</span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Optional list of encrypted puuids in order to validate the players eligible to join the lobby. NOTE: We currently do not enforce participants at the team level, but rather the aggregate of teamOne and teamTwo. We may add the ability to enforce at the team level in the future.&quot;</span><span class="p">,</span>
-</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a>    <span class="p">)</span>
-</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a>    <span class="n">metadata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.&quot;</span><span class="p">,</span>
-</span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>    <span class="p">)</span>
-</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a>    <span class="n">team_size</span><span class="p">:</span> <span class="n">conint</span><span class="p">(</span><span class="n">ge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>  <span class="c1"># pyright: ignore[reportInvalidTypeForm]</span>
-</span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;teamSize&quot;</span><span class="p">,</span>
-</span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The team size of the game. Valid values are 1-5.&quot;</span><span class="p">,</span>
-</span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a>    <span class="p">)</span>
-</span><span id="L-46"><a href="#L-46"><span class="linenos"> 46</span></a>    <span class="n">pick_type</span><span class="p">:</span> <span class="n">PickType</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-47"><a href="#L-47"><span class="linenos"> 47</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;pickType&quot;</span><span class="p">,</span>
-</span><span id="L-49"><a href="#L-49"><span class="linenos"> 49</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The pick type of the game.</span><span class="se">\n</span><span class="s2">             (Legal values:  BLIND_PICK,  DRAFT_MODE,  ALL_RANDOM,  TOURNAMENT_DRAFT)&quot;</span><span class="p">,</span>
-</span><span id="L-50"><a href="#L-50"><span class="linenos"> 50</span></a>    <span class="p">)</span>
-</span><span id="L-51"><a href="#L-51"><span class="linenos"> 51</span></a>    <span class="n">map_type</span><span class="p">:</span> <span class="n">MapType</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-52"><a href="#L-52"><span class="linenos"> 52</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="L-53"><a href="#L-53"><span class="linenos"> 53</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;mapType&quot;</span><span class="p">,</span>
-</span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The map type of the game.</span><span class="se">\n</span><span class="s2">             (Legal values:  SUMMONERS_RIFT,  HOWLING_ABYSS)&quot;</span><span class="p">,</span>
-</span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a>    <span class="p">)</span>
-</span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a>    <span class="n">spectator_type</span><span class="p">:</span> <span class="n">SpectatorType</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;spectatorType&quot;</span><span class="p">,</span>
-</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The spectator type of the game.</span><span class="se">\n</span><span class="s2">             (Legal values:  NONE,  LOBBYONLY,  ALL)&quot;</span><span class="p">,</span>
-</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a>    <span class="p">)</span>
-</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a>    <span class="n">enough_players</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;enoughPlayers&quot;</span><span class="p">,</span>
-</span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Checks if allowed participants are enough to make full teams.&quot;</span><span class="p">,</span>
-</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a>    <span class="p">)</span>
-</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a>
-</span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a>
-</span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a><span class="k">class</span><span class="w"> </span><span class="nc">Region</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a>    <span class="n">br</span> <span class="o">=</span> <span class="s2">&quot;BR&quot;</span>
-</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a>    <span class="n">eune</span> <span class="o">=</span> <span class="s2">&quot;EUNE&quot;</span>
-</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a>    <span class="n">euw</span> <span class="o">=</span> <span class="s2">&quot;EUW&quot;</span>
-</span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a>    <span class="n">jp</span> <span class="o">=</span> <span class="s2">&quot;JP&quot;</span>
-</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a>    <span class="n">lan</span> <span class="o">=</span> <span class="s2">&quot;LAN&quot;</span>
-</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a>    <span class="n">las</span> <span class="o">=</span> <span class="s2">&quot;LAS&quot;</span>
-</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a>    <span class="n">na</span> <span class="o">=</span> <span class="s2">&quot;NA&quot;</span>
-</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a>    <span class="n">oce</span> <span class="o">=</span> <span class="s2">&quot;OCE&quot;</span>
-</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>    <span class="n">pbe</span> <span class="o">=</span> <span class="s2">&quot;PBE&quot;</span>
-</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a>    <span class="n">ru</span> <span class="o">=</span> <span class="s2">&quot;RU&quot;</span>
-</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a>    <span class="n">tr</span> <span class="o">=</span> <span class="s2">&quot;TR&quot;</span>
-</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a>    <span class="n">kr</span> <span class="o">=</span> <span class="s2">&quot;KR&quot;</span>
-</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>
-</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>
-</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentCodeV5DTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a>    <span class="n">code</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The tournament code.&quot;</span><span class="p">)</span>
-</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a>    <span class="n">lobby_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;lobbyName&quot;</span><span class="p">,</span>
-</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The lobby name for the tournament code game.&quot;</span><span class="p">,</span>
-</span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a>    <span class="p">)</span>
-</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a>    <span class="n">meta_data</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;metaData&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The metadata for tournament code.&quot;</span>
-</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a>    <span class="p">)</span>
-</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a>    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The password for the tournament code game.&quot;</span><span class="p">)</span>
-</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a>    <span class="n">team_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;teamSize&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The team size for the tournament code game.&quot;</span>
-</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a>    <span class="p">)</span>
-</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a>    <span class="n">provider_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;providerId&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The provider&#39;s ID.&quot;</span><span class="p">)</span>
-</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a>    <span class="n">pick_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;pickType&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The pick mode for tournament code game.&quot;</span>
-</span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>    <span class="p">)</span>
-</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>    <span class="n">tournament_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;tournamentId&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The tournament&#39;s ID.&quot;</span>
-</span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a>    <span class="p">)</span>
-</span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The tournament code&#39;s ID.&quot;</span><span class="p">)</span>
-</span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a>    <span class="n">region</span><span class="p">:</span> <span class="n">Region</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The tournament code&#39;s region.</span><span class="se">\n</span><span class="s2">             (Legal values:  BR,  EUNE,  EUW,  JP,  LAN,  LAS,  NA,  OCE,  PBE,  RU,  TR,  KR)&quot;</span><span class="p">,</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a>    <span class="n">summoners_rift</span> <span class="o">=</span> <span class="s2">&quot;SUMMONERS_RIFT&quot;</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a>    <span class="n">howling_abyss</span> <span class="o">=</span> <span class="s2">&quot;HOWLING_ABYSS&quot;</span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a>
+</span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a>
+</span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a><span class="k">class</span><span class="w"> </span><span class="nc">SpectatorType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a>
+</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a>    <span class="n">none</span> <span class="o">=</span> <span class="s2">&quot;NONE&quot;</span>
+</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a>    <span class="n">lobbyonly</span> <span class="o">=</span> <span class="s2">&quot;LOBBYONLY&quot;</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>    <span class="nb">all</span> <span class="o">=</span> <span class="s2">&quot;ALL&quot;</span>
+</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a>
+</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a>
+</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentCodeParametersV5</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a>
+</span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>    <span class="n">allowed_participants</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;allowedParticipants&quot;</span><span class="p">,</span>
+</span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Optional list of encrypted puuids in order to validate the players eligible to join the lobby. NOTE: We currently do not enforce participants at the team level, but rather the aggregate of teamOne and teamTwo. We may add the ability to enforce at the team level in the future.&quot;</span><span class="p">,</span>
+</span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a>    <span class="p">)</span>
+</span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a>    <span class="n">metadata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-46"><a href="#L-46"><span class="linenos"> 46</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="L-47"><a href="#L-47"><span class="linenos"> 47</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.&quot;</span><span class="p">,</span>
+</span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a>    <span class="p">)</span>
+</span><span id="L-49"><a href="#L-49"><span class="linenos"> 49</span></a>    <span class="n">team_size</span><span class="p">:</span> <span class="n">conint</span><span class="p">(</span><span class="n">ge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>  <span class="c1"># pyright: ignore[reportInvalidTypeForm]</span>
+</span><span id="L-50"><a href="#L-50"><span class="linenos"> 50</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="L-51"><a href="#L-51"><span class="linenos"> 51</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;teamSize&quot;</span><span class="p">,</span>
+</span><span id="L-52"><a href="#L-52"><span class="linenos"> 52</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The team size of the game. Valid values are 1-5.&quot;</span><span class="p">,</span>
+</span><span id="L-53"><a href="#L-53"><span class="linenos"> 53</span></a>    <span class="p">)</span>
+</span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a>    <span class="n">pick_type</span><span class="p">:</span> <span class="n">PickType</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;pickType&quot;</span><span class="p">,</span>
+</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The pick type of the game.</span><span class="se">\n</span><span class="s2">             (Legal values:  BLIND_PICK,  DRAFT_MODE,  ALL_RANDOM,  TOURNAMENT_DRAFT)&quot;</span><span class="p">,</span>
+</span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a>    <span class="p">)</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a>    <span class="n">map_type</span><span class="p">:</span> <span class="n">MapType</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;mapType&quot;</span><span class="p">,</span>
+</span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The map type of the game.</span><span class="se">\n</span><span class="s2">             (Legal values:  SUMMONERS_RIFT,  HOWLING_ABYSS)&quot;</span><span class="p">,</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a>    <span class="p">)</span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a>    <span class="n">spectator_type</span><span class="p">:</span> <span class="n">SpectatorType</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;spectatorType&quot;</span><span class="p">,</span>
+</span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The spectator type of the game.</span><span class="se">\n</span><span class="s2">             (Legal values:  NONE,  LOBBYONLY,  ALL)&quot;</span><span class="p">,</span>
+</span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>    <span class="p">)</span>
+</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a>    <span class="n">enough_players</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;enoughPlayers&quot;</span><span class="p">,</span>
+</span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Checks if allowed participants are enough to make full teams.&quot;</span><span class="p">,</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a>    <span class="p">)</span>
+</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a>
+</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a>
+</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a><span class="k">class</span><span class="w"> </span><span class="nc">Region</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a>
+</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a>    <span class="n">br</span> <span class="o">=</span> <span class="s2">&quot;BR&quot;</span>
+</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a>    <span class="n">eune</span> <span class="o">=</span> <span class="s2">&quot;EUNE&quot;</span>
+</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>    <span class="n">euw</span> <span class="o">=</span> <span class="s2">&quot;EUW&quot;</span>
+</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>    <span class="n">jp</span> <span class="o">=</span> <span class="s2">&quot;JP&quot;</span>
+</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>    <span class="n">lan</span> <span class="o">=</span> <span class="s2">&quot;LAN&quot;</span>
+</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a>    <span class="n">las</span> <span class="o">=</span> <span class="s2">&quot;LAS&quot;</span>
+</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a>    <span class="n">na</span> <span class="o">=</span> <span class="s2">&quot;NA&quot;</span>
+</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a>    <span class="n">oce</span> <span class="o">=</span> <span class="s2">&quot;OCE&quot;</span>
+</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a>    <span class="n">pbe</span> <span class="o">=</span> <span class="s2">&quot;PBE&quot;</span>
+</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a>    <span class="n">ru</span> <span class="o">=</span> <span class="s2">&quot;RU&quot;</span>
+</span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a>    <span class="n">tr</span> <span class="o">=</span> <span class="s2">&quot;TR&quot;</span>
+</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a>    <span class="n">kr</span> <span class="o">=</span> <span class="s2">&quot;KR&quot;</span>
+</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a>
+</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a>
+</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentCodeV5DTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a>
+</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a>    <span class="n">code</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The tournament code.&quot;</span><span class="p">)</span>
+</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a>    <span class="n">lobby_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;lobbyName&quot;</span><span class="p">,</span>
+</span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The lobby name for the tournament code game.&quot;</span><span class="p">,</span>
+</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>    <span class="p">)</span>
+</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>    <span class="n">meta_data</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;metaData&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The metadata for tournament code.&quot;</span>
+</span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a>    <span class="p">)</span>
+</span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a>    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The password for the tournament code game.&quot;</span><span class="p">)</span>
+</span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a>    <span class="n">team_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;teamSize&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The team size for the tournament code game.&quot;</span>
 </span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a>    <span class="p">)</span>
-</span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a>    <span class="nb">map</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The game map for the tournament code game&quot;</span><span class="p">)</span>
-</span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a>    <span class="n">participants</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The puuids of the participants (Encrypted)&quot;</span>
+</span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a>    <span class="n">provider_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;providerId&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The provider&#39;s ID.&quot;</span><span class="p">)</span>
+</span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a>    <span class="n">pick_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;pickType&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The pick mode for tournament code game.&quot;</span>
 </span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a>    <span class="p">)</span>
-</span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a>
-</span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a>
-</span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LobbyEventV5DTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a>    <span class="n">timestamp</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Timestamp from the event&quot;</span><span class="p">)</span>
-</span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a>    <span class="n">event_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;eventType&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The type of event that was triggered&quot;</span>
-</span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a>    <span class="p">)</span>
-</span><span id="L-120"><a href="#L-120"><span class="linenos">120</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-121"><a href="#L-121"><span class="linenos">121</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The puuid that triggered the event (Encrypted)&quot;</span>
-</span><span id="L-122"><a href="#L-122"><span class="linenos">122</span></a>    <span class="p">)</span>
-</span><span id="L-123"><a href="#L-123"><span class="linenos">123</span></a>
-</span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a>
-</span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a><span class="k">class</span><span class="w"> </span><span class="nc">ProviderRegistrationParametersV5</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>    <span class="n">region</span><span class="p">:</span> <span class="n">Region</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The region in which the provider will be running tournaments.</span><span class="se">\n</span><span class="s2">             (Legal values:  BR,  EUNE,  EUW,  JP,  LAN,  LAS,  NA,  OCE,  PBE,  RU,  TR,  KR)&quot;</span><span class="p">,</span>
-</span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a>    <span class="p">)</span>
-</span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a>    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-131"><a href="#L-131"><span class="linenos">131</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The provider&#39;s callback URL to which tournament game results in this region should be posted. The URL must be well-formed, use the http or https protocol, and use the default port for the protocol (http URLs must use port 80, https URLs must use port 443).&quot;</span><span class="p">,</span>
+</span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a>    <span class="n">tournament_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;tournamentId&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The tournament&#39;s ID.&quot;</span>
+</span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a>    <span class="p">)</span>
+</span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The tournament code&#39;s ID.&quot;</span><span class="p">)</span>
+</span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a>    <span class="n">region</span><span class="p">:</span> <span class="n">Region</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The tournament code&#39;s region.</span><span class="se">\n</span><span class="s2">             (Legal values:  BR,  EUNE,  EUW,  JP,  LAN,  LAS,  NA,  OCE,  PBE,  RU,  TR,  KR)&quot;</span><span class="p">,</span>
+</span><span id="L-120"><a href="#L-120"><span class="linenos">120</span></a>    <span class="p">)</span>
+</span><span id="L-121"><a href="#L-121"><span class="linenos">121</span></a>    <span class="nb">map</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The game map for the tournament code game&quot;</span><span class="p">)</span>
+</span><span id="L-122"><a href="#L-122"><span class="linenos">122</span></a>    <span class="n">participants</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-123"><a href="#L-123"><span class="linenos">123</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The puuids of the participants (Encrypted)&quot;</span>
+</span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a>    <span class="p">)</span>
+</span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a>
+</span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>
+</span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LobbyEventV5DTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a>
+</span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a>    <span class="n">timestamp</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Timestamp from the event&quot;</span><span class="p">)</span>
+</span><span id="L-131"><a href="#L-131"><span class="linenos">131</span></a>    <span class="n">event_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;eventType&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The type of event that was triggered&quot;</span>
 </span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a>    <span class="p">)</span>
-</span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a>
-</span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a>
-</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentRegistrationParametersV5</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="L-137"><a href="#L-137"><span class="linenos">137</span></a>    <span class="n">provider_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-138"><a href="#L-138"><span class="linenos">138</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="L-139"><a href="#L-139"><span class="linenos">139</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;providerId&quot;</span><span class="p">,</span>
-</span><span id="L-140"><a href="#L-140"><span class="linenos">140</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The provider ID to specify the regional registered provider data to associate this tournament.&quot;</span><span class="p">,</span>
-</span><span id="L-141"><a href="#L-141"><span class="linenos">141</span></a>    <span class="p">)</span>
-</span><span id="L-142"><a href="#L-142"><span class="linenos">142</span></a>    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-143"><a href="#L-143"><span class="linenos">143</span></a>        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The optional name of the tournament.&quot;</span>
-</span><span id="L-144"><a href="#L-144"><span class="linenos">144</span></a>    <span class="p">)</span>
-</span><span id="L-145"><a href="#L-145"><span class="linenos">145</span></a>
-</span><span id="L-146"><a href="#L-146"><span class="linenos">146</span></a>
-</span><span id="L-147"><a href="#L-147"><span class="linenos">147</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LobbyEventV5DTOWrapper</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="L-148"><a href="#L-148"><span class="linenos">148</span></a>    <span class="n">event_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">LobbyEventV5DTO</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;eventList&quot;</span><span class="p">)</span>
+</span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The puuid that triggered the event (Encrypted)&quot;</span>
+</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a>    <span class="p">)</span>
+</span><span id="L-137"><a href="#L-137"><span class="linenos">137</span></a>
+</span><span id="L-138"><a href="#L-138"><span class="linenos">138</span></a>
+</span><span id="L-139"><a href="#L-139"><span class="linenos">139</span></a><span class="k">class</span><span class="w"> </span><span class="nc">ProviderRegistrationParametersV5</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="L-140"><a href="#L-140"><span class="linenos">140</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-141"><a href="#L-141"><span class="linenos">141</span></a>
+</span><span id="L-142"><a href="#L-142"><span class="linenos">142</span></a>    <span class="n">region</span><span class="p">:</span> <span class="n">Region</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-143"><a href="#L-143"><span class="linenos">143</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="L-144"><a href="#L-144"><span class="linenos">144</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The region in which the provider will be running tournaments.</span><span class="se">\n</span><span class="s2">             (Legal values:  BR,  EUNE,  EUW,  JP,  LAN,  LAS,  NA,  OCE,  PBE,  RU,  TR,  KR)&quot;</span><span class="p">,</span>
+</span><span id="L-145"><a href="#L-145"><span class="linenos">145</span></a>    <span class="p">)</span>
+</span><span id="L-146"><a href="#L-146"><span class="linenos">146</span></a>    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-147"><a href="#L-147"><span class="linenos">147</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="L-148"><a href="#L-148"><span class="linenos">148</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The provider&#39;s callback URL to which tournament game results in this region should be posted. The URL must be well-formed, use the http or https protocol, and use the default port for the protocol (http URLs must use port 80, https URLs must use port 443).&quot;</span><span class="p">,</span>
+</span><span id="L-149"><a href="#L-149"><span class="linenos">149</span></a>    <span class="p">)</span>
+</span><span id="L-150"><a href="#L-150"><span class="linenos">150</span></a>
+</span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a>
+</span><span id="L-152"><a href="#L-152"><span class="linenos">152</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentRegistrationParametersV5</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="L-153"><a href="#L-153"><span class="linenos">153</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-154"><a href="#L-154"><span class="linenos">154</span></a>
+</span><span id="L-155"><a href="#L-155"><span class="linenos">155</span></a>    <span class="n">provider_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-156"><a href="#L-156"><span class="linenos">156</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="L-157"><a href="#L-157"><span class="linenos">157</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;providerId&quot;</span><span class="p">,</span>
+</span><span id="L-158"><a href="#L-158"><span class="linenos">158</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The provider ID to specify the regional registered provider data to associate this tournament.&quot;</span><span class="p">,</span>
+</span><span id="L-159"><a href="#L-159"><span class="linenos">159</span></a>    <span class="p">)</span>
+</span><span id="L-160"><a href="#L-160"><span class="linenos">160</span></a>    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a>        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The optional name of the tournament.&quot;</span>
+</span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a>    <span class="p">)</span>
+</span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a>
+</span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a>
+</span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LobbyEventV5DTOWrapper</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a>
+</span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a>    <span class="n">event_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">LobbyEventV5DTO</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;eventList&quot;</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -437,14 +439,18 @@
     </div>
     <a class="headerlink" href="#PickType"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="PickType-14"><a href="#PickType-14"><span class="linenos">14</span></a><span class="k">class</span><span class="w"> </span><span class="nc">PickType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="PickType-15"><a href="#PickType-15"><span class="linenos">15</span></a>    <span class="n">blind_pick</span> <span class="o">=</span> <span class="s2">&quot;BLIND_PICK&quot;</span>
-</span><span id="PickType-16"><a href="#PickType-16"><span class="linenos">16</span></a>    <span class="n">draft_mode</span> <span class="o">=</span> <span class="s2">&quot;DRAFT_MODE&quot;</span>
-</span><span id="PickType-17"><a href="#PickType-17"><span class="linenos">17</span></a>    <span class="n">all_random</span> <span class="o">=</span> <span class="s2">&quot;ALL_RANDOM&quot;</span>
-</span><span id="PickType-18"><a href="#PickType-18"><span class="linenos">18</span></a>    <span class="n">tournament_draft</span> <span class="o">=</span> <span class="s2">&quot;TOURNAMENT_DRAFT&quot;</span>
+</span><span id="PickType-15"><a href="#PickType-15"><span class="linenos">15</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="PickType-16"><a href="#PickType-16"><span class="linenos">16</span></a>
+</span><span id="PickType-17"><a href="#PickType-17"><span class="linenos">17</span></a>    <span class="n">blind_pick</span> <span class="o">=</span> <span class="s2">&quot;BLIND_PICK&quot;</span>
+</span><span id="PickType-18"><a href="#PickType-18"><span class="linenos">18</span></a>    <span class="n">draft_mode</span> <span class="o">=</span> <span class="s2">&quot;DRAFT_MODE&quot;</span>
+</span><span id="PickType-19"><a href="#PickType-19"><span class="linenos">19</span></a>    <span class="n">all_random</span> <span class="o">=</span> <span class="s2">&quot;ALL_RANDOM&quot;</span>
+</span><span id="PickType-20"><a href="#PickType-20"><span class="linenos">20</span></a>    <span class="n">tournament_draft</span> <span class="o">=</span> <span class="s2">&quot;TOURNAMENT_DRAFT&quot;</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p></p>
+</div>
+
 
                             <div id="PickType.blind_pick" class="classattr">
                                 <div class="attr variable">
@@ -506,13 +512,17 @@
 
     </div>
     <a class="headerlink" href="#MapType"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MapType-21"><a href="#MapType-21"><span class="linenos">21</span></a><span class="k">class</span><span class="w"> </span><span class="nc">MapType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="MapType-22"><a href="#MapType-22"><span class="linenos">22</span></a>    <span class="n">summoners_rift</span> <span class="o">=</span> <span class="s2">&quot;SUMMONERS_RIFT&quot;</span>
-</span><span id="MapType-23"><a href="#MapType-23"><span class="linenos">23</span></a>    <span class="n">howling_abyss</span> <span class="o">=</span> <span class="s2">&quot;HOWLING_ABYSS&quot;</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="MapType-23"><a href="#MapType-23"><span class="linenos">23</span></a><span class="k">class</span><span class="w"> </span><span class="nc">MapType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="MapType-24"><a href="#MapType-24"><span class="linenos">24</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="MapType-25"><a href="#MapType-25"><span class="linenos">25</span></a>
+</span><span id="MapType-26"><a href="#MapType-26"><span class="linenos">26</span></a>    <span class="n">summoners_rift</span> <span class="o">=</span> <span class="s2">&quot;SUMMONERS_RIFT&quot;</span>
+</span><span id="MapType-27"><a href="#MapType-27"><span class="linenos">27</span></a>    <span class="n">howling_abyss</span> <span class="o">=</span> <span class="s2">&quot;HOWLING_ABYSS&quot;</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p></p>
+</div>
+
 
                             <div id="MapType.summoners_rift" class="classattr">
                                 <div class="attr variable">
@@ -550,14 +560,18 @@
 
     </div>
     <a class="headerlink" href="#SpectatorType"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="SpectatorType-26"><a href="#SpectatorType-26"><span class="linenos">26</span></a><span class="k">class</span><span class="w"> </span><span class="nc">SpectatorType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="SpectatorType-27"><a href="#SpectatorType-27"><span class="linenos">27</span></a>    <span class="n">none</span> <span class="o">=</span> <span class="s2">&quot;NONE&quot;</span>
-</span><span id="SpectatorType-28"><a href="#SpectatorType-28"><span class="linenos">28</span></a>    <span class="n">lobbyonly</span> <span class="o">=</span> <span class="s2">&quot;LOBBYONLY&quot;</span>
-</span><span id="SpectatorType-29"><a href="#SpectatorType-29"><span class="linenos">29</span></a>    <span class="nb">all</span> <span class="o">=</span> <span class="s2">&quot;ALL&quot;</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="SpectatorType-30"><a href="#SpectatorType-30"><span class="linenos">30</span></a><span class="k">class</span><span class="w"> </span><span class="nc">SpectatorType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="SpectatorType-31"><a href="#SpectatorType-31"><span class="linenos">31</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="SpectatorType-32"><a href="#SpectatorType-32"><span class="linenos">32</span></a>
+</span><span id="SpectatorType-33"><a href="#SpectatorType-33"><span class="linenos">33</span></a>    <span class="n">none</span> <span class="o">=</span> <span class="s2">&quot;NONE&quot;</span>
+</span><span id="SpectatorType-34"><a href="#SpectatorType-34"><span class="linenos">34</span></a>    <span class="n">lobbyonly</span> <span class="o">=</span> <span class="s2">&quot;LOBBYONLY&quot;</span>
+</span><span id="SpectatorType-35"><a href="#SpectatorType-35"><span class="linenos">35</span></a>    <span class="nb">all</span> <span class="o">=</span> <span class="s2">&quot;ALL&quot;</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p></p>
+</div>
+
 
                             <div id="SpectatorType.none" class="classattr">
                                 <div class="attr variable">
@@ -607,75 +621,47 @@
 
     </div>
     <a class="headerlink" href="#TournamentCodeParametersV5"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TournamentCodeParametersV5-32"><a href="#TournamentCodeParametersV5-32"><span class="linenos">32</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentCodeParametersV5</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="TournamentCodeParametersV5-33"><a href="#TournamentCodeParametersV5-33"><span class="linenos">33</span></a>    <span class="n">allowed_participants</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TournamentCodeParametersV5-34"><a href="#TournamentCodeParametersV5-34"><span class="linenos">34</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-35"><a href="#TournamentCodeParametersV5-35"><span class="linenos">35</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;allowedParticipants&quot;</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-36"><a href="#TournamentCodeParametersV5-36"><span class="linenos">36</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Optional list of encrypted puuids in order to validate the players eligible to join the lobby. NOTE: We currently do not enforce participants at the team level, but rather the aggregate of teamOne and teamTwo. We may add the ability to enforce at the team level in the future.&quot;</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-37"><a href="#TournamentCodeParametersV5-37"><span class="linenos">37</span></a>    <span class="p">)</span>
-</span><span id="TournamentCodeParametersV5-38"><a href="#TournamentCodeParametersV5-38"><span class="linenos">38</span></a>    <span class="n">metadata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TournamentCodeParametersV5-39"><a href="#TournamentCodeParametersV5-39"><span class="linenos">39</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-40"><a href="#TournamentCodeParametersV5-40"><span class="linenos">40</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.&quot;</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-41"><a href="#TournamentCodeParametersV5-41"><span class="linenos">41</span></a>    <span class="p">)</span>
-</span><span id="TournamentCodeParametersV5-42"><a href="#TournamentCodeParametersV5-42"><span class="linenos">42</span></a>    <span class="n">team_size</span><span class="p">:</span> <span class="n">conint</span><span class="p">(</span><span class="n">ge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>  <span class="c1"># pyright: ignore[reportInvalidTypeForm]</span>
-</span><span id="TournamentCodeParametersV5-43"><a href="#TournamentCodeParametersV5-43"><span class="linenos">43</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-44"><a href="#TournamentCodeParametersV5-44"><span class="linenos">44</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;teamSize&quot;</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-45"><a href="#TournamentCodeParametersV5-45"><span class="linenos">45</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The team size of the game. Valid values are 1-5.&quot;</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-46"><a href="#TournamentCodeParametersV5-46"><span class="linenos">46</span></a>    <span class="p">)</span>
-</span><span id="TournamentCodeParametersV5-47"><a href="#TournamentCodeParametersV5-47"><span class="linenos">47</span></a>    <span class="n">pick_type</span><span class="p">:</span> <span class="n">PickType</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TournamentCodeParametersV5-48"><a href="#TournamentCodeParametersV5-48"><span class="linenos">48</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-49"><a href="#TournamentCodeParametersV5-49"><span class="linenos">49</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;pickType&quot;</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-50"><a href="#TournamentCodeParametersV5-50"><span class="linenos">50</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The pick type of the game.</span><span class="se">\n</span><span class="s2">             (Legal values:  BLIND_PICK,  DRAFT_MODE,  ALL_RANDOM,  TOURNAMENT_DRAFT)&quot;</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-51"><a href="#TournamentCodeParametersV5-51"><span class="linenos">51</span></a>    <span class="p">)</span>
-</span><span id="TournamentCodeParametersV5-52"><a href="#TournamentCodeParametersV5-52"><span class="linenos">52</span></a>    <span class="n">map_type</span><span class="p">:</span> <span class="n">MapType</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TournamentCodeParametersV5-53"><a href="#TournamentCodeParametersV5-53"><span class="linenos">53</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-54"><a href="#TournamentCodeParametersV5-54"><span class="linenos">54</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;mapType&quot;</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-55"><a href="#TournamentCodeParametersV5-55"><span class="linenos">55</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The map type of the game.</span><span class="se">\n</span><span class="s2">             (Legal values:  SUMMONERS_RIFT,  HOWLING_ABYSS)&quot;</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-56"><a href="#TournamentCodeParametersV5-56"><span class="linenos">56</span></a>    <span class="p">)</span>
-</span><span id="TournamentCodeParametersV5-57"><a href="#TournamentCodeParametersV5-57"><span class="linenos">57</span></a>    <span class="n">spectator_type</span><span class="p">:</span> <span class="n">SpectatorType</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TournamentCodeParametersV5-58"><a href="#TournamentCodeParametersV5-58"><span class="linenos">58</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-59"><a href="#TournamentCodeParametersV5-59"><span class="linenos">59</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;spectatorType&quot;</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-60"><a href="#TournamentCodeParametersV5-60"><span class="linenos">60</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The spectator type of the game.</span><span class="se">\n</span><span class="s2">             (Legal values:  NONE,  LOBBYONLY,  ALL)&quot;</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-61"><a href="#TournamentCodeParametersV5-61"><span class="linenos">61</span></a>    <span class="p">)</span>
-</span><span id="TournamentCodeParametersV5-62"><a href="#TournamentCodeParametersV5-62"><span class="linenos">62</span></a>    <span class="n">enough_players</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TournamentCodeParametersV5-63"><a href="#TournamentCodeParametersV5-63"><span class="linenos">63</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-64"><a href="#TournamentCodeParametersV5-64"><span class="linenos">64</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;enoughPlayers&quot;</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-65"><a href="#TournamentCodeParametersV5-65"><span class="linenos">65</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Checks if allowed participants are enough to make full teams.&quot;</span><span class="p">,</span>
-</span><span id="TournamentCodeParametersV5-66"><a href="#TournamentCodeParametersV5-66"><span class="linenos">66</span></a>    <span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TournamentCodeParametersV5-38"><a href="#TournamentCodeParametersV5-38"><span class="linenos">38</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentCodeParametersV5</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="TournamentCodeParametersV5-39"><a href="#TournamentCodeParametersV5-39"><span class="linenos">39</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="TournamentCodeParametersV5-40"><a href="#TournamentCodeParametersV5-40"><span class="linenos">40</span></a>
+</span><span id="TournamentCodeParametersV5-41"><a href="#TournamentCodeParametersV5-41"><span class="linenos">41</span></a>    <span class="n">allowed_participants</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TournamentCodeParametersV5-42"><a href="#TournamentCodeParametersV5-42"><span class="linenos">42</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-43"><a href="#TournamentCodeParametersV5-43"><span class="linenos">43</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;allowedParticipants&quot;</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-44"><a href="#TournamentCodeParametersV5-44"><span class="linenos">44</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Optional list of encrypted puuids in order to validate the players eligible to join the lobby. NOTE: We currently do not enforce participants at the team level, but rather the aggregate of teamOne and teamTwo. We may add the ability to enforce at the team level in the future.&quot;</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-45"><a href="#TournamentCodeParametersV5-45"><span class="linenos">45</span></a>    <span class="p">)</span>
+</span><span id="TournamentCodeParametersV5-46"><a href="#TournamentCodeParametersV5-46"><span class="linenos">46</span></a>    <span class="n">metadata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TournamentCodeParametersV5-47"><a href="#TournamentCodeParametersV5-47"><span class="linenos">47</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-48"><a href="#TournamentCodeParametersV5-48"><span class="linenos">48</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.&quot;</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-49"><a href="#TournamentCodeParametersV5-49"><span class="linenos">49</span></a>    <span class="p">)</span>
+</span><span id="TournamentCodeParametersV5-50"><a href="#TournamentCodeParametersV5-50"><span class="linenos">50</span></a>    <span class="n">team_size</span><span class="p">:</span> <span class="n">conint</span><span class="p">(</span><span class="n">ge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>  <span class="c1"># pyright: ignore[reportInvalidTypeForm]</span>
+</span><span id="TournamentCodeParametersV5-51"><a href="#TournamentCodeParametersV5-51"><span class="linenos">51</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-52"><a href="#TournamentCodeParametersV5-52"><span class="linenos">52</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;teamSize&quot;</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-53"><a href="#TournamentCodeParametersV5-53"><span class="linenos">53</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The team size of the game. Valid values are 1-5.&quot;</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-54"><a href="#TournamentCodeParametersV5-54"><span class="linenos">54</span></a>    <span class="p">)</span>
+</span><span id="TournamentCodeParametersV5-55"><a href="#TournamentCodeParametersV5-55"><span class="linenos">55</span></a>    <span class="n">pick_type</span><span class="p">:</span> <span class="n">PickType</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TournamentCodeParametersV5-56"><a href="#TournamentCodeParametersV5-56"><span class="linenos">56</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-57"><a href="#TournamentCodeParametersV5-57"><span class="linenos">57</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;pickType&quot;</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-58"><a href="#TournamentCodeParametersV5-58"><span class="linenos">58</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The pick type of the game.</span><span class="se">\n</span><span class="s2">             (Legal values:  BLIND_PICK,  DRAFT_MODE,  ALL_RANDOM,  TOURNAMENT_DRAFT)&quot;</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-59"><a href="#TournamentCodeParametersV5-59"><span class="linenos">59</span></a>    <span class="p">)</span>
+</span><span id="TournamentCodeParametersV5-60"><a href="#TournamentCodeParametersV5-60"><span class="linenos">60</span></a>    <span class="n">map_type</span><span class="p">:</span> <span class="n">MapType</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TournamentCodeParametersV5-61"><a href="#TournamentCodeParametersV5-61"><span class="linenos">61</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-62"><a href="#TournamentCodeParametersV5-62"><span class="linenos">62</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;mapType&quot;</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-63"><a href="#TournamentCodeParametersV5-63"><span class="linenos">63</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The map type of the game.</span><span class="se">\n</span><span class="s2">             (Legal values:  SUMMONERS_RIFT,  HOWLING_ABYSS)&quot;</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-64"><a href="#TournamentCodeParametersV5-64"><span class="linenos">64</span></a>    <span class="p">)</span>
+</span><span id="TournamentCodeParametersV5-65"><a href="#TournamentCodeParametersV5-65"><span class="linenos">65</span></a>    <span class="n">spectator_type</span><span class="p">:</span> <span class="n">SpectatorType</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TournamentCodeParametersV5-66"><a href="#TournamentCodeParametersV5-66"><span class="linenos">66</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-67"><a href="#TournamentCodeParametersV5-67"><span class="linenos">67</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;spectatorType&quot;</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-68"><a href="#TournamentCodeParametersV5-68"><span class="linenos">68</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The spectator type of the game.</span><span class="se">\n</span><span class="s2">             (Legal values:  NONE,  LOBBYONLY,  ALL)&quot;</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-69"><a href="#TournamentCodeParametersV5-69"><span class="linenos">69</span></a>    <span class="p">)</span>
+</span><span id="TournamentCodeParametersV5-70"><a href="#TournamentCodeParametersV5-70"><span class="linenos">70</span></a>    <span class="n">enough_players</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TournamentCodeParametersV5-71"><a href="#TournamentCodeParametersV5-71"><span class="linenos">71</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-72"><a href="#TournamentCodeParametersV5-72"><span class="linenos">72</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;enoughPlayers&quot;</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-73"><a href="#TournamentCodeParametersV5-73"><span class="linenos">73</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Checks if allowed participants are enough to make full teams.&quot;</span><span class="p">,</span>
+</span><span id="TournamentCodeParametersV5-74"><a href="#TournamentCodeParametersV5-74"><span class="linenos">74</span></a>    <span class="p">)</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>!!! abstract "Usage Documentation"
-    <a href="../concepts/models.md">Models</a></p>
-
-<p>A base class for creating Pydantic models.</p>
-
-<p>Attributes:
-    __class_vars__: The names of the class variables defined on the model.
-    __private_attributes__: Metadata about the private attributes of the model.
-    __signature__: The synthesized <code><a href="#TournamentCodeParametersV5.__init__">__init__</a></code> [<code>Signature</code>][inspect.Signature] of the model.</p>
-
-<pre><code>__pydantic_complete__: Whether model building is completed, or if there are still undefined fields.
-__pydantic_core_schema__: The core schema of the model.
-__pydantic_custom_init__: Whether the model has a custom `__init__` function.
-__pydantic_decorators__: Metadata containing the decorators defined on the model.
-    This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
-__pydantic_generic_metadata__: Metadata for generic models; contains data used for a similar purpose to
-    __args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.
-__pydantic_parent_namespace__: Parent namespace of the model, used for automatic rebuilding of models.
-__pydantic_post_init__: The name of the post-init method for the model, if defined.
-__pydantic_root_model__: Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
-__pydantic_serializer__: The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
-__pydantic_validator__: The `pydantic-core` `SchemaValidator` used to validate instances of the model.
-
-__pydantic_fields__: A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
-__pydantic_computed_fields__: A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
-
-__pydantic_extra__: A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
-    is set to `'allow'`.
-__pydantic_fields_set__: The names of fields explicitly set during instantiation.
-__pydantic_private__: Values of private attributes set on the model instance.
-</code></pre>
+            <div class="docstring"><p></p>
 </div>
 
 
@@ -756,20 +742,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
     
 
                             </div>
-                            <div id="TournamentCodeParametersV5.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#TournamentCodeParametersV5.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
-
-                            </div>
                 </section>
                 <section id="Region">
                             <input id="Region-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
@@ -782,23 +754,27 @@ __pydantic_private__: Values of private attributes set on the model instance.
 
     </div>
     <a class="headerlink" href="#Region"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Region-69"><a href="#Region-69"><span class="linenos">69</span></a><span class="k">class</span><span class="w"> </span><span class="nc">Region</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="Region-70"><a href="#Region-70"><span class="linenos">70</span></a>    <span class="n">br</span> <span class="o">=</span> <span class="s2">&quot;BR&quot;</span>
-</span><span id="Region-71"><a href="#Region-71"><span class="linenos">71</span></a>    <span class="n">eune</span> <span class="o">=</span> <span class="s2">&quot;EUNE&quot;</span>
-</span><span id="Region-72"><a href="#Region-72"><span class="linenos">72</span></a>    <span class="n">euw</span> <span class="o">=</span> <span class="s2">&quot;EUW&quot;</span>
-</span><span id="Region-73"><a href="#Region-73"><span class="linenos">73</span></a>    <span class="n">jp</span> <span class="o">=</span> <span class="s2">&quot;JP&quot;</span>
-</span><span id="Region-74"><a href="#Region-74"><span class="linenos">74</span></a>    <span class="n">lan</span> <span class="o">=</span> <span class="s2">&quot;LAN&quot;</span>
-</span><span id="Region-75"><a href="#Region-75"><span class="linenos">75</span></a>    <span class="n">las</span> <span class="o">=</span> <span class="s2">&quot;LAS&quot;</span>
-</span><span id="Region-76"><a href="#Region-76"><span class="linenos">76</span></a>    <span class="n">na</span> <span class="o">=</span> <span class="s2">&quot;NA&quot;</span>
-</span><span id="Region-77"><a href="#Region-77"><span class="linenos">77</span></a>    <span class="n">oce</span> <span class="o">=</span> <span class="s2">&quot;OCE&quot;</span>
-</span><span id="Region-78"><a href="#Region-78"><span class="linenos">78</span></a>    <span class="n">pbe</span> <span class="o">=</span> <span class="s2">&quot;PBE&quot;</span>
-</span><span id="Region-79"><a href="#Region-79"><span class="linenos">79</span></a>    <span class="n">ru</span> <span class="o">=</span> <span class="s2">&quot;RU&quot;</span>
-</span><span id="Region-80"><a href="#Region-80"><span class="linenos">80</span></a>    <span class="n">tr</span> <span class="o">=</span> <span class="s2">&quot;TR&quot;</span>
-</span><span id="Region-81"><a href="#Region-81"><span class="linenos">81</span></a>    <span class="n">kr</span> <span class="o">=</span> <span class="s2">&quot;KR&quot;</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Region-77"><a href="#Region-77"><span class="linenos">77</span></a><span class="k">class</span><span class="w"> </span><span class="nc">Region</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="Region-78"><a href="#Region-78"><span class="linenos">78</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="Region-79"><a href="#Region-79"><span class="linenos">79</span></a>
+</span><span id="Region-80"><a href="#Region-80"><span class="linenos">80</span></a>    <span class="n">br</span> <span class="o">=</span> <span class="s2">&quot;BR&quot;</span>
+</span><span id="Region-81"><a href="#Region-81"><span class="linenos">81</span></a>    <span class="n">eune</span> <span class="o">=</span> <span class="s2">&quot;EUNE&quot;</span>
+</span><span id="Region-82"><a href="#Region-82"><span class="linenos">82</span></a>    <span class="n">euw</span> <span class="o">=</span> <span class="s2">&quot;EUW&quot;</span>
+</span><span id="Region-83"><a href="#Region-83"><span class="linenos">83</span></a>    <span class="n">jp</span> <span class="o">=</span> <span class="s2">&quot;JP&quot;</span>
+</span><span id="Region-84"><a href="#Region-84"><span class="linenos">84</span></a>    <span class="n">lan</span> <span class="o">=</span> <span class="s2">&quot;LAN&quot;</span>
+</span><span id="Region-85"><a href="#Region-85"><span class="linenos">85</span></a>    <span class="n">las</span> <span class="o">=</span> <span class="s2">&quot;LAS&quot;</span>
+</span><span id="Region-86"><a href="#Region-86"><span class="linenos">86</span></a>    <span class="n">na</span> <span class="o">=</span> <span class="s2">&quot;NA&quot;</span>
+</span><span id="Region-87"><a href="#Region-87"><span class="linenos">87</span></a>    <span class="n">oce</span> <span class="o">=</span> <span class="s2">&quot;OCE&quot;</span>
+</span><span id="Region-88"><a href="#Region-88"><span class="linenos">88</span></a>    <span class="n">pbe</span> <span class="o">=</span> <span class="s2">&quot;PBE&quot;</span>
+</span><span id="Region-89"><a href="#Region-89"><span class="linenos">89</span></a>    <span class="n">ru</span> <span class="o">=</span> <span class="s2">&quot;RU&quot;</span>
+</span><span id="Region-90"><a href="#Region-90"><span class="linenos">90</span></a>    <span class="n">tr</span> <span class="o">=</span> <span class="s2">&quot;TR&quot;</span>
+</span><span id="Region-91"><a href="#Region-91"><span class="linenos">91</span></a>    <span class="n">kr</span> <span class="o">=</span> <span class="s2">&quot;KR&quot;</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p></p>
+</div>
+
 
                             <div id="Region.br" class="classattr">
                                 <div class="attr variable">
@@ -956,70 +932,42 @@ __pydantic_private__: Values of private attributes set on the model instance.
 
     </div>
     <a class="headerlink" href="#TournamentCodeV5DTO"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TournamentCodeV5DTO-84"><a href="#TournamentCodeV5DTO-84"><span class="linenos"> 84</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentCodeV5DTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="TournamentCodeV5DTO-85"><a href="#TournamentCodeV5DTO-85"><span class="linenos"> 85</span></a>    <span class="n">code</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The tournament code.&quot;</span><span class="p">)</span>
-</span><span id="TournamentCodeV5DTO-86"><a href="#TournamentCodeV5DTO-86"><span class="linenos"> 86</span></a>    <span class="n">lobby_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TournamentCodeV5DTO-87"><a href="#TournamentCodeV5DTO-87"><span class="linenos"> 87</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="TournamentCodeV5DTO-88"><a href="#TournamentCodeV5DTO-88"><span class="linenos"> 88</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;lobbyName&quot;</span><span class="p">,</span>
-</span><span id="TournamentCodeV5DTO-89"><a href="#TournamentCodeV5DTO-89"><span class="linenos"> 89</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The lobby name for the tournament code game.&quot;</span><span class="p">,</span>
-</span><span id="TournamentCodeV5DTO-90"><a href="#TournamentCodeV5DTO-90"><span class="linenos"> 90</span></a>    <span class="p">)</span>
-</span><span id="TournamentCodeV5DTO-91"><a href="#TournamentCodeV5DTO-91"><span class="linenos"> 91</span></a>    <span class="n">meta_data</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TournamentCodeV5DTO-92"><a href="#TournamentCodeV5DTO-92"><span class="linenos"> 92</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;metaData&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The metadata for tournament code.&quot;</span>
-</span><span id="TournamentCodeV5DTO-93"><a href="#TournamentCodeV5DTO-93"><span class="linenos"> 93</span></a>    <span class="p">)</span>
-</span><span id="TournamentCodeV5DTO-94"><a href="#TournamentCodeV5DTO-94"><span class="linenos"> 94</span></a>    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The password for the tournament code game.&quot;</span><span class="p">)</span>
-</span><span id="TournamentCodeV5DTO-95"><a href="#TournamentCodeV5DTO-95"><span class="linenos"> 95</span></a>    <span class="n">team_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TournamentCodeV5DTO-96"><a href="#TournamentCodeV5DTO-96"><span class="linenos"> 96</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;teamSize&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The team size for the tournament code game.&quot;</span>
-</span><span id="TournamentCodeV5DTO-97"><a href="#TournamentCodeV5DTO-97"><span class="linenos"> 97</span></a>    <span class="p">)</span>
-</span><span id="TournamentCodeV5DTO-98"><a href="#TournamentCodeV5DTO-98"><span class="linenos"> 98</span></a>    <span class="n">provider_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;providerId&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The provider&#39;s ID.&quot;</span><span class="p">)</span>
-</span><span id="TournamentCodeV5DTO-99"><a href="#TournamentCodeV5DTO-99"><span class="linenos"> 99</span></a>    <span class="n">pick_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TournamentCodeV5DTO-100"><a href="#TournamentCodeV5DTO-100"><span class="linenos">100</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;pickType&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The pick mode for tournament code game.&quot;</span>
-</span><span id="TournamentCodeV5DTO-101"><a href="#TournamentCodeV5DTO-101"><span class="linenos">101</span></a>    <span class="p">)</span>
-</span><span id="TournamentCodeV5DTO-102"><a href="#TournamentCodeV5DTO-102"><span class="linenos">102</span></a>    <span class="n">tournament_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TournamentCodeV5DTO-103"><a href="#TournamentCodeV5DTO-103"><span class="linenos">103</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;tournamentId&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The tournament&#39;s ID.&quot;</span>
-</span><span id="TournamentCodeV5DTO-104"><a href="#TournamentCodeV5DTO-104"><span class="linenos">104</span></a>    <span class="p">)</span>
-</span><span id="TournamentCodeV5DTO-105"><a href="#TournamentCodeV5DTO-105"><span class="linenos">105</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The tournament code&#39;s ID.&quot;</span><span class="p">)</span>
-</span><span id="TournamentCodeV5DTO-106"><a href="#TournamentCodeV5DTO-106"><span class="linenos">106</span></a>    <span class="n">region</span><span class="p">:</span> <span class="n">Region</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TournamentCodeV5DTO-107"><a href="#TournamentCodeV5DTO-107"><span class="linenos">107</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="TournamentCodeV5DTO-108"><a href="#TournamentCodeV5DTO-108"><span class="linenos">108</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The tournament code&#39;s region.</span><span class="se">\n</span><span class="s2">             (Legal values:  BR,  EUNE,  EUW,  JP,  LAN,  LAS,  NA,  OCE,  PBE,  RU,  TR,  KR)&quot;</span><span class="p">,</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TournamentCodeV5DTO-94"><a href="#TournamentCodeV5DTO-94"><span class="linenos"> 94</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentCodeV5DTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="TournamentCodeV5DTO-95"><a href="#TournamentCodeV5DTO-95"><span class="linenos"> 95</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="TournamentCodeV5DTO-96"><a href="#TournamentCodeV5DTO-96"><span class="linenos"> 96</span></a>
+</span><span id="TournamentCodeV5DTO-97"><a href="#TournamentCodeV5DTO-97"><span class="linenos"> 97</span></a>    <span class="n">code</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The tournament code.&quot;</span><span class="p">)</span>
+</span><span id="TournamentCodeV5DTO-98"><a href="#TournamentCodeV5DTO-98"><span class="linenos"> 98</span></a>    <span class="n">lobby_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TournamentCodeV5DTO-99"><a href="#TournamentCodeV5DTO-99"><span class="linenos"> 99</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="TournamentCodeV5DTO-100"><a href="#TournamentCodeV5DTO-100"><span class="linenos">100</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;lobbyName&quot;</span><span class="p">,</span>
+</span><span id="TournamentCodeV5DTO-101"><a href="#TournamentCodeV5DTO-101"><span class="linenos">101</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The lobby name for the tournament code game.&quot;</span><span class="p">,</span>
+</span><span id="TournamentCodeV5DTO-102"><a href="#TournamentCodeV5DTO-102"><span class="linenos">102</span></a>    <span class="p">)</span>
+</span><span id="TournamentCodeV5DTO-103"><a href="#TournamentCodeV5DTO-103"><span class="linenos">103</span></a>    <span class="n">meta_data</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TournamentCodeV5DTO-104"><a href="#TournamentCodeV5DTO-104"><span class="linenos">104</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;metaData&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The metadata for tournament code.&quot;</span>
+</span><span id="TournamentCodeV5DTO-105"><a href="#TournamentCodeV5DTO-105"><span class="linenos">105</span></a>    <span class="p">)</span>
+</span><span id="TournamentCodeV5DTO-106"><a href="#TournamentCodeV5DTO-106"><span class="linenos">106</span></a>    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The password for the tournament code game.&quot;</span><span class="p">)</span>
+</span><span id="TournamentCodeV5DTO-107"><a href="#TournamentCodeV5DTO-107"><span class="linenos">107</span></a>    <span class="n">team_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TournamentCodeV5DTO-108"><a href="#TournamentCodeV5DTO-108"><span class="linenos">108</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;teamSize&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The team size for the tournament code game.&quot;</span>
 </span><span id="TournamentCodeV5DTO-109"><a href="#TournamentCodeV5DTO-109"><span class="linenos">109</span></a>    <span class="p">)</span>
-</span><span id="TournamentCodeV5DTO-110"><a href="#TournamentCodeV5DTO-110"><span class="linenos">110</span></a>    <span class="nb">map</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The game map for the tournament code game&quot;</span><span class="p">)</span>
-</span><span id="TournamentCodeV5DTO-111"><a href="#TournamentCodeV5DTO-111"><span class="linenos">111</span></a>    <span class="n">participants</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TournamentCodeV5DTO-112"><a href="#TournamentCodeV5DTO-112"><span class="linenos">112</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The puuids of the participants (Encrypted)&quot;</span>
+</span><span id="TournamentCodeV5DTO-110"><a href="#TournamentCodeV5DTO-110"><span class="linenos">110</span></a>    <span class="n">provider_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;providerId&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The provider&#39;s ID.&quot;</span><span class="p">)</span>
+</span><span id="TournamentCodeV5DTO-111"><a href="#TournamentCodeV5DTO-111"><span class="linenos">111</span></a>    <span class="n">pick_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TournamentCodeV5DTO-112"><a href="#TournamentCodeV5DTO-112"><span class="linenos">112</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;pickType&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The pick mode for tournament code game.&quot;</span>
 </span><span id="TournamentCodeV5DTO-113"><a href="#TournamentCodeV5DTO-113"><span class="linenos">113</span></a>    <span class="p">)</span>
+</span><span id="TournamentCodeV5DTO-114"><a href="#TournamentCodeV5DTO-114"><span class="linenos">114</span></a>    <span class="n">tournament_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TournamentCodeV5DTO-115"><a href="#TournamentCodeV5DTO-115"><span class="linenos">115</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;tournamentId&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The tournament&#39;s ID.&quot;</span>
+</span><span id="TournamentCodeV5DTO-116"><a href="#TournamentCodeV5DTO-116"><span class="linenos">116</span></a>    <span class="p">)</span>
+</span><span id="TournamentCodeV5DTO-117"><a href="#TournamentCodeV5DTO-117"><span class="linenos">117</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The tournament code&#39;s ID.&quot;</span><span class="p">)</span>
+</span><span id="TournamentCodeV5DTO-118"><a href="#TournamentCodeV5DTO-118"><span class="linenos">118</span></a>    <span class="n">region</span><span class="p">:</span> <span class="n">Region</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TournamentCodeV5DTO-119"><a href="#TournamentCodeV5DTO-119"><span class="linenos">119</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="TournamentCodeV5DTO-120"><a href="#TournamentCodeV5DTO-120"><span class="linenos">120</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The tournament code&#39;s region.</span><span class="se">\n</span><span class="s2">             (Legal values:  BR,  EUNE,  EUW,  JP,  LAN,  LAS,  NA,  OCE,  PBE,  RU,  TR,  KR)&quot;</span><span class="p">,</span>
+</span><span id="TournamentCodeV5DTO-121"><a href="#TournamentCodeV5DTO-121"><span class="linenos">121</span></a>    <span class="p">)</span>
+</span><span id="TournamentCodeV5DTO-122"><a href="#TournamentCodeV5DTO-122"><span class="linenos">122</span></a>    <span class="nb">map</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The game map for the tournament code game&quot;</span><span class="p">)</span>
+</span><span id="TournamentCodeV5DTO-123"><a href="#TournamentCodeV5DTO-123"><span class="linenos">123</span></a>    <span class="n">participants</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TournamentCodeV5DTO-124"><a href="#TournamentCodeV5DTO-124"><span class="linenos">124</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The puuids of the participants (Encrypted)&quot;</span>
+</span><span id="TournamentCodeV5DTO-125"><a href="#TournamentCodeV5DTO-125"><span class="linenos">125</span></a>    <span class="p">)</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>!!! abstract "Usage Documentation"
-    <a href="../concepts/models.md">Models</a></p>
-
-<p>A base class for creating Pydantic models.</p>
-
-<p>Attributes:
-    __class_vars__: The names of the class variables defined on the model.
-    __private_attributes__: Metadata about the private attributes of the model.
-    __signature__: The synthesized <code><a href="#TournamentCodeV5DTO.__init__">__init__</a></code> [<code>Signature</code>][inspect.Signature] of the model.</p>
-
-<pre><code>__pydantic_complete__: Whether model building is completed, or if there are still undefined fields.
-__pydantic_core_schema__: The core schema of the model.
-__pydantic_custom_init__: Whether the model has a custom `__init__` function.
-__pydantic_decorators__: Metadata containing the decorators defined on the model.
-    This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
-__pydantic_generic_metadata__: Metadata for generic models; contains data used for a similar purpose to
-    __args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.
-__pydantic_parent_namespace__: Parent namespace of the model, used for automatic rebuilding of models.
-__pydantic_post_init__: The name of the post-init method for the model, if defined.
-__pydantic_root_model__: Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
-__pydantic_serializer__: The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
-__pydantic_validator__: The `pydantic-core` `SchemaValidator` used to validate instances of the model.
-
-__pydantic_fields__: A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
-__pydantic_computed_fields__: A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
-
-__pydantic_extra__: A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
-    is set to `'allow'`.
-__pydantic_fields_set__: The names of fields explicitly set during instantiation.
-__pydantic_private__: Values of private attributes set on the model instance.
-</code></pre>
+            <div class="docstring"><p></p>
 </div>
 
 
@@ -1155,20 +1103,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
     
 
                             </div>
-                            <div id="TournamentCodeV5DTO.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#TournamentCodeV5DTO.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
-
-                            </div>
                 </section>
                 <section id="LobbyEventV5DTO">
                             <input id="LobbyEventV5DTO-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
@@ -1181,48 +1115,20 @@ __pydantic_private__: Values of private attributes set on the model instance.
 
     </div>
     <a class="headerlink" href="#LobbyEventV5DTO"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="LobbyEventV5DTO-116"><a href="#LobbyEventV5DTO-116"><span class="linenos">116</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LobbyEventV5DTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="LobbyEventV5DTO-117"><a href="#LobbyEventV5DTO-117"><span class="linenos">117</span></a>    <span class="n">timestamp</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Timestamp from the event&quot;</span><span class="p">)</span>
-</span><span id="LobbyEventV5DTO-118"><a href="#LobbyEventV5DTO-118"><span class="linenos">118</span></a>    <span class="n">event_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="LobbyEventV5DTO-119"><a href="#LobbyEventV5DTO-119"><span class="linenos">119</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;eventType&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The type of event that was triggered&quot;</span>
-</span><span id="LobbyEventV5DTO-120"><a href="#LobbyEventV5DTO-120"><span class="linenos">120</span></a>    <span class="p">)</span>
-</span><span id="LobbyEventV5DTO-121"><a href="#LobbyEventV5DTO-121"><span class="linenos">121</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="LobbyEventV5DTO-122"><a href="#LobbyEventV5DTO-122"><span class="linenos">122</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The puuid that triggered the event (Encrypted)&quot;</span>
-</span><span id="LobbyEventV5DTO-123"><a href="#LobbyEventV5DTO-123"><span class="linenos">123</span></a>    <span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="LobbyEventV5DTO-128"><a href="#LobbyEventV5DTO-128"><span class="linenos">128</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LobbyEventV5DTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="LobbyEventV5DTO-129"><a href="#LobbyEventV5DTO-129"><span class="linenos">129</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="LobbyEventV5DTO-130"><a href="#LobbyEventV5DTO-130"><span class="linenos">130</span></a>
+</span><span id="LobbyEventV5DTO-131"><a href="#LobbyEventV5DTO-131"><span class="linenos">131</span></a>    <span class="n">timestamp</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Timestamp from the event&quot;</span><span class="p">)</span>
+</span><span id="LobbyEventV5DTO-132"><a href="#LobbyEventV5DTO-132"><span class="linenos">132</span></a>    <span class="n">event_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="LobbyEventV5DTO-133"><a href="#LobbyEventV5DTO-133"><span class="linenos">133</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;eventType&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The type of event that was triggered&quot;</span>
+</span><span id="LobbyEventV5DTO-134"><a href="#LobbyEventV5DTO-134"><span class="linenos">134</span></a>    <span class="p">)</span>
+</span><span id="LobbyEventV5DTO-135"><a href="#LobbyEventV5DTO-135"><span class="linenos">135</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="LobbyEventV5DTO-136"><a href="#LobbyEventV5DTO-136"><span class="linenos">136</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The puuid that triggered the event (Encrypted)&quot;</span>
+</span><span id="LobbyEventV5DTO-137"><a href="#LobbyEventV5DTO-137"><span class="linenos">137</span></a>    <span class="p">)</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>!!! abstract "Usage Documentation"
-    <a href="../concepts/models.md">Models</a></p>
-
-<p>A base class for creating Pydantic models.</p>
-
-<p>Attributes:
-    __class_vars__: The names of the class variables defined on the model.
-    __private_attributes__: Metadata about the private attributes of the model.
-    __signature__: The synthesized <code><a href="#LobbyEventV5DTO.__init__">__init__</a></code> [<code>Signature</code>][inspect.Signature] of the model.</p>
-
-<pre><code>__pydantic_complete__: Whether model building is completed, or if there are still undefined fields.
-__pydantic_core_schema__: The core schema of the model.
-__pydantic_custom_init__: Whether the model has a custom `__init__` function.
-__pydantic_decorators__: Metadata containing the decorators defined on the model.
-    This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
-__pydantic_generic_metadata__: Metadata for generic models; contains data used for a similar purpose to
-    __args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.
-__pydantic_parent_namespace__: Parent namespace of the model, used for automatic rebuilding of models.
-__pydantic_post_init__: The name of the post-init method for the model, if defined.
-__pydantic_root_model__: Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
-__pydantic_serializer__: The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
-__pydantic_validator__: The `pydantic-core` `SchemaValidator` used to validate instances of the model.
-
-__pydantic_fields__: A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
-__pydantic_computed_fields__: A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
-
-__pydantic_extra__: A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
-    is set to `'allow'`.
-__pydantic_fields_set__: The names of fields explicitly set during instantiation.
-__pydantic_private__: Values of private attributes set on the model instance.
-</code></pre>
+            <div class="docstring"><p></p>
 </div>
 
 
@@ -1259,20 +1165,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
     
 
                             </div>
-                            <div id="LobbyEventV5DTO.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#LobbyEventV5DTO.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
-
-                            </div>
                 </section>
                 <section id="ProviderRegistrationParametersV5">
                             <input id="ProviderRegistrationParametersV5-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
@@ -1285,49 +1177,21 @@ __pydantic_private__: Values of private attributes set on the model instance.
 
     </div>
     <a class="headerlink" href="#ProviderRegistrationParametersV5"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="ProviderRegistrationParametersV5-126"><a href="#ProviderRegistrationParametersV5-126"><span class="linenos">126</span></a><span class="k">class</span><span class="w"> </span><span class="nc">ProviderRegistrationParametersV5</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="ProviderRegistrationParametersV5-127"><a href="#ProviderRegistrationParametersV5-127"><span class="linenos">127</span></a>    <span class="n">region</span><span class="p">:</span> <span class="n">Region</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="ProviderRegistrationParametersV5-128"><a href="#ProviderRegistrationParametersV5-128"><span class="linenos">128</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="ProviderRegistrationParametersV5-129"><a href="#ProviderRegistrationParametersV5-129"><span class="linenos">129</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The region in which the provider will be running tournaments.</span><span class="se">\n</span><span class="s2">             (Legal values:  BR,  EUNE,  EUW,  JP,  LAN,  LAS,  NA,  OCE,  PBE,  RU,  TR,  KR)&quot;</span><span class="p">,</span>
-</span><span id="ProviderRegistrationParametersV5-130"><a href="#ProviderRegistrationParametersV5-130"><span class="linenos">130</span></a>    <span class="p">)</span>
-</span><span id="ProviderRegistrationParametersV5-131"><a href="#ProviderRegistrationParametersV5-131"><span class="linenos">131</span></a>    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="ProviderRegistrationParametersV5-132"><a href="#ProviderRegistrationParametersV5-132"><span class="linenos">132</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="ProviderRegistrationParametersV5-133"><a href="#ProviderRegistrationParametersV5-133"><span class="linenos">133</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The provider&#39;s callback URL to which tournament game results in this region should be posted. The URL must be well-formed, use the http or https protocol, and use the default port for the protocol (http URLs must use port 80, https URLs must use port 443).&quot;</span><span class="p">,</span>
-</span><span id="ProviderRegistrationParametersV5-134"><a href="#ProviderRegistrationParametersV5-134"><span class="linenos">134</span></a>    <span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ProviderRegistrationParametersV5-140"><a href="#ProviderRegistrationParametersV5-140"><span class="linenos">140</span></a><span class="k">class</span><span class="w"> </span><span class="nc">ProviderRegistrationParametersV5</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="ProviderRegistrationParametersV5-141"><a href="#ProviderRegistrationParametersV5-141"><span class="linenos">141</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="ProviderRegistrationParametersV5-142"><a href="#ProviderRegistrationParametersV5-142"><span class="linenos">142</span></a>
+</span><span id="ProviderRegistrationParametersV5-143"><a href="#ProviderRegistrationParametersV5-143"><span class="linenos">143</span></a>    <span class="n">region</span><span class="p">:</span> <span class="n">Region</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="ProviderRegistrationParametersV5-144"><a href="#ProviderRegistrationParametersV5-144"><span class="linenos">144</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="ProviderRegistrationParametersV5-145"><a href="#ProviderRegistrationParametersV5-145"><span class="linenos">145</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The region in which the provider will be running tournaments.</span><span class="se">\n</span><span class="s2">             (Legal values:  BR,  EUNE,  EUW,  JP,  LAN,  LAS,  NA,  OCE,  PBE,  RU,  TR,  KR)&quot;</span><span class="p">,</span>
+</span><span id="ProviderRegistrationParametersV5-146"><a href="#ProviderRegistrationParametersV5-146"><span class="linenos">146</span></a>    <span class="p">)</span>
+</span><span id="ProviderRegistrationParametersV5-147"><a href="#ProviderRegistrationParametersV5-147"><span class="linenos">147</span></a>    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="ProviderRegistrationParametersV5-148"><a href="#ProviderRegistrationParametersV5-148"><span class="linenos">148</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="ProviderRegistrationParametersV5-149"><a href="#ProviderRegistrationParametersV5-149"><span class="linenos">149</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The provider&#39;s callback URL to which tournament game results in this region should be posted. The URL must be well-formed, use the http or https protocol, and use the default port for the protocol (http URLs must use port 80, https URLs must use port 443).&quot;</span><span class="p">,</span>
+</span><span id="ProviderRegistrationParametersV5-150"><a href="#ProviderRegistrationParametersV5-150"><span class="linenos">150</span></a>    <span class="p">)</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>!!! abstract "Usage Documentation"
-    <a href="../concepts/models.md">Models</a></p>
-
-<p>A base class for creating Pydantic models.</p>
-
-<p>Attributes:
-    __class_vars__: The names of the class variables defined on the model.
-    __private_attributes__: Metadata about the private attributes of the model.
-    __signature__: The synthesized <code><a href="#ProviderRegistrationParametersV5.__init__">__init__</a></code> [<code>Signature</code>][inspect.Signature] of the model.</p>
-
-<pre><code>__pydantic_complete__: Whether model building is completed, or if there are still undefined fields.
-__pydantic_core_schema__: The core schema of the model.
-__pydantic_custom_init__: Whether the model has a custom `__init__` function.
-__pydantic_decorators__: Metadata containing the decorators defined on the model.
-    This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
-__pydantic_generic_metadata__: Metadata for generic models; contains data used for a similar purpose to
-    __args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.
-__pydantic_parent_namespace__: Parent namespace of the model, used for automatic rebuilding of models.
-__pydantic_post_init__: The name of the post-init method for the model, if defined.
-__pydantic_root_model__: Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
-__pydantic_serializer__: The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
-__pydantic_validator__: The `pydantic-core` `SchemaValidator` used to validate instances of the model.
-
-__pydantic_fields__: A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
-__pydantic_computed_fields__: A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
-
-__pydantic_extra__: A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
-    is set to `'allow'`.
-__pydantic_fields_set__: The names of fields explicitly set during instantiation.
-__pydantic_private__: Values of private attributes set on the model instance.
-</code></pre>
+            <div class="docstring"><p></p>
 </div>
 
 
@@ -1353,20 +1217,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
     
 
                             </div>
-                            <div id="ProviderRegistrationParametersV5.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ProviderRegistrationParametersV5.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
-
-                            </div>
                 </section>
                 <section id="TournamentRegistrationParametersV5">
                             <input id="TournamentRegistrationParametersV5-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
@@ -1379,49 +1229,21 @@ __pydantic_private__: Values of private attributes set on the model instance.
 
     </div>
     <a class="headerlink" href="#TournamentRegistrationParametersV5"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TournamentRegistrationParametersV5-137"><a href="#TournamentRegistrationParametersV5-137"><span class="linenos">137</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentRegistrationParametersV5</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="TournamentRegistrationParametersV5-138"><a href="#TournamentRegistrationParametersV5-138"><span class="linenos">138</span></a>    <span class="n">provider_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TournamentRegistrationParametersV5-139"><a href="#TournamentRegistrationParametersV5-139"><span class="linenos">139</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="TournamentRegistrationParametersV5-140"><a href="#TournamentRegistrationParametersV5-140"><span class="linenos">140</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;providerId&quot;</span><span class="p">,</span>
-</span><span id="TournamentRegistrationParametersV5-141"><a href="#TournamentRegistrationParametersV5-141"><span class="linenos">141</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The provider ID to specify the regional registered provider data to associate this tournament.&quot;</span><span class="p">,</span>
-</span><span id="TournamentRegistrationParametersV5-142"><a href="#TournamentRegistrationParametersV5-142"><span class="linenos">142</span></a>    <span class="p">)</span>
-</span><span id="TournamentRegistrationParametersV5-143"><a href="#TournamentRegistrationParametersV5-143"><span class="linenos">143</span></a>    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TournamentRegistrationParametersV5-144"><a href="#TournamentRegistrationParametersV5-144"><span class="linenos">144</span></a>        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The optional name of the tournament.&quot;</span>
-</span><span id="TournamentRegistrationParametersV5-145"><a href="#TournamentRegistrationParametersV5-145"><span class="linenos">145</span></a>    <span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TournamentRegistrationParametersV5-153"><a href="#TournamentRegistrationParametersV5-153"><span class="linenos">153</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentRegistrationParametersV5</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="TournamentRegistrationParametersV5-154"><a href="#TournamentRegistrationParametersV5-154"><span class="linenos">154</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="TournamentRegistrationParametersV5-155"><a href="#TournamentRegistrationParametersV5-155"><span class="linenos">155</span></a>
+</span><span id="TournamentRegistrationParametersV5-156"><a href="#TournamentRegistrationParametersV5-156"><span class="linenos">156</span></a>    <span class="n">provider_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TournamentRegistrationParametersV5-157"><a href="#TournamentRegistrationParametersV5-157"><span class="linenos">157</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="TournamentRegistrationParametersV5-158"><a href="#TournamentRegistrationParametersV5-158"><span class="linenos">158</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;providerId&quot;</span><span class="p">,</span>
+</span><span id="TournamentRegistrationParametersV5-159"><a href="#TournamentRegistrationParametersV5-159"><span class="linenos">159</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The provider ID to specify the regional registered provider data to associate this tournament.&quot;</span><span class="p">,</span>
+</span><span id="TournamentRegistrationParametersV5-160"><a href="#TournamentRegistrationParametersV5-160"><span class="linenos">160</span></a>    <span class="p">)</span>
+</span><span id="TournamentRegistrationParametersV5-161"><a href="#TournamentRegistrationParametersV5-161"><span class="linenos">161</span></a>    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TournamentRegistrationParametersV5-162"><a href="#TournamentRegistrationParametersV5-162"><span class="linenos">162</span></a>        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The optional name of the tournament.&quot;</span>
+</span><span id="TournamentRegistrationParametersV5-163"><a href="#TournamentRegistrationParametersV5-163"><span class="linenos">163</span></a>    <span class="p">)</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>!!! abstract "Usage Documentation"
-    <a href="../concepts/models.md">Models</a></p>
-
-<p>A base class for creating Pydantic models.</p>
-
-<p>Attributes:
-    __class_vars__: The names of the class variables defined on the model.
-    __private_attributes__: Metadata about the private attributes of the model.
-    __signature__: The synthesized <code><a href="#TournamentRegistrationParametersV5.__init__">__init__</a></code> [<code>Signature</code>][inspect.Signature] of the model.</p>
-
-<pre><code>__pydantic_complete__: Whether model building is completed, or if there are still undefined fields.
-__pydantic_core_schema__: The core schema of the model.
-__pydantic_custom_init__: Whether the model has a custom `__init__` function.
-__pydantic_decorators__: Metadata containing the decorators defined on the model.
-    This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
-__pydantic_generic_metadata__: Metadata for generic models; contains data used for a similar purpose to
-    __args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.
-__pydantic_parent_namespace__: Parent namespace of the model, used for automatic rebuilding of models.
-__pydantic_post_init__: The name of the post-init method for the model, if defined.
-__pydantic_root_model__: Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
-__pydantic_serializer__: The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
-__pydantic_validator__: The `pydantic-core` `SchemaValidator` used to validate instances of the model.
-
-__pydantic_fields__: A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
-__pydantic_computed_fields__: A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
-
-__pydantic_extra__: A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
-    is set to `'allow'`.
-__pydantic_fields_set__: The names of fields explicitly set during instantiation.
-__pydantic_private__: Values of private attributes set on the model instance.
-</code></pre>
+            <div class="docstring"><p></p>
 </div>
 
 
@@ -1447,20 +1269,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
     
 
                             </div>
-                            <div id="TournamentRegistrationParametersV5.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#TournamentRegistrationParametersV5.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
-
-                            </div>
                 </section>
                 <section id="LobbyEventV5DTOWrapper">
                             <input id="LobbyEventV5DTOWrapper-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
@@ -1473,42 +1281,14 @@ __pydantic_private__: Values of private attributes set on the model instance.
 
     </div>
     <a class="headerlink" href="#LobbyEventV5DTOWrapper"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="LobbyEventV5DTOWrapper-148"><a href="#LobbyEventV5DTOWrapper-148"><span class="linenos">148</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LobbyEventV5DTOWrapper</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="LobbyEventV5DTOWrapper-149"><a href="#LobbyEventV5DTOWrapper-149"><span class="linenos">149</span></a>    <span class="n">event_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">LobbyEventV5DTO</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;eventList&quot;</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="LobbyEventV5DTOWrapper-166"><a href="#LobbyEventV5DTOWrapper-166"><span class="linenos">166</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LobbyEventV5DTOWrapper</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="LobbyEventV5DTOWrapper-167"><a href="#LobbyEventV5DTOWrapper-167"><span class="linenos">167</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="LobbyEventV5DTOWrapper-168"><a href="#LobbyEventV5DTOWrapper-168"><span class="linenos">168</span></a>
+</span><span id="LobbyEventV5DTOWrapper-169"><a href="#LobbyEventV5DTOWrapper-169"><span class="linenos">169</span></a>    <span class="n">event_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">LobbyEventV5DTO</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;eventList&quot;</span><span class="p">)</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>!!! abstract "Usage Documentation"
-    <a href="../concepts/models.md">Models</a></p>
-
-<p>A base class for creating Pydantic models.</p>
-
-<p>Attributes:
-    __class_vars__: The names of the class variables defined on the model.
-    __private_attributes__: Metadata about the private attributes of the model.
-    __signature__: The synthesized <code><a href="#LobbyEventV5DTOWrapper.__init__">__init__</a></code> [<code>Signature</code>][inspect.Signature] of the model.</p>
-
-<pre><code>__pydantic_complete__: Whether model building is completed, or if there are still undefined fields.
-__pydantic_core_schema__: The core schema of the model.
-__pydantic_custom_init__: Whether the model has a custom `__init__` function.
-__pydantic_decorators__: Metadata containing the decorators defined on the model.
-    This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
-__pydantic_generic_metadata__: Metadata for generic models; contains data used for a similar purpose to
-    __args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.
-__pydantic_parent_namespace__: Parent namespace of the model, used for automatic rebuilding of models.
-__pydantic_post_init__: The name of the post-init method for the model, if defined.
-__pydantic_root_model__: Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
-__pydantic_serializer__: The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
-__pydantic_validator__: The `pydantic-core` `SchemaValidator` used to validate instances of the model.
-
-__pydantic_fields__: A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
-__pydantic_computed_fields__: A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
-
-__pydantic_extra__: A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
-    is set to `'allow'`.
-__pydantic_fields_set__: The names of fields explicitly set during instantiation.
-__pydantic_private__: Values of private attributes set on the model instance.
-</code></pre>
+            <div class="docstring"><p></p>
 </div>
 
 
@@ -1521,20 +1301,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
     <a class="headerlink" href="#LobbyEventV5DTOWrapper.event_list"></a>
     
     
-
-                            </div>
-                            <div id="LobbyEventV5DTOWrapper.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#LobbyEventV5DTOWrapper.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
 
                             </div>
                 </section>

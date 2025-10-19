@@ -10,6 +10,8 @@ from pydantic import BaseModel, Field
 
 
 class ChampionInfo(BaseModel):
+    """@public"""
+
     max_new_player_level: int = Field(..., alias="maxNewPlayerLevel")
     free_champion_ids_for_new_players: List[int] = Field(
         ..., alias="freeChampionIdsForNewPlayers"

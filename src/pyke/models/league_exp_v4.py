@@ -10,6 +10,8 @@ from pydantic import BaseModel, Field
 
 
 class MiniSeriesDTO(BaseModel):
+    """@public"""
+
     losses: int
     progress: str
     target: int
@@ -17,6 +19,8 @@ class MiniSeriesDTO(BaseModel):
 
 
 class LeagueEntryDTO(BaseModel):
+    """@public"""
+
     league_id: str = Field(..., alias="leagueId")
     summoner_id: Optional[str] = Field(
         None, alias="summonerId", description="Player's summonerId (Encrypted)"

@@ -11,6 +11,8 @@ from pydantic import BaseModel, Field
 
 
 class MetadataDto(BaseModel):
+    """@public"""
+
     data_version: str = Field(
         ..., alias="dataVersion", description="Match data version."
     )
@@ -19,36 +21,50 @@ class MetadataDto(BaseModel):
 
 
 class FasterSupportQuestCompletion(Enum):
+    """@public"""
+
     integer_0 = 0
     integer_1 = 1
 
 
 class HadAfkTeammate(Enum):
+    """@public"""
+
     integer_0 = 0
     integer_1 = 1
 
 
 class HighestCrowdControlScore(Enum):
+    """@public"""
+
     integer_0 = 0
     integer_1 = 1
 
 
 class HighestWardKills(Enum):
+    """@public"""
+
     integer_0 = 0
     integer_1 = 1
 
 
 class LaningPhaseGoldExpAdvantage(Enum):
+    """@public"""
+
     integer_0 = 0
     integer_1 = 1
 
 
 class PlayedChampSelectPosition(Enum):
+    """@public"""
+
     integer_0 = 0
     integer_1 = 1
 
 
 class ChallengesDto(BaseModel):
+    """@public"""
+
     field_12_assist_streak_count: Optional[int] = Field(
         None, alias="12AssistStreakCount"
     )
@@ -335,6 +351,8 @@ class ChallengesDto(BaseModel):
 
 
 class MissionsDto(BaseModel):
+    """@public"""
+
     player_score0: Optional[float] = Field(None, alias="playerScore0")
     player_score1: Optional[float] = Field(None, alias="playerScore1")
     player_score2: Optional[float] = Field(None, alias="playerScore2")
@@ -350,12 +368,16 @@ class MissionsDto(BaseModel):
 
 
 class PerkStatsDto(BaseModel):
+    """@public"""
+
     defense: int
     flex: int
     offense: int
 
 
 class PerkStyleSelectionDto(BaseModel):
+    """@public"""
+
     perk: int
     var1: int
     var2: int
@@ -363,16 +385,22 @@ class PerkStyleSelectionDto(BaseModel):
 
 
 class BanDto(BaseModel):
+    """@public"""
+
     champion_id: int = Field(..., alias="championId")
     pick_turn: int = Field(..., alias="pickTurn")
 
 
 class ObjectiveDto(BaseModel):
+    """@public"""
+
     first: bool
     kills: int
 
 
 class MetadataTimeLineDto(BaseModel):
+    """@public"""
+
     data_version: str = Field(
         ..., alias="dataVersion", description="Match data version."
     )
@@ -381,11 +409,15 @@ class MetadataTimeLineDto(BaseModel):
 
 
 class ParticipantTimeLineDto(BaseModel):
+    """@public"""
+
     participant_id: int = Field(..., alias="participantId")
     puuid: str
 
 
 class ChampionStatsDto(BaseModel):
+    """@public"""
+
     ability_haste: Optional[int] = Field(None, alias="abilityHaste")
     ability_power: int = Field(..., alias="abilityPower")
     armor: int
@@ -414,6 +446,8 @@ class ChampionStatsDto(BaseModel):
 
 
 class DamageStatsDto(BaseModel):
+    """@public"""
+
     magic_damage_done: int = Field(..., alias="magicDamageDone")
     magic_damage_done_to_champions: int = Field(..., alias="magicDamageDoneToChampions")
     magic_damage_taken: int = Field(..., alias="magicDamageTaken")
@@ -431,11 +465,15 @@ class DamageStatsDto(BaseModel):
 
 
 class PositionDto(BaseModel):
+    """@public"""
+
     x: int
     y: int
 
 
 class MatchTimelineVictimDamage(BaseModel):
+    """@public"""
+
     basic: bool
     magic_damage: int = Field(..., alias="magicDamage")
     name: str
@@ -448,16 +486,22 @@ class MatchTimelineVictimDamage(BaseModel):
 
 
 class FeatDto(BaseModel):
+    """@public"""
+
     feat_state: Optional[int] = Field(None, alias="featState")
 
 
 class PerkStyleDto(BaseModel):
+    """@public"""
+
     description: str
     selections: List[PerkStyleSelectionDto]
     style: int
 
 
 class ObjectivesDto(BaseModel):
+    """@public"""
+
     baron: ObjectiveDto
     champion: ObjectiveDto
     dragon: ObjectiveDto
@@ -469,6 +513,8 @@ class ObjectivesDto(BaseModel):
 
 
 class EventsTimeLineDto(BaseModel):
+    """@public"""
+
     timestamp: int
     real_timestamp: Optional[int] = Field(None, alias="realTimestamp")
     type: str
@@ -516,6 +562,8 @@ class EventsTimeLineDto(BaseModel):
 
 
 class ParticipantFrameDto(BaseModel):
+    """@public"""
+
     champion_stats: ChampionStatsDto = Field(..., alias="championStats")
     current_gold: int = Field(..., alias="currentGold")
     damage_stats: DamageStatsDto = Field(..., alias="damageStats")
@@ -531,17 +579,23 @@ class ParticipantFrameDto(BaseModel):
 
 
 class FeatsDto(BaseModel):
+    """@public"""
+
     epic_monster_kill: Optional[FeatDto] = Field(None, alias="EPIC_MONSTER_KILL")
     first_blood: Optional[FeatDto] = Field(None, alias="FIRST_BLOOD")
     first_turret: Optional[FeatDto] = Field(None, alias="FIRST_TURRET")
 
 
 class PerksDto(BaseModel):
+    """@public"""
+
     stat_perks: PerkStatsDto = Field(..., alias="statPerks")
     styles: List[PerkStyleDto]
 
 
 class TeamDto(BaseModel):
+    """@public"""
+
     bans: List[BanDto]
     objectives: ObjectivesDto
     team_id: int = Field(..., alias="teamId")
@@ -550,6 +604,8 @@ class TeamDto(BaseModel):
 
 
 class FramesTimeLineDto(BaseModel):
+    """@public"""
+
     events: List[EventsTimeLineDto]
     participant_frames: Optional[Dict[str, ParticipantFrameDto]] = Field(
         None, alias="participantFrames"
@@ -558,12 +614,16 @@ class FramesTimeLineDto(BaseModel):
 
 
 class ParticipantFramesDto(BaseModel):
+    """@public"""
+
     field_1_9: ParticipantFrameDto = Field(
         ..., alias="1-9", description="Key value mapping for each participant"
     )
 
 
 class ParticipantDto(BaseModel):
+    """@public"""
+
     all_in_pings: Optional[int] = Field(
         None, alias="allInPings", description="Yellow crossed swords"
     )
@@ -801,6 +861,8 @@ class ParticipantDto(BaseModel):
 
 
 class InfoTimeLineDto(BaseModel):
+    """@public"""
+
     end_of_game_result: Optional[str] = Field(
         None,
         alias="endOfGameResult",
@@ -813,6 +875,8 @@ class InfoTimeLineDto(BaseModel):
 
 
 class InfoDto(BaseModel):
+    """@public"""
+
     end_of_game_result: Optional[str] = Field(
         None,
         alias="endOfGameResult",
@@ -869,10 +933,14 @@ class InfoDto(BaseModel):
 
 
 class TimelineDto(BaseModel):
+    """@public"""
+
     metadata: MetadataTimeLineDto = Field(..., description="Match metadata.")
     info: InfoTimeLineDto = Field(..., description="Match info.")
 
 
 class MatchDto(BaseModel):
+    """@public"""
+
     metadata: MetadataDto = Field(..., description="Match metadata.")
     info: InfoDto = Field(..., description="Match info.")

@@ -84,9 +84,6 @@
                         <li>
                                 <a class="variable" href="#PlayerDto.role">role</a>
                         </li>
-                        <li>
-                                <a class="variable" href="#PlayerDto.model_config">model_config</a>
-                        </li>
                 </ul>
 
             </li>
@@ -117,9 +114,6 @@
                         <li>
                                 <a class="variable" href="#TeamDto.players">players</a>
                         </li>
-                        <li>
-                                <a class="variable" href="#TeamDto.model_config">model_config</a>
-                        </li>
                 </ul>
 
             </li>
@@ -137,9 +131,6 @@
                         </li>
                         <li>
                                 <a class="variable" href="#TournamentPhaseDto.cancelled">cancelled</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#TournamentPhaseDto.model_config">model_config</a>
                         </li>
                 </ul>
 
@@ -161,9 +152,6 @@
                         </li>
                         <li>
                                 <a class="variable" href="#TournamentDto.schedule">schedule</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#TournamentDto.model_config">model_config</a>
                         </li>
                 </ul>
 
@@ -202,54 +190,66 @@
 </span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>
 </span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>
 </span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a><span class="k">class</span><span class="w"> </span><span class="nc">Position</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>    <span class="n">unselected</span> <span class="o">=</span> <span class="s2">&quot;UNSELECTED&quot;</span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>    <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;FILL&quot;</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>    <span class="n">top</span> <span class="o">=</span> <span class="s2">&quot;TOP&quot;</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>    <span class="n">jungle</span> <span class="o">=</span> <span class="s2">&quot;JUNGLE&quot;</span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>    <span class="n">middle</span> <span class="o">=</span> <span class="s2">&quot;MIDDLE&quot;</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>    <span class="n">bottom</span> <span class="o">=</span> <span class="s2">&quot;BOTTOM&quot;</span>
-</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>    <span class="n">utility</span> <span class="o">=</span> <span class="s2">&quot;UTILITY&quot;</span>
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>
-</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>
-</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a><span class="k">class</span><span class="w"> </span><span class="nc">Role</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>    <span class="n">captain</span> <span class="o">=</span> <span class="s2">&quot;CAPTAIN&quot;</span>
-</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>    <span class="n">member</span> <span class="o">=</span> <span class="s2">&quot;MEMBER&quot;</span>
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>
+</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>    <span class="n">unselected</span> <span class="o">=</span> <span class="s2">&quot;UNSELECTED&quot;</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>    <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;FILL&quot;</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>    <span class="n">top</span> <span class="o">=</span> <span class="s2">&quot;TOP&quot;</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>    <span class="n">jungle</span> <span class="o">=</span> <span class="s2">&quot;JUNGLE&quot;</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>    <span class="n">middle</span> <span class="o">=</span> <span class="s2">&quot;MIDDLE&quot;</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>    <span class="n">bottom</span> <span class="o">=</span> <span class="s2">&quot;BOTTOM&quot;</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>    <span class="n">utility</span> <span class="o">=</span> <span class="s2">&quot;UTILITY&quot;</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>
+</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>
+</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a><span class="k">class</span><span class="w"> </span><span class="nc">Role</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
 </span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>
-</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a><span class="k">class</span><span class="w"> </span><span class="nc">PlayerDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>    <span class="n">team_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;teamId&quot;</span><span class="p">)</span>
-</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>    <span class="n">position</span><span class="p">:</span> <span class="n">Position</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;(Legal values:  UNSELECTED,  FILL,  TOP,  JUNGLE,  MIDDLE,  BOTTOM,  UTILITY)&quot;</span><span class="p">,</span>
-</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>    <span class="p">)</span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>    <span class="n">role</span><span class="p">:</span> <span class="n">Role</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;(Legal values:  CAPTAIN,  MEMBER)&quot;</span><span class="p">)</span>
-</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>
-</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a>
-</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TeamDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>    <span class="n">tournament_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;tournamentId&quot;</span><span class="p">)</span>
-</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a>    <span class="n">icon_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;iconId&quot;</span><span class="p">)</span>
-</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a>    <span class="n">tier</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a>    <span class="n">captain</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Summoner ID of the team captain.&quot;</span><span class="p">)</span>
-</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>    <span class="n">abbreviation</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a>    <span class="n">players</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PlayerDto</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Team members.&quot;</span><span class="p">)</span>
-</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>
-</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>
-</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentPhaseDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a>    <span class="n">registration_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;registrationTime&quot;</span><span class="p">)</span>
-</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a>    <span class="n">start_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;startTime&quot;</span><span class="p">)</span>
-</span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a>    <span class="n">cancelled</span><span class="p">:</span> <span class="nb">bool</span>
-</span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a>
+</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>    <span class="n">captain</span> <span class="o">=</span> <span class="s2">&quot;CAPTAIN&quot;</span>
+</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>    <span class="n">member</span> <span class="o">=</span> <span class="s2">&quot;MEMBER&quot;</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>
+</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>
+</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a><span class="k">class</span><span class="w"> </span><span class="nc">PlayerDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>
+</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>    <span class="n">team_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;teamId&quot;</span><span class="p">)</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a>    <span class="n">position</span><span class="p">:</span> <span class="n">Position</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;(Legal values:  UNSELECTED,  FILL,  TOP,  JUNGLE,  MIDDLE,  BOTTOM,  UTILITY)&quot;</span><span class="p">,</span>
+</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>    <span class="p">)</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a>    <span class="n">role</span><span class="p">:</span> <span class="n">Role</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;(Legal values:  CAPTAIN,  MEMBER)&quot;</span><span class="p">)</span>
+</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a>
+</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a>
+</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TeamDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a>
+</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>    <span class="n">tournament_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;tournamentId&quot;</span><span class="p">)</span>
+</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a>    <span class="n">icon_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;iconId&quot;</span><span class="p">)</span>
+</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a>    <span class="n">tier</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a>    <span class="n">captain</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Summoner ID of the team captain.&quot;</span><span class="p">)</span>
+</span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a>    <span class="n">abbreviation</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a>    <span class="n">players</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PlayerDto</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Team members.&quot;</span><span class="p">)</span>
 </span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a>
-</span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a>    <span class="n">theme_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;themeId&quot;</span><span class="p">)</span>
-</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a>    <span class="n">name_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;nameKey&quot;</span><span class="p">)</span>
-</span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a>    <span class="n">name_key_secondary</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;nameKeySecondary&quot;</span><span class="p">)</span>
-</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a>    <span class="n">schedule</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">TournamentPhaseDto</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Tournament phase.&quot;</span><span class="p">)</span>
+</span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a>
+</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentPhaseDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a>
+</span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a>    <span class="n">registration_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;registrationTime&quot;</span><span class="p">)</span>
+</span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a>    <span class="n">start_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;startTime&quot;</span><span class="p">)</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a>    <span class="n">cancelled</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a>
+</span><span id="L-65"><a href="#L-65"><span class="linenos">65</span></a>
+</span><span id="L-66"><a href="#L-66"><span class="linenos">66</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="L-67"><a href="#L-67"><span class="linenos">67</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-68"><a href="#L-68"><span class="linenos">68</span></a>
+</span><span id="L-69"><a href="#L-69"><span class="linenos">69</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-70"><a href="#L-70"><span class="linenos">70</span></a>    <span class="n">theme_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;themeId&quot;</span><span class="p">)</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos">71</span></a>    <span class="n">name_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;nameKey&quot;</span><span class="p">)</span>
+</span><span id="L-72"><a href="#L-72"><span class="linenos">72</span></a>    <span class="n">name_key_secondary</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;nameKeySecondary&quot;</span><span class="p">)</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos">73</span></a>    <span class="n">schedule</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">TournamentPhaseDto</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Tournament phase.&quot;</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -266,17 +266,21 @@
     </div>
     <a class="headerlink" href="#Position"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="Position-14"><a href="#Position-14"><span class="linenos">14</span></a><span class="k">class</span><span class="w"> </span><span class="nc">Position</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="Position-15"><a href="#Position-15"><span class="linenos">15</span></a>    <span class="n">unselected</span> <span class="o">=</span> <span class="s2">&quot;UNSELECTED&quot;</span>
-</span><span id="Position-16"><a href="#Position-16"><span class="linenos">16</span></a>    <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;FILL&quot;</span>
-</span><span id="Position-17"><a href="#Position-17"><span class="linenos">17</span></a>    <span class="n">top</span> <span class="o">=</span> <span class="s2">&quot;TOP&quot;</span>
-</span><span id="Position-18"><a href="#Position-18"><span class="linenos">18</span></a>    <span class="n">jungle</span> <span class="o">=</span> <span class="s2">&quot;JUNGLE&quot;</span>
-</span><span id="Position-19"><a href="#Position-19"><span class="linenos">19</span></a>    <span class="n">middle</span> <span class="o">=</span> <span class="s2">&quot;MIDDLE&quot;</span>
-</span><span id="Position-20"><a href="#Position-20"><span class="linenos">20</span></a>    <span class="n">bottom</span> <span class="o">=</span> <span class="s2">&quot;BOTTOM&quot;</span>
-</span><span id="Position-21"><a href="#Position-21"><span class="linenos">21</span></a>    <span class="n">utility</span> <span class="o">=</span> <span class="s2">&quot;UTILITY&quot;</span>
+</span><span id="Position-15"><a href="#Position-15"><span class="linenos">15</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="Position-16"><a href="#Position-16"><span class="linenos">16</span></a>
+</span><span id="Position-17"><a href="#Position-17"><span class="linenos">17</span></a>    <span class="n">unselected</span> <span class="o">=</span> <span class="s2">&quot;UNSELECTED&quot;</span>
+</span><span id="Position-18"><a href="#Position-18"><span class="linenos">18</span></a>    <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;FILL&quot;</span>
+</span><span id="Position-19"><a href="#Position-19"><span class="linenos">19</span></a>    <span class="n">top</span> <span class="o">=</span> <span class="s2">&quot;TOP&quot;</span>
+</span><span id="Position-20"><a href="#Position-20"><span class="linenos">20</span></a>    <span class="n">jungle</span> <span class="o">=</span> <span class="s2">&quot;JUNGLE&quot;</span>
+</span><span id="Position-21"><a href="#Position-21"><span class="linenos">21</span></a>    <span class="n">middle</span> <span class="o">=</span> <span class="s2">&quot;MIDDLE&quot;</span>
+</span><span id="Position-22"><a href="#Position-22"><span class="linenos">22</span></a>    <span class="n">bottom</span> <span class="o">=</span> <span class="s2">&quot;BOTTOM&quot;</span>
+</span><span id="Position-23"><a href="#Position-23"><span class="linenos">23</span></a>    <span class="n">utility</span> <span class="o">=</span> <span class="s2">&quot;UTILITY&quot;</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p></p>
+</div>
+
 
                             <div id="Position.unselected" class="classattr">
                                 <div class="attr variable">
@@ -374,13 +378,17 @@
 
     </div>
     <a class="headerlink" href="#Role"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Role-24"><a href="#Role-24"><span class="linenos">24</span></a><span class="k">class</span><span class="w"> </span><span class="nc">Role</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="Role-25"><a href="#Role-25"><span class="linenos">25</span></a>    <span class="n">captain</span> <span class="o">=</span> <span class="s2">&quot;CAPTAIN&quot;</span>
-</span><span id="Role-26"><a href="#Role-26"><span class="linenos">26</span></a>    <span class="n">member</span> <span class="o">=</span> <span class="s2">&quot;MEMBER&quot;</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Role-26"><a href="#Role-26"><span class="linenos">26</span></a><span class="k">class</span><span class="w"> </span><span class="nc">Role</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span id="Role-27"><a href="#Role-27"><span class="linenos">27</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="Role-28"><a href="#Role-28"><span class="linenos">28</span></a>
+</span><span id="Role-29"><a href="#Role-29"><span class="linenos">29</span></a>    <span class="n">captain</span> <span class="o">=</span> <span class="s2">&quot;CAPTAIN&quot;</span>
+</span><span id="Role-30"><a href="#Role-30"><span class="linenos">30</span></a>    <span class="n">member</span> <span class="o">=</span> <span class="s2">&quot;MEMBER&quot;</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p></p>
+</div>
+
 
                             <div id="Role.captain" class="classattr">
                                 <div class="attr variable">
@@ -418,48 +426,20 @@
 
     </div>
     <a class="headerlink" href="#PlayerDto"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="PlayerDto-29"><a href="#PlayerDto-29"><span class="linenos">29</span></a><span class="k">class</span><span class="w"> </span><span class="nc">PlayerDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="PlayerDto-30"><a href="#PlayerDto-30"><span class="linenos">30</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="PlayerDto-31"><a href="#PlayerDto-31"><span class="linenos">31</span></a>    <span class="n">team_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;teamId&quot;</span><span class="p">)</span>
-</span><span id="PlayerDto-32"><a href="#PlayerDto-32"><span class="linenos">32</span></a>    <span class="n">position</span><span class="p">:</span> <span class="n">Position</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="PlayerDto-33"><a href="#PlayerDto-33"><span class="linenos">33</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="PlayerDto-34"><a href="#PlayerDto-34"><span class="linenos">34</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;(Legal values:  UNSELECTED,  FILL,  TOP,  JUNGLE,  MIDDLE,  BOTTOM,  UTILITY)&quot;</span><span class="p">,</span>
-</span><span id="PlayerDto-35"><a href="#PlayerDto-35"><span class="linenos">35</span></a>    <span class="p">)</span>
-</span><span id="PlayerDto-36"><a href="#PlayerDto-36"><span class="linenos">36</span></a>    <span class="n">role</span><span class="p">:</span> <span class="n">Role</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;(Legal values:  CAPTAIN,  MEMBER)&quot;</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="PlayerDto-33"><a href="#PlayerDto-33"><span class="linenos">33</span></a><span class="k">class</span><span class="w"> </span><span class="nc">PlayerDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="PlayerDto-34"><a href="#PlayerDto-34"><span class="linenos">34</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="PlayerDto-35"><a href="#PlayerDto-35"><span class="linenos">35</span></a>
+</span><span id="PlayerDto-36"><a href="#PlayerDto-36"><span class="linenos">36</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="PlayerDto-37"><a href="#PlayerDto-37"><span class="linenos">37</span></a>    <span class="n">team_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;teamId&quot;</span><span class="p">)</span>
+</span><span id="PlayerDto-38"><a href="#PlayerDto-38"><span class="linenos">38</span></a>    <span class="n">position</span><span class="p">:</span> <span class="n">Position</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="PlayerDto-39"><a href="#PlayerDto-39"><span class="linenos">39</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="PlayerDto-40"><a href="#PlayerDto-40"><span class="linenos">40</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;(Legal values:  UNSELECTED,  FILL,  TOP,  JUNGLE,  MIDDLE,  BOTTOM,  UTILITY)&quot;</span><span class="p">,</span>
+</span><span id="PlayerDto-41"><a href="#PlayerDto-41"><span class="linenos">41</span></a>    <span class="p">)</span>
+</span><span id="PlayerDto-42"><a href="#PlayerDto-42"><span class="linenos">42</span></a>    <span class="n">role</span><span class="p">:</span> <span class="n">Role</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;(Legal values:  CAPTAIN,  MEMBER)&quot;</span><span class="p">)</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>!!! abstract "Usage Documentation"
-    <a href="../concepts/models.md">Models</a></p>
-
-<p>A base class for creating Pydantic models.</p>
-
-<p>Attributes:
-    __class_vars__: The names of the class variables defined on the model.
-    __private_attributes__: Metadata about the private attributes of the model.
-    __signature__: The synthesized <code><a href="#PlayerDto.__init__">__init__</a></code> [<code>Signature</code>][inspect.Signature] of the model.</p>
-
-<pre><code>__pydantic_complete__: Whether model building is completed, or if there are still undefined fields.
-__pydantic_core_schema__: The core schema of the model.
-__pydantic_custom_init__: Whether the model has a custom `__init__` function.
-__pydantic_decorators__: Metadata containing the decorators defined on the model.
-    This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
-__pydantic_generic_metadata__: Metadata for generic models; contains data used for a similar purpose to
-    __args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.
-__pydantic_parent_namespace__: Parent namespace of the model, used for automatic rebuilding of models.
-__pydantic_post_init__: The name of the post-init method for the model, if defined.
-__pydantic_root_model__: Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
-__pydantic_serializer__: The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
-__pydantic_validator__: The `pydantic-core` `SchemaValidator` used to validate instances of the model.
-
-__pydantic_fields__: A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
-__pydantic_computed_fields__: A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
-
-__pydantic_extra__: A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
-    is set to `'allow'`.
-__pydantic_fields_set__: The names of fields explicitly set during instantiation.
-__pydantic_private__: Values of private attributes set on the model instance.
-</code></pre>
+            <div class="docstring"><p></p>
 </div>
 
 
@@ -507,20 +487,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
     
 
                             </div>
-                            <div id="PlayerDto.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#PlayerDto.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
-
-                            </div>
                 </section>
                 <section id="TeamDto">
                             <input id="TeamDto-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
@@ -533,49 +499,21 @@ __pydantic_private__: Values of private attributes set on the model instance.
 
     </div>
     <a class="headerlink" href="#TeamDto"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TeamDto-39"><a href="#TeamDto-39"><span class="linenos">39</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TeamDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="TeamDto-40"><a href="#TeamDto-40"><span class="linenos">40</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="TeamDto-41"><a href="#TeamDto-41"><span class="linenos">41</span></a>    <span class="n">tournament_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;tournamentId&quot;</span><span class="p">)</span>
-</span><span id="TeamDto-42"><a href="#TeamDto-42"><span class="linenos">42</span></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="TeamDto-43"><a href="#TeamDto-43"><span class="linenos">43</span></a>    <span class="n">icon_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;iconId&quot;</span><span class="p">)</span>
-</span><span id="TeamDto-44"><a href="#TeamDto-44"><span class="linenos">44</span></a>    <span class="n">tier</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="TeamDto-45"><a href="#TeamDto-45"><span class="linenos">45</span></a>    <span class="n">captain</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Summoner ID of the team captain.&quot;</span><span class="p">)</span>
-</span><span id="TeamDto-46"><a href="#TeamDto-46"><span class="linenos">46</span></a>    <span class="n">abbreviation</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="TeamDto-47"><a href="#TeamDto-47"><span class="linenos">47</span></a>    <span class="n">players</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PlayerDto</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Team members.&quot;</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TeamDto-45"><a href="#TeamDto-45"><span class="linenos">45</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TeamDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="TeamDto-46"><a href="#TeamDto-46"><span class="linenos">46</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="TeamDto-47"><a href="#TeamDto-47"><span class="linenos">47</span></a>
+</span><span id="TeamDto-48"><a href="#TeamDto-48"><span class="linenos">48</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="TeamDto-49"><a href="#TeamDto-49"><span class="linenos">49</span></a>    <span class="n">tournament_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;tournamentId&quot;</span><span class="p">)</span>
+</span><span id="TeamDto-50"><a href="#TeamDto-50"><span class="linenos">50</span></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="TeamDto-51"><a href="#TeamDto-51"><span class="linenos">51</span></a>    <span class="n">icon_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;iconId&quot;</span><span class="p">)</span>
+</span><span id="TeamDto-52"><a href="#TeamDto-52"><span class="linenos">52</span></a>    <span class="n">tier</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="TeamDto-53"><a href="#TeamDto-53"><span class="linenos">53</span></a>    <span class="n">captain</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Summoner ID of the team captain.&quot;</span><span class="p">)</span>
+</span><span id="TeamDto-54"><a href="#TeamDto-54"><span class="linenos">54</span></a>    <span class="n">abbreviation</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="TeamDto-55"><a href="#TeamDto-55"><span class="linenos">55</span></a>    <span class="n">players</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PlayerDto</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Team members.&quot;</span><span class="p">)</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>!!! abstract "Usage Documentation"
-    <a href="../concepts/models.md">Models</a></p>
-
-<p>A base class for creating Pydantic models.</p>
-
-<p>Attributes:
-    __class_vars__: The names of the class variables defined on the model.
-    __private_attributes__: Metadata about the private attributes of the model.
-    __signature__: The synthesized <code><a href="#TeamDto.__init__">__init__</a></code> [<code>Signature</code>][inspect.Signature] of the model.</p>
-
-<pre><code>__pydantic_complete__: Whether model building is completed, or if there are still undefined fields.
-__pydantic_core_schema__: The core schema of the model.
-__pydantic_custom_init__: Whether the model has a custom `__init__` function.
-__pydantic_decorators__: Metadata containing the decorators defined on the model.
-    This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
-__pydantic_generic_metadata__: Metadata for generic models; contains data used for a similar purpose to
-    __args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.
-__pydantic_parent_namespace__: Parent namespace of the model, used for automatic rebuilding of models.
-__pydantic_post_init__: The name of the post-init method for the model, if defined.
-__pydantic_root_model__: Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
-__pydantic_serializer__: The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
-__pydantic_validator__: The `pydantic-core` `SchemaValidator` used to validate instances of the model.
-
-__pydantic_fields__: A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
-__pydantic_computed_fields__: A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
-
-__pydantic_extra__: A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
-    is set to `'allow'`.
-__pydantic_fields_set__: The names of fields explicitly set during instantiation.
-__pydantic_private__: Values of private attributes set on the model instance.
-</code></pre>
+            <div class="docstring"><p></p>
 </div>
 
 
@@ -667,20 +605,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
     
 
                             </div>
-                            <div id="TeamDto.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#TeamDto.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
-
-                            </div>
                 </section>
                 <section id="TournamentPhaseDto">
                             <input id="TournamentPhaseDto-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
@@ -693,45 +617,17 @@ __pydantic_private__: Values of private attributes set on the model instance.
 
     </div>
     <a class="headerlink" href="#TournamentPhaseDto"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TournamentPhaseDto-50"><a href="#TournamentPhaseDto-50"><span class="linenos">50</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentPhaseDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="TournamentPhaseDto-51"><a href="#TournamentPhaseDto-51"><span class="linenos">51</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="TournamentPhaseDto-52"><a href="#TournamentPhaseDto-52"><span class="linenos">52</span></a>    <span class="n">registration_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;registrationTime&quot;</span><span class="p">)</span>
-</span><span id="TournamentPhaseDto-53"><a href="#TournamentPhaseDto-53"><span class="linenos">53</span></a>    <span class="n">start_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;startTime&quot;</span><span class="p">)</span>
-</span><span id="TournamentPhaseDto-54"><a href="#TournamentPhaseDto-54"><span class="linenos">54</span></a>    <span class="n">cancelled</span><span class="p">:</span> <span class="nb">bool</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TournamentPhaseDto-58"><a href="#TournamentPhaseDto-58"><span class="linenos">58</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentPhaseDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="TournamentPhaseDto-59"><a href="#TournamentPhaseDto-59"><span class="linenos">59</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="TournamentPhaseDto-60"><a href="#TournamentPhaseDto-60"><span class="linenos">60</span></a>
+</span><span id="TournamentPhaseDto-61"><a href="#TournamentPhaseDto-61"><span class="linenos">61</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="TournamentPhaseDto-62"><a href="#TournamentPhaseDto-62"><span class="linenos">62</span></a>    <span class="n">registration_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;registrationTime&quot;</span><span class="p">)</span>
+</span><span id="TournamentPhaseDto-63"><a href="#TournamentPhaseDto-63"><span class="linenos">63</span></a>    <span class="n">start_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;startTime&quot;</span><span class="p">)</span>
+</span><span id="TournamentPhaseDto-64"><a href="#TournamentPhaseDto-64"><span class="linenos">64</span></a>    <span class="n">cancelled</span><span class="p">:</span> <span class="nb">bool</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>!!! abstract "Usage Documentation"
-    <a href="../concepts/models.md">Models</a></p>
-
-<p>A base class for creating Pydantic models.</p>
-
-<p>Attributes:
-    __class_vars__: The names of the class variables defined on the model.
-    __private_attributes__: Metadata about the private attributes of the model.
-    __signature__: The synthesized <code><a href="#TournamentPhaseDto.__init__">__init__</a></code> [<code>Signature</code>][inspect.Signature] of the model.</p>
-
-<pre><code>__pydantic_complete__: Whether model building is completed, or if there are still undefined fields.
-__pydantic_core_schema__: The core schema of the model.
-__pydantic_custom_init__: Whether the model has a custom `__init__` function.
-__pydantic_decorators__: Metadata containing the decorators defined on the model.
-    This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
-__pydantic_generic_metadata__: Metadata for generic models; contains data used for a similar purpose to
-    __args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.
-__pydantic_parent_namespace__: Parent namespace of the model, used for automatic rebuilding of models.
-__pydantic_post_init__: The name of the post-init method for the model, if defined.
-__pydantic_root_model__: Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
-__pydantic_serializer__: The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
-__pydantic_validator__: The `pydantic-core` `SchemaValidator` used to validate instances of the model.
-
-__pydantic_fields__: A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
-__pydantic_computed_fields__: A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
-
-__pydantic_extra__: A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
-    is set to `'allow'`.
-__pydantic_fields_set__: The names of fields explicitly set during instantiation.
-__pydantic_private__: Values of private attributes set on the model instance.
-</code></pre>
+            <div class="docstring"><p></p>
 </div>
 
 
@@ -779,20 +675,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
     
 
                             </div>
-                            <div id="TournamentPhaseDto.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#TournamentPhaseDto.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
-
-                            </div>
                 </section>
                 <section id="TournamentDto">
                             <input id="TournamentDto-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
@@ -805,46 +687,18 @@ __pydantic_private__: Values of private attributes set on the model instance.
 
     </div>
     <a class="headerlink" href="#TournamentDto"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TournamentDto-57"><a href="#TournamentDto-57"><span class="linenos">57</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="TournamentDto-58"><a href="#TournamentDto-58"><span class="linenos">58</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="TournamentDto-59"><a href="#TournamentDto-59"><span class="linenos">59</span></a>    <span class="n">theme_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;themeId&quot;</span><span class="p">)</span>
-</span><span id="TournamentDto-60"><a href="#TournamentDto-60"><span class="linenos">60</span></a>    <span class="n">name_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;nameKey&quot;</span><span class="p">)</span>
-</span><span id="TournamentDto-61"><a href="#TournamentDto-61"><span class="linenos">61</span></a>    <span class="n">name_key_secondary</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;nameKeySecondary&quot;</span><span class="p">)</span>
-</span><span id="TournamentDto-62"><a href="#TournamentDto-62"><span class="linenos">62</span></a>    <span class="n">schedule</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">TournamentPhaseDto</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Tournament phase.&quot;</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TournamentDto-67"><a href="#TournamentDto-67"><span class="linenos">67</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TournamentDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="TournamentDto-68"><a href="#TournamentDto-68"><span class="linenos">68</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="TournamentDto-69"><a href="#TournamentDto-69"><span class="linenos">69</span></a>
+</span><span id="TournamentDto-70"><a href="#TournamentDto-70"><span class="linenos">70</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="TournamentDto-71"><a href="#TournamentDto-71"><span class="linenos">71</span></a>    <span class="n">theme_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;themeId&quot;</span><span class="p">)</span>
+</span><span id="TournamentDto-72"><a href="#TournamentDto-72"><span class="linenos">72</span></a>    <span class="n">name_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;nameKey&quot;</span><span class="p">)</span>
+</span><span id="TournamentDto-73"><a href="#TournamentDto-73"><span class="linenos">73</span></a>    <span class="n">name_key_secondary</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;nameKeySecondary&quot;</span><span class="p">)</span>
+</span><span id="TournamentDto-74"><a href="#TournamentDto-74"><span class="linenos">74</span></a>    <span class="n">schedule</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">TournamentPhaseDto</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Tournament phase.&quot;</span><span class="p">)</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>!!! abstract "Usage Documentation"
-    <a href="../concepts/models.md">Models</a></p>
-
-<p>A base class for creating Pydantic models.</p>
-
-<p>Attributes:
-    __class_vars__: The names of the class variables defined on the model.
-    __private_attributes__: Metadata about the private attributes of the model.
-    __signature__: The synthesized <code><a href="#TournamentDto.__init__">__init__</a></code> [<code>Signature</code>][inspect.Signature] of the model.</p>
-
-<pre><code>__pydantic_complete__: Whether model building is completed, or if there are still undefined fields.
-__pydantic_core_schema__: The core schema of the model.
-__pydantic_custom_init__: Whether the model has a custom `__init__` function.
-__pydantic_decorators__: Metadata containing the decorators defined on the model.
-    This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
-__pydantic_generic_metadata__: Metadata for generic models; contains data used for a similar purpose to
-    __args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.
-__pydantic_parent_namespace__: Parent namespace of the model, used for automatic rebuilding of models.
-__pydantic_post_init__: The name of the post-init method for the model, if defined.
-__pydantic_root_model__: Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
-__pydantic_serializer__: The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
-__pydantic_validator__: The `pydantic-core` `SchemaValidator` used to validate instances of the model.
-
-__pydantic_fields__: A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
-__pydantic_computed_fields__: A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
-
-__pydantic_extra__: A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
-    is set to `'allow'`.
-__pydantic_fields_set__: The names of fields explicitly set during instantiation.
-__pydantic_private__: Values of private attributes set on the model instance.
-</code></pre>
+            <div class="docstring"><p></p>
 </div>
 
 
@@ -901,20 +755,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
     <a class="headerlink" href="#TournamentDto.schedule"></a>
     
     
-
-                            </div>
-                            <div id="TournamentDto.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#TournamentDto.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
 
                             </div>
                 </section>

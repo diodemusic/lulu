@@ -11,6 +11,8 @@ from pydantic import BaseModel, Field, conint
 
 
 class PickType(Enum):
+    """@public"""
+
     blind_pick = "BLIND_PICK"
     draft_mode = "DRAFT_MODE"
     all_random = "ALL_RANDOM"
@@ -18,17 +20,23 @@ class PickType(Enum):
 
 
 class MapType(Enum):
+    """@public"""
+
     summoners_rift = "SUMMONERS_RIFT"
     howling_abyss = "HOWLING_ABYSS"
 
 
 class SpectatorType(Enum):
+    """@public"""
+
     none = "NONE"
     lobbyonly = "LOBBYONLY"
     all = "ALL"
 
 
 class TournamentCodeParametersV5(BaseModel):
+    """@public"""
+
     allowed_participants: Optional[List[str]] = Field(
         None,
         alias="allowedParticipants",
@@ -66,6 +74,8 @@ class TournamentCodeParametersV5(BaseModel):
 
 
 class Region(Enum):
+    """@public"""
+
     br = "BR"
     eune = "EUNE"
     euw = "EUW"
@@ -81,6 +91,8 @@ class Region(Enum):
 
 
 class TournamentCodeV5DTO(BaseModel):
+    """@public"""
+
     code: str = Field(..., description="The tournament code.")
     lobby_name: str = Field(
         ...,
@@ -113,6 +125,8 @@ class TournamentCodeV5DTO(BaseModel):
 
 
 class LobbyEventV5DTO(BaseModel):
+    """@public"""
+
     timestamp: str = Field(..., description="Timestamp from the event")
     event_type: str = Field(
         ..., alias="eventType", description="The type of event that was triggered"
@@ -123,6 +137,8 @@ class LobbyEventV5DTO(BaseModel):
 
 
 class ProviderRegistrationParametersV5(BaseModel):
+    """@public"""
+
     region: Region = Field(
         ...,
         description="The region in which the provider will be running tournaments.\n             (Legal values:  BR,  EUNE,  EUW,  JP,  LAN,  LAS,  NA,  OCE,  PBE,  RU,  TR,  KR)",
@@ -134,6 +150,8 @@ class ProviderRegistrationParametersV5(BaseModel):
 
 
 class TournamentRegistrationParametersV5(BaseModel):
+    """@public"""
+
     provider_id: int = Field(
         ...,
         alias="providerId",
@@ -145,4 +163,6 @@ class TournamentRegistrationParametersV5(BaseModel):
 
 
 class LobbyEventV5DTOWrapper(BaseModel):
+    """@public"""
+
     event_list: List[LobbyEventV5DTO] = Field(..., alias="eventList")

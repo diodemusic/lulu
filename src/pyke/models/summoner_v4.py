@@ -10,6 +10,8 @@ from pydantic import BaseModel, Field
 
 
 class SummonerDTO(BaseModel):
+    """@public"""
+
     profile_icon_id: int = Field(
         ...,
         alias="profileIconId",

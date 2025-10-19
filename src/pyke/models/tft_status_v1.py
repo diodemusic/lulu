@@ -11,18 +11,24 @@ from pydantic import BaseModel, Field
 
 
 class MaintenanceStatus(Enum):
+    """@public"""
+
     scheduled = "scheduled"
     in_progress = "in_progress"
     complete = "complete"
 
 
 class IncidentSeverity(Enum):
+    """@public"""
+
     info = "info"
     warning = "warning"
     critical = "critical"
 
 
 class Platform(Enum):
+    """@public"""
+
     windows = "windows"
     macos = "macos"
     android = "android"
@@ -33,17 +39,23 @@ class Platform(Enum):
 
 
 class ContentDto(BaseModel):
+    """@public"""
+
     locale: str
     content: str
 
 
 class PublishLocation(Enum):
+    """@public"""
+
     riotclient = "riotclient"
     riotstatus = "riotstatus"
     game = "game"
 
 
 class UpdateDto(BaseModel):
+    """@public"""
+
     id: int
     author: str
     publish: bool
@@ -56,6 +68,8 @@ class UpdateDto(BaseModel):
 
 
 class StatusDto(BaseModel):
+    """@public"""
+
     id: int
     maintenance_status: MaintenanceStatus = Field(
         ..., description="(Legal values:  scheduled,  in_progress,  complete)"
@@ -75,6 +89,8 @@ class StatusDto(BaseModel):
 
 
 class PlatformDataDto(BaseModel):
+    """@public"""
+
     id: str
     name: str
     locales: List[str]

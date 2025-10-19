@@ -11,6 +11,8 @@ from pydantic import BaseModel, Field
 
 
 class RatedTier(Enum):
+    """@public"""
+
     orange = "ORANGE"
     purple = "PURPLE"
     blue = "BLUE"
@@ -19,6 +21,8 @@ class RatedTier(Enum):
 
 
 class MiniSeriesDTO(BaseModel):
+    """@public"""
+
     losses: int
     progress: str
     target: int
@@ -26,6 +30,8 @@ class MiniSeriesDTO(BaseModel):
 
 
 class LeagueItemDTO(BaseModel):
+    """@public"""
+
     fresh_blood: bool = Field(..., alias="freshBlood")
     wins: int = Field(..., description="First placement.")
     mini_series: Optional[MiniSeriesDTO] = Field(None, alias="miniSeries")
@@ -39,6 +45,8 @@ class LeagueItemDTO(BaseModel):
 
 
 class TopRatedLadderEntryDto(BaseModel):
+    """@public"""
+
     puuid: str = Field(..., description="Player's encrypted puuid.")
     rated_tier: RatedTier = Field(
         ...,
@@ -53,6 +61,8 @@ class TopRatedLadderEntryDto(BaseModel):
 
 
 class LeagueEntryDTO(BaseModel):
+    """@public"""
+
     puuid: Optional[str] = Field(
         None,
         description="Player Universal Unique Identifier. Exact length of 78 characters. (Encrypted)",
@@ -111,6 +121,8 @@ class LeagueEntryDTO(BaseModel):
 
 
 class LeagueListDTO(BaseModel):
+    """@public"""
+
     league_id: Optional[str] = Field(None, alias="leagueId")
     entries: List[LeagueItemDTO]
     tier: str

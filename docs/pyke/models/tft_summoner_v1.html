@@ -48,9 +48,6 @@
                         <li>
                                 <a class="variable" href="#SummonerDTO.id">id</a>
                         </li>
-                        <li>
-                                <a class="variable" href="#SummonerDTO.model_config">model_config</a>
-                        </li>
                 </ul>
 
             </li>
@@ -87,28 +84,30 @@
 </span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>
 </span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>
 </span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="k">class</span><span class="w"> </span><span class="nc">SummonerDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Encrypted PUUID. Exact length of 78 characters.&quot;</span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>    <span class="p">)</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>    <span class="n">profile_icon_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;profileIconId&quot;</span><span class="p">,</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;ID of the summoner icon associated with the summoner.&quot;</span><span class="p">,</span>
-</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>    <span class="p">)</span>
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>    <span class="n">revision_date</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;revisionDate&quot;</span><span class="p">,</span>
-</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Date summoner was last modified specified as epoch milliseconds. The following events will update this timestamp: profile icon change, playing the tutorial or advanced tutorial, finishing a game, summoner name change.&quot;</span><span class="p">,</span>
-</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>    <span class="p">)</span>
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>    <span class="n">summoner_level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;summonerLevel&quot;</span><span class="p">,</span>
-</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Summoner level associated with the summoner.&quot;</span><span class="p">,</span>
-</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>    <span class="p">)</span>
-</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Encrypted summoner ID. This field is deprecated and will be removed. Use `puuid` instead.&quot;</span><span class="p">,</span>
-</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>    <span class="p">)</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Encrypted PUUID. Exact length of 78 characters.&quot;</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>    <span class="p">)</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>    <span class="n">profile_icon_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;profileIconId&quot;</span><span class="p">,</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;ID of the summoner icon associated with the summoner.&quot;</span><span class="p">,</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>    <span class="p">)</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>    <span class="n">revision_date</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;revisionDate&quot;</span><span class="p">,</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Date summoner was last modified specified as epoch milliseconds. The following events will update this timestamp: profile icon change, playing the tutorial or advanced tutorial, finishing a game, summoner name change.&quot;</span><span class="p">,</span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>    <span class="p">)</span>
+</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>    <span class="n">summoner_level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;summonerLevel&quot;</span><span class="p">,</span>
+</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Summoner level associated with the summoner.&quot;</span><span class="p">,</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>    <span class="p">)</span>
+</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Encrypted summoner ID. This field is deprecated and will be removed. Use `puuid` instead.&quot;</span><span class="p">,</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>    <span class="p">)</span>
 </span></pre></div>
 
 
@@ -125,62 +124,34 @@
     </div>
     <a class="headerlink" href="#SummonerDTO"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="SummonerDTO-13"><a href="#SummonerDTO-13"><span class="linenos">13</span></a><span class="k">class</span><span class="w"> </span><span class="nc">SummonerDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="SummonerDTO-14"><a href="#SummonerDTO-14"><span class="linenos">14</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="SummonerDTO-15"><a href="#SummonerDTO-15"><span class="linenos">15</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Encrypted PUUID. Exact length of 78 characters.&quot;</span>
-</span><span id="SummonerDTO-16"><a href="#SummonerDTO-16"><span class="linenos">16</span></a>    <span class="p">)</span>
-</span><span id="SummonerDTO-17"><a href="#SummonerDTO-17"><span class="linenos">17</span></a>    <span class="n">profile_icon_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="SummonerDTO-18"><a href="#SummonerDTO-18"><span class="linenos">18</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="SummonerDTO-19"><a href="#SummonerDTO-19"><span class="linenos">19</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;profileIconId&quot;</span><span class="p">,</span>
-</span><span id="SummonerDTO-20"><a href="#SummonerDTO-20"><span class="linenos">20</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;ID of the summoner icon associated with the summoner.&quot;</span><span class="p">,</span>
-</span><span id="SummonerDTO-21"><a href="#SummonerDTO-21"><span class="linenos">21</span></a>    <span class="p">)</span>
-</span><span id="SummonerDTO-22"><a href="#SummonerDTO-22"><span class="linenos">22</span></a>    <span class="n">revision_date</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="SummonerDTO-23"><a href="#SummonerDTO-23"><span class="linenos">23</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="SummonerDTO-24"><a href="#SummonerDTO-24"><span class="linenos">24</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;revisionDate&quot;</span><span class="p">,</span>
-</span><span id="SummonerDTO-25"><a href="#SummonerDTO-25"><span class="linenos">25</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Date summoner was last modified specified as epoch milliseconds. The following events will update this timestamp: profile icon change, playing the tutorial or advanced tutorial, finishing a game, summoner name change.&quot;</span><span class="p">,</span>
-</span><span id="SummonerDTO-26"><a href="#SummonerDTO-26"><span class="linenos">26</span></a>    <span class="p">)</span>
-</span><span id="SummonerDTO-27"><a href="#SummonerDTO-27"><span class="linenos">27</span></a>    <span class="n">summoner_level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="SummonerDTO-28"><a href="#SummonerDTO-28"><span class="linenos">28</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="SummonerDTO-29"><a href="#SummonerDTO-29"><span class="linenos">29</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;summonerLevel&quot;</span><span class="p">,</span>
-</span><span id="SummonerDTO-30"><a href="#SummonerDTO-30"><span class="linenos">30</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Summoner level associated with the summoner.&quot;</span><span class="p">,</span>
-</span><span id="SummonerDTO-31"><a href="#SummonerDTO-31"><span class="linenos">31</span></a>    <span class="p">)</span>
-</span><span id="SummonerDTO-32"><a href="#SummonerDTO-32"><span class="linenos">32</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="SummonerDTO-33"><a href="#SummonerDTO-33"><span class="linenos">33</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="SummonerDTO-34"><a href="#SummonerDTO-34"><span class="linenos">34</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Encrypted summoner ID. This field is deprecated and will be removed. Use `puuid` instead.&quot;</span><span class="p">,</span>
-</span><span id="SummonerDTO-35"><a href="#SummonerDTO-35"><span class="linenos">35</span></a>    <span class="p">)</span>
+</span><span id="SummonerDTO-14"><a href="#SummonerDTO-14"><span class="linenos">14</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="SummonerDTO-15"><a href="#SummonerDTO-15"><span class="linenos">15</span></a>
+</span><span id="SummonerDTO-16"><a href="#SummonerDTO-16"><span class="linenos">16</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="SummonerDTO-17"><a href="#SummonerDTO-17"><span class="linenos">17</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Encrypted PUUID. Exact length of 78 characters.&quot;</span>
+</span><span id="SummonerDTO-18"><a href="#SummonerDTO-18"><span class="linenos">18</span></a>    <span class="p">)</span>
+</span><span id="SummonerDTO-19"><a href="#SummonerDTO-19"><span class="linenos">19</span></a>    <span class="n">profile_icon_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="SummonerDTO-20"><a href="#SummonerDTO-20"><span class="linenos">20</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="SummonerDTO-21"><a href="#SummonerDTO-21"><span class="linenos">21</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;profileIconId&quot;</span><span class="p">,</span>
+</span><span id="SummonerDTO-22"><a href="#SummonerDTO-22"><span class="linenos">22</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;ID of the summoner icon associated with the summoner.&quot;</span><span class="p">,</span>
+</span><span id="SummonerDTO-23"><a href="#SummonerDTO-23"><span class="linenos">23</span></a>    <span class="p">)</span>
+</span><span id="SummonerDTO-24"><a href="#SummonerDTO-24"><span class="linenos">24</span></a>    <span class="n">revision_date</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="SummonerDTO-25"><a href="#SummonerDTO-25"><span class="linenos">25</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="SummonerDTO-26"><a href="#SummonerDTO-26"><span class="linenos">26</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;revisionDate&quot;</span><span class="p">,</span>
+</span><span id="SummonerDTO-27"><a href="#SummonerDTO-27"><span class="linenos">27</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Date summoner was last modified specified as epoch milliseconds. The following events will update this timestamp: profile icon change, playing the tutorial or advanced tutorial, finishing a game, summoner name change.&quot;</span><span class="p">,</span>
+</span><span id="SummonerDTO-28"><a href="#SummonerDTO-28"><span class="linenos">28</span></a>    <span class="p">)</span>
+</span><span id="SummonerDTO-29"><a href="#SummonerDTO-29"><span class="linenos">29</span></a>    <span class="n">summoner_level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="SummonerDTO-30"><a href="#SummonerDTO-30"><span class="linenos">30</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="SummonerDTO-31"><a href="#SummonerDTO-31"><span class="linenos">31</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;summonerLevel&quot;</span><span class="p">,</span>
+</span><span id="SummonerDTO-32"><a href="#SummonerDTO-32"><span class="linenos">32</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Summoner level associated with the summoner.&quot;</span><span class="p">,</span>
+</span><span id="SummonerDTO-33"><a href="#SummonerDTO-33"><span class="linenos">33</span></a>    <span class="p">)</span>
+</span><span id="SummonerDTO-34"><a href="#SummonerDTO-34"><span class="linenos">34</span></a>    <span class="nb">id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="SummonerDTO-35"><a href="#SummonerDTO-35"><span class="linenos">35</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="SummonerDTO-36"><a href="#SummonerDTO-36"><span class="linenos">36</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Encrypted summoner ID. This field is deprecated and will be removed. Use `puuid` instead.&quot;</span><span class="p">,</span>
+</span><span id="SummonerDTO-37"><a href="#SummonerDTO-37"><span class="linenos">37</span></a>    <span class="p">)</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>!!! abstract "Usage Documentation"
-    <a href="../concepts/models.md">Models</a></p>
-
-<p>A base class for creating Pydantic models.</p>
-
-<p>Attributes:
-    __class_vars__: The names of the class variables defined on the model.
-    __private_attributes__: Metadata about the private attributes of the model.
-    __signature__: The synthesized <code><a href="#SummonerDTO.__init__">__init__</a></code> [<code>Signature</code>][inspect.Signature] of the model.</p>
-
-<pre><code>__pydantic_complete__: Whether model building is completed, or if there are still undefined fields.
-__pydantic_core_schema__: The core schema of the model.
-__pydantic_custom_init__: Whether the model has a custom `__init__` function.
-__pydantic_decorators__: Metadata containing the decorators defined on the model.
-    This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
-__pydantic_generic_metadata__: Metadata for generic models; contains data used for a similar purpose to
-    __args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.
-__pydantic_parent_namespace__: Parent namespace of the model, used for automatic rebuilding of models.
-__pydantic_post_init__: The name of the post-init method for the model, if defined.
-__pydantic_root_model__: Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
-__pydantic_serializer__: The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
-__pydantic_validator__: The `pydantic-core` `SchemaValidator` used to validate instances of the model.
-
-__pydantic_fields__: A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
-__pydantic_computed_fields__: A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
-
-__pydantic_extra__: A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
-    is set to `'allow'`.
-__pydantic_fields_set__: The names of fields explicitly set during instantiation.
-__pydantic_private__: Values of private attributes set on the model instance.
-</code></pre>
+            <div class="docstring"><p></p>
 </div>
 
 
@@ -237,20 +208,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
     <a class="headerlink" href="#SummonerDTO.id"></a>
     
     
-
-                            </div>
-                            <div id="SummonerDTO.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#SummonerDTO.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
 
                             </div>
                 </section>

@@ -10,6 +10,8 @@ from pydantic import BaseModel, Field
 
 
 class MiniSeriesDTO(BaseModel):
+    """@public"""
+
     losses: int
     progress: str
     target: int
@@ -17,6 +19,8 @@ class MiniSeriesDTO(BaseModel):
 
 
 class LeagueEntryDTO(BaseModel):
+    """@public"""
+
     league_id: Optional[str] = Field(None, alias="leagueId")
     puuid: str = Field(..., description="Player's encrypted puuid.")
     queue_type: str = Field(..., alias="queueType")
@@ -40,6 +44,8 @@ class LeagueEntryDTO(BaseModel):
 
 
 class LeagueItemDTO(BaseModel):
+    """@public"""
+
     fresh_blood: bool = Field(..., alias="freshBlood")
     wins: int = Field(..., description="Winning team on Summoners Rift.")
     mini_series: Optional[MiniSeriesDTO] = Field(None, alias="miniSeries")
@@ -58,6 +64,8 @@ class LeagueItemDTO(BaseModel):
 
 
 class LeagueListDTO(BaseModel):
+    """@public"""
+
     league_id: Optional[str] = Field(None, alias="leagueId")
     entries: List[LeagueItemDTO]
     tier: str

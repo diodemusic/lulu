@@ -11,6 +11,8 @@ from pydantic import BaseModel, Field
 
 
 class State(Enum):
+    """@public"""
+
     disabled = "DISABLED"
     hidden = "HIDDEN"
     enabled = "ENABLED"
@@ -18,11 +20,15 @@ class State(Enum):
 
 
 class Tracking(Enum):
+    """@public"""
+
     lifetime = "LIFETIME"
     season = "SEASON"
 
 
 class ChallengeConfigInfoDto(BaseModel):
+    """@public"""
+
     id: int
     localized_names: Dict[str, Dict[str, str]] = Field(..., alias="localizedNames")
     state: State = Field(
@@ -40,24 +46,34 @@ class ChallengeConfigInfoDto(BaseModel):
 
 
 class StateModel(BaseModel):
+    """@public"""
+
     pass
 
 
 class TrackingModel(BaseModel):
+    """@public"""
+
     pass
 
 
 class ApexPlayerInfoDto(BaseModel):
+    """@public"""
+
     puuid: str
     value: float
     position: int
 
 
 class Level(BaseModel):
+    """@public"""
+
     pass
 
 
 class LevelModel(Enum):
+    """@public"""
+
     none = "NONE"
     iron = "IRON"
     bronze = "BRONZE"
@@ -74,6 +90,8 @@ class LevelModel(Enum):
 
 
 class ChallengeInfoDto(BaseModel):
+    """@public"""
+
     percentile: float
     players_in_level: Optional[int] = Field(None, alias="playersInLevel")
     achieved_time: Optional[int] = Field(None, alias="achievedTime")
@@ -87,6 +105,8 @@ class ChallengeInfoDto(BaseModel):
 
 
 class PlayerClientPreferencesDto(BaseModel):
+    """@public"""
+
     banner_accent: Optional[str] = Field(None, alias="bannerAccent")
     title: Optional[str] = None
     challenge_ids: Optional[List[int]] = Field(None, alias="challengeIds")
@@ -97,6 +117,8 @@ class PlayerClientPreferencesDto(BaseModel):
 
 
 class ChallengePointDto(BaseModel):
+    """@public"""
+
     level: str
     current: int
     max: int
@@ -104,6 +126,8 @@ class ChallengePointDto(BaseModel):
 
 
 class PlayerInfoDto(BaseModel):
+    """@public"""
+
     challenges: List[ChallengeInfoDto]
     preferences: PlayerClientPreferencesDto
     total_points: ChallengePointDto = Field(..., alias="totalPoints")

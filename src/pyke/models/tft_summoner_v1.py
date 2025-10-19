@@ -10,6 +10,8 @@ from pydantic import BaseModel, Field
 
 
 class SummonerDTO(BaseModel):
+    """@public"""
+
     puuid: str = Field(
         ..., description="Encrypted PUUID. Exact length of 78 characters."
     )

@@ -11,6 +11,8 @@ from pydantic import BaseModel, Field
 
 
 class Position(Enum):
+    """@public"""
+
     unselected = "UNSELECTED"
     fill = "FILL"
     top = "TOP"
@@ -21,11 +23,15 @@ class Position(Enum):
 
 
 class Role(Enum):
+    """@public"""
+
     captain = "CAPTAIN"
     member = "MEMBER"
 
 
 class PlayerDto(BaseModel):
+    """@public"""
+
     puuid: str
     team_id: Optional[str] = Field(None, alias="teamId")
     position: Position = Field(
@@ -36,6 +42,8 @@ class PlayerDto(BaseModel):
 
 
 class TeamDto(BaseModel):
+    """@public"""
+
     id: str
     tournament_id: int = Field(..., alias="tournamentId")
     name: str
@@ -47,6 +55,8 @@ class TeamDto(BaseModel):
 
 
 class TournamentPhaseDto(BaseModel):
+    """@public"""
+
     id: int
     registration_time: int = Field(..., alias="registrationTime")
     start_time: int = Field(..., alias="startTime")
@@ -54,6 +64,8 @@ class TournamentPhaseDto(BaseModel):
 
 
 class TournamentDto(BaseModel):
+    """@public"""
+
     id: int
     theme_id: int = Field(..., alias="themeId")
     name_key: str = Field(..., alias="nameKey")

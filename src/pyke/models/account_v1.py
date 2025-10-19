@@ -10,6 +10,8 @@ from pydantic import BaseModel, Field
 
 
 class AccountDto(BaseModel):
+    """@public"""
+
     puuid: str = Field(
         ..., description="Encrypted PUUID. Exact length of 78 characters."
     )
@@ -26,6 +28,8 @@ class AccountDto(BaseModel):
 
 
 class AccountRegionDTO(BaseModel):
+    """@public"""
+
     puuid: str = Field(
         ...,
         description="Player Universal Unique Identifier. Exact length of 78 characters. (Encrypted)",
@@ -35,6 +39,8 @@ class AccountRegionDTO(BaseModel):
 
 
 class ActiveShardDto(BaseModel):
+    """@public"""
+
     puuid: str
     game: str
     active_shard: str = Field(..., alias="activeShard")

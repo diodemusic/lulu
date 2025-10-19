@@ -66,9 +66,6 @@
                         <li>
                                 <a class="variable" href="#MiniSeriesDTO.wins">wins</a>
                         </li>
-                        <li>
-                                <a class="variable" href="#MiniSeriesDTO.model_config">model_config</a>
-                        </li>
                 </ul>
 
             </li>
@@ -105,9 +102,6 @@
                         <li>
                                 <a class="variable" href="#LeagueItemDTO.puuid">puuid</a>
                         </li>
-                        <li>
-                                <a class="variable" href="#LeagueItemDTO.model_config">model_config</a>
-                        </li>
                 </ul>
 
             </li>
@@ -128,9 +122,6 @@
                         </li>
                         <li>
                                 <a class="variable" href="#TopRatedLadderEntryDto.previous_update_ladder_position">previous_update_ladder_position</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#TopRatedLadderEntryDto.model_config">model_config</a>
                         </li>
                 </ul>
 
@@ -183,9 +174,6 @@
                         <li>
                                 <a class="variable" href="#LeagueEntryDTO.mini_series">mini_series</a>
                         </li>
-                        <li>
-                                <a class="variable" href="#LeagueEntryDTO.model_config">model_config</a>
-                        </li>
                 </ul>
 
             </li>
@@ -206,9 +194,6 @@
                         </li>
                         <li>
                                 <a class="variable" href="#LeagueListDTO.queue">queue</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#LeagueListDTO.model_config">model_config</a>
                         </li>
                 </ul>
 
@@ -247,111 +232,123 @@
 </span><span id="L-11"><a href="#L-11"><span class="linenos"> 11</span></a>
 </span><span id="L-12"><a href="#L-12"><span class="linenos"> 12</span></a>
 </span><span id="L-13"><a href="#L-13"><span class="linenos"> 13</span></a><span class="k">class</span><span class="w"> </span><span class="nc">RatedTier</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos"> 14</span></a>    <span class="n">orange</span> <span class="o">=</span> <span class="s2">&quot;ORANGE&quot;</span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos"> 15</span></a>    <span class="n">purple</span> <span class="o">=</span> <span class="s2">&quot;PURPLE&quot;</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos"> 16</span></a>    <span class="n">blue</span> <span class="o">=</span> <span class="s2">&quot;BLUE&quot;</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos"> 17</span></a>    <span class="n">green</span> <span class="o">=</span> <span class="s2">&quot;GREEN&quot;</span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a>    <span class="n">gray</span> <span class="o">=</span> <span class="s2">&quot;GRAY&quot;</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a>
-</span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a>
-</span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a><span class="k">class</span><span class="w"> </span><span class="nc">MiniSeriesDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a>    <span class="n">losses</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a>    <span class="n">progress</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a>    <span class="n">target</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a>    <span class="n">wins</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a>
-</span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a>
-</span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LeagueItemDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a>    <span class="n">fresh_blood</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;freshBlood&quot;</span><span class="p">)</span>
-</span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a>    <span class="n">wins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;First placement.&quot;</span><span class="p">)</span>
-</span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a>    <span class="n">mini_series</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MiniSeriesDTO</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;miniSeries&quot;</span><span class="p">)</span>
-</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a>    <span class="n">inactive</span><span class="p">:</span> <span class="nb">bool</span>
-</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a>    <span class="n">veteran</span><span class="p">:</span> <span class="nb">bool</span>
-</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>    <span class="n">hot_streak</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;hotStreak&quot;</span><span class="p">)</span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a>    <span class="n">rank</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a>    <span class="n">league_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;leaguePoints&quot;</span><span class="p">)</span>
-</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a>    <span class="n">losses</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Second through eighth placement.&quot;</span><span class="p">)</span>
-</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Player&#39;s encrypted puuid.&quot;</span><span class="p">)</span>
-</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a>
-</span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>
-</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TopRatedLadderEntryDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Player&#39;s encrypted puuid.&quot;</span><span class="p">)</span>
-</span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a>    <span class="n">rated_tier</span><span class="p">:</span> <span class="n">RatedTier</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ratedTier&quot;</span><span class="p">,</span>
-</span><span id="L-46"><a href="#L-46"><span class="linenos"> 46</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;(Legal values:  ORANGE,  PURPLE,  BLUE,  GREEN,  GRAY)&quot;</span><span class="p">,</span>
-</span><span id="L-47"><a href="#L-47"><span class="linenos"> 47</span></a>    <span class="p">)</span>
-</span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a>    <span class="n">rated_rating</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ratedRating&quot;</span><span class="p">)</span>
-</span><span id="L-49"><a href="#L-49"><span class="linenos"> 49</span></a>    <span class="n">wins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;First placement.&quot;</span><span class="p">)</span>
-</span><span id="L-50"><a href="#L-50"><span class="linenos"> 50</span></a>    <span class="n">previous_update_ladder_position</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-51"><a href="#L-51"><span class="linenos"> 51</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;previousUpdateLadderPosition&quot;</span>
-</span><span id="L-52"><a href="#L-52"><span class="linenos"> 52</span></a>    <span class="p">)</span>
-</span><span id="L-53"><a href="#L-53"><span class="linenos"> 53</span></a>
-</span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a>
-</span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LeagueEntryDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Player Universal Unique Identifier. Exact length of 78 characters. (Encrypted)&quot;</span><span class="p">,</span>
-</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a>    <span class="p">)</span>
-</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a>    <span class="n">league_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;leagueId&quot;</span><span class="p">,</span>
-</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
-</span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a>    <span class="p">)</span>
-</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a>    <span class="n">queue_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;queueType&quot;</span><span class="p">)</span>
-</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a>    <span class="n">rated_tier</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">RatedTier</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos"> 14</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos"> 15</span></a>
+</span><span id="L-16"><a href="#L-16"><span class="linenos"> 16</span></a>    <span class="n">orange</span> <span class="o">=</span> <span class="s2">&quot;ORANGE&quot;</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos"> 17</span></a>    <span class="n">purple</span> <span class="o">=</span> <span class="s2">&quot;PURPLE&quot;</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a>    <span class="n">blue</span> <span class="o">=</span> <span class="s2">&quot;BLUE&quot;</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a>    <span class="n">green</span> <span class="o">=</span> <span class="s2">&quot;GREEN&quot;</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a>    <span class="n">gray</span> <span class="o">=</span> <span class="s2">&quot;GRAY&quot;</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a>
+</span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a>
+</span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a><span class="k">class</span><span class="w"> </span><span class="nc">MiniSeriesDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a>
+</span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a>    <span class="n">losses</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a>    <span class="n">progress</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a>    <span class="n">target</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a>    <span class="n">wins</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a>
+</span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a>
+</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LeagueItemDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>
+</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a>    <span class="n">fresh_blood</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;freshBlood&quot;</span><span class="p">)</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a>    <span class="n">wins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;First placement.&quot;</span><span class="p">)</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a>    <span class="n">mini_series</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MiniSeriesDTO</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;miniSeries&quot;</span><span class="p">)</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>    <span class="n">inactive</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a>    <span class="n">veteran</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>    <span class="n">hot_streak</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;hotStreak&quot;</span><span class="p">)</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a>    <span class="n">rank</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a>    <span class="n">league_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;leaguePoints&quot;</span><span class="p">)</span>
+</span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a>    <span class="n">losses</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Second through eighth placement.&quot;</span><span class="p">)</span>
+</span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Player&#39;s encrypted puuid.&quot;</span><span class="p">)</span>
+</span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a>
+</span><span id="L-46"><a href="#L-46"><span class="linenos"> 46</span></a>
+</span><span id="L-47"><a href="#L-47"><span class="linenos"> 47</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TopRatedLadderEntryDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-49"><a href="#L-49"><span class="linenos"> 49</span></a>
+</span><span id="L-50"><a href="#L-50"><span class="linenos"> 50</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Player&#39;s encrypted puuid.&quot;</span><span class="p">)</span>
+</span><span id="L-51"><a href="#L-51"><span class="linenos"> 51</span></a>    <span class="n">rated_tier</span><span class="p">:</span> <span class="n">RatedTier</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-52"><a href="#L-52"><span class="linenos"> 52</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="L-53"><a href="#L-53"><span class="linenos"> 53</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ratedTier&quot;</span><span class="p">,</span>
+</span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;(Legal values:  ORANGE,  PURPLE,  BLUE,  GREEN,  GRAY)&quot;</span><span class="p">,</span>
+</span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a>    <span class="p">)</span>
+</span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a>    <span class="n">rated_rating</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ratedRating&quot;</span><span class="p">)</span>
+</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a>    <span class="n">wins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;First placement.&quot;</span><span class="p">)</span>
+</span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a>    <span class="n">previous_update_ladder_position</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;previousUpdateLadderPosition&quot;</span>
+</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a>    <span class="p">)</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a>
+</span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a>
+</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LeagueEntryDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a>
+</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
 </span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ratedTier&quot;</span><span class="p">,</span>
-</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Only included for the RANKED_TFT_TURBO queueType.</span><span class="se">\n</span><span class="s2">             (Legal values:  ORANGE,  PURPLE,  BLUE,  GREEN,  GRAY)&quot;</span><span class="p">,</span>
-</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a>    <span class="p">)</span>
-</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a>    <span class="n">rated_rating</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ratedRating&quot;</span><span class="p">,</span>
-</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Only included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
-</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a>    <span class="p">)</span>
-</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a>    <span class="n">tier</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span>
-</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a>    <span class="p">)</span>
-</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a>    <span class="n">rank</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The player&#39;s division within a tier. Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
-</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>    <span class="p">)</span>
-</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>    <span class="n">league_points</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;leaguePoints&quot;</span><span class="p">,</span>
-</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
-</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a>    <span class="p">)</span>
-</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a>    <span class="n">wins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;First placement.&quot;</span><span class="p">)</span>
-</span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a>    <span class="n">losses</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Second through eighth placement.&quot;</span><span class="p">)</span>
-</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a>    <span class="n">hot_streak</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;hotStreak&quot;</span><span class="p">,</span>
-</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
-</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a>    <span class="p">)</span>
-</span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a>    <span class="n">veteran</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a>        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span>
+</span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Player Universal Unique Identifier. Exact length of 78 characters. (Encrypted)&quot;</span><span class="p">,</span>
+</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a>    <span class="p">)</span>
+</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a>    <span class="n">league_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;leagueId&quot;</span><span class="p">,</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
+</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a>    <span class="p">)</span>
+</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a>    <span class="n">queue_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;queueType&quot;</span><span class="p">)</span>
+</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a>    <span class="n">rated_tier</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">RatedTier</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ratedTier&quot;</span><span class="p">,</span>
+</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Only included for the RANKED_TFT_TURBO queueType.</span><span class="se">\n</span><span class="s2">             (Legal values:  ORANGE,  PURPLE,  BLUE,  GREEN,  GRAY)&quot;</span><span class="p">,</span>
+</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a>    <span class="p">)</span>
+</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>    <span class="n">rated_rating</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ratedRating&quot;</span><span class="p">,</span>
+</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Only included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
+</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a>    <span class="p">)</span>
+</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a>    <span class="n">tier</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a>        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span>
+</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a>    <span class="p">)</span>
+</span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a>    <span class="n">rank</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The player&#39;s division within a tier. Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
+</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a>    <span class="p">)</span>
+</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a>    <span class="n">league_points</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;leaguePoints&quot;</span><span class="p">,</span>
+</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
 </span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a>    <span class="p">)</span>
-</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a>    <span class="n">fresh_blood</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;freshBlood&quot;</span><span class="p">,</span>
-</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
-</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>    <span class="p">)</span>
-</span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a>    <span class="n">inactive</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a>        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span>
-</span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a>    <span class="p">)</span>
-</span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a>    <span class="n">mini_series</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MiniSeriesDTO</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;miniSeries&quot;</span><span class="p">,</span>
-</span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
-</span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a>    <span class="p">)</span>
-</span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a>
-</span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a>
-</span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LeagueListDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a>    <span class="n">league_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;leagueId&quot;</span><span class="p">)</span>
-</span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a>    <span class="n">entries</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">LeagueItemDTO</span><span class="p">]</span>
-</span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a>    <span class="n">tier</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a>    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a>    <span class="n">queue</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a>    <span class="n">wins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;First placement.&quot;</span><span class="p">)</span>
+</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>    <span class="n">losses</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Second through eighth placement.&quot;</span><span class="p">)</span>
+</span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>    <span class="n">hot_streak</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;hotStreak&quot;</span><span class="p">,</span>
+</span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
+</span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a>    <span class="p">)</span>
+</span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a>    <span class="n">veteran</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a>        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span>
+</span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a>    <span class="p">)</span>
+</span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a>    <span class="n">fresh_blood</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;freshBlood&quot;</span><span class="p">,</span>
+</span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
+</span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a>    <span class="p">)</span>
+</span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a>    <span class="n">inactive</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a>        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span>
+</span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a>    <span class="p">)</span>
+</span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a>    <span class="n">mini_series</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MiniSeriesDTO</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;miniSeries&quot;</span><span class="p">,</span>
+</span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
+</span><span id="L-120"><a href="#L-120"><span class="linenos">120</span></a>    <span class="p">)</span>
+</span><span id="L-121"><a href="#L-121"><span class="linenos">121</span></a>
+</span><span id="L-122"><a href="#L-122"><span class="linenos">122</span></a>
+</span><span id="L-123"><a href="#L-123"><span class="linenos">123</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LeagueListDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a>
+</span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>    <span class="n">league_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;leagueId&quot;</span><span class="p">)</span>
+</span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a>    <span class="n">entries</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">LeagueItemDTO</span><span class="p">]</span>
+</span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a>    <span class="n">tier</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a>    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a>    <span class="n">queue</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 </span></pre></div>
 
 
@@ -368,15 +365,19 @@
     </div>
     <a class="headerlink" href="#RatedTier"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="RatedTier-14"><a href="#RatedTier-14"><span class="linenos">14</span></a><span class="k">class</span><span class="w"> </span><span class="nc">RatedTier</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span><span id="RatedTier-15"><a href="#RatedTier-15"><span class="linenos">15</span></a>    <span class="n">orange</span> <span class="o">=</span> <span class="s2">&quot;ORANGE&quot;</span>
-</span><span id="RatedTier-16"><a href="#RatedTier-16"><span class="linenos">16</span></a>    <span class="n">purple</span> <span class="o">=</span> <span class="s2">&quot;PURPLE&quot;</span>
-</span><span id="RatedTier-17"><a href="#RatedTier-17"><span class="linenos">17</span></a>    <span class="n">blue</span> <span class="o">=</span> <span class="s2">&quot;BLUE&quot;</span>
-</span><span id="RatedTier-18"><a href="#RatedTier-18"><span class="linenos">18</span></a>    <span class="n">green</span> <span class="o">=</span> <span class="s2">&quot;GREEN&quot;</span>
-</span><span id="RatedTier-19"><a href="#RatedTier-19"><span class="linenos">19</span></a>    <span class="n">gray</span> <span class="o">=</span> <span class="s2">&quot;GRAY&quot;</span>
+</span><span id="RatedTier-15"><a href="#RatedTier-15"><span class="linenos">15</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="RatedTier-16"><a href="#RatedTier-16"><span class="linenos">16</span></a>
+</span><span id="RatedTier-17"><a href="#RatedTier-17"><span class="linenos">17</span></a>    <span class="n">orange</span> <span class="o">=</span> <span class="s2">&quot;ORANGE&quot;</span>
+</span><span id="RatedTier-18"><a href="#RatedTier-18"><span class="linenos">18</span></a>    <span class="n">purple</span> <span class="o">=</span> <span class="s2">&quot;PURPLE&quot;</span>
+</span><span id="RatedTier-19"><a href="#RatedTier-19"><span class="linenos">19</span></a>    <span class="n">blue</span> <span class="o">=</span> <span class="s2">&quot;BLUE&quot;</span>
+</span><span id="RatedTier-20"><a href="#RatedTier-20"><span class="linenos">20</span></a>    <span class="n">green</span> <span class="o">=</span> <span class="s2">&quot;GREEN&quot;</span>
+</span><span id="RatedTier-21"><a href="#RatedTier-21"><span class="linenos">21</span></a>    <span class="n">gray</span> <span class="o">=</span> <span class="s2">&quot;GRAY&quot;</span>
 </span></pre></div>
 
 
-    
+            <div class="docstring"><p></p>
+</div>
+
 
                             <div id="RatedTier.orange" class="classattr">
                                 <div class="attr variable">
@@ -450,45 +451,17 @@
 
     </div>
     <a class="headerlink" href="#MiniSeriesDTO"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MiniSeriesDTO-22"><a href="#MiniSeriesDTO-22"><span class="linenos">22</span></a><span class="k">class</span><span class="w"> </span><span class="nc">MiniSeriesDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="MiniSeriesDTO-23"><a href="#MiniSeriesDTO-23"><span class="linenos">23</span></a>    <span class="n">losses</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="MiniSeriesDTO-24"><a href="#MiniSeriesDTO-24"><span class="linenos">24</span></a>    <span class="n">progress</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="MiniSeriesDTO-25"><a href="#MiniSeriesDTO-25"><span class="linenos">25</span></a>    <span class="n">target</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="MiniSeriesDTO-26"><a href="#MiniSeriesDTO-26"><span class="linenos">26</span></a>    <span class="n">wins</span><span class="p">:</span> <span class="nb">int</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="MiniSeriesDTO-24"><a href="#MiniSeriesDTO-24"><span class="linenos">24</span></a><span class="k">class</span><span class="w"> </span><span class="nc">MiniSeriesDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="MiniSeriesDTO-25"><a href="#MiniSeriesDTO-25"><span class="linenos">25</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="MiniSeriesDTO-26"><a href="#MiniSeriesDTO-26"><span class="linenos">26</span></a>
+</span><span id="MiniSeriesDTO-27"><a href="#MiniSeriesDTO-27"><span class="linenos">27</span></a>    <span class="n">losses</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="MiniSeriesDTO-28"><a href="#MiniSeriesDTO-28"><span class="linenos">28</span></a>    <span class="n">progress</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="MiniSeriesDTO-29"><a href="#MiniSeriesDTO-29"><span class="linenos">29</span></a>    <span class="n">target</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="MiniSeriesDTO-30"><a href="#MiniSeriesDTO-30"><span class="linenos">30</span></a>    <span class="n">wins</span><span class="p">:</span> <span class="nb">int</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>!!! abstract "Usage Documentation"
-    <a href="../concepts/models.md">Models</a></p>
-
-<p>A base class for creating Pydantic models.</p>
-
-<p>Attributes:
-    __class_vars__: The names of the class variables defined on the model.
-    __private_attributes__: Metadata about the private attributes of the model.
-    __signature__: The synthesized <code><a href="#MiniSeriesDTO.__init__">__init__</a></code> [<code>Signature</code>][inspect.Signature] of the model.</p>
-
-<pre><code>__pydantic_complete__: Whether model building is completed, or if there are still undefined fields.
-__pydantic_core_schema__: The core schema of the model.
-__pydantic_custom_init__: Whether the model has a custom `__init__` function.
-__pydantic_decorators__: Metadata containing the decorators defined on the model.
-    This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
-__pydantic_generic_metadata__: Metadata for generic models; contains data used for a similar purpose to
-    __args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.
-__pydantic_parent_namespace__: Parent namespace of the model, used for automatic rebuilding of models.
-__pydantic_post_init__: The name of the post-init method for the model, if defined.
-__pydantic_root_model__: Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
-__pydantic_serializer__: The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
-__pydantic_validator__: The `pydantic-core` `SchemaValidator` used to validate instances of the model.
-
-__pydantic_fields__: A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
-__pydantic_computed_fields__: A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
-
-__pydantic_extra__: A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
-    is set to `'allow'`.
-__pydantic_fields_set__: The names of fields explicitly set during instantiation.
-__pydantic_private__: Values of private attributes set on the model instance.
-</code></pre>
+            <div class="docstring"><p></p>
 </div>
 
 
@@ -536,20 +509,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
     
 
                             </div>
-                            <div id="MiniSeriesDTO.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#MiniSeriesDTO.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
-
-                            </div>
                 </section>
                 <section id="LeagueItemDTO">
                             <input id="LeagueItemDTO-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
@@ -562,51 +521,23 @@ __pydantic_private__: Values of private attributes set on the model instance.
 
     </div>
     <a class="headerlink" href="#LeagueItemDTO"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="LeagueItemDTO-29"><a href="#LeagueItemDTO-29"><span class="linenos">29</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LeagueItemDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="LeagueItemDTO-30"><a href="#LeagueItemDTO-30"><span class="linenos">30</span></a>    <span class="n">fresh_blood</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;freshBlood&quot;</span><span class="p">)</span>
-</span><span id="LeagueItemDTO-31"><a href="#LeagueItemDTO-31"><span class="linenos">31</span></a>    <span class="n">wins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;First placement.&quot;</span><span class="p">)</span>
-</span><span id="LeagueItemDTO-32"><a href="#LeagueItemDTO-32"><span class="linenos">32</span></a>    <span class="n">mini_series</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MiniSeriesDTO</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;miniSeries&quot;</span><span class="p">)</span>
-</span><span id="LeagueItemDTO-33"><a href="#LeagueItemDTO-33"><span class="linenos">33</span></a>    <span class="n">inactive</span><span class="p">:</span> <span class="nb">bool</span>
-</span><span id="LeagueItemDTO-34"><a href="#LeagueItemDTO-34"><span class="linenos">34</span></a>    <span class="n">veteran</span><span class="p">:</span> <span class="nb">bool</span>
-</span><span id="LeagueItemDTO-35"><a href="#LeagueItemDTO-35"><span class="linenos">35</span></a>    <span class="n">hot_streak</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;hotStreak&quot;</span><span class="p">)</span>
-</span><span id="LeagueItemDTO-36"><a href="#LeagueItemDTO-36"><span class="linenos">36</span></a>    <span class="n">rank</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="LeagueItemDTO-37"><a href="#LeagueItemDTO-37"><span class="linenos">37</span></a>    <span class="n">league_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;leaguePoints&quot;</span><span class="p">)</span>
-</span><span id="LeagueItemDTO-38"><a href="#LeagueItemDTO-38"><span class="linenos">38</span></a>    <span class="n">losses</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Second through eighth placement.&quot;</span><span class="p">)</span>
-</span><span id="LeagueItemDTO-39"><a href="#LeagueItemDTO-39"><span class="linenos">39</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Player&#39;s encrypted puuid.&quot;</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="LeagueItemDTO-33"><a href="#LeagueItemDTO-33"><span class="linenos">33</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LeagueItemDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="LeagueItemDTO-34"><a href="#LeagueItemDTO-34"><span class="linenos">34</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="LeagueItemDTO-35"><a href="#LeagueItemDTO-35"><span class="linenos">35</span></a>
+</span><span id="LeagueItemDTO-36"><a href="#LeagueItemDTO-36"><span class="linenos">36</span></a>    <span class="n">fresh_blood</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;freshBlood&quot;</span><span class="p">)</span>
+</span><span id="LeagueItemDTO-37"><a href="#LeagueItemDTO-37"><span class="linenos">37</span></a>    <span class="n">wins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;First placement.&quot;</span><span class="p">)</span>
+</span><span id="LeagueItemDTO-38"><a href="#LeagueItemDTO-38"><span class="linenos">38</span></a>    <span class="n">mini_series</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MiniSeriesDTO</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;miniSeries&quot;</span><span class="p">)</span>
+</span><span id="LeagueItemDTO-39"><a href="#LeagueItemDTO-39"><span class="linenos">39</span></a>    <span class="n">inactive</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="LeagueItemDTO-40"><a href="#LeagueItemDTO-40"><span class="linenos">40</span></a>    <span class="n">veteran</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="LeagueItemDTO-41"><a href="#LeagueItemDTO-41"><span class="linenos">41</span></a>    <span class="n">hot_streak</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;hotStreak&quot;</span><span class="p">)</span>
+</span><span id="LeagueItemDTO-42"><a href="#LeagueItemDTO-42"><span class="linenos">42</span></a>    <span class="n">rank</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="LeagueItemDTO-43"><a href="#LeagueItemDTO-43"><span class="linenos">43</span></a>    <span class="n">league_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;leaguePoints&quot;</span><span class="p">)</span>
+</span><span id="LeagueItemDTO-44"><a href="#LeagueItemDTO-44"><span class="linenos">44</span></a>    <span class="n">losses</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Second through eighth placement.&quot;</span><span class="p">)</span>
+</span><span id="LeagueItemDTO-45"><a href="#LeagueItemDTO-45"><span class="linenos">45</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Player&#39;s encrypted puuid.&quot;</span><span class="p">)</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>!!! abstract "Usage Documentation"
-    <a href="../concepts/models.md">Models</a></p>
-
-<p>A base class for creating Pydantic models.</p>
-
-<p>Attributes:
-    __class_vars__: The names of the class variables defined on the model.
-    __private_attributes__: Metadata about the private attributes of the model.
-    __signature__: The synthesized <code><a href="#LeagueItemDTO.__init__">__init__</a></code> [<code>Signature</code>][inspect.Signature] of the model.</p>
-
-<pre><code>__pydantic_complete__: Whether model building is completed, or if there are still undefined fields.
-__pydantic_core_schema__: The core schema of the model.
-__pydantic_custom_init__: Whether the model has a custom `__init__` function.
-__pydantic_decorators__: Metadata containing the decorators defined on the model.
-    This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
-__pydantic_generic_metadata__: Metadata for generic models; contains data used for a similar purpose to
-    __args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.
-__pydantic_parent_namespace__: Parent namespace of the model, used for automatic rebuilding of models.
-__pydantic_post_init__: The name of the post-init method for the model, if defined.
-__pydantic_root_model__: Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
-__pydantic_serializer__: The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
-__pydantic_validator__: The `pydantic-core` `SchemaValidator` used to validate instances of the model.
-
-__pydantic_fields__: A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
-__pydantic_computed_fields__: A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
-
-__pydantic_extra__: A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
-    is set to `'allow'`.
-__pydantic_fields_set__: The names of fields explicitly set during instantiation.
-__pydantic_private__: Values of private attributes set on the model instance.
-</code></pre>
+            <div class="docstring"><p></p>
 </div>
 
 
@@ -720,20 +651,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
     
 
                             </div>
-                            <div id="LeagueItemDTO.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#LeagueItemDTO.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
-
-                            </div>
                 </section>
                 <section id="TopRatedLadderEntryDto">
                             <input id="TopRatedLadderEntryDto-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
@@ -746,52 +663,24 @@ __pydantic_private__: Values of private attributes set on the model instance.
 
     </div>
     <a class="headerlink" href="#TopRatedLadderEntryDto"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="TopRatedLadderEntryDto-42"><a href="#TopRatedLadderEntryDto-42"><span class="linenos">42</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TopRatedLadderEntryDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="TopRatedLadderEntryDto-43"><a href="#TopRatedLadderEntryDto-43"><span class="linenos">43</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Player&#39;s encrypted puuid.&quot;</span><span class="p">)</span>
-</span><span id="TopRatedLadderEntryDto-44"><a href="#TopRatedLadderEntryDto-44"><span class="linenos">44</span></a>    <span class="n">rated_tier</span><span class="p">:</span> <span class="n">RatedTier</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TopRatedLadderEntryDto-45"><a href="#TopRatedLadderEntryDto-45"><span class="linenos">45</span></a>        <span class="o">...</span><span class="p">,</span>
-</span><span id="TopRatedLadderEntryDto-46"><a href="#TopRatedLadderEntryDto-46"><span class="linenos">46</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ratedTier&quot;</span><span class="p">,</span>
-</span><span id="TopRatedLadderEntryDto-47"><a href="#TopRatedLadderEntryDto-47"><span class="linenos">47</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;(Legal values:  ORANGE,  PURPLE,  BLUE,  GREEN,  GRAY)&quot;</span><span class="p">,</span>
-</span><span id="TopRatedLadderEntryDto-48"><a href="#TopRatedLadderEntryDto-48"><span class="linenos">48</span></a>    <span class="p">)</span>
-</span><span id="TopRatedLadderEntryDto-49"><a href="#TopRatedLadderEntryDto-49"><span class="linenos">49</span></a>    <span class="n">rated_rating</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ratedRating&quot;</span><span class="p">)</span>
-</span><span id="TopRatedLadderEntryDto-50"><a href="#TopRatedLadderEntryDto-50"><span class="linenos">50</span></a>    <span class="n">wins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;First placement.&quot;</span><span class="p">)</span>
-</span><span id="TopRatedLadderEntryDto-51"><a href="#TopRatedLadderEntryDto-51"><span class="linenos">51</span></a>    <span class="n">previous_update_ladder_position</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="TopRatedLadderEntryDto-52"><a href="#TopRatedLadderEntryDto-52"><span class="linenos">52</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;previousUpdateLadderPosition&quot;</span>
-</span><span id="TopRatedLadderEntryDto-53"><a href="#TopRatedLadderEntryDto-53"><span class="linenos">53</span></a>    <span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="TopRatedLadderEntryDto-48"><a href="#TopRatedLadderEntryDto-48"><span class="linenos">48</span></a><span class="k">class</span><span class="w"> </span><span class="nc">TopRatedLadderEntryDto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="TopRatedLadderEntryDto-49"><a href="#TopRatedLadderEntryDto-49"><span class="linenos">49</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="TopRatedLadderEntryDto-50"><a href="#TopRatedLadderEntryDto-50"><span class="linenos">50</span></a>
+</span><span id="TopRatedLadderEntryDto-51"><a href="#TopRatedLadderEntryDto-51"><span class="linenos">51</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Player&#39;s encrypted puuid.&quot;</span><span class="p">)</span>
+</span><span id="TopRatedLadderEntryDto-52"><a href="#TopRatedLadderEntryDto-52"><span class="linenos">52</span></a>    <span class="n">rated_tier</span><span class="p">:</span> <span class="n">RatedTier</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TopRatedLadderEntryDto-53"><a href="#TopRatedLadderEntryDto-53"><span class="linenos">53</span></a>        <span class="o">...</span><span class="p">,</span>
+</span><span id="TopRatedLadderEntryDto-54"><a href="#TopRatedLadderEntryDto-54"><span class="linenos">54</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ratedTier&quot;</span><span class="p">,</span>
+</span><span id="TopRatedLadderEntryDto-55"><a href="#TopRatedLadderEntryDto-55"><span class="linenos">55</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;(Legal values:  ORANGE,  PURPLE,  BLUE,  GREEN,  GRAY)&quot;</span><span class="p">,</span>
+</span><span id="TopRatedLadderEntryDto-56"><a href="#TopRatedLadderEntryDto-56"><span class="linenos">56</span></a>    <span class="p">)</span>
+</span><span id="TopRatedLadderEntryDto-57"><a href="#TopRatedLadderEntryDto-57"><span class="linenos">57</span></a>    <span class="n">rated_rating</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ratedRating&quot;</span><span class="p">)</span>
+</span><span id="TopRatedLadderEntryDto-58"><a href="#TopRatedLadderEntryDto-58"><span class="linenos">58</span></a>    <span class="n">wins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;First placement.&quot;</span><span class="p">)</span>
+</span><span id="TopRatedLadderEntryDto-59"><a href="#TopRatedLadderEntryDto-59"><span class="linenos">59</span></a>    <span class="n">previous_update_ladder_position</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="TopRatedLadderEntryDto-60"><a href="#TopRatedLadderEntryDto-60"><span class="linenos">60</span></a>        <span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;previousUpdateLadderPosition&quot;</span>
+</span><span id="TopRatedLadderEntryDto-61"><a href="#TopRatedLadderEntryDto-61"><span class="linenos">61</span></a>    <span class="p">)</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>!!! abstract "Usage Documentation"
-    <a href="../concepts/models.md">Models</a></p>
-
-<p>A base class for creating Pydantic models.</p>
-
-<p>Attributes:
-    __class_vars__: The names of the class variables defined on the model.
-    __private_attributes__: Metadata about the private attributes of the model.
-    __signature__: The synthesized <code><a href="#TopRatedLadderEntryDto.__init__">__init__</a></code> [<code>Signature</code>][inspect.Signature] of the model.</p>
-
-<pre><code>__pydantic_complete__: Whether model building is completed, or if there are still undefined fields.
-__pydantic_core_schema__: The core schema of the model.
-__pydantic_custom_init__: Whether the model has a custom `__init__` function.
-__pydantic_decorators__: Metadata containing the decorators defined on the model.
-    This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
-__pydantic_generic_metadata__: Metadata for generic models; contains data used for a similar purpose to
-    __args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.
-__pydantic_parent_namespace__: Parent namespace of the model, used for automatic rebuilding of models.
-__pydantic_post_init__: The name of the post-init method for the model, if defined.
-__pydantic_root_model__: Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
-__pydantic_serializer__: The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
-__pydantic_validator__: The `pydantic-core` `SchemaValidator` used to validate instances of the model.
-
-__pydantic_fields__: A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
-__pydantic_computed_fields__: A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
-
-__pydantic_extra__: A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
-    is set to `'allow'`.
-__pydantic_fields_set__: The names of fields explicitly set during instantiation.
-__pydantic_private__: Values of private attributes set on the model instance.
-</code></pre>
+            <div class="docstring"><p></p>
 </div>
 
 
@@ -850,20 +739,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
     
 
                             </div>
-                            <div id="TopRatedLadderEntryDto.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#TopRatedLadderEntryDto.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
-
-                            </div>
                 </section>
                 <section id="LeagueEntryDTO">
                             <input id="LeagueEntryDTO-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
@@ -876,96 +751,68 @@ __pydantic_private__: Values of private attributes set on the model instance.
 
     </div>
     <a class="headerlink" href="#LeagueEntryDTO"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="LeagueEntryDTO-56"><a href="#LeagueEntryDTO-56"><span class="linenos"> 56</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LeagueEntryDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="LeagueEntryDTO-57"><a href="#LeagueEntryDTO-57"><span class="linenos"> 57</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="LeagueEntryDTO-58"><a href="#LeagueEntryDTO-58"><span class="linenos"> 58</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-59"><a href="#LeagueEntryDTO-59"><span class="linenos"> 59</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Player Universal Unique Identifier. Exact length of 78 characters. (Encrypted)&quot;</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-60"><a href="#LeagueEntryDTO-60"><span class="linenos"> 60</span></a>    <span class="p">)</span>
-</span><span id="LeagueEntryDTO-61"><a href="#LeagueEntryDTO-61"><span class="linenos"> 61</span></a>    <span class="n">league_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="LeagueEntryDTO-62"><a href="#LeagueEntryDTO-62"><span class="linenos"> 62</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-63"><a href="#LeagueEntryDTO-63"><span class="linenos"> 63</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;leagueId&quot;</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-64"><a href="#LeagueEntryDTO-64"><span class="linenos"> 64</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-65"><a href="#LeagueEntryDTO-65"><span class="linenos"> 65</span></a>    <span class="p">)</span>
-</span><span id="LeagueEntryDTO-66"><a href="#LeagueEntryDTO-66"><span class="linenos"> 66</span></a>    <span class="n">queue_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;queueType&quot;</span><span class="p">)</span>
-</span><span id="LeagueEntryDTO-67"><a href="#LeagueEntryDTO-67"><span class="linenos"> 67</span></a>    <span class="n">rated_tier</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">RatedTier</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="LeagueEntryDTO-64"><a href="#LeagueEntryDTO-64"><span class="linenos"> 64</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LeagueEntryDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="LeagueEntryDTO-65"><a href="#LeagueEntryDTO-65"><span class="linenos"> 65</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="LeagueEntryDTO-66"><a href="#LeagueEntryDTO-66"><span class="linenos"> 66</span></a>
+</span><span id="LeagueEntryDTO-67"><a href="#LeagueEntryDTO-67"><span class="linenos"> 67</span></a>    <span class="n">puuid</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
 </span><span id="LeagueEntryDTO-68"><a href="#LeagueEntryDTO-68"><span class="linenos"> 68</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-69"><a href="#LeagueEntryDTO-69"><span class="linenos"> 69</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ratedTier&quot;</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-70"><a href="#LeagueEntryDTO-70"><span class="linenos"> 70</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Only included for the RANKED_TFT_TURBO queueType.</span><span class="se">\n</span><span class="s2">             (Legal values:  ORANGE,  PURPLE,  BLUE,  GREEN,  GRAY)&quot;</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-71"><a href="#LeagueEntryDTO-71"><span class="linenos"> 71</span></a>    <span class="p">)</span>
-</span><span id="LeagueEntryDTO-72"><a href="#LeagueEntryDTO-72"><span class="linenos"> 72</span></a>    <span class="n">rated_rating</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="LeagueEntryDTO-73"><a href="#LeagueEntryDTO-73"><span class="linenos"> 73</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-74"><a href="#LeagueEntryDTO-74"><span class="linenos"> 74</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ratedRating&quot;</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-75"><a href="#LeagueEntryDTO-75"><span class="linenos"> 75</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Only included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-76"><a href="#LeagueEntryDTO-76"><span class="linenos"> 76</span></a>    <span class="p">)</span>
-</span><span id="LeagueEntryDTO-77"><a href="#LeagueEntryDTO-77"><span class="linenos"> 77</span></a>    <span class="n">tier</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="LeagueEntryDTO-78"><a href="#LeagueEntryDTO-78"><span class="linenos"> 78</span></a>        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span>
-</span><span id="LeagueEntryDTO-79"><a href="#LeagueEntryDTO-79"><span class="linenos"> 79</span></a>    <span class="p">)</span>
-</span><span id="LeagueEntryDTO-80"><a href="#LeagueEntryDTO-80"><span class="linenos"> 80</span></a>    <span class="n">rank</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="LeagueEntryDTO-81"><a href="#LeagueEntryDTO-81"><span class="linenos"> 81</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-82"><a href="#LeagueEntryDTO-82"><span class="linenos"> 82</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The player&#39;s division within a tier. Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-83"><a href="#LeagueEntryDTO-83"><span class="linenos"> 83</span></a>    <span class="p">)</span>
-</span><span id="LeagueEntryDTO-84"><a href="#LeagueEntryDTO-84"><span class="linenos"> 84</span></a>    <span class="n">league_points</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="LeagueEntryDTO-85"><a href="#LeagueEntryDTO-85"><span class="linenos"> 85</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-86"><a href="#LeagueEntryDTO-86"><span class="linenos"> 86</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;leaguePoints&quot;</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-87"><a href="#LeagueEntryDTO-87"><span class="linenos"> 87</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-88"><a href="#LeagueEntryDTO-88"><span class="linenos"> 88</span></a>    <span class="p">)</span>
-</span><span id="LeagueEntryDTO-89"><a href="#LeagueEntryDTO-89"><span class="linenos"> 89</span></a>    <span class="n">wins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;First placement.&quot;</span><span class="p">)</span>
-</span><span id="LeagueEntryDTO-90"><a href="#LeagueEntryDTO-90"><span class="linenos"> 90</span></a>    <span class="n">losses</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Second through eighth placement.&quot;</span><span class="p">)</span>
-</span><span id="LeagueEntryDTO-91"><a href="#LeagueEntryDTO-91"><span class="linenos"> 91</span></a>    <span class="n">hot_streak</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="LeagueEntryDTO-92"><a href="#LeagueEntryDTO-92"><span class="linenos"> 92</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-93"><a href="#LeagueEntryDTO-93"><span class="linenos"> 93</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;hotStreak&quot;</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-94"><a href="#LeagueEntryDTO-94"><span class="linenos"> 94</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-95"><a href="#LeagueEntryDTO-95"><span class="linenos"> 95</span></a>    <span class="p">)</span>
-</span><span id="LeagueEntryDTO-96"><a href="#LeagueEntryDTO-96"><span class="linenos"> 96</span></a>    <span class="n">veteran</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="LeagueEntryDTO-97"><a href="#LeagueEntryDTO-97"><span class="linenos"> 97</span></a>        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span>
+</span><span id="LeagueEntryDTO-69"><a href="#LeagueEntryDTO-69"><span class="linenos"> 69</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Player Universal Unique Identifier. Exact length of 78 characters. (Encrypted)&quot;</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-70"><a href="#LeagueEntryDTO-70"><span class="linenos"> 70</span></a>    <span class="p">)</span>
+</span><span id="LeagueEntryDTO-71"><a href="#LeagueEntryDTO-71"><span class="linenos"> 71</span></a>    <span class="n">league_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="LeagueEntryDTO-72"><a href="#LeagueEntryDTO-72"><span class="linenos"> 72</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-73"><a href="#LeagueEntryDTO-73"><span class="linenos"> 73</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;leagueId&quot;</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-74"><a href="#LeagueEntryDTO-74"><span class="linenos"> 74</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-75"><a href="#LeagueEntryDTO-75"><span class="linenos"> 75</span></a>    <span class="p">)</span>
+</span><span id="LeagueEntryDTO-76"><a href="#LeagueEntryDTO-76"><span class="linenos"> 76</span></a>    <span class="n">queue_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;queueType&quot;</span><span class="p">)</span>
+</span><span id="LeagueEntryDTO-77"><a href="#LeagueEntryDTO-77"><span class="linenos"> 77</span></a>    <span class="n">rated_tier</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">RatedTier</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="LeagueEntryDTO-78"><a href="#LeagueEntryDTO-78"><span class="linenos"> 78</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-79"><a href="#LeagueEntryDTO-79"><span class="linenos"> 79</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ratedTier&quot;</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-80"><a href="#LeagueEntryDTO-80"><span class="linenos"> 80</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Only included for the RANKED_TFT_TURBO queueType.</span><span class="se">\n</span><span class="s2">             (Legal values:  ORANGE,  PURPLE,  BLUE,  GREEN,  GRAY)&quot;</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-81"><a href="#LeagueEntryDTO-81"><span class="linenos"> 81</span></a>    <span class="p">)</span>
+</span><span id="LeagueEntryDTO-82"><a href="#LeagueEntryDTO-82"><span class="linenos"> 82</span></a>    <span class="n">rated_rating</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="LeagueEntryDTO-83"><a href="#LeagueEntryDTO-83"><span class="linenos"> 83</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-84"><a href="#LeagueEntryDTO-84"><span class="linenos"> 84</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ratedRating&quot;</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-85"><a href="#LeagueEntryDTO-85"><span class="linenos"> 85</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Only included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-86"><a href="#LeagueEntryDTO-86"><span class="linenos"> 86</span></a>    <span class="p">)</span>
+</span><span id="LeagueEntryDTO-87"><a href="#LeagueEntryDTO-87"><span class="linenos"> 87</span></a>    <span class="n">tier</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="LeagueEntryDTO-88"><a href="#LeagueEntryDTO-88"><span class="linenos"> 88</span></a>        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span>
+</span><span id="LeagueEntryDTO-89"><a href="#LeagueEntryDTO-89"><span class="linenos"> 89</span></a>    <span class="p">)</span>
+</span><span id="LeagueEntryDTO-90"><a href="#LeagueEntryDTO-90"><span class="linenos"> 90</span></a>    <span class="n">rank</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="LeagueEntryDTO-91"><a href="#LeagueEntryDTO-91"><span class="linenos"> 91</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-92"><a href="#LeagueEntryDTO-92"><span class="linenos"> 92</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The player&#39;s division within a tier. Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-93"><a href="#LeagueEntryDTO-93"><span class="linenos"> 93</span></a>    <span class="p">)</span>
+</span><span id="LeagueEntryDTO-94"><a href="#LeagueEntryDTO-94"><span class="linenos"> 94</span></a>    <span class="n">league_points</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="LeagueEntryDTO-95"><a href="#LeagueEntryDTO-95"><span class="linenos"> 95</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-96"><a href="#LeagueEntryDTO-96"><span class="linenos"> 96</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;leaguePoints&quot;</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-97"><a href="#LeagueEntryDTO-97"><span class="linenos"> 97</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
 </span><span id="LeagueEntryDTO-98"><a href="#LeagueEntryDTO-98"><span class="linenos"> 98</span></a>    <span class="p">)</span>
-</span><span id="LeagueEntryDTO-99"><a href="#LeagueEntryDTO-99"><span class="linenos"> 99</span></a>    <span class="n">fresh_blood</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="LeagueEntryDTO-100"><a href="#LeagueEntryDTO-100"><span class="linenos">100</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-101"><a href="#LeagueEntryDTO-101"><span class="linenos">101</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;freshBlood&quot;</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-102"><a href="#LeagueEntryDTO-102"><span class="linenos">102</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-103"><a href="#LeagueEntryDTO-103"><span class="linenos">103</span></a>    <span class="p">)</span>
-</span><span id="LeagueEntryDTO-104"><a href="#LeagueEntryDTO-104"><span class="linenos">104</span></a>    <span class="n">inactive</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="LeagueEntryDTO-105"><a href="#LeagueEntryDTO-105"><span class="linenos">105</span></a>        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span>
-</span><span id="LeagueEntryDTO-106"><a href="#LeagueEntryDTO-106"><span class="linenos">106</span></a>    <span class="p">)</span>
-</span><span id="LeagueEntryDTO-107"><a href="#LeagueEntryDTO-107"><span class="linenos">107</span></a>    <span class="n">mini_series</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MiniSeriesDTO</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
-</span><span id="LeagueEntryDTO-108"><a href="#LeagueEntryDTO-108"><span class="linenos">108</span></a>        <span class="kc">None</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-109"><a href="#LeagueEntryDTO-109"><span class="linenos">109</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;miniSeries&quot;</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-110"><a href="#LeagueEntryDTO-110"><span class="linenos">110</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
-</span><span id="LeagueEntryDTO-111"><a href="#LeagueEntryDTO-111"><span class="linenos">111</span></a>    <span class="p">)</span>
+</span><span id="LeagueEntryDTO-99"><a href="#LeagueEntryDTO-99"><span class="linenos"> 99</span></a>    <span class="n">wins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;First placement.&quot;</span><span class="p">)</span>
+</span><span id="LeagueEntryDTO-100"><a href="#LeagueEntryDTO-100"><span class="linenos">100</span></a>    <span class="n">losses</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Second through eighth placement.&quot;</span><span class="p">)</span>
+</span><span id="LeagueEntryDTO-101"><a href="#LeagueEntryDTO-101"><span class="linenos">101</span></a>    <span class="n">hot_streak</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="LeagueEntryDTO-102"><a href="#LeagueEntryDTO-102"><span class="linenos">102</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-103"><a href="#LeagueEntryDTO-103"><span class="linenos">103</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;hotStreak&quot;</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-104"><a href="#LeagueEntryDTO-104"><span class="linenos">104</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-105"><a href="#LeagueEntryDTO-105"><span class="linenos">105</span></a>    <span class="p">)</span>
+</span><span id="LeagueEntryDTO-106"><a href="#LeagueEntryDTO-106"><span class="linenos">106</span></a>    <span class="n">veteran</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="LeagueEntryDTO-107"><a href="#LeagueEntryDTO-107"><span class="linenos">107</span></a>        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span>
+</span><span id="LeagueEntryDTO-108"><a href="#LeagueEntryDTO-108"><span class="linenos">108</span></a>    <span class="p">)</span>
+</span><span id="LeagueEntryDTO-109"><a href="#LeagueEntryDTO-109"><span class="linenos">109</span></a>    <span class="n">fresh_blood</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="LeagueEntryDTO-110"><a href="#LeagueEntryDTO-110"><span class="linenos">110</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-111"><a href="#LeagueEntryDTO-111"><span class="linenos">111</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;freshBlood&quot;</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-112"><a href="#LeagueEntryDTO-112"><span class="linenos">112</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-113"><a href="#LeagueEntryDTO-113"><span class="linenos">113</span></a>    <span class="p">)</span>
+</span><span id="LeagueEntryDTO-114"><a href="#LeagueEntryDTO-114"><span class="linenos">114</span></a>    <span class="n">inactive</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="LeagueEntryDTO-115"><a href="#LeagueEntryDTO-115"><span class="linenos">115</span></a>        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span>
+</span><span id="LeagueEntryDTO-116"><a href="#LeagueEntryDTO-116"><span class="linenos">116</span></a>    <span class="p">)</span>
+</span><span id="LeagueEntryDTO-117"><a href="#LeagueEntryDTO-117"><span class="linenos">117</span></a>    <span class="n">mini_series</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MiniSeriesDTO</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span id="LeagueEntryDTO-118"><a href="#LeagueEntryDTO-118"><span class="linenos">118</span></a>        <span class="kc">None</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-119"><a href="#LeagueEntryDTO-119"><span class="linenos">119</span></a>        <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;miniSeries&quot;</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-120"><a href="#LeagueEntryDTO-120"><span class="linenos">120</span></a>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Not included for the RANKED_TFT_TURBO queueType.&quot;</span><span class="p">,</span>
+</span><span id="LeagueEntryDTO-121"><a href="#LeagueEntryDTO-121"><span class="linenos">121</span></a>    <span class="p">)</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>!!! abstract "Usage Documentation"
-    <a href="../concepts/models.md">Models</a></p>
-
-<p>A base class for creating Pydantic models.</p>
-
-<p>Attributes:
-    __class_vars__: The names of the class variables defined on the model.
-    __private_attributes__: Metadata about the private attributes of the model.
-    __signature__: The synthesized <code><a href="#LeagueEntryDTO.__init__">__init__</a></code> [<code>Signature</code>][inspect.Signature] of the model.</p>
-
-<pre><code>__pydantic_complete__: Whether model building is completed, or if there are still undefined fields.
-__pydantic_core_schema__: The core schema of the model.
-__pydantic_custom_init__: Whether the model has a custom `__init__` function.
-__pydantic_decorators__: Metadata containing the decorators defined on the model.
-    This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
-__pydantic_generic_metadata__: Metadata for generic models; contains data used for a similar purpose to
-    __args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.
-__pydantic_parent_namespace__: Parent namespace of the model, used for automatic rebuilding of models.
-__pydantic_post_init__: The name of the post-init method for the model, if defined.
-__pydantic_root_model__: Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
-__pydantic_serializer__: The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
-__pydantic_validator__: The `pydantic-core` `SchemaValidator` used to validate instances of the model.
-
-__pydantic_fields__: A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
-__pydantic_computed_fields__: A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
-
-__pydantic_extra__: A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
-    is set to `'allow'`.
-__pydantic_fields_set__: The names of fields explicitly set during instantiation.
-__pydantic_private__: Values of private attributes set on the model instance.
-</code></pre>
+            <div class="docstring"><p></p>
 </div>
 
 
@@ -1134,20 +981,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
     
 
                             </div>
-                            <div id="LeagueEntryDTO.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#LeagueEntryDTO.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
-
-                            </div>
                 </section>
                 <section id="LeagueListDTO">
                             <input id="LeagueListDTO-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
@@ -1160,46 +993,18 @@ __pydantic_private__: Values of private attributes set on the model instance.
 
     </div>
     <a class="headerlink" href="#LeagueListDTO"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="LeagueListDTO-114"><a href="#LeagueListDTO-114"><span class="linenos">114</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LeagueListDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="LeagueListDTO-115"><a href="#LeagueListDTO-115"><span class="linenos">115</span></a>    <span class="n">league_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;leagueId&quot;</span><span class="p">)</span>
-</span><span id="LeagueListDTO-116"><a href="#LeagueListDTO-116"><span class="linenos">116</span></a>    <span class="n">entries</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">LeagueItemDTO</span><span class="p">]</span>
-</span><span id="LeagueListDTO-117"><a href="#LeagueListDTO-117"><span class="linenos">117</span></a>    <span class="n">tier</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="LeagueListDTO-118"><a href="#LeagueListDTO-118"><span class="linenos">118</span></a>    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-</span><span id="LeagueListDTO-119"><a href="#LeagueListDTO-119"><span class="linenos">119</span></a>    <span class="n">queue</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="LeagueListDTO-124"><a href="#LeagueListDTO-124"><span class="linenos">124</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LeagueListDTO</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="LeagueListDTO-125"><a href="#LeagueListDTO-125"><span class="linenos">125</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;@public&quot;&quot;&quot;</span>
+</span><span id="LeagueListDTO-126"><a href="#LeagueListDTO-126"><span class="linenos">126</span></a>
+</span><span id="LeagueListDTO-127"><a href="#LeagueListDTO-127"><span class="linenos">127</span></a>    <span class="n">league_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;leagueId&quot;</span><span class="p">)</span>
+</span><span id="LeagueListDTO-128"><a href="#LeagueListDTO-128"><span class="linenos">128</span></a>    <span class="n">entries</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">LeagueItemDTO</span><span class="p">]</span>
+</span><span id="LeagueListDTO-129"><a href="#LeagueListDTO-129"><span class="linenos">129</span></a>    <span class="n">tier</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="LeagueListDTO-130"><a href="#LeagueListDTO-130"><span class="linenos">130</span></a>    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="LeagueListDTO-131"><a href="#LeagueListDTO-131"><span class="linenos">131</span></a>    <span class="n">queue</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>!!! abstract "Usage Documentation"
-    <a href="../concepts/models.md">Models</a></p>
-
-<p>A base class for creating Pydantic models.</p>
-
-<p>Attributes:
-    __class_vars__: The names of the class variables defined on the model.
-    __private_attributes__: Metadata about the private attributes of the model.
-    __signature__: The synthesized <code><a href="#LeagueListDTO.__init__">__init__</a></code> [<code>Signature</code>][inspect.Signature] of the model.</p>
-
-<pre><code>__pydantic_complete__: Whether model building is completed, or if there are still undefined fields.
-__pydantic_core_schema__: The core schema of the model.
-__pydantic_custom_init__: Whether the model has a custom `__init__` function.
-__pydantic_decorators__: Metadata containing the decorators defined on the model.
-    This replaces `Model.__validators__` and `Model.__root_validators__` from Pydantic V1.
-__pydantic_generic_metadata__: Metadata for generic models; contains data used for a similar purpose to
-    __args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.
-__pydantic_parent_namespace__: Parent namespace of the model, used for automatic rebuilding of models.
-__pydantic_post_init__: The name of the post-init method for the model, if defined.
-__pydantic_root_model__: Whether the model is a [`RootModel`][pydantic.root_model.RootModel].
-__pydantic_serializer__: The `pydantic-core` `SchemaSerializer` used to dump instances of the model.
-__pydantic_validator__: The `pydantic-core` `SchemaValidator` used to validate instances of the model.
-
-__pydantic_fields__: A dictionary of field names and their corresponding [`FieldInfo`][pydantic.fields.FieldInfo] objects.
-__pydantic_computed_fields__: A dictionary of computed field names and their corresponding [`ComputedFieldInfo`][pydantic.fields.ComputedFieldInfo] objects.
-
-__pydantic_extra__: A dictionary containing extra values, if [`extra`][pydantic.config.ConfigDict.extra]
-    is set to `'allow'`.
-__pydantic_fields_set__: The names of fields explicitly set during instantiation.
-__pydantic_private__: Values of private attributes set on the model instance.
-</code></pre>
+            <div class="docstring"><p></p>
 </div>
 
 
@@ -1256,20 +1061,6 @@ __pydantic_private__: Values of private attributes set on the model instance.
     <a class="headerlink" href="#LeagueListDTO.queue"></a>
     
     
-
-                            </div>
-                            <div id="LeagueListDTO.model_config" class="classattr">
-                                <div class="attr variable">
-            <span class="name">model_config</span><span class="annotation">: ClassVar[pydantic.config.ConfigDict]</span>        =
-<span class="default_value">{}</span>
-
-        
-    </div>
-    <a class="headerlink" href="#LeagueListDTO.model_config"></a>
-    
-            <div class="docstring"><p>Configuration for the model, should be a dictionary conforming to [<code>ConfigDict</code>][pydantic.config.ConfigDict].</p>
-</div>
-
 
                             </div>
                 </section>

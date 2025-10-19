@@ -2,6 +2,12 @@
 #   filename:  schema.json
 #   timestamp: 2025-10-19T17:24:31+00:00
 
+"""
+The **models** submodule defines structured data representations (models) for Riot API responses.
+
+Each model corresponds to a data object returned by the API — for example, Summoner, Match, Participant, or LeagueEntry — and provides helpful methods for accessing and transforming data.
+"""
+
 from __future__ import annotations
 
 from typing import Optional
@@ -10,9 +16,13 @@ from pydantic import BaseModel
 
 
 class Status(BaseModel):
+    """@private"""
+
     status_code: Optional[int] = None
     message: Optional[str] = None
 
 
 class Error(BaseModel):
+    """@private"""
+
     status: Optional[Status] = None

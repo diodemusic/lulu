@@ -10,6 +10,8 @@ from pydantic import BaseModel, Field
 
 
 class RewardConfigDto(BaseModel):
+    """@public"""
+
     reward_value: str = Field(..., alias="rewardValue", description="Reward value")
     reward_type: str = Field(..., alias="rewardType", description="Reward type")
     maximum_reward: int = Field(
@@ -18,6 +20,8 @@ class RewardConfigDto(BaseModel):
 
 
 class NextSeasonMilestonesDto(BaseModel):
+    """@public"""
+
     require_grade_counts: Dict[str, int] = Field(..., alias="requireGradeCounts")
     reward_marks: int = Field(..., alias="rewardMarks", description="Reward marks.")
     bonus: bool = Field(..., description="Bonus.")
@@ -28,6 +32,8 @@ class NextSeasonMilestonesDto(BaseModel):
 
 
 class ChampionMasteryDto(BaseModel):
+    """@public"""
+
     puuid: str = Field(
         ...,
         description="Player Universal Unique Identifier. Exact length of 78 characters. (Encrypted)",

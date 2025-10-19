@@ -10,12 +10,16 @@ from pydantic import BaseModel, Field
 
 
 class MetadataDto(BaseModel):
+    """@public"""
+
     data_version: str = Field(..., description="Match data version.")
     match_id: str = Field(..., description="Match id.")
     participants: List[str] = Field(..., description="A list of participant PUUIDs.")
 
 
 class CompanionDto(BaseModel):
+    """@public"""
+
     content_id: str = Field(..., alias="content_ID")
     item_id: int = Field(..., alias="item_ID")
     skin_id: int = Field(..., alias="skin_ID")
@@ -23,6 +27,8 @@ class CompanionDto(BaseModel):
 
 
 class TraitDto(BaseModel):
+    """@public"""
+
     name: str = Field(..., description="Trait name.")
     num_units: int = Field(..., description="Number of units with this trait.")
     style: Optional[int] = Field(
@@ -34,6 +40,8 @@ class TraitDto(BaseModel):
 
 
 class UnitDto(BaseModel):
+    """@public"""
+
     items: Optional[List[int]] = Field(
         None,
         description="A list of the unit's items. Please refer to the Teamfight Tactics documentation for item ids.",
@@ -54,6 +62,8 @@ class UnitDto(BaseModel):
 
 
 class ParticipantMissionsDto(BaseModel):
+    """@public"""
+
     assists: Optional[int] = Field(None, alias="Assists")
     damage_dealt: Optional[int] = Field(None, alias="DamageDealt")
     damage_dealt_to_objectives: Optional[int] = Field(
@@ -117,6 +127,8 @@ class ParticipantMissionsDto(BaseModel):
 
 
 class ParticipantDto(BaseModel):
+    """@public"""
+
     companion: CompanionDto = Field(..., description="Participant's companion.")
     gold_left: int = Field(
         ..., description="Gold left after participant was eliminated."
@@ -158,6 +170,8 @@ class ParticipantDto(BaseModel):
 
 
 class InfoDto(BaseModel):
+    """@public"""
+
     end_of_game_result: Optional[str] = Field(None, alias="endOfGameResult")
     game_creation: Optional[int] = Field(None, alias="gameCreation")
     game_id: Optional[int] = Field(None, alias="gameId")
@@ -184,5 +198,7 @@ class InfoDto(BaseModel):
 
 
 class MatchDto(BaseModel):
+    """@public"""
+
     metadata: MetadataDto = Field(..., description="Match metadata.")
     info: InfoDto = Field(..., description="Match info.")
