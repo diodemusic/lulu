@@ -8,12 +8,12 @@ if not TEST_PUUID:
 
 
 def test_masteries_by_puuid(api: Pyke):
-    _masteries_by_puuid = api.champion_mastery.masteries_by_puuid(
+    masteries_by_puuid = api.champion_mastery.masteries_by_puuid(
         region=Region.EUW,
         puuid=TEST_PUUID,
     )
 
-    for champion_mastery in _masteries_by_puuid:
+    for champion_mastery in masteries_by_puuid:
         assert isinstance(champion_mastery, ChampionMasteryDto)
 
 
