@@ -1,6 +1,5 @@
 """[![PyPI - Version](https://img.shields.io/pypi/v/pyke-lol)](https://pypi.org/project/pyke-lol/)
 [![Documentation](https://img.shields.io/badge/Documentation-blue)](https://diodemusic.github.io/pyke/)
-[![PyPI - Downloads](https://img.shields.io/pypi/dd/pyke-lol)](https://pypi.org/project/pyke-lol/)
 ![Coverage](https://img.shields.io/badge/Coverage-94%25-brightgreen.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/diodemusic/pyke/blob/main/LICENCE.txt)
 
