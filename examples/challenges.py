@@ -11,11 +11,11 @@ API_KEY = os.getenv("RIOT_API_KEY")
 # Let's not print urls, we don't want our leaderboard to be filled with random urls
 api = Pyke(API_KEY, print_url=False)
 
-# Let's grab a random challenge from the challenges.config method
-challenge = random.choice(api.challenges.config(Region.EUW))
+# Let's grab a random challenge from the lol_challenges.config method
+challenge = random.choice(api.lol_challenges.config(Region.EUW))
 
 # Now we can get the top players from our random challenge
-top_players = api.challenges.leaderboards_by_level(
+top_players = api.lol_challenges.leaderboards_by_level(
     Region.EUW, Level.CHALLENGER, challenge.id
 )
 

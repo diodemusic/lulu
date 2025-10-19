@@ -8,7 +8,7 @@ load_dotenv()
 API_KEY = os.getenv("RIOT_API_KEY")
 api = Pyke(API_KEY)
 
-status = api.status.platform_data(Region.EUW)
+status = api.lol_status.platform_data(Region.EUW)
 
 for incident in status.incidents:
     if incident.incident_severity:

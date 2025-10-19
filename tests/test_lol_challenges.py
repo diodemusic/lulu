@@ -1,5 +1,5 @@
 from pyke import Level, Pyke, Region
-from pyke.models.challenges_v1 import (
+from pyke.models.lol_challenges_v1 import (
     ApexPlayerInfoDto,
     ChallengeConfigInfoDto,
     PlayerInfoDto,
@@ -15,20 +15,20 @@ if not TEST_CHALLENGE_ID:
 
 
 def test_config(api: Pyke):
-    config = api.challenges.config(region=Region.EUW)
+    config = api.lol_challenges.config(region=Region.EUW)
 
     for challenge in config:
         assert isinstance(challenge, ChallengeConfigInfoDto)
 
 
 def test_percentiles(api: Pyke):
-    percentiles = api.challenges.percentiles(region=Region.EUW)
+    percentiles = api.lol_challenges.percentiles(region=Region.EUW)
 
     assert type(percentiles) is dict
 
 
 def test_config_by_challenge_id(api: Pyke):
-    config_by_challenge_id = api.challenges.config_by_challenge_id(
+    config_by_challenge_id = api.lol_challenges.config_by_challenge_id(
         region=Region.EUW, challenge_id=TEST_CHALLENGE_ID
     )
 
@@ -36,7 +36,7 @@ def test_config_by_challenge_id(api: Pyke):
 
 
 def test_leaderboards_by_level(api: Pyke):
-    leaderboards_by_level = api.challenges.leaderboards_by_level(
+    leaderboards_by_level = api.lol_challenges.leaderboards_by_level(
         region=Region.EUW, level=Level.MASTER, challenge_id=TEST_CHALLENGE_ID
     )
 
@@ -45,7 +45,7 @@ def test_leaderboards_by_level(api: Pyke):
 
 
 def test_percentiles_by_challenge_id(api: Pyke):
-    percentiles_by_challenge_id = api.challenges.percentiles_by_challenge_id(
+    percentiles_by_challenge_id = api.lol_challenges.percentiles_by_challenge_id(
         region=Region.EUW, challenge_id=TEST_CHALLENGE_ID
     )
 
@@ -53,6 +53,6 @@ def test_percentiles_by_challenge_id(api: Pyke):
 
 
 def test_by_puuid(api: Pyke):
-    by_puuid = api.challenges.by_puuid(region=Region.EUW, puuid=TEST_PUUID)
+    by_puuid = api.lol_challenges.by_puuid(region=Region.EUW, puuid=TEST_PUUID)
 
     assert isinstance(by_puuid, PlayerInfoDto)
