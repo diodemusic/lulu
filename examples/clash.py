@@ -27,6 +27,10 @@ account = api.account.by_riot_id(Continent.EUROPE, "saves", "000")
 account = api.account.by_riot_id(Continent.EUROPE, "saves", "000")
 players = api.clash.by_puuid(Region.EUW, account.puuid)
 
+if not players:
+    print("You are not in an active clash team")
+    quit()
+
 # Let's print what roles everyone is playing
 for player in players:
     if player.puuid == account.puuid:
