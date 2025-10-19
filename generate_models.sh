@@ -1,9 +1,9 @@
-python3 pyke/_models/get_schema_json.py
+python3 src/pyke/_schema/get_schema_json.py
 
 datamodel-codegen \
-  --input pyke/_schema/schema.json \
+  --input src/pyke/_schema/schema.json \
   --input-file-type openapi \
-  --output pyke/_models/ \
+  --output src/pyke/models/ \
   --snake-case-field
 
 black .
