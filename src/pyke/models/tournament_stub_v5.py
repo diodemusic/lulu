@@ -38,7 +38,7 @@ class TournamentCodeParametersV5(BaseModel):
         None,
         description="Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.",
     )
-    team_size: conint(ge=1, le=5) = Field(
+    team_size: conint(ge=1, le=5) = Field(  # pyright: ignore[reportInvalidTypeForm]
         ...,
         alias="teamSize",
         description="The team size of the game. Valid values are 1-5.",
