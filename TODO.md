@@ -23,12 +23,11 @@
 
 ```python
 class SummonerDTO(BaseModel):
-    id: str
-    accountId: str
+    profile_icon_id: int
+    revision_date: int
     puuid: str
-    name: str
-    profileIconId: int
-    summonerLevel: int
+    summoner_level: int
+    id: Optional[str]
 ```
 
 * [x] Type-safe responses.
