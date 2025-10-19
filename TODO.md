@@ -6,7 +6,6 @@
 * [x] **Encapsulate endpoints as modules or classes** (account, summoner, match, league, etc).
 * [x] **Provide clear data models** (e.g., Pydantic models for responses — `SummonerDTO`, `MatchDTO`).
 * [x] **Handle authentication** cleanly (API key via env var, config file, or parameter).
-* [ ] **TFT** add support for all TFT endpoints.
 
 ---
 
@@ -40,7 +39,7 @@ class SummonerDTO(BaseModel):
 
 * [x] Intelligent autocomplete (clear method names, type hints).
 * [x] Helpful docstrings.
-* [ ] Friendly errors (e.g., “Invalid region: must be one of EUW1, NA1, KR…”).
+* [x] Friendly errors (e.g., “Invalid region: must be one of EUW1, NA1, KR…”).
 * [x] Toggleable logging.
 
 ---
