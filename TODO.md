@@ -51,13 +51,14 @@ class SummonerDTO(BaseModel):
 * [x] `README.md` with usage examples and badges.
 * [x] `LICENSE`, and versioning (`0.1.0` → `0.2.0`).
 * [x] Built docs (using `pdoc` or `mkdocs-material`).
+* [x] CI pipeline (GitHub Actions) that runs PyPI build on release.
 
 ---
 
 ## 6. Testing
 
 * [x] Unit tests (for each endpoint wrapper).
-* [ ] CI pipeline (GitHub Actions) that runs tests + lints + builds on PR.
+* [ ] CI pipeline (GitHub Actions) that runs tests + lints commit.
 * [x] Coverage report (badge in README).
 * [ ] Test endpoints with multiple regions/continents and multiple users.
 
