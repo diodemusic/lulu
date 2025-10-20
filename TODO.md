@@ -58,7 +58,7 @@ class SummonerDTO(BaseModel):
 ## 6. Testing
 
 * [x] Unit tests (for each endpoint wrapper).
-* [ ] CI pipeline (GitHub Actions) that runs tests + lints commit.
+* [x] CI pipeline (GitHub Actions) that runs tests + lints on commit.
 * [x] Coverage report (badge in README).
 * [ ] Test endpoints with multiple regions/continents and multiple users.
 
