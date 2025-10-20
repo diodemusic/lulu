@@ -6,6 +6,7 @@
 * [x] **Encapsulate endpoints as modules or classes** (account, summoner, match, league, etc).
 * [x] **Provide clear data models** (e.g., Pydantic models for responses — `SummonerDTO`, `MatchDTO`).
 * [x] **Handle authentication** cleanly (API key via env var, config file, or parameter).
+* [ ] Change enums to follow the same convention as exception ie just import the whole enum package.
 * [ ] Add **rate-limit/backoff strategy configuration** (retry counts, backoff formula, headers respect).
 * [ ] Add a lightweight caching layer (optional, e.g., TTLCache or Redis adapter).
 
