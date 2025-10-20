@@ -8,6 +8,14 @@ on:
 jobs:
   lint-test:
     runs-on: ubuntu-latest
+    env:
+        RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
+        TEST_PUUID: ${{ secrets.TEST_PUUID }}
+        TEST_LEAGUE_ID: ${{ secrets.TEST_LEAGUE_ID }}
+        TEST_CHALLENGE_ID: ${{ secrets.TEST_CHALLENGE_ID }}
+        TEST_MATCH_ID: ${{ secrets.TEST_MATCH_ID }}
+        TEST_TEAM_ID: ${{ secrets.TEST_TEAM_ID }}
+        TEST_TOURNAMENT_ID: ${{ secrets.TEST_TOURNAMENT_ID }}
 
     steps:
       - name: Checkout repository
