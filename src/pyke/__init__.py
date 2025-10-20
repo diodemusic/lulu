@@ -83,7 +83,7 @@ my username is `.irm`
 enjoy :)
 """
 
-from . import exceptions
+from . import endpoints, enums, exceptions, models
 from .__version__ import __author__, __title__, __version__
 from .enums.continent import Continent
 from .enums.division import Division
@@ -107,4 +107,7 @@ __all__ = [
     "__author__",
     "__title__",
     "__version__",
+    "endpoints",
+    "enums",
+    "models",
 ]
