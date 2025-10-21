@@ -5,9 +5,9 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import List, Optional
+from typing import Annotated, List, Optional
 
-from pydantic import BaseModel, Field, conint
+from pydantic import BaseModel, Field
 
 
 class PickType(Enum):
@@ -46,7 +46,7 @@ class TournamentCodeParametersV5(BaseModel):
         None,
         description="Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.",
     )
-    team_size: conint(ge=1, le=5) = Field(  # pyright: ignore[reportInvalidTypeForm]
+    team_size: Annotated[int, Field(ge=1, le=5)] = Field(  # pyright: ignore[reportInvalidTypeForm]
         ...,
         alias="teamSize",
         description="The team size of the game. Valid values are 1-5.",
