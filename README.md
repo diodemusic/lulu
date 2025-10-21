@@ -26,7 +26,7 @@ pip install pyke-lol
 from pyke import Continent, Pyke, exceptions
 
 # We always initialize the API like this
-# We can explicitly disable url logging, by default pyke will print the url of all api calls
+# We can explicitly disable url logging, by default pyke will print the url of every call
 api = Pyke("API_KEY", print_url=False)
 
 # Every pyke method follows the same convention as the Riot API
