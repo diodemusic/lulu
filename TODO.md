@@ -128,13 +128,12 @@ class SummonerDTO(BaseModel):
 ## 11. Continuous Integration & Quality
 
 * [ ] Add GitHub Action workflow (`ci.yml`) with:
-  * `ruff` lint check
-  * `mypy` type check
-  * `bandit` security scan
-  * `pytest` for tests
-  * `pdoc` doc build and artifact upload
-* [ ] Add dependabot to repo.
-* [ ] Require CI passing before merge (branch protection).
+  * [ ] `black` lint check
+  * [ ] `mypy` type check
+  * [ ] `bandit` security scan
+  * [ ] `pytest` for tests
+  * [ ] `pdoc` doc build and artifact upload
+* [x] Add dependabot to repo.
 * [ ] Add badges to README: `Build`, `Docs`, `Coverage`, `Code Quality`.
 * [ ] Add pre-commit hooks for `ruff`, `black`, and `isort`.
 
