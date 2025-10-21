@@ -31,7 +31,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e .
           pip install black pytest mypy bandit pdoc
-          mypy --install-types
 
       - name: Lint code
         run: black .
@@ -42,7 +41,7 @@ jobs:
         run: pytest --maxfail=1 --disable-warnings -v
 
       - name: Mypy
-        run: mypy --ignore-missing-imports .
+        run: mypy --ignore-missing-imports --install-types .
 
       - name: Bandit
         run: bandit -r src
