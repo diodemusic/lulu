@@ -3,15 +3,6 @@ from pyke.models.clash_v1 import PlayerDto, TeamDto, TournamentDto
 
 from .base import TEST_PUUID, TEST_TEAM_ID, TEST_TOURNAMENT_ID, api
 
-if not TEST_PUUID:
-    quit()
-
-if not TEST_TEAM_ID:
-    quit()
-
-if not TEST_TOURNAMENT_ID:
-    quit()
-
 
 def test_by_puuid(api: Pyke):
     by_puuid = api.clash.by_puuid(Region.EUW, TEST_PUUID)

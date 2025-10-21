@@ -3,9 +3,6 @@ from pyke.models.champion_mastery_v4 import ChampionMasteryDto
 
 from .base import TEST_PUUID, api
 
-if not TEST_PUUID:
-    quit()
-
 
 def test_masteries_by_puuid(api: Pyke):
     masteries_by_puuid = api.champion_mastery.masteries_by_puuid(

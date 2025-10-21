@@ -5,9 +5,6 @@ from .base import TEST_PUUID, api
 
 
 def test_by_puuid(api: Pyke):
-    if not TEST_PUUID:
-        quit()
-
     by_puuid = api.account.by_puuid(
         continent=Continent.EUROPE,
         puuid=TEST_PUUID,
@@ -25,11 +22,9 @@ def test_by_riot_id(api: Pyke):
 
 
 def test_region_by_puuid(api: Pyke):
-    if not TEST_PUUID:
-        quit()
-
     region_by_puuid = api.account.region_by_puuid(
         continent=Continent.EUROPE, puuid=TEST_PUUID
     )
 
+    assert isinstance(region_by_puuid, AccountRegionDTO)
     assert isinstance(region_by_puuid, AccountRegionDTO)

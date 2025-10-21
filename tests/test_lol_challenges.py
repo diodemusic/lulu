@@ -7,12 +7,6 @@ from pyke.models.lol_challenges_v1 import (
 
 from .base import TEST_CHALLENGE_ID, TEST_PUUID, api
 
-if not TEST_PUUID:
-    quit()
-
-if not TEST_CHALLENGE_ID:
-    quit()
-
 
 def test_config(api: Pyke):
     config = api.lol_challenges.config(region=Region.EUW)
@@ -55,4 +49,5 @@ def test_percentiles_by_challenge_id(api: Pyke):
 def test_by_puuid(api: Pyke):
     by_puuid = api.lol_challenges.by_puuid(region=Region.EUW, puuid=TEST_PUUID)
 
+    assert isinstance(by_puuid, PlayerInfoDto)
     assert isinstance(by_puuid, PlayerInfoDto)

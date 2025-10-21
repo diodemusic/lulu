@@ -5,12 +5,6 @@ from pyke.models.match_v5 import MatchDto, TimelineDto
 
 from .base import TEST_MATCH_ID, TEST_PUUID, api
 
-if not TEST_PUUID:
-    quit()
-
-if not TEST_MATCH_ID:
-    quit()
-
 
 def test_match_ids_by_puuid(api: Pyke):
     match_ids_by_puuid = api.match.match_ids_by_puuid(
