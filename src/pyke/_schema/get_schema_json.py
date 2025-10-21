@@ -4,7 +4,7 @@ import requests
 
 url = "http://www.mingweisamuel.com/riotapi-schema/openapi-3.0.0.json"
 
-response = requests.get(url)
+response = requests.get(url, timeout=10)
 
 code = response.status_code
 
