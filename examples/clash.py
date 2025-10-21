@@ -24,7 +24,6 @@ else:
 account = api.account.by_riot_id(Continent.EUROPE, "saves", "000")
 
 # We can get our clash team like this
-account = api.account.by_riot_id(Continent.EUROPE, "saves", "000")
 players = api.clash.by_puuid(Region.EUW, account.puuid)
 
 if not players:
