@@ -3,12 +3,6 @@ from pyke.models.league_v4 import LeagueEntryDTO, LeagueItemDTO, LeagueListDTO
 
 from .base import TEST_LEAGUE_ID, TEST_PUUID, api
 
-if not TEST_PUUID:
-    quit()
-
-if not TEST_LEAGUE_ID:
-    quit()
-
 
 def test_challenger_leagues_by_queue(api: Pyke):
     challenger_leagues_by_queue = api.league.challenger_leagues_by_queue(
@@ -22,6 +16,9 @@ def test_challenger_leagues_by_queue(api: Pyke):
 
 
 def test_by_puuid(api: Pyke):
+    if not TEST_PUUID:
+        quit()
+
     by_puuid = api.league.by_puuid(region=Region.EUW, puuid=TEST_PUUID)
 
     for league_entry in by_puuid:
@@ -56,6 +53,9 @@ def test_grandmaster_leagues_by_queue(api: Pyke):
 
 
 def test_by_league_id(api: Pyke):
+    if not TEST_LEAGUE_ID:
+        quit()
+
     by_league_id = api.league.by_league_id(region=Region.EUW, league_id=TEST_LEAGUE_ID)
 
     assert isinstance(by_league_id, LeagueListDTO)
