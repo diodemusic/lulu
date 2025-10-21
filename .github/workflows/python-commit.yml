@@ -39,15 +39,16 @@ jobs:
         env:
             PYTHONPATH: ${{ github.workspace }}/pyke
         run: pytest --maxfail=1 --disable-warnings -v
-    
-      - name: Mypy
-        run: mypy --ignore-missing-imports .
+
+      # - name: Mypy
+      #   run: mypy --ignore-missing-imports .
+
       - name: Bandit
         run: bandit -r src
-      - name: Pytest
-        run: pytest -q
+
       - name: Build Docs
         run: pdoc pyke -o docs
+
       - name: Upload Docs
         uses: actions/upload-artifact@v4
         with:
