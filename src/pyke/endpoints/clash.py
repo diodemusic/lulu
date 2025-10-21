@@ -52,7 +52,7 @@ class ClashEndpoint:
             `region (Region):` Region to execute against (pyke.enums.region.Region).  
 
         **Returns:**  
-            `list[TournamentDto]:` pyke.models.clash_v1.TournamentDto
+            `list[TournamentDto]:` List of pyke.models.clash_v1.TournamentDto objects.
         """  # fmt: skip
 
         path = "/lol/clash/v1/tournaments"
