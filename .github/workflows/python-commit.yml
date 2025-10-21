@@ -41,7 +41,7 @@ jobs:
         run: pytest --maxfail=1 --disable-warnings -v
 
       - name: Mypy
-        run: mypy --ignore-missing-imports --install-types .
+        run: mypy --ignore-missing-imports --install-types --non-interactive .
 
       - name: Bandit
         run: bandit -r src
