@@ -293,7 +293,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">masteries_by_puuid</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../models/champion_mastery_v4.html#ChampionMasteryDto">pyke.models.champion_mastery_v4.ChampionMasteryDto</a></span><span class="p">]</span>:</span></span>
+        <span class="name">masteries_by_puuid</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../../pyke.html#Region">pyke.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../models/champion_mastery_v4.html#ChampionMasteryDto">pyke.models.champion_mastery_v4.ChampionMasteryDto</a></span><span class="p">]</span>:</span></span>
 
                 <label class="view-source-button" for="ChampionMasteryEndpoint.masteries_by_puuid-view-source"><span>View Source</span></label>
 
@@ -327,7 +327,7 @@
             <div class="docstring"><h1 id="get-all-champion-mastery-entries-sorted-by-number-of-champion-points-descending">Get all champion mastery entries sorted by number of champion points descending</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../../pyke.html#Region">pyke.enums.region.Region</a>).<br />
     <code>puuid (str):</code> Encrypted PUUID. Exact length of 78 characters.  </p>
 
 <p><strong>Returns:</strong><br />
@@ -341,7 +341,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">by_puuid_and_champion_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">champion_id</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/champion_mastery_v4.html#ChampionMasteryDto">pyke.models.champion_mastery_v4.ChampionMasteryDto</a></span>:</span></span>
+        <span class="name">by_puuid_and_champion_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../../pyke.html#Region">pyke.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">champion_id</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/champion_mastery_v4.html#ChampionMasteryDto">pyke.models.champion_mastery_v4.ChampionMasteryDto</a></span>:</span></span>
 
                 <label class="view-source-button" for="ChampionMasteryEndpoint.by_puuid_and_champion_id-view-source"><span>View Source</span></label>
 
@@ -371,7 +371,7 @@
             <div class="docstring"><h1 id="get-a-champion-mastery-by-puuid-and-champion-id">Get a champion mastery by puuid and champion ID</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../../pyke.html#Region">pyke.enums.region.Region</a>).<br />
     <code>puuid (str):</code> Encrypted PUUID. Exact length of 78 characters.<br />
     <code>champion_id (int):</code> Champion ID for this entry.  </p>
 
@@ -386,7 +386,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">masteries_by_puuid_top</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../models/champion_mastery_v4.html#ChampionMasteryDto">pyke.models.champion_mastery_v4.ChampionMasteryDto</a></span><span class="p">]</span>:</span></span>
+        <span class="name">masteries_by_puuid_top</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../../pyke.html#Region">pyke.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../models/champion_mastery_v4.html#ChampionMasteryDto">pyke.models.champion_mastery_v4.ChampionMasteryDto</a></span><span class="p">]</span>:</span></span>
 
                 <label class="view-source-button" for="ChampionMasteryEndpoint.masteries_by_puuid_top-view-source"><span>View Source</span></label>
 
@@ -422,7 +422,7 @@
             <div class="docstring"><h1 id="get-specified-number-of-top-champion-mastery-entries-sorted-by-number-of-champion-points-descending">Get specified number of top champion mastery entries sorted by number of champion points descending</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../../pyke.html#Region">pyke.enums.region.Region</a>).<br />
     <code>puuid (str):</code> Encrypted PUUID. Exact length of 78 characters.<br />
     <code>count (int | None, optional):</code> Number of entries to retrieve. defaults to 3.  </p>
 
@@ -437,7 +437,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">score_by_puuid</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>, </span><span class="param"><span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">int</span>:</span></span>
+        <span class="name">score_by_puuid</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">region</span><span class="p">:</span> <span class="n"><a href="../../pyke.html#Region">pyke.Region</a></span>, </span><span class="param"><span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">int</span>:</span></span>
 
                 <label class="view-source-button" for="ChampionMasteryEndpoint.score_by_puuid-view-source"><span>View Source</span></label>
 
@@ -464,7 +464,7 @@
             <div class="docstring"><h1 id="get-a-players-total-champion-mastery-score-which-is-the-sum-of-individual-champion-mastery-levels">Get a player's total champion mastery score, which is the sum of individual champion mastery levels</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../../pyke.html#Region">pyke.enums.region.Region</a>).<br />
     <code>puuid (str):</code> Encrypted PUUID. Exact length of 78 characters.  </p>
 
 <p><strong>Returns:</strong><br />

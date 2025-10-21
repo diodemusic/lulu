@@ -359,7 +359,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">config</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../models/lol_challenges_v1.html#ChallengeConfigInfoDto">pyke.models.lol_challenges_v1.ChallengeConfigInfoDto</a></span><span class="p">]</span>:</span></span>
+        <span class="name">config</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../../pyke.html#Region">pyke.Region</a></span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../models/lol_challenges_v1.html#ChallengeConfigInfoDto">pyke.models.lol_challenges_v1.ChallengeConfigInfoDto</a></span><span class="p">]</span>:</span></span>
 
                 <label class="view-source-button" for="ChallengesEndpoint.config-view-source"><span>View Source</span></label>
 
@@ -390,7 +390,7 @@
             <div class="docstring"><h1 id="list-of-all-basic-challenge-configuration-information-includes-all-translations-for-names-and-descriptions">List of all basic challenge configuration information (includes all translations for names and descriptions)</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).  </p>
+    <code>region (Region):</code> Region to execute against (<a href="../../pyke.html#Region">pyke.enums.region.Region</a>).  </p>
 
 <p><strong>Returns:</strong><br />
     <code>list[ChallengeConfigInfoDto]:</code> List of <a href="../models/lol_challenges_v1.html#ChallengeConfigInfoDto">pyke.models.lol_challenges_v1.ChallengeConfigInfoDto</a> objects.</p>
@@ -403,7 +403,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">percentiles</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span>:</span></span>
+        <span class="name">percentiles</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../../pyke.html#Region">pyke.Region</a></span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span>:</span></span>
 
                 <label class="view-source-button" for="ChallengesEndpoint.percentiles-view-source"><span>View Source</span></label>
 
@@ -429,7 +429,7 @@
             <div class="docstring"><h1 id="map-of-level-to-percentile-of-players-who-have-achieved-it-keys-challengeid-season-level-percentile-of-players-who-achieved-it">Map of level to percentile of players who have achieved it - keys: ChallengeId -> Season -> Level -> percentile of players who achieved it</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).  </p>
+    <code>region (Region):</code> Region to execute against (<a href="../../pyke.html#Region">pyke.enums.region.Region</a>).  </p>
 
 <p><strong>Returns:</strong><br />
     <code>dict[int, dict[int, dict[str, int]]]:</code> Map of level to percentile of players who have achieved it - keys: ChallengeId -> Season -> Level -> percentile of players who achieved it.</p>
@@ -442,7 +442,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">config_by_challenge_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">challenge_id</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/lol_challenges_v1.html#ChallengeConfigInfoDto">pyke.models.lol_challenges_v1.ChallengeConfigInfoDto</a></span>:</span></span>
+        <span class="name">config_by_challenge_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../../pyke.html#Region">pyke.Region</a></span>,</span><span class="param">	<span class="n">challenge_id</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/lol_challenges_v1.html#ChallengeConfigInfoDto">pyke.models.lol_challenges_v1.ChallengeConfigInfoDto</a></span>:</span></span>
 
                 <label class="view-source-button" for="ChallengesEndpoint.config_by_challenge_id-view-source"><span>View Source</span></label>
 
@@ -471,7 +471,7 @@
             <div class="docstring"><h1 id="get-challenge-configuration-rest">Get challenge configuration (REST)</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../../pyke.html#Region">pyke.enums.region.Region</a>).<br />
     <code>challenge_id (int):</code> Challenge id integer.  </p>
 
 <p><strong>Returns:</strong><br />
@@ -485,7 +485,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">leaderboards_by_level</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">level</span><span class="p">:</span> <span class="n"><a href="../enums/level.html#Level">pyke.enums.level.Level</a></span>,</span><span class="param">	<span class="n">challenge_id</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../models/lol_challenges_v1.html#ApexPlayerInfoDto">pyke.models.lol_challenges_v1.ApexPlayerInfoDto</a></span><span class="p">]</span>:</span></span>
+        <span class="name">leaderboards_by_level</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../../pyke.html#Region">pyke.Region</a></span>,</span><span class="param">	<span class="n">level</span><span class="p">:</span> <span class="n"><a href="../../pyke.html#Level">pyke.Level</a></span>,</span><span class="param">	<span class="n">challenge_id</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../models/lol_challenges_v1.html#ApexPlayerInfoDto">pyke.models.lol_challenges_v1.ApexPlayerInfoDto</a></span><span class="p">]</span>:</span></span>
 
                 <label class="view-source-button" for="ChallengesEndpoint.leaderboards_by_level-view-source"><span>View Source</span></label>
 
@@ -520,8 +520,8 @@
             <div class="docstring"><h1 id="return-top-players-for-each-level-level-must-be-master-grandmaster-or-challenger">Return top players for each level. Level must be MASTER, GRANDMASTER or CHALLENGER</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
-    <code>level (Level):</code> Challenge level (<a href="../enums/level.html#Level">pyke.enums.level.Level</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../../pyke.html#Region">pyke.enums.region.Region</a>).<br />
+    <code>level (Level):</code> Challenge level (<a href="../../pyke.html#Level">pyke.enums.level.Level</a>).<br />
     <code>challenge_id (int):</code> Challenge id integer.  </p>
 
 <p><strong>Returns:</strong><br />
@@ -535,7 +535,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">percentiles_by_challenge_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">challenge_id</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="n"><a href="../enums/level.html#Level">pyke.enums.level.Level</a></span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>:</span></span>
+        <span class="name">percentiles_by_challenge_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../../pyke.html#Region">pyke.Region</a></span>,</span><span class="param">	<span class="n">challenge_id</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="nb">dict</span><span class="p">[</span><span class="n"><a href="../../pyke.html#Level">pyke.Level</a></span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>:</span></span>
 
                 <label class="view-source-button" for="ChallengesEndpoint.percentiles_by_challenge_id-view-source"><span>View Source</span></label>
 
@@ -564,11 +564,11 @@
             <div class="docstring"><h1 id="dictionary-of-level-to-percentile-of-players-who-have-achieved-it">Dictionary of level to percentile of players who have achieved it</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../../pyke.html#Region">pyke.enums.region.Region</a>).<br />
     <code>challenge_id (int):</code> Challenge id integer.  </p>
 
 <p><strong>Returns:</strong><br />
-    <code>dict[Level, int]:</code> Python dictionary {<a href="../enums/level.html#Level">pyke.enums.level.Level</a>: percentile of players who achieved the challenge}</p>
+    <code>dict[Level, int]:</code> Python dictionary {<a href="../../pyke.html#Level">pyke.enums.level.Level</a>: percentile of players who achieved the challenge}</p>
 </div>
 
 
@@ -578,7 +578,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">by_puuid</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../enums/region.html#Region">pyke.enums.region.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/lol_challenges_v1.html#PlayerInfoDto">pyke.models.lol_challenges_v1.PlayerInfoDto</a></span>:</span></span>
+        <span class="name">by_puuid</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">region</span><span class="p">:</span> <span class="n"><a href="../../pyke.html#Region">pyke.Region</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/lol_challenges_v1.html#PlayerInfoDto">pyke.models.lol_challenges_v1.PlayerInfoDto</a></span>:</span></span>
 
                 <label class="view-source-button" for="ChallengesEndpoint.by_puuid-view-source"><span>View Source</span></label>
 
@@ -605,7 +605,7 @@
             <div class="docstring"><h1 id="returns-player-information-with-list-of-all-progressed-challenges-rest">Returns player information with list of all progressed challenges (REST)</h1>
 
 <p><strong>Args:</strong><br />
-    <code>region (Region):</code> Region to execute against (<a href="../enums/region.html#Region">pyke.enums.region.Region</a>).<br />
+    <code>region (Region):</code> Region to execute against (<a href="../../pyke.html#Region">pyke.enums.region.Region</a>).<br />
     <code>puuid (str):</code> Encrypted PUUID. Exact length of 78 characters.  </p>
 
 <p><strong>Returns:</strong><br />

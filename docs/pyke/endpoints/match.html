@@ -284,7 +284,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">match_ids_by_puuid</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">continent</span><span class="p">:</span> <span class="n"><a href="../enums/continent.html#Continent">pyke.enums.continent.Continent</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">start_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">end_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">queue</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="nb">type</span><span class="p">:</span> <span class="n"><a href="../enums/type.html#Type">pyke.enums.type.Type</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">start</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>:</span></span>
+        <span class="name">match_ids_by_puuid</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">continent</span><span class="p">:</span> <span class="n"><a href="../../pyke.html#Continent">pyke.Continent</a></span>,</span><span class="param">	<span class="n">puuid</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">start_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">end_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">queue</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="nb">type</span><span class="p">:</span> <span class="n"><a href="../../pyke.html#Type">pyke.Type</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">start</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></span><span class="return-annotation">) -> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>:</span></span>
 
                 <label class="view-source-button" for="MatchEndpoint.match_ids_by_puuid-view-source"><span>View Source</span></label>
 
@@ -343,12 +343,12 @@
             <div class="docstring"><h1 id="get-a-list-of-match-ids-by-puuid">Get a list of match ids by puuid</h1>
 
 <p><strong>Args:</strong><br />
-    <code>continent (Continent):</code> Continent to execute against (<a href="../enums/continent.html#Continent">pyke.enums.continent.Continent</a>).<br />
+    <code>continent (Continent):</code> Continent to execute against (<a href="../../pyke.html#Continent">pyke.enums.continent.Continent</a>).<br />
     <code>puuid (str):</code> Encrypted PUUID. Exact length of 78 characters.<br />
     <code>start_time (int | None, optional):</code> Epoch timestamp in seconds. The matchlist started storing timestamps on June 16th, 2021. Any matches played before June 16th, 2021 won't be included in the results if the startTime filter is set. Defaults to None.<br />
     <code>end_time (int | None, optional):</code> Epoch timestamp in seconds. Defaults to None.<br />
     <code>queue (int | None, optional):</code> Filter the list of match ids by a specific queue id. This filter is mutually inclusive of the type filter meaning any match ids returned must match both the queue and type filters. Defaults to None.<br />
-    <code>type (Type | None, optional):</code> Filter the list of match ids by the type of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters (<a href="../enums/type.html#Type">pyke.enums.type.Type</a>). Defaults to None.<br />
+    <code>type (Type | None, optional):</code> Filter the list of match ids by the type of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters (<a href="../../pyke.html#Type">pyke.enums.type.Type</a>). Defaults to None.<br />
     <code>start (int | None, optional):</code> Start index. Defaults to 0.<br />
     <code>count (int | None, optional):</code> Valid values: 0 to 100. Number of match ids to return. Defaults to 20.  </p>
 
@@ -363,7 +363,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">by_match_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">continent</span><span class="p">:</span> <span class="n"><a href="../enums/continent.html#Continent">pyke.enums.continent.Continent</a></span>,</span><span class="param">	<span class="n">match_id</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/match_v5.html#MatchDto">pyke.models.match_v5.MatchDto</a></span>:</span></span>
+        <span class="name">by_match_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">continent</span><span class="p">:</span> <span class="n"><a href="../../pyke.html#Continent">pyke.Continent</a></span>,</span><span class="param">	<span class="n">match_id</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/match_v5.html#MatchDto">pyke.models.match_v5.MatchDto</a></span>:</span></span>
 
                 <label class="view-source-button" for="MatchEndpoint.by_match_id-view-source"><span>View Source</span></label>
 
@@ -390,7 +390,7 @@
             <div class="docstring"><h1 id="get-a-match-by-match-id">Get a match by match id</h1>
 
 <p><strong>Args:</strong><br />
-    <code>continent (Continent):</code> Continent to execute against (<a href="../enums/continent.html#Continent">pyke.enums.continent.Continent</a>).<br />
+    <code>continent (Continent):</code> Continent to execute against (<a href="../../pyke.html#Continent">pyke.enums.continent.Continent</a>).<br />
     <code>match_id (str):</code> Match id string.  </p>
 
 <p><strong>Returns:</strong><br />
@@ -404,7 +404,7 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">timeline_by_match_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">continent</span><span class="p">:</span> <span class="n"><a href="../enums/continent.html#Continent">pyke.enums.continent.Continent</a></span>,</span><span class="param">	<span class="n">match_id</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/match_v5.html#TimelineDto">pyke.models.match_v5.TimelineDto</a></span>:</span></span>
+        <span class="name">timeline_by_match_id</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">continent</span><span class="p">:</span> <span class="n"><a href="../../pyke.html#Continent">pyke.Continent</a></span>,</span><span class="param">	<span class="n">match_id</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n"><a href="../models/match_v5.html#TimelineDto">pyke.models.match_v5.TimelineDto</a></span>:</span></span>
 
                 <label class="view-source-button" for="MatchEndpoint.timeline_by_match_id-view-source"><span>View Source</span></label>
 
@@ -431,7 +431,7 @@
             <div class="docstring"><h1 id="get-a-match-timeline-by-match-id">Get a match timeline by match id</h1>
 
 <p><strong>Args:</strong><br />
-    <code>continent (Continent):</code> Continent to execute against (<a href="../enums/continent.html#Continent">pyke.enums.continent.Continent</a>).<br />
+    <code>continent (Continent):</code> Continent to execute against (<a href="../../pyke.html#Continent">pyke.enums.continent.Continent</a>).<br />
     <code>match_id (str):</code> Match id string.  </p>
 
 <p><strong>Returns:</strong><br />
