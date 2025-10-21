@@ -19,7 +19,7 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
     def _get(self, url: str, params: dict[Any, Any] | None = None):
         while True:
             headers = {"X-Riot-Token": self.api_key}
-            response = requests.get(url, headers=headers, params=params, timeout=10)
+            response = requests.get(url, headers=headers, params=params, timeout=30)
 
             if self.print_url:
                 limit = response.headers.get("X-App-Rate-Limit", "unknown")
