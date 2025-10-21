@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  lint-test:
+  lint-test-build:
     runs-on: ubuntu-latest
     env:
         RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
