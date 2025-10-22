@@ -8,6 +8,8 @@
 * [x] **Handle authentication** cleanly (API key via env var, config file, or parameter).
 * [ ] Add **rate-limit/backoff strategy configuration** (retry counts, backoff formula, headers respect).
 * [ ] Add a lightweight caching layer (optional, e.g., TTLCache or Redis adapter).
+* [ ] Add DDragon support.
+* [ ] Add async support.
 
 ---
 
@@ -37,7 +39,7 @@ class SummonerDTO(BaseModel):
 * [x] Autocompletion in IDEs.
 * [x] Built-in validation and parsing.
 * [ ] Add shared base model (`RiotBaseModel`) for common config (`model_config`, alias rules, etc.).
-* [ ] **Hide Pydantic internals from documentation**
+* [x] **Hide Pydantic internals from documentation**
   → Implement automated `__pdoc__` suppression in `models/__init__.py`.
 
 ---
