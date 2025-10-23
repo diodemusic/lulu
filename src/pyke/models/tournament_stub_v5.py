@@ -46,10 +46,12 @@ class TournamentCodeParametersV5(BaseModel):
         None,
         description="Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.",
     )
-    team_size: Annotated[int, Field(ge=1, le=5)] = Field(  # pyright: ignore[reportInvalidTypeForm]
-        ...,
-        alias="teamSize",
-        description="The team size of the game. Valid values are 1-5.",
+    team_size: Annotated[int, Field(ge=1, le=5)] = (
+        Field(  # pyright: ignore[reportInvalidTypeForm]
+            ...,
+            alias="teamSize",
+            description="The team size of the game. Valid values are 1-5.",
+        )
     )
     pick_type: PickType = Field(
         ...,
