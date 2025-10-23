@@ -6,13 +6,11 @@ url = "http://www.mingweisamuel.com/riotapi-schema/openapi-3.0.0.json"
 
 response = requests.get(url, timeout=10)
 
-code = response.status_code
-
-if code == 200:
+if response.status_code == 200:
     json_content = response.json()
 
     with open("./pyke/schema/schema.json", "w") as f:
         json.dump(json_content, f, indent=4)
 else:
-    print(f"Error: {code}")
+    print(f"Error: {response.status_code}")
     quit()
