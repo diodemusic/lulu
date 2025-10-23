@@ -2,6 +2,7 @@ import time
 from typing import Any
 
 import requests
+from requests import Response
 
 from . import exceptions
 from .enums.continent import Continent
@@ -15,54 +16,62 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
     def __init__(self, api_key: str | None, print_url: bool):
         self.api_key = api_key
         self.print_url = print_url
+        self._status_code_registry = {
+            400: exceptions.BadRequest("Bad request", 400),
+            401: exceptions.Unauthorized("Unauthorized", 401),
+            403: exceptions.Forbidden("Forbidden", 403),
+            404: exceptions.DataNotFound("Data not found", 404),
+            405: exceptions.MethodNotAllowed("Method not allowed", 405),
+            415: exceptions.UnsupportedMediaType("Unsupported media type", 415),
+            500: exceptions.InternalServerError("Internal server error", 500),
+            502: exceptions.BadGateway("Bad gateway", 502),
+            503: exceptions.ServiceUnavailable("Service unavailable", 503),
+            504: exceptions.GatewayTimeout("Gateway timeout", 504),
+        }
+
+    def _print_url(self, response: Response, url: str):
+        if self.print_url:
+            count = response.headers.get("X-App-Rate-Limit-Count", "unknown").split(
+                ":"
+            )[0]
+
+            if int(count) >= 100:
+                print("a")
+
+            limit = response.headers.get("X-App-Rate-Limit", "unknown").split(":")[0]
+            print(f"({count}/{limit}) - {url}")
+
+    def _retry_after(self, response: Response):
+        retry_after = int(response.headers.get("Retry-After", "120"))
+        print(f"Rate limit exceeded, waiting {retry_after} seconds")
+        time.sleep(retry_after)
+
+    def _response_json(self, response: Response):
+        try:
+            return response.json()
+        except ValueError:
+            raise exceptions.InternalServerError("Empty JSON response", 500)
 
     def _get(self, url: str, params: dict[Any, Any] | None = None):
         while True:
             headers = {"X-Riot-Token": self.api_key}
             response = requests.get(url, headers=headers, params=params, timeout=30)
-
-            if self.print_url:
-                limit = response.headers.get("X-App-Rate-Limit", "unknown")
-                count = response.headers.get("X-App-Rate-Limit-Count", "unknown")
-                print(f"({count.split(':')[0]}/{limit.split(':')[0]}) - {url}")
+            self._print_url(response, url)
 
             code = response.status_code
 
             if code == 200:
-                try:
-                    return response.json()
-                except ValueError:
-                    raise exceptions.InternalServerError("Empty JSON response", 500)
-
-            elif code == 400:
-                raise exceptions.BadRequest("Bad request", 400)
-            elif code == 401:
-                raise exceptions.Unauthorized("Unauthorized", 401)
-            elif code == 403:
-                raise exceptions.Forbidden("Forbidden", 403)
-            elif code == 404:
-                raise exceptions.DataNotFound("Data not found", 404)
-            elif code == 405:
-                raise exceptions.MethodNotAllowed("Method not allowed", 405)
-            elif code == 415:
-                raise exceptions.UnsupportedMediaType("Unsupported media type", 415)
+                return self._response_json(response)
             elif code == 429:
-                retry_after = int(response.headers.get("Retry-After", "120"))
-                print(f"Rate limit exceeded, waiting {retry_after} seconds")
-                time.sleep(retry_after)
+                self._retry_after(response)
                 continue
-            elif code == 500:
-                raise exceptions.InternalServerError("Internal server error", 500)
-            elif code == 502:
-                raise exceptions.BadGateway("Bad gateway", 502)
-            elif code == 503:
-                raise exceptions.ServiceUnavailable("Service unavailable", 503)
-            elif code == 504:
-                raise exceptions.GatewayTimeout("Gateway timeout", 504)
-            else:
-                raise exceptions.UnknownError(
+
+            raise self._status_code_registry.get(
+                code,
+                exceptions.UnknownError(
                     "Unexpected response, something has gone terribly wrong", code
-                )
+                ),
+            )
 
     def _continent_request(
         self, continent: Continent, path: str, params: dict[Any, Any] | None = None
