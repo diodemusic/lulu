@@ -2,6 +2,12 @@
 
 ---
 
+# [ ] Backwards compatibility
+
+**Description:** Change Python version in `pyproject.toml` to the earliest possible working version of Python.
+
+---
+
 ## [ ] Library Audit
 
 **Description**: Review existing modules in `src/pyke` for consistency, naming, and type coverage. Identify duplicated logic, unclear class responsibilities, or missing docstrings.
