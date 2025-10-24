@@ -16,7 +16,6 @@ dependencies = [
     "pdoc (>=15.0.4,<16.0.0)",
     "bandit (>=1.8.6,<2.0.0)",
     "mypy (>=1.18.2,<2.0.0)",
-    "tox (>=4.31.0,<5.0.0)",
 ]
 keywords = ["riot api", "league of legends", "lol api", "riot python", "riot wrapper", "LoL", "League of Legends", "Riot Games", "API", "REST", "restful api"]
 
