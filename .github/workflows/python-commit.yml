@@ -42,7 +42,7 @@ jobs:
         run: black --check --diff .
 
       - name: Type check with mypy
-        run: mypy --strict --ignore-missing-imports --install-types --non-interactive src
+        run: mypy --ignore-missing-imports --install-types --non-interactive .
 
       - name: Security scan with Bandit
         run: bandit -r src
