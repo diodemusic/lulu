@@ -96,7 +96,7 @@
 **Acceptance Criteria**:
 
 - Workflow passes on main branch.
-- Python version matrix: [3.11, 3.12, 3.13].
+- Python version matrix: [3.10, 3.11, 3.12, 3.13, 3.14].
 - `.env` values mocked for tests.
 
 ---
@@ -137,7 +137,7 @@
 
 ## Technical Notes
 
-**Development Stack**: Python ≥3.13, pytest, mypy, ruff, pdoc
+**Development Stack**: Python ≥3.10, pytest, mypy, ruff, pdoc
 **Special Instructions**: Focus on API stability, maintainability, and developer UX.
 **Timeline**: Open-ended; optimize for long-term quality.
 
