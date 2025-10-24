@@ -4,7 +4,7 @@ class BadRequest(Exception):
         self.message = message
         self.error_code = error_code
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.message} (Error Code: {self.error_code})"
 
 
@@ -14,7 +14,7 @@ class Unauthorized(Exception):
         self.message = message
         self.error_code = error_code
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.message} (Error Code: {self.error_code})"
 
 
@@ -24,7 +24,7 @@ class Forbidden(Exception):
         self.message = message
         self.error_code = error_code
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.message} (Error Code: {self.error_code})"
 
 
@@ -34,7 +34,7 @@ class DataNotFound(Exception):
         self.message = message
         self.error_code = error_code
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.message} (Error Code: {self.error_code})"
 
 
@@ -44,7 +44,7 @@ class MethodNotAllowed(Exception):
         self.message = message
         self.error_code = error_code
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.message} (Error Code: {self.error_code})"
 
 
@@ -54,7 +54,7 @@ class UnsupportedMediaType(Exception):
         self.message = message
         self.error_code = error_code
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.message} (Error Code: {self.error_code})"
 
 
@@ -64,7 +64,7 @@ class RateLimitExceeded(Exception):
         self.message = message
         self.error_code = error_code
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.message} (Error Code: {self.error_code})"
 
 
@@ -74,7 +74,7 @@ class InternalServerError(Exception):
         self.message = message
         self.error_code = error_code
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.message} (Error Code: {self.error_code})"
 
 
@@ -84,7 +84,7 @@ class BadGateway(Exception):
         self.message = message
         self.error_code = error_code
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.message} (Error Code: {self.error_code})"
 
 
@@ -94,7 +94,7 @@ class ServiceUnavailable(Exception):
         self.message = message
         self.error_code = error_code
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.message} (Error Code: {self.error_code})"
 
 
@@ -104,7 +104,7 @@ class GatewayTimeout(Exception):
         self.message = message
         self.error_code = error_code
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.message} (Error Code: {self.error_code})"
 
 
@@ -114,5 +114,5 @@ class UnknownError(Exception):
         self.message = message
         self.error_code = error_code
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.message} (Error Code: {self.error_code})"
