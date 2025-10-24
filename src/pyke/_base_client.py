@@ -34,10 +34,6 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
             count = response.headers.get("X-App-Rate-Limit-Count", "unknown").split(
                 ":"
             )[0]
-
-            if int(count) >= 100:
-                print("a")
-
             limit = response.headers.get("X-App-Rate-Limit", "unknown").split(":")[0]
             print(f"({count}/{limit}) - {url}")
 
