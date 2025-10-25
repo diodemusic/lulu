@@ -12,7 +12,6 @@ dependencies = [
     "pytest (>=8.4.2,<9.0.0)",
     "pydantic (>=2.11.10,<3.0.0)",
     "datamodel-code-generator (>=0.34.0,<0.35.0)",
-    "coverage (>=7.11.0,<8.0.0)",
     "pdoc (>=15.0.4,<16.0.0)",
     "bandit (>=1.8.6,<2.0.0)",
     "mypy (>=1.18.2,<2.0.0)",
