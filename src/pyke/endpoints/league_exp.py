@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from pyke import Division, Queue, Region, Tier
 
 from .._base_client import _BaseApiClient

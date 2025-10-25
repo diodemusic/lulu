@@ -1,5 +1,7 @@
 # pyke
 
+from __future__ import annotations
+
 from ._base_client import _BaseApiClient
 from .endpoints.account import AccountEndpoint
 from .endpoints.champion import ChampionEndpoint
@@ -19,7 +21,7 @@ from .endpoints.tournament_stub import TournamentStubEndpoint
 class Pyke:
     """Main entrypoint for interacting with the Riot API."""
 
-    def __init__(self, api_key: str | None = None, print_url: bool = True):
+    def __init__(self, api_key: str | None, print_url: bool = True):
         self._client = _BaseApiClient(api_key, print_url)
 
         self.account = AccountEndpoint(self._client)

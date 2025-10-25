@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from pyke import Continent, Type
 
 from .._base_client import _BaseApiClient
