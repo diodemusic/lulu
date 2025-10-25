@@ -48,7 +48,7 @@ jobs:
         run: bandit -r src
 
       - name: Run tests
-        run: pytest -q
+        run: pytest -v -s
 
   build-docs:
     runs-on: ubuntu-latest
