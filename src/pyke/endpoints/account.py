@@ -12,11 +12,11 @@ class AccountEndpoint:
         """# Get account by puuid
 
         **Args:**  
-            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  
+            `continent (Continent):` [Continent](/pyke/enums/continent.html#Continent) to execute against.  
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  
-            `AccountDto:` pyke.models.account_v1.AccountDto object.
+            `AccountDto:` [AccountDto](/pyke/models/account_v1.html#AccountDto).
         """  # fmt: skip
 
         path = f"/riot/account/v1/accounts/by-puuid/{puuid}"
@@ -30,12 +30,12 @@ class AccountEndpoint:
         """# Get account by riot id
 
         **Args:**  
-            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  
+            `continent (Continent):` [Continent](/pyke/enums/continent.html#Continent) to execute against.  
             `game_name (str):` Riot id game name.  
             `tag_line (str):` Riot id tag line.  
 
         **Returns:**  
-            `AccountDto:` pyke.models.account_v1.AccountDto object.
+            `AccountDto:` [AccountDto](/pyke/models/account_v1.html#AccountDto).
         """  # fmt: skip
 
         path = f"/riot/account/v1/accounts/by-riot-id/{game_name}/{tag_line}"
@@ -47,11 +47,11 @@ class AccountEndpoint:
         """# Get active region (lol and tft)
 
         **Args:**  
-            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  
+            `continent (Continent):` [Continent](/pyke/enums/continent.html#Continent) to execute against.  
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  
-            `AccountRegionDTO:` pyke.models.account_v1.AccountRegionDTO object.
+            `AccountRegionDTO:` [AccountRegionDTO](/pyke/models/account_v1.html#AccountRegionDTO).
         """  # fmt: skip
 
         path = f"/riot/account/v1/region/by-game/lol/by-puuid/{puuid}"
