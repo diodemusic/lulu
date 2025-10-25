@@ -69,6 +69,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install .[dev] pdoc
 
+      - name: Clean old docs
+        run: rm -rf docs
+
       - name: Build Docs
         run: pdoc pyke -o docs
 
