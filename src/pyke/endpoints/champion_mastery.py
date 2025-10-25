@@ -16,11 +16,11 @@ class ChampionMasteryEndpoint:
         """# Get all champion mastery entries sorted by number of champion points descending
 
         **Args:**  
-            `region (Region):` [Region](/pyke/enums/region.html#Region) to execute against.  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  
-            `list[ChampionMasteryDto]:` List of [ChampionMasteryDto](/pyke/models/champion_mastery_v4.html#ChampionMasteryDto).
+            `list[ChampionMasteryDto]:` List of [ChampionMasteryDto](/pyke/pyke/models/champion_mastery_v4.html#ChampionMasteryDto).
         """  # fmt: skip
 
         path = f"/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}"
@@ -39,12 +39,12 @@ class ChampionMasteryEndpoint:
         """# Get a champion mastery by puuid and champion ID
 
         **Args:**  
-            `region (Region):` [Region](/pyke/enums/region.html#Region) to execute against.  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
             `champion_id (int):` Champion ID for this entry.  
 
         **Returns:**  
-            `ChampionMasteryDto:` [ChampionMasteryDto](/pyke/models/champion_mastery_v4.html#ChampionMasteryDto).
+            `ChampionMasteryDto:` [ChampionMasteryDto](/pyke/pyke/models/champion_mastery_v4.html#ChampionMasteryDto).
         """  # fmt: skip
 
         path = f"/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}/by-champion/{champion_id}"
@@ -58,12 +58,12 @@ class ChampionMasteryEndpoint:
         """# Get specified number of top champion mastery entries sorted by number of champion points descending
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
             `count (int | None, optional):` Number of entries to retrieve. defaults to 3.  
 
         **Returns:**  
-            `list[ChampionMasteryDTO]:` List of pyke.models.champion_mastery_v4.ChampionMasteryDTO objects.
+            `list[ChampionMasteryDto]:` List of [ChampionMasteryDto](/pyke/pyke/models/champion_mastery_v4.html#ChampionMasteryDto).
         """  # fmt: skip
 
         path = f"/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}/top"
@@ -81,7 +81,7 @@ class ChampionMasteryEndpoint:
         """# Get a player's total champion mastery score, which is the sum of individual champion mastery levels
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  
