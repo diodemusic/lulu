@@ -3,7 +3,7 @@
 ![Coverage](https://img.shields.io/badge/Coverage-94%25-brightgreen.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/diodemusic/pyke/blob/main/LICENCE.txt)
 
-**pyke** is an opinionated, simple-by-design Riot API wrapper specifically for League of Legends.
+**pyke** is an opinionated, simple-by-design Riot API wrapper with smart rate limiting specifically for League of Legends.
 
 ---
 
@@ -62,6 +62,8 @@ print(f"Region: {region.region}")
 ## Features
 
 - Provides a simple, pythonic interface to interact with the Riot API.
+- Smart rate limiting, no wasted calls and no hitting the rate limit (configurable).
+- Optimal api key usage.
 - Follows Riot API endpoints and conventions closely.
 - Returns Pydantic models for easy access to API data.
 - Custom exceptions for error handling, e.g., rate limits.

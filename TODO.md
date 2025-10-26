@@ -31,7 +31,7 @@
 
 ---
 
-## [ ] Rate Limit Handling Improvement
+## [x] Rate Limit Handling Improvement
 
 **Description**: Implement rate limit sleep and retry logic without redundant calls. Integrate internal `_handle_rate_limit(response: Response)` utility.
 
@@ -158,7 +158,7 @@
 
 ## HTTP Layer & Error Handling
 
-- [ ] Automatic **retry and rate-limit handling** (429 responses, backoff, respecting headers).
+- [x] Automatic **retry and rate-limit handling** (429 responses, backoff, respecting headers).
 - [x] Friendly **exceptions** (e.g., `RiotAPIError`, `RateLimitError`, `NotFoundError`).
 - [ ] Timeout handling and connection-pool reuse (via `requests.Session` or `httpx`).
 - [x] Optional detailed logging (requests + responses).

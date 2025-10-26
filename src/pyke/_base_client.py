@@ -15,9 +15,15 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
     CONTINENT_BASE = "https://{continent}.api.riotgames.com"
     REGION_BASE = "https://{region}.api.riotgames.com"
 
-    def __init__(self, api_key: str | None, print_url: bool) -> None:
+    def __init__(
+        self,
+        api_key: str | None,
+        print_url: bool = True,
+        smart_rate_limiting: bool = True,
+    ) -> None:
         self.api_key = api_key
         self.print_url = print_url
+        self.smart_rate_limiting = smart_rate_limiting
         self._status_code_registry = {
             400: exceptions.BadRequest("Bad request", 400),
             401: exceptions.Unauthorized("Unauthorized", 401),
@@ -31,13 +37,46 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
             504: exceptions.GatewayTimeout("Gateway timeout", 504),
         }
 
+    def _get_count(self, response: Response) -> int:
+        return int(
+            response.headers.get("X-App-Rate-Limit-Count", "unknown").split(":")[0]
+        )
+
+    def _get_limit(self, response: Response) -> int:
+        return int(response.headers.get("X-App-Rate-Limit", "unknown").split(":")[0])
+
     def _print_url(self, response: Response, url: str) -> None:
-        if self.print_url:
-            count = response.headers.get("X-App-Rate-Limit-Count", "unknown").split(
-                ":"
-            )[0]
-            limit = response.headers.get("X-App-Rate-Limit", "unknown").split(":")[0]
-            print(f"({count}/{limit}) - {url}")
+        if not self.print_url:
+            return
+
+        count = self._get_count(response)
+        limit = self._get_limit(response)
+        print(f"({count}/{limit}) - {url}")
+
+    def _calculate_time_to_wait(self, response: Response) -> float:
+        limit = self._get_limit(response)
+        time_frame = int(
+            response.headers.get("X-App-Rate-Limit-Count", "unknown")
+            .split(":")[1]
+            .split(",")[0]
+        )
+
+        return time_frame / limit
+
+    def _wait(self, response: Response, start_time: float | None = None) -> None:
+        if not self.smart_rate_limiting:
+            return
+
+        time_to_wait = self._calculate_time_to_wait(response)
+
+        if start_time is not None:
+            elapsed = time.perf_counter() - start_time
+            remaining = time_to_wait - elapsed
+        else:
+            remaining = time_to_wait
+
+        if remaining > 0:
+            time.sleep(remaining)
 
     def _retry_after(self, response: Response) -> None:
         retry_after = int(response.headers.get("Retry-After", "120"))
@@ -53,9 +92,10 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
     def _get(self, url: str, params: dict[Any, Any] = {}) -> Any:
         while True:
             headers = {"X-Riot-Token": self.api_key}
+            start_time = time.perf_counter()
             response = requests.get(url, headers=headers, params=params, timeout=30)
             self._print_url(response, url)
-
+            self._wait(response, start_time)
             code = response.status_code
 
             if code == 200:
