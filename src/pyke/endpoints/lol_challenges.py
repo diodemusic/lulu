@@ -16,10 +16,10 @@ class ChallengesEndpoint:
         """# List of all basic challenge configuration information (includes all translations for names and descriptions)
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
 
         **Returns:**  
-            `list[ChallengeConfigInfoDto]:` List of pyke.models.lol_challenges_v1.ChallengeConfigInfoDto objects.
+            `list[ChallengeConfigInfoDto]:` List of [ChallengeConfigInfoDto](/pyke/pyke/models/lol_challenges_v1.html#ChallengeConfigInfoDto).
         """  # fmt: skip
 
         path = "/lol/challenges/v1/challenges/config"
@@ -36,7 +36,7 @@ class ChallengesEndpoint:
         """# Map of level to percentile of players who have achieved it - keys: ChallengeId -> Season -> Level -> percentile of players who achieved it
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
 
         **Returns:**  
             `dict[int, dict[int, dict[str, int]]]:` Map of level to percentile of players who have achieved it - keys: ChallengeId -> Season -> Level -> percentile of players who achieved it.
@@ -53,11 +53,11 @@ class ChallengesEndpoint:
         """# Get challenge configuration (REST)
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
             `challenge_id (int):` Challenge id integer.  
 
         **Returns:**  
-            `ChallengeConfigInfoDto:` pyke.models.lol_challenges_v1.ChallengeConfigInfoDto object.
+            `ChallengeConfigInfoDto:` [ChallengeConfigInfoDto](/pyke/pyke/models/lol_challenges_v1.html#ChallengeConfigInfoDto).
         """  # fmt: skip
 
         path = f"/lol/challenges/v1/challenges/{challenge_id}/config"
@@ -71,12 +71,12 @@ class ChallengesEndpoint:
         """# Return top players for each level. Level must be MASTER, GRANDMASTER or CHALLENGER
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke.enums.region.Region).  
-            `level (Level):` Challenge level (pyke.enums.level.Level).  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
+            `level (Level):` Challenge [Level](/pyke/pyke.html#Level).  
             `challenge_id (int):` Challenge id integer.  
 
         **Returns:**  
-            `list[ApexPlayerInfoDto]:` List of pyke.models.lol_challenges_v1.ApexPlayerInfoDto objects.
+            `list[ApexPlayerInfoDto]:` List of [ApexPlayerInfoDto](/pyke/pyke/models/lol_challenges_v1.html#ApexPlayerInfoDto).
         """  # fmt: skip
 
         path = f"/lol/challenges/v1/challenges/{challenge_id}/leaderboards/by-level/{level.value}"
@@ -95,11 +95,11 @@ class ChallengesEndpoint:
         """# Dictionary of level to percentile of players who have achieved it
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
             `challenge_id (int):` Challenge id integer.  
 
         **Returns:**  
-            `dict[Level, int]:` Python dictionary {pyke.enums.level.Level: percentile of players who achieved the challenge}
+            `dict[Level, int]:` Python dictionary {[Level](/pyke/pyke.html#Level): percentile of players who achieved the challenge}
         """  # fmt: skip
 
         path = f"/lol/challenges/v1/challenges/{challenge_id}/percentiles"
@@ -111,11 +111,11 @@ class ChallengesEndpoint:
         """# Returns player information with list of all progressed challenges (REST)
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  
-            `PlayerInfoDto:` pyke.models.lol_challenges_v1.PlayerInfoDto object.
+            `PlayerInfoDto:` [PlayerInfoDto](/pyke/pyke/models/lol_challenges_v1.html#PlayerInfoDto).
         """  # fmt: skip
 
         path = f"/lol/challenges/v1/player-data/{puuid}"

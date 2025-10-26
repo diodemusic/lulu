@@ -12,10 +12,10 @@ class ChampionEndpoint:
         """# Returns champion rotations, including free-to-play and low-level free-to-play rotations
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
 
         **Returns:**  
-            `ChampionInfo:` pyke.models.champion_v3.ChampionInfo object.
+            `ChampionInfo:` [ChampionInfo](/pyke/pyke/models/champion_v3.html#ChampionInfo).
         """  # fmt: skip
 
         path = "/lol/platform/v3/champion-rotations"

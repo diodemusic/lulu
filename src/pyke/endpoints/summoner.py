@@ -12,11 +12,11 @@ class SummonerEndpoint:
         """Get a summoner by PUUID.
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  
-            `CurrentGameInfo:` pyke.models.summoner_v4.SummonerDTO
+            `SummonerDTO:` [SummonerDTO](/pyke/pyke/models/summoner_v4.html#SummonerDTO).
         """  # fmt: skip
 
         path = f"/lol/summoner/v4/summoners/by-puuid/{puuid}"

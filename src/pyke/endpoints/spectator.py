@@ -12,11 +12,11 @@ class SpectatorEndpoint:
         """# Get current game information for the given puuid
 
         **Args:**
-            `region (Region):` Region to execute against (pyke.enums.region.Region).
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.
 
         **Returns:**
-            `CurrentGameInfo:` pyke.models.spectator_v5.CurrentGameInfo
+            `CurrentGameInfo:` [CurrentGameInfo](/pyke/pyke/models/spectator_v5.html#CurrentGameInfo).
         """  # fmt: skip
 
         path = f"/lol/spectator/v5/active-games/by-summoner/{puuid}"

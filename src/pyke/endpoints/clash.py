@@ -12,11 +12,11 @@ class ClashEndpoint:
         """# Get players by puuid
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  
-            `list[PlayerDto]:` List of pyke.models.clash_v1.PlayerDto objects.
+            `list[PlayerDto]:` List of [PlayerDto](/pyke/pyke/models/clash_v1.html#PlayerDto).
         """  # fmt: skip
 
         path = f"/lol/clash/v1/players/by-puuid/{puuid}"
@@ -33,11 +33,11 @@ class ClashEndpoint:
         """# Get team by ID
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
             `team_id (str):` Team id of the clash team.  
 
         **Returns:**  
-            `TeamDto:` pyke.models.clash_v1.TeamDto object.
+            `TeamDto:` [TeamDto](/pyke/pyke/models/clash_v1.html#TeamDto).
         """  # fmt: skip
 
         path = f"/lol/clash/v1/teams/{team_id}"
@@ -49,10 +49,10 @@ class ClashEndpoint:
         """# Get all active or upcoming tournaments
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
 
         **Returns:**  
-            `list[TournamentDto]:` List of pyke.models.clash_v1.TournamentDto objects.
+            `list[TournamentDto]:` List of [TournamentDto](/pyke/pyke/models/clash_v1.html#TournamentDto).
         """  # fmt: skip
 
         path = "/lol/clash/v1/tournaments"
@@ -69,11 +69,11 @@ class ClashEndpoint:
         """# Get tournament by team ID
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
             `team_id (str):` Team id of the clash team.  
 
         **Returns:**  
-            `TournamentDto:` pyke.models.clash_v1.TournamentDto object.
+            `TournamentDto:` [TournamentDto](/pyke/pyke/models/clash_v1.html#TournamentDto).
         """  # fmt: skip
 
         path = "/lol/clash/v1/tournaments"
@@ -88,11 +88,11 @@ class ClashEndpoint:
         """# Get tournament by ID
 
         **Args:**  
-            `region (Region):` Region to execute against (pyke.enums.region.Region).  
+            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
             `tournament_id (str):` Tournement id of the clash.  
 
         **Returns:**  
-            `TournamentDto:` pyke.models.clash_v1.TournamentDto object.
+            `TournamentDto:` [TournamentDto](/pyke/pyke/models/clash_v1.html#TournamentDto).
         """  # fmt: skip
 
         path = f"/lol/clash/v1/tournaments/{tournament_id}"

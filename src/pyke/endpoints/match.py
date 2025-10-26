@@ -24,12 +24,12 @@ class MatchEndpoint:
         """# Get a list of match ids by puuid
 
         **Args:**  
-            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  
+            `continent (Continent):` [Continent](/pyke/pyke.html#Continent) to execute against.  
             `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
             `start_time (int | None, optional):` Epoch timestamp in seconds. The matchlist started storing timestamps on June 16th, 2021. Any matches played before June 16th, 2021 won't be included in the results if the startTime filter is set. Defaults to None.  
             `end_time (int | None, optional):` Epoch timestamp in seconds. Defaults to None.  
             `queue (int | None, optional):` Filter the list of match ids by a specific queue id. This filter is mutually inclusive of the type filter meaning any match ids returned must match both the queue and type filters. Defaults to None.  
-            `type (Type | None, optional):` Filter the list of match ids by the type of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters (pyke.enums.type.Type). Defaults to None.  
+            `type (Type | None, optional):` Filter the list of match ids by the [Type](/pyke/pyke.html#Type) of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters. Defaults to None.  
             `start (int | None, optional):` Start index. Defaults to 0.  
             `count (int | None, optional):` Valid values: 0 to 100. Number of match ids to return. Defaults to 20.  
 
@@ -62,11 +62,11 @@ class MatchEndpoint:
         """# Get a match by match id
 
         **Args:**  
-            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  
+            `continent (Continent):` [Continent](/pyke/pyke.html#Continent) to execute against.  
             `match_id (str):` Match id string.  
 
         **Returns:**  
-            `MatchDto:` pyke.models.match_v5.MatchDto object.
+            `MatchDto:` [MatchDto](/pyke/pyke/models/match_v5.html#MatchDto).
         """  # fmt: skip
 
         path = f"/lol/match/v5/matches/{match_id}"
@@ -78,11 +78,11 @@ class MatchEndpoint:
         """# Get a match timeline by match id
 
         **Args:**  
-            `continent (Continent):` Continent to execute against (pyke.enums.continent.Continent).  
+            `continent (Continent):` [Continent](/pyke/pyke.html#Continent) to execute against.  
             `match_id (str):` Match id string.  
 
         **Returns:**  
-            `TimelineDto:` pyke.models.match_v5.TimelineDto object.
+            `TimelineDto:` [TimelineDto](/pyke/pyke/models/match_v5.html#TimelineDto).
         """  # fmt: skip
 
         path = f"/lol/match/v5/matches/{match_id}/timeline"
