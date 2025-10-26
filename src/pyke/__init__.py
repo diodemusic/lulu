@@ -55,7 +55,7 @@ print(f"Game: {region.game}")
 print(f"Region: {region.region}")
 ```
 
-> **Note:** You need Python 3.10+ to use pyke.
+> **Note:** You need Python 3.9+ to use pyke.
 
 ---
 

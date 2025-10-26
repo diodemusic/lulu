@@ -2,7 +2,7 @@
 
 ---
 
-# [ ] Backwards compatibility
+# [x] Backwards compatibility
 
 **Description:** Change Python version in `pyproject.toml` to the earliest possible working version of Python.
 
