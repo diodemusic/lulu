@@ -38,12 +38,10 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
         }
 
     def _get_count(self, response: Response) -> int:
-        return int(
-            response.headers.get("X-App-Rate-Limit-Count", "unknown").split(":")[0]
-        )
+        return int(response.headers.get("X-App-Rate-Limit-Count", "0").split(":")[0])
 
     def _get_limit(self, response: Response) -> int:
-        return int(response.headers.get("X-App-Rate-Limit", "unknown").split(":")[0])
+        return int(response.headers.get("X-App-Rate-Limit", "100").split(":")[0])
 
     def _print_url(self, response: Response, url: str) -> None:
         if not self.print_url:
