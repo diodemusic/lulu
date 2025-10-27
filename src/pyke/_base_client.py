@@ -120,6 +120,7 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
                 code == 502
             ):  # Temporary fix to deal with riots broken match-v5 endpoint
                 print("502, retrying")
+                time.sleep(10)
                 continue
 
             raise self._status_code_registry.get(
