@@ -38,10 +38,22 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
         }
 
     def _get_count(self, response: Response) -> int:
-        return int(response.headers.get("X-App-Rate-Limit-Count", "0").split(":")[0])
+        try:
+            count = int(
+                response.headers.get("X-App-Rate-Limit-Count", "0").split(":")[0]
+            )
+        except IndexError:
+            count = 0
+
+        return count
 
     def _get_limit(self, response: Response) -> int:
-        return int(response.headers.get("X-App-Rate-Limit", "100").split(":")[0])
+        try:
+            limit = int(response.headers.get("X-App-Rate-Limit", "100").split(":")[0])
+        except IndexError:
+            limit = 0
+
+        return limit
 
     def _print_url(self, response: Response, url: str) -> None:
         if not self.print_url:
@@ -53,11 +65,14 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
 
     def _calculate_time_to_wait(self, response: Response) -> float:
         limit = self._get_limit(response)
-        time_frame = int(
-            response.headers.get("X-App-Rate-Limit-Count", "unknown")
-            .split(":")[1]
-            .split(",")[0]
-        )
+        try:
+            time_frame = int(
+                response.headers.get("X-App-Rate-Limit-Count", "unknown")
+                .split(":")[1]
+                .split(",")[0]
+            )
+        except IndexError:
+            time_frame = 120
 
         return time_frame / limit
 
