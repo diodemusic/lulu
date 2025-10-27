@@ -116,6 +116,11 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
             elif code == 429:
                 self._retry_after(response)
                 continue
+            elif (
+                code == 502
+            ):  # Temporary fix to deal with riots broken match-v5 endpoint
+                print("502, retrying")
+                continue
 
             raise self._status_code_registry.get(
                 code,
