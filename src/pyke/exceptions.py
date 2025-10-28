@@ -1,4 +1,4 @@
-class BadRequest(Exception):
+class RiotAPIException(Exception):
     def __init__(self, message: str, error_code: int):
         super().__init__(message)
         self.message = message
@@ -6,113 +6,51 @@ class BadRequest(Exception):
 
     def __str__(self) -> str:
         return f"{self.message} (Error Code: {self.error_code})"
+
+
+class BadRequest(Exception):
+    pass
 
 
 class Unauthorized(Exception):
-    def __init__(self, message: str, error_code: int):
-        super().__init__(message)
-        self.message = message
-        self.error_code = error_code
-
-    def __str__(self) -> str:
-        return f"{self.message} (Error Code: {self.error_code})"
+    pass
 
 
 class Forbidden(Exception):
-    def __init__(self, message: str, error_code: int):
-        super().__init__(message)
-        self.message = message
-        self.error_code = error_code
-
-    def __str__(self) -> str:
-        return f"{self.message} (Error Code: {self.error_code})"
+    pass
 
 
 class DataNotFound(Exception):
-    def __init__(self, message: str, error_code: int):
-        super().__init__(message)
-        self.message = message
-        self.error_code = error_code
-
-    def __str__(self) -> str:
-        return f"{self.message} (Error Code: {self.error_code})"
+    pass
 
 
 class MethodNotAllowed(Exception):
-    def __init__(self, message: str, error_code: int):
-        super().__init__(message)
-        self.message = message
-        self.error_code = error_code
-
-    def __str__(self) -> str:
-        return f"{self.message} (Error Code: {self.error_code})"
+    pass
 
 
 class UnsupportedMediaType(Exception):
-    def __init__(self, message: str, error_code: int):
-        super().__init__(message)
-        self.message = message
-        self.error_code = error_code
-
-    def __str__(self) -> str:
-        return f"{self.message} (Error Code: {self.error_code})"
+    pass
 
 
 class RateLimitExceeded(Exception):
-    def __init__(self, message: str, error_code: int):
-        super().__init__(message)
-        self.message = message
-        self.error_code = error_code
-
-    def __str__(self) -> str:
-        return f"{self.message} (Error Code: {self.error_code})"
+    pass
 
 
 class InternalServerError(Exception):
-    def __init__(self, message: str, error_code: int):
-        super().__init__(message)
-        self.message = message
-        self.error_code = error_code
-
-    def __str__(self) -> str:
-        return f"{self.message} (Error Code: {self.error_code})"
+    pass
 
 
 class BadGateway(Exception):
-    def __init__(self, message: str, error_code: int):
-        super().__init__(message)
-        self.message = message
-        self.error_code = error_code
-
-    def __str__(self) -> str:
-        return f"{self.message} (Error Code: {self.error_code})"
+    pass
 
 
 class ServiceUnavailable(Exception):
-    def __init__(self, message: str, error_code: int):
-        super().__init__(message)
-        self.message = message
-        self.error_code = error_code
-
-    def __str__(self) -> str:
-        return f"{self.message} (Error Code: {self.error_code})"
+    pass
 
 
 class GatewayTimeout(Exception):
-    def __init__(self, message: str, error_code: int):
-        super().__init__(message)
-        self.message = message
-        self.error_code = error_code
-
-    def __str__(self) -> str:
-        return f"{self.message} (Error Code: {self.error_code})"
+    pass
 
 
 class UnknownError(Exception):
-    def __init__(self, message: str, error_code: int):
-        super().__init__(message)
-        self.message = message
-        self.error_code = error_code
-
-    def __str__(self) -> str:
-        return f"{self.message} (Error Code: {self.error_code})"
+    pass
