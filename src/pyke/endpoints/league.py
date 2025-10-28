@@ -80,7 +80,7 @@ class LeagueEndpoint:
         """  # fmt: skip
 
         path = f"/lol/league/v4/entries/{queue.value}/{tier.value}/{division.value}"
-        params = {"count": page}
+        params = {"page": page}
         data = self._client._region_request(region=region, path=path, params=params)
 
         league_entries: list[LeagueEntryDTO] = []
