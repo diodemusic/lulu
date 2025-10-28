@@ -11,11 +11,14 @@ class ChampionEndpoint:
     def rotations(self, region: Region) -> ChampionInfo:
         """# Returns champion rotations, including free-to-play and low-level free-to-play rotations
 
+        **Example:**  
+            `rotations = api.champion.rotations(Region.EUW)`
+
         **Args:**  
-            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
+            `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
 
         **Returns:**  
-            `ChampionInfo:` [ChampionInfo](/pyke/pyke/models/champion_v3.html#ChampionInfo).
+            `ChampionInfo` [ChampionInfo](/pyke/pyke/models/champion_v3.html#ChampionInfo).
         """  # fmt: skip
 
         path = "/lol/platform/v3/champion-rotations"
