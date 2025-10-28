@@ -126,7 +126,7 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
             elif code == 429:
                 retry_count += 1
                 print(f"Retries: {retry_count}/{max_retries}")
-                if retry_count > max_retries:
+                if retry_count >= max_retries:
                     raise exceptions.RateLimitExceeded(
                         f"Rate limit exceeded after {max_retries} retries", 429
                     )
