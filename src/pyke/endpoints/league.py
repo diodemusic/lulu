@@ -15,12 +15,15 @@ class LeagueEndpoint:
     ) -> LeagueListDTO:
         """# Get the challenger league for given queue
 
+        **Example:**  
+            ``
+
         **Args:**  
-            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
-            `queue (Queue):` Ranked [Queue](/pyke/pyke.html#Queue) type.  
+            `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
+            `queue (Queue)` Ranked [Queue](/pyke/pyke.html#Queue) type.  
 
         **Returns:**  
-            `list[LeagueListDTO]:` List of [LeagueListDTO](/pyke/pyke/models/league_v4.html#LeagueListDTO).
+            `list[LeagueListDTO]` List of [LeagueListDTO](/pyke/pyke/models/league_v4.html#LeagueListDTO).
         """  # fmt: skip
 
         path = f"/lol/league/v4/challengerleagues/by-queue/{queue.value}"
@@ -31,12 +34,15 @@ class LeagueEndpoint:
     def by_puuid(self, region: Region, puuid: str) -> list[LeagueEntryDTO]:
         """# Get league entries in all queues for a given puuid
 
+        **Example:**  
+            ``
+
         **Args:**  
-            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
-            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
+            `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
+            `puuid (str)` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  
-            `list[LeagueEntryDTO]:` List of [LeagueEntryDTO](/pyke/pyke/models/league_v4.html#LeagueEntryDTO).
+            `list[LeagueEntryDTO]` List of [LeagueEntryDTO](/pyke/pyke/models/league_v4.html#LeagueEntryDTO).
         """  # fmt: skip
 
         path = f"/lol/league/v4/entries/by-puuid/{puuid}"
@@ -59,15 +65,18 @@ class LeagueEndpoint:
     ) -> list[LeagueEntryDTO]:
         """# Get all the league entries
 
+        **Example:**  
+            ``
+
         **Args:**  
-            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
-            `queue (Queue):` Ranked [Queue](/pyke/pyke.html#Queue) type.  
-            `tier (Tier):` Ranked [Tier](/pyke/pyke.html#Tier).  
-            `division (Division):` Ranked [Division](/pyke/pyke.html#Division).  
-            `page (int, optional):` Starts with page 1. Defaults to 1.  
+            `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
+            `queue (Queue)` Ranked [Queue](/pyke/pyke.html#Queue) type.  
+            `tier (Tier)` Ranked [Tier](/pyke/pyke.html#Tier).  
+            `division (Division)` Ranked [Division](/pyke/pyke.html#Division).  
+            `page (int, optional)` Starts with page 1. Defaults to 1.  
 
         **Returns:**  
-            `list[LeagueEntryDTO]:` List of [LeagueEntryDTO](/pyke/pyke/models/league_v4.html#LeagueEntryDTO).
+            `list[LeagueEntryDTO]` List of [LeagueEntryDTO](/pyke/pyke/models/league_v4.html#LeagueEntryDTO).
         """  # fmt: skip
 
         path = f"/lol/league/v4/entries/{queue.value}/{tier.value}/{division.value}"
@@ -88,12 +97,15 @@ class LeagueEndpoint:
     ) -> LeagueListDTO:
         """# Get the grandmaster league for given queue
 
+        **Example:**  
+            ``
+
         **Args:**  
-            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
-            `queue (Queue):` Ranked [Queue](/pyke/pyke.html#Queue) type.  
+            `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
+            `queue (Queue)` Ranked [Queue](/pyke/pyke.html#Queue) type.  
 
         **Returns:**  
-            `LeagueListDTO:` [LeagueListDTO](/pyke/pyke/models/league_v4.html#LeagueListDTO).
+            `LeagueListDTO` [LeagueListDTO](/pyke/pyke/models/league_v4.html#LeagueListDTO).
         """  # fmt: skip
 
         path = f"/lol/league/v4/grandmasterleagues/by-queue/{queue.value}"
@@ -104,12 +116,15 @@ class LeagueEndpoint:
     def by_league_id(self, region: Region, league_id: str) -> LeagueListDTO:
         """# Get league with given ID, including inactive entries
 
+        **Example:**  
+            ``
+
         **Args:**  
-            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
-            `league_id (str):` League id.  
+            `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
+            `league_id (str)` League id.  
 
         **Returns:**  
-            `LeagueListDTO:` [LeagueListDTO](/pyke/pyke/models/league_v4.html#LeagueListDTO).
+            `LeagueListDTO` [LeagueListDTO](/pyke/pyke/models/league_v4.html#LeagueListDTO).
         """  # fmt: skip
 
         path = f"/lol/league/v4/leagues/{league_id}"
@@ -124,12 +139,15 @@ class LeagueEndpoint:
     ) -> LeagueListDTO:
         """# Get the master league for given queue
 
+        **Example:**  
+            ``
+
         **Args:**  
-            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
-            `queue (Queue):` Ranked [Queue](/pyke/pyke.html#Queue) type.  
+            `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
+            `queue (Queue)` Ranked [Queue](/pyke/pyke.html#Queue) type.  
 
         **Returns:**  
-            `LeagueListDTO:` [LeagueListDTO](/pyke/pyke/models/league_v4.html#LeagueListDTO).
+            `LeagueListDTO` [LeagueListDTO](/pyke/pyke/models/league_v4.html#LeagueListDTO).
         """  # fmt: skip
 
         path = f"/lol/league/v4/masterleagues/by-queue/{queue.value}"

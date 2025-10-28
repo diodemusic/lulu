@@ -20,15 +20,18 @@ class LeagueExpEndpoint:
     ) -> list[LeagueEntryDTO]:
         """# Get all the league entries
 
+        **Example:**  
+            ``
+
         **Args:**  
-            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
-            `queue (Queue):` Ranked [Queue](/pyke/pyke.html#Queue) type.  
-            `tier (Tier):` Ranked [Tier](/pyke/pyke.html#Tier).  
-            `division (Division):` Ranked [Division](/pyke/pyke.html#Division).  
-            `page (int, optional):` Starts with page 1. Defaults to 1.  
+            `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
+            `queue (Queue)` Ranked [Queue](/pyke/pyke.html#Queue) type.  
+            `tier (Tier)` Ranked [Tier](/pyke/pyke.html#Tier).  
+            `division (Division)` Ranked [Division](/pyke/pyke.html#Division).  
+            `page (int, optional)` Starts with page 1. Defaults to 1.  
 
         **Returns:**  
-            `list[LeagueEntryDTO]:` List of [LeagueEntryDTO](/pyke/pyke/models/league_exp_v4.html#LeagueEntryDTO).
+            `list[LeagueEntryDTO]` List of [LeagueEntryDTO](/pyke/pyke/models/league_exp_v4.html#LeagueEntryDTO).
         """  # fmt: skip
 
         path = f"/lol/league-exp/v4/entries/{queue.value}/{tier.value}/{division.value}"

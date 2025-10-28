@@ -11,11 +11,14 @@ class StatusEndpoint:
     def platform_data(self, region: Region) -> PlatformDataDto:
         """# Get League of Legends status for the given platform
 
+        **Example:**  
+            ``
+
         **Args:**  
-            `region (Region):` [Region](/pyke/pyke.html#Region) to execute against.  
+            `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
 
         **Returns:**  
-            `PlatformDataDto:` [PlatformDataDto](/pyke/pyke/models/lol_status_v4.html#PlatformDataDto).
+            `PlatformDataDto` [PlatformDataDto](/pyke/pyke/models/lol_status_v4.html#PlatformDataDto).
         """  # fmt: skip
 
         path = "/lol/status/v4/platform-data"

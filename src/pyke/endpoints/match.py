@@ -7,6 +7,8 @@ from ..models.match_v5 import MatchDto, TimelineDto
 
 
 class MatchEndpoint:
+    """The AMERICAS routing value serves NA, BR, LAN and LAS. The ASIA routing value serves KR and JP. The EUROPE routing value serves EUNE, EUW, ME1, TR and RU. The SEA routing value serves OCE, SG2, TW2 and VN2."""
+
     def __init__(self, client: _BaseApiClient):
         self._client = client
 
@@ -23,18 +25,21 @@ class MatchEndpoint:
     ) -> list[str]:
         """# Get a list of match ids by puuid
 
+        **Example:**  
+            ``
+
         **Args:**  
-            `continent (Continent):` [Continent](/pyke/pyke.html#Continent) to execute against.  
-            `puuid (str):` Encrypted PUUID. Exact length of 78 characters.  
-            `start_time (int | None, optional):` Epoch timestamp in seconds. The matchlist started storing timestamps on June 16th, 2021. Any matches played before June 16th, 2021 won't be included in the results if the startTime filter is set. Defaults to None.  
-            `end_time (int | None, optional):` Epoch timestamp in seconds. Defaults to None.  
-            `queue (int | None, optional):` Filter the list of match ids by a specific queue id. This filter is mutually inclusive of the type filter meaning any match ids returned must match both the queue and type filters. Defaults to None.  
-            `type (Type | None, optional):` Filter the list of match ids by the [Type](/pyke/pyke.html#Type) of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters. Defaults to None.  
-            `start (int | None, optional):` Start index. Defaults to 0.  
-            `count (int | None, optional):` Valid values: 0 to 100. Number of match ids to return. Defaults to 20.  
+            `continent (Continent)` [Continent](/pyke/pyke.html#Continent) to execute against.  
+            `puuid (str)` Encrypted PUUID. Exact length of 78 characters.  
+            `start_time (int | None, optional)` Epoch timestamp in seconds. The matchlist started storing timestamps on June 16th, 2021. Any matches played before June 16th, 2021 won't be included in the results if the startTime filter is set. Defaults to None.  
+            `end_time (int | None, optional)` Epoch timestamp in seconds. Defaults to None.  
+            `queue (int | None, optional)` Filter the list of match ids by a specific queue id. This filter is mutually inclusive of the type filter meaning any match ids returned must match both the queue and type filters. Defaults to None.  
+            `type (Type | None, optional)` Filter the list of match ids by the [Type](/pyke/pyke.html#Type) of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters. Defaults to None.  
+            `start (int | None, optional)` Start index. Defaults to 0.  
+            `count (int | None, optional)` Valid values: 0 to 100. Number of match ids to return. Defaults to 20.  
 
         **Returns:**  
-            `list[str]:` List of match id strings.
+            `list[str]` List of match id strings.
         """  # fmt: skip
 
         path = f"/lol/match/v5/matches/by-puuid/{puuid}/ids"
@@ -61,12 +66,15 @@ class MatchEndpoint:
     def by_match_id(self, continent: Continent, match_id: str) -> MatchDto:
         """# Get a match by match id
 
+        **Example:**  
+            ``
+
         **Args:**  
-            `continent (Continent):` [Continent](/pyke/pyke.html#Continent) to execute against.  
-            `match_id (str):` Match id string.  
+            `continent (Continent)` [Continent](/pyke/pyke.html#Continent) to execute against.  
+            `match_id (str)` Match id string.  
 
         **Returns:**  
-            `MatchDto:` [MatchDto](/pyke/pyke/models/match_v5.html#MatchDto).
+            `MatchDto` [MatchDto](/pyke/pyke/models/match_v5.html#MatchDto).
         """  # fmt: skip
 
         path = f"/lol/match/v5/matches/{match_id}"
@@ -77,12 +85,15 @@ class MatchEndpoint:
     def timeline_by_match_id(self, continent: Continent, match_id: str) -> TimelineDto:
         """# Get a match timeline by match id
 
+        **Example:**  
+            ``
+
         **Args:**  
-            `continent (Continent):` [Continent](/pyke/pyke.html#Continent) to execute against.  
-            `match_id (str):` Match id string.  
+            `continent (Continent)` [Continent](/pyke/pyke.html#Continent) to execute against.  
+            `match_id (str)` Match id string.  
 
         **Returns:**  
-            `TimelineDto:` [TimelineDto](/pyke/pyke/models/match_v5.html#TimelineDto).
+            `TimelineDto` [TimelineDto](/pyke/pyke/models/match_v5.html#TimelineDto).
         """  # fmt: skip
 
         path = f"/lol/match/v5/matches/{match_id}/timeline"
