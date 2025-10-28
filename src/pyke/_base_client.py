@@ -25,6 +25,7 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
             raise ValueError("API key is required, please pass a valid Riot API key.")
 
         self.api_key = api_key
+        self.session = requests.Session()
         self.print_url = print_url
         self.smart_rate_limiting = smart_rate_limiting
         self._status_code_registry = {
@@ -115,7 +116,7 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
         while True:
             headers = {"X-Riot-Token": self.api_key}
             start_time = time.perf_counter()
-            response = requests.get(url, headers=headers, params=params, timeout=30)
+            response = self.session.get(url, headers=headers, params=params, timeout=30)
             self._print_url(response, url)
             self._wait(response, start_time)
             code = response.status_code

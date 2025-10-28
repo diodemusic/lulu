@@ -4,7 +4,6 @@
 
 ### Error Handling
 
-- [ ] **Add connection pooling** - Use `requests.Session()` for connection reuse
 - [ ] **Replace print with logging** - Use `logging` module instead of print statements
 - [ ] **Add timeout exception handling** - Catch `requests.Timeout` and convert to custom exception
 - [ ] **Improve rate limit parsing** - Add logging when header parsing fails and fallbacks are used
