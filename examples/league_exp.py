@@ -8,13 +8,15 @@ load_dotenv()
 API_KEY = os.getenv("RIOT_API_KEY")
 api = Pyke(API_KEY)
 
-league_entries = api.league_exp.by_queue_tier_division(
-    Region.EUW, Queue.SOLO_DUO, Tier.GOLD, Division.II, page=2
+# Let's get some gold 2 players
+entries = api.league_exp.by_queue_tier_division(
+    Region.EUW, Queue.SOLO_DUO, Tier.GOLD, Division.II
 )
 
-for league_entry in league_entries:
-    print(f"Rank: {league_entry.rank}")
-    print(f"League points: {league_entry.league_points}")
-    print(f"Wins: {league_entry.wins}")
+# Now we can print our gold 2 players
+for entry in entries:
+    print(f"Rank: {entry.rank}")
+    print(f"League points: {entry.league_points}")
+    print(f"Wins: {entry.wins}")
 
     print("-" * 50)
