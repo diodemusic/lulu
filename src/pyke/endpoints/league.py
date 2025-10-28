@@ -16,7 +16,7 @@ class LeagueEndpoint:
         """# Get the challenger league for given queue
 
         **Example:**  
-            ``
+            `leagues = api.league.challenger_leagues_by_queue(Region.EUW, Queue.SOLO_DUO)`
 
         **Args:**  
             `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
@@ -35,7 +35,7 @@ class LeagueEndpoint:
         """# Get league entries in all queues for a given puuid
 
         **Example:**  
-            ``
+            `entries = api.league.by_puuid(Region.EUW, "some puuid")`
 
         **Args:**  
             `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
@@ -66,7 +66,7 @@ class LeagueEndpoint:
         """# Get all the league entries
 
         **Example:**  
-            ``
+            `entries = api.league.by_queue_tier_division(Region.EUW, Queue.SOLO_DUO, Tier.GOLD, Division.II)`
 
         **Args:**  
             `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
@@ -98,7 +98,7 @@ class LeagueEndpoint:
         """# Get the grandmaster league for given queue
 
         **Example:**  
-            ``
+            `leagues = api.league.grandmaster_leagues_by_queue(Region.EUW, Queue.SOLO_DUO)`
 
         **Args:**  
             `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
@@ -117,7 +117,7 @@ class LeagueEndpoint:
         """# Get league with given ID, including inactive entries
 
         **Example:**  
-            ``
+            `leagues = api.league.by_league_id(Region.EUW, "some league id")`
 
         **Args:**  
             `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
@@ -140,7 +140,7 @@ class LeagueEndpoint:
         """# Get the master league for given queue
 
         **Example:**  
-            ``
+            `leagues = api.league.master_leagues_by_queue(Region.EUW, Queue.SOLO_DUO)`
 
         **Args:**  
             `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
