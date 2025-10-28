@@ -21,8 +21,13 @@ from .endpoints.tournament_stub import TournamentStubEndpoint
 class Pyke:
     """Main entrypoint for interacting with the Riot API."""
 
-    def __init__(self, api_key: str | None, print_url: bool = True):
-        self._client = _BaseApiClient(api_key, print_url)
+    def __init__(
+        self,
+        api_key: str | None,
+        print_url: bool = True,
+        smart_rate_limiting: bool = True,
+    ) -> None:
+        self._client = _BaseApiClient(api_key, print_url, smart_rate_limiting)
 
         self.account = AccountEndpoint(self._client)
         self.champion_mastery = ChampionMasteryEndpoint(self._client)
