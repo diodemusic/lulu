@@ -6,13 +6,15 @@ from pyke import Continent, Pyke, Queue, Region
 
 load_dotenv()
 API_KEY = os.getenv("RIOT_API_KEY")
-api = Pyke(API_KEY)
+api = Pyke(API_KEY, print_url=False, smart_rate_limiting=False)
 
-
+# Let's get all the challenger players for solo/duo queue
 challenger_leagues = api.league.challenger_leagues_by_queue(
     region=Region.EUW, queue=Queue.SOLO_DUO
 )
 
+# Now we can print a leaderboard of the top 5 challenger players
+# With Riot id, LP, wins,losses, and win rate
 for challenger_player in challenger_leagues.entries[0:5]:
     account = api.account.by_puuid(
         continent=Continent.EUROPE, puuid=challenger_player.puuid
