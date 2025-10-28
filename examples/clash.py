@@ -11,11 +11,9 @@ API_KEY = os.getenv("RIOT_API_KEY")
 api = Pyke(API_KEY, print_url=False)
 
 # Let's check if there is currently a clash
-clashes = api.clash.tournaments(Region.EUW)
+tournaments = api.clash.tournaments(Region.EUW)
 
-if clashes:
-    clash = clashes[0]
-else:
+if not tournaments:
     print("There are currently no clashes planned/running")
     quit()
 
@@ -40,5 +38,5 @@ for player in players:
         team_mate_account = api.account.by_puuid(Continent.EUROPE, player.puuid)
         riot_id = f"{account.game_name}#{account.tag_line}"
 
-    # Finally we can print our riot id and role
+    # Finally we can print the players riot id and role
     print(f"{riot_id} is playing the {player.position.value} role.")
