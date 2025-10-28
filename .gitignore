@@ -220,3 +220,7 @@ src/pyke/_schema/schema.json
 
 # Workspace settings
 .vscode
+
+# Claude
+CLAUDE.md
+REVIEW.md
