@@ -106,6 +106,9 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
             raise exceptions.InternalServerError("Empty JSON response", 500)
 
     def _get(self, url: str, params: dict[Any, Any] = {}) -> Any:
+        max_retries = 5
+        retry_count = 0
+
         while True:
             headers = {"X-Riot-Token": self.api_key}
             start_time = time.perf_counter()
@@ -116,13 +119,19 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
 
             if code == 200:
                 return self._response_json(response)
+
             elif code == 429:
+                retry_count += 1
+                print(f"Retries: {retry_count}/{max_retries}")
+                if retry_count > max_retries:
+                    raise exceptions.RateLimitExceeded(
+                        f"Rate limit exceeded after {max_retries} retries", 429
+                    )
                 self._retry_after(response)
                 continue
-            elif (
-                code == 502
-            ):  # Temporary fix to deal with riots broken match-v5 endpoint
-                print("502, retrying")
+
+            elif code == 502:
+                print("502 error, retrying after 10 seconds...")
                 time.sleep(10)
                 continue
 
