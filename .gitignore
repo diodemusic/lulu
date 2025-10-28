@@ -224,3 +224,4 @@ src/pyke/_schema/schema.json
 # Claude
 CLAUDE.md
 REVIEW.md
+.claude/
