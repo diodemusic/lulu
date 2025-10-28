@@ -21,7 +21,7 @@ class LeagueExpEndpoint:
         """# Get all the league entries
 
         **Example:**  
-            ``
+        `entries = api.league_exp.by_queue_tier_division(Region.EUW, Queue.SOLO_DUO, Tier.GOLD, Division.II)`
 
         **Args:**  
             `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
