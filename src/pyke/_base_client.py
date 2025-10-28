@@ -105,7 +105,10 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
         except ValueError:
             raise exceptions.InternalServerError("Empty JSON response", 500)
 
-    def _get(self, url: str, params: dict[Any, Any] = {}) -> Any:
+    def _get(self, url: str, params: dict[Any, Any] | None = None) -> Any:
+        if params is None:
+            params = {}
+
         max_retries = 5
         retry_count = 0
 
