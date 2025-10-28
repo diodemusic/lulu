@@ -1,305 +1,108 @@
-# Pyke – Development Task List
+# Pyke – Development TODO
+
+## High Priority (Fix Before Next Release)
+
+### Error Handling
+
+- [ ] **Add connection pooling** - Use `requests.Session()` for connection reuse
+- [ ] **Replace print with logging** - Use `logging` module instead of print statements
+- [ ] **Add timeout exception handling** - Catch `requests.Timeout` and convert to custom exception
+- [ ] **Improve rate limit parsing** - Add logging when header parsing fails and fallbacks are used
 
 ---
 
-# [x] Backwards compatibility
+## Testing Improvements
 
-**Description:** Change Python version in `pyproject.toml` to the earliest possible working version of Python.
-
----
-
-## [ ] Library Audit
-
-**Description**: Review existing modules in `src/pyke` for consistency, naming, and type coverage. Identify duplicated logic, unclear class responsibilities, or missing docstrings.
-
----
-
-## [ ] Consistent Error Handling System
-
-**Description**: Define a unified `exceptions.py` that all modules use. Include typed exceptions (e.g., `RateLimitError`, `InvalidRegionError`, `UnauthorizedError`).
-
-**Acceptance Criteria**:
-
-- No untyped `raise Exception`.
-- All client errors map to meaningful exceptions.
-- Tests cover raised exceptions.
-
-**Files to Create/Edit**:
-
-- `src/pyke/exceptions.py`
-- `tests/test_exceptions.py`
+- [ ] **Add mock tests** - Use `responses` or `pytest-httpx` to mock Riot API responses
+- [ ] **Test error conditions** - Mock 404, 429, 500, 503 responses
+- [ ] **Improve test assertions** - Validate actual data, not just response types
+- [ ] **Test retry/backoff logic** - Deterministic tests for 429 and 502 handling
+- [ ] **Add pytest fixtures** - Fixtures for API keys and common test data
+- [ ] **Add tox/nox config** - Local multi-Python version testing
 
 ---
 
-## [x] Rate Limit Handling Improvement
+## Core Features
 
-**Description**: Implement rate limit sleep and retry logic without redundant calls. Integrate internal `_handle_rate_limit(response: Response)` utility.
+### API Improvements
 
-**Acceptance Criteria**:
+- [ ] **Add async support** - Create `AsyncPyke` class using `httpx.AsyncClient`
+- [ ] **DDragon support** - Add static data endpoints (champions, items, etc.)
+- [ ] **Caching layer** - Optional TTL cache for frequent endpoints (summoner, champion data)
+- [ ] **Rate limit status helper** - Expose `client.remaining_requests` property
+- [ ] **Retry configuration** - Expose `max_retries` as configurable parameter
 
-- Handles 429 responses gracefully (single print per event).
-- Respects Riot headers (`Retry-After`, `X-Method-Rate-Limit`).
-- No duplicate URL printouts when sleeping.
+### Developer Experience
 
-**Files to Edit**:
-
-- `src/pyke/_base_client.py`
-- Add tests under `tests/test_rate_limit.py`
-
----
-
-## [ ] Full Type Hint Coverage
-
-**Description**: Add or refine Python type hints across all modules.
-
-**Acceptance Criteria**:
-
-- `mypy` passes with no `Any` leaks (except unavoidable external APIs).
-- Include `py.typed` marker in distribution.
-- CI enforces `mypy` check.
-
----
-
-## [ ] Example Expansion
-
-**Description**: Expand `examples/` to include real-world League API workflows (summoner lookup, match summary, ranked stats, etc.).
-
-**Acceptance Criteria**:
-
-- At least 3 runnable examples with minimal setup.
-- Examples referenced in README and docs.
-- Verified with valid `.env` keys.
-
----
-
-## [ ] Documentation Overhaul
-
-**Description**: Improve `README.md` and `docs/` for clarity, quick start, and developer reference.
-
-**Acceptance Criteria**:
-
-- “Getting Started” section includes pip install, .env setup, and sample usage.
-- API Reference generated via `pdoc` with examples linked.
-
----
-
-## [ ] Continuous Integration & Quality
-
-**Description**: Implement GitHub Actions workflow `ci.yml` that includes:
-
-- Ruff lint check
-- Mypy type check
-- Bandit security scan
-- Pytest
-- Docs build via pdoc
-
-**Acceptance Criteria**:
-
-- Workflow passes on main branch.
-- Python version matrix: [3.9, 3.10, 3.11, 3.12, 3.13, 3.14].
-- `.env` values mocked for tests.
-
----
-
-## [ ] Package & Distribution Polish
-
-**Description**: Prepare for PyPI publication.
-
-**Acceptance Criteria**:
-
-- `pyproject.toml` includes correct metadata.
-- Version auto-incremented via Git tag.
-- `README.md` renders correctly on PyPI.
-- `twine check dist/*` passes.
-
----
-
-## [ ] Playwright QA Screenshot Capture
-
-**Description**: Visual test baseline for documentation or web demo.
-
-**Acceptance Criteria**:
-
-- Script `qa-playwright-capture.sh` exists.
-- Captures screenshots of docs site.
-- Outputs to `public/qa-screenshots`.
-
----
-
-## Quality Requirements
-
-- [ ] All functions typed and documented with docstrings.
-- [ ] Exceptions standardized.
-- [ ] No redundant API calls under rate limit.
-- [ ] Test coverage ≥90%.
-- [ ] CI must pass fully before merge.
-- [ ] Docs build without warnings.
-
-## Technical Notes
-
-**Development Stack**: Python ≥3.9, pytest, mypy, ruff, pdoc
-**Special Instructions**: Focus on API stability, maintainability, and developer UX.
-**Timeline**: Open-ended; optimize for long-term quality.
-
----
-
-## Core Design & Architecture
-
-- [x] **Mirror Riot’s API structure** intuitively (e.g., `api.summoner.by_name(region, name)` instead of arbitrary endpoints).
-- [x] **Encapsulate endpoints as modules or classes** (account, summoner, match, league, etc).
-- [x] **Provide clear data models** (e.g., Pydantic models for responses — `SummonerDTO`, `MatchDTO`).
-- [x] **Handle authentication** cleanly (API key via env var, config file, or parameter).
-- [ ] Add **rate-limit/backoff strategy configuration** (retry counts, backoff formula, headers respect).
-- [ ] Add a lightweight caching layer (optional, e.g., TTLCache or Redis adapter).
-- [ ] Add DDragon support.
-- [ ] Add async support.
-
----
-
-## HTTP Layer & Error Handling
-
-- [x] Automatic **retry and rate-limit handling** (429 responses, backoff, respecting headers).
-- [x] Friendly **exceptions** (e.g., `RiotAPIError`, `RateLimitError`, `NotFoundError`).
-- [ ] Timeout handling and connection-pool reuse (via `requests.Session` or `httpx`).
-- [x] Optional detailed logging (requests + responses).
-- [ ] Unit tests for retry, timeout, and backoff logic.
-- [ ] Add telemetry hook or callback for debug metrics (e.g., request count, latency).
-
----
-
-## Data Models (DTOs)
-
-```python
-class SummonerDTO(BaseModel):
-    profile_icon_id: int
-    revision_date: int
-    puuid: str
-    summoner_level: int
-    id: Optional[str]
-```
-
-- [x] Type-safe responses.
-- [x] Autocompletion in IDEs.
-- [x] Built-in validation and parsing.
-- [ ] Add shared base model (`RiotBaseModel`) for common config (`model_config`, alias rules, etc.).
-- [x] **Hide Pydantic internals from documentation**
-      → Implement automated `__pdoc__` suppression in `models/__init__.py`.
-
----
-
-## Developer Experience (DX)
-
-- [x] Intelligent autocomplete (clear method names, type hints).
-- [x] Helpful docstrings.
-- [x] Friendly errors (e.g., “Invalid region: must be one of EUW1, NA1, KR…”).
-- [x] Toggleable logging.
-- [ ] Centralized configuration class (`PykeConfig`) for log level, retry count, and API key management.
-- [ ] Contextual error messages (include endpoint + parameters when raising exceptions).
-- [ ] CLI tool (`pyke --summoner Faker --region KR`) for quick testing.
-
----
-
-## Packaging & Distribution
-
-- [x] Well-structured package (`src/pyke/...`).
-- [x] Proper `pyproject.toml` (with metadata, classifiers, dependencies).
-- [x] `README.md` with usage examples and badges.
-- [x] `LICENSE` and versioning (`0.1.0` → `0.2.0`).
-- [x] Built docs (using `pdoc` or `mkdocs-material`).
-- [x] CI pipeline (GitHub Actions) that runs PyPI build on release.
-- [ ] Add `MANIFEST.in` (if needed) to include `docs/`, examples, and metadata.
-- [x] Add publishing workflow (`release.yml`) that builds & uploads to PyPI when a release is tagged.
-
----
-
-## Testing
-
-- [x] Unit tests (for each endpoint wrapper).
-- [x] CI pipeline (GitHub Actions) that runs tests + lints on commit.
-- [x] Coverage report (badge in README).
-- [ ] Test endpoints with multiple regions/continents and multiple users.
-- [ ] Mock Riot API responses using `responses` or `pytest-httpx`.
-- [ ] Test `429` + `503` retry/backoff behaviour deterministically.
-- [ ] Add `pytest` fixtures for API keys and fake data.
-- [ ] Integration test suite that runs against the real Riot API (optional).
-- [ ] Add `tox` or `nox` config for local multi-Python testing.
-
----
-
-## Utilities & Enhancements
-
-- [x] Support for both “platform” and “regional” routing values (e.g., EUW1 vs EUROPE).
-- [ ] CLI examples (e.g., “Get top 5 ranked players in region”).
-- [ ] Add rate-limit status helper (`client.remaining_requests` etc).
-- [ ] Simple caching decorator for frequent endpoints.
+- [ ] **Centralized config class** - `PykeConfig` for log level, retries, API key
+- [ ] **Contextual error messages** - Include endpoint + params in exceptions
+- [ ] **CLI tool** - `pyke --summoner Faker --region KR` for quick testing
+- [ ] **Complete Queue enum** - Add ARAM, normals, and other queue types
 
 ---
 
 ## Documentation
 
-- [x] High-level overview: what it is, how to install, quickstart.
-- [x] Endpoint examples for all major APIs.
-- [x] API reference (autogenerated with `pdoc` or `mkdocs`).
-- [x] **Fix Pydantic boilerplate in docs** → implement the `models/__init__.py` automation.
-- [ ] Add top-level `src/pyke/__init__.py` docstring (summary of all submodules).
-- [x] Add README docstring to `src/pyke/__init__.py` (install, usage, etc.).
-- [x] Host docs via GitHub Pages (`pdoc --html --output-dir docs`).
-- [ ] Generate per-module docstrings (`endpoints`, `enums`, `exceptions`, `main`, `models`).
-- [ ] Add code examples to docstrings using triple-quoted code blocks.
+- [ ] **Fill empty docstring examples** - Add real examples to endpoint docstrings or remove empty example sections
+- [ ] **Add code examples to docstrings** - More comprehensive usage examples
+- [ ] **Add CONTRIBUTING.md** - Setup instructions, lint/test commands, release process
+- [ ] **Add CHANGELOG.md** - Track version history and breaking changes
+- [ ] **Generate per-module docstrings** - Better documentation for endpoints, enums, exceptions
 
 ---
 
-## Branding & Presentation
+## Polish
 
-- [x] Nice README with badges (PyPI version, build, docs, license).
-- [x] Logo or banner.
-- [x] Clear tagline.
-- [ ] Example image (like “fetch summoner rank in 3 lines”).
-- [ ] Add animated GIF demo in README (optional).
-- [ ] Add social preview (banner in `.github/` folder).
+### Code Quality
 
----
+- [ ] **Add py.typed marker** - Include in package for mypy support
+- [ ] **Add pre-commit hooks** - For ruff, black, isort
+- [ ] **Enforce code style** - Consistent use of ruff, black, isort
+- [ ] **Periodic dependency audit** - Use pip-audit or safety
+- [ ] **Add README badges** - Build status, docs, coverage, code quality
 
-## Optional Advanced Features
+### Packaging
 
-- [ ] Auto-discovery of endpoints (fetch from Riot’s OpenAPI spec).
-- [ ] Async version of client (using `httpx.AsyncClient`).
-- [ ] Rate-limit sharing across clients (thread-safe global bucket).
-- [ ] Endpoint usage analytics (log which endpoints are most hit).
-- [ ] Built-in caching layer (with expiration, e.g., `diskcache`).
+- [ ] **Add MANIFEST.in** - Include docs/ and examples/ in distribution
+- [ ] **Fix schema generation path** - Use `__file__` for relative paths in `get_schema_json.py`
+- [ ] **Version schema source** - Pin or host OpenAPI schema to avoid breaking changes
 
----
+### Presentation
 
-## Continuous Integration & Quality
-
-- [x] Add GitHub Action workflow (`ci.yml`) with:
-  - [x] `black` lint check
-  - [x] `mypy` type check
-  - [x] `bandit` security scan
-  - [x] `pytest` for tests
-  - [x] `pdoc` doc build and artifact upload
-- [x] Add dependabot to repo.
-- [ ] Add badges to README: `Build`, `Docs`, `Coverage`, `Code Quality`.
-- [ ] Add pre-commit hooks for `ruff`, `black`, and `isort`.
+- [ ] **Add demo GIF** - Animated example in README
+- [ ] **Add social preview** - Banner in `.github/` for social media
+- [ ] **Example screenshots** - Visual guide for "fetch summoner rank in 3 lines"
 
 ---
 
-## Code Quality & Static Analysis
+## Future/Optional Features
 
-- [ ] Enforce code style: `ruff`, `black`, `isort`.
-- [ ] Type checking with `mypy` (include `py.typed` marker in package).
-- [ ] Security scanning with `bandit`.
-- [ ] Optional: complexity check (`radon`) and formatting check (`docformatter`).
-- [ ] Periodic dependency review (`pip-audit` or `safety`).
+- [ ] **Auto-discovery of endpoints** - Fetch from Riot's OpenAPI spec dynamically
+- [ ] **Rate-limit sharing** - Thread-safe global rate limit bucket across clients
+- [ ] **Endpoint usage analytics** - Track which endpoints are most frequently used
+- [ ] **Advanced caching** - Redis adapter or diskcache with expiration
+- [ ] **Telemetry hooks** - Callbacks for debug metrics (request count, latency)
+- [ ] **Playwright QA screenshots** - Visual regression testing for docs
 
 ---
 
-## Contributor Experience
+## Quality Standards
 
-- [ ] Add `CONTRIBUTING.md` (setup, lint/test commands, release steps).
-- [ ] Add `CODE_OF_CONDUCT.md`.
-- [ ] Template issue and PR forms under `.github/`.
-- [ ] “Good first issue” labels for contributors.
-- [ ] Add changelog (`CHANGELOG.md`) and semantic versioning notes.
+- All functions must have type hints and docstrings
+- Test coverage must be ≥90%
+- CI must pass before merging
+- Docs must build without warnings
+- No redundant API calls
+- All exceptions must be typed
+
+---
+
+## Development Stack
+
+**Languages**: Python ≥3.9
+**Testing**: pytest, responses/pytest-httpx
+**Linting**: ruff, black, mypy, bandit
+**Docs**: pdoc
+**Build**: Poetry
 
 ---
