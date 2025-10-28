@@ -21,6 +21,9 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
         print_url: bool = True,
         smart_rate_limiting: bool = True,
     ) -> None:
+        if api_key is None:
+            raise ValueError("API key is required, please pass a valid Riot API key.")
+
         self.api_key = api_key
         self.print_url = print_url
         self.smart_rate_limiting = smart_rate_limiting
