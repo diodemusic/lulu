@@ -8,49 +8,53 @@ class RiotAPIException(Exception):
         return f"{self.message} (Error Code: {self.error_code})"
 
 
-class BadRequest(Exception):
+class BadRequest(RiotAPIException):
     pass
 
 
-class Unauthorized(Exception):
+class Unauthorized(RiotAPIException):
     pass
 
 
-class Forbidden(Exception):
+class Forbidden(RiotAPIException):
     pass
 
 
-class DataNotFound(Exception):
+class DataNotFound(RiotAPIException):
     pass
 
 
-class MethodNotAllowed(Exception):
+class MethodNotAllowed(RiotAPIException):
     pass
 
 
-class UnsupportedMediaType(Exception):
+class UnsupportedMediaType(RiotAPIException):
     pass
 
 
-class RateLimitExceeded(Exception):
+class RateLimitExceeded(RiotAPIException):
     pass
 
 
-class InternalServerError(Exception):
+class InternalServerError(RiotAPIException):
     pass
 
 
-class BadGateway(Exception):
+class BadGateway(RiotAPIException):
     pass
 
 
-class ServiceUnavailable(Exception):
+class ServiceUnavailable(RiotAPIException):
     pass
 
 
-class GatewayTimeout(Exception):
+class GatewayTimeout(RiotAPIException):
     pass
 
 
-class UnknownError(Exception):
+class UnknownError(RiotAPIException):
+    pass
+
+
+class RequestTimeout(RiotAPIException):
     pass
