@@ -26,7 +26,7 @@ class MatchEndpoint:
         """# Get a list of match ids by puuid
 
         **Example:**  
-            ``
+            `match_ids = api.match.match_ids_by_puuid(Continent.EUROPE, "some puuid")`
 
         **Args:**  
             `continent (Continent)` [Continent](/pyke/pyke.html#Continent) to execute against.  
@@ -67,7 +67,7 @@ class MatchEndpoint:
         """# Get a match by match id
 
         **Example:**  
-            ``
+            `match = api.match.by_match_id(Continent.EUROPE, "EUW1_1234567890")`
 
         **Args:**  
             `continent (Continent)` [Continent](/pyke/pyke.html#Continent) to execute against.  
@@ -86,7 +86,7 @@ class MatchEndpoint:
         """# Get a match timeline by match id
 
         **Example:**  
-            ``
+            `timeline = api.match.timeline_by_match_id(Continent.EUROPE, "EUW1_1234567890")`
 
         **Args:**  
             `continent (Continent)` [Continent](/pyke/pyke.html#Continent) to execute against.  

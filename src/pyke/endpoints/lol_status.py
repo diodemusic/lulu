@@ -12,7 +12,7 @@ class StatusEndpoint:
         """# Get League of Legends status for the given platform
 
         **Example:**  
-            ``
+            `status = api.lol_status.platform_data(Region.EUW)`
 
         **Args:**  
             `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  

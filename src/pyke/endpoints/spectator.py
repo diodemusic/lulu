@@ -12,7 +12,7 @@ class SpectatorEndpoint:
         """# Get current game information for the given puuid
 
         **Example:**  
-            ``
+            `current_game = api.spectator.by_puuid(Region.EUW, "some puuid")`
 
         **Args:**
             `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  

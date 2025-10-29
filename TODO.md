@@ -42,7 +42,6 @@
 
 ## Documentation
 
-- [ ] **Fill empty docstring examples** - Add real examples to endpoint docstrings or remove empty example sections
 - [ ] **Add code examples to docstrings** - More comprehensive usage examples
 - [ ] **Add CONTRIBUTING.md** - Setup instructions, lint/test commands, release process
 - [ ] **Add CHANGELOG.md** - Track version history and breaking changes
