@@ -1,11 +1,5 @@
 # Pyke – Development TODO
 
-## High Priority (Fix Before Next Release)
-
-### Error Handling
-
-- [ ] **Improve rate limit parsing** - Add logging when header parsing fails and fallbacks are used
-
 ---
 
 ## Testing Improvements
