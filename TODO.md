@@ -2,14 +2,69 @@
 
 ---
 
+## Critical Fixes (Before Next Release)
+
+### Type Safety Issues
+
+- [ ] **Fix type annotation mismatch in clash** - `clash.py:97,106` - Parameter is `int` but docstring says `str`, fix typo "Tournement" → "Tournament"
+- [ ] **Fix return type in match endpoint** - `match.py:64` - `match_ids_by_puuid()` returns raw data, should validate/cast to `list[str]`
+- [ ] **Fix type coercion in champion_mastery** - `champion_mastery.py:106` - Should use `return int(data)` instead of raw return
+
+### Bugs & Dead Code
+
+- [ ] **Fix mutable default arguments** - `_base_client.py:162, 168` - Change `params: dict[Any, Any] = {}` to `params: dict[Any, Any] | None = None`
+- [ ] **Fix league_exp parameter name** - `league_exp.py:38` - Change `{"count": page}` to `{"page": page}`
+- [ ] **Remove dead code in clash** - `clash.py:91` - Remove unused path assignment that gets immediately overwritten
+
+### Missing Implementation
+
+- [ ] **Implement or remove tournament endpoints** - `tournament.py` and `tournament_stub.py` have no methods (just empty `__init__`)
+- [ ] **Uncomment spectator tests** - `test_spectator.py` has all tests commented out (zero test coverage)
+
+---
+
+## High Priority Improvements
+
+### Error Handling & Reliability
+
+- [ ] **Fix infinite retry loop** - `_base_client.py:116-156` - 502 errors retry forever (no max_retries check), add limit and exponential backoff
+- [ ] **Fix fragile header parsing** - `_base_client.py:44-84` - Multiple chained `.split()` calls with broad exception handling, use safer parsing
+- [ ] **Filter None params explicitly** - `match.py:52-59` - Params dict can contain None values, filter before API call: `{k: v for k, v in params.items() if v is not None}`
+- [ ] **Replace print() with logging** - `_base_client.py` (lines 50, 59, 81, 103, 138, 147) - Use `logging` module instead of print statements
+
+### Resource Management
+
+- [ ] **Add context manager support** - Implement `__enter__`/`__exit__` on `Pyke` class to properly close `requests.Session()`
+- [ ] **Make timeout configurable** - Expose timeout parameter instead of hardcoded 30 seconds in `_base_client.py:125`
+
+### Input Validation
+
+- [ ] **Add parameter validation** - Validate inputs before API calls:
+  - `count` within 0-100 range
+  - `page` is positive integer
+  - PUUID format validation (78 characters)
+  - champion_id is positive integer
+
+### Code Quality
+
+- [ ] **Use list comprehensions** - Replace verbose for-loops with Pythonic list comprehensions throughout endpoints (8+ occurrences in league.py, champion_mastery.py, clash.py, lol_challenges.py)
+- [ ] **Standardize docstring format** - Remove `#` prefix, consistent spacing and code block styles across all endpoints
+- [ ] **Fix region enum case consistency** - `region.py:10` - `JP = "JP1"` should be `"jp1"`, `KR = "kr"` should be `"kr1"` (missing region number)
+- [ ] **Fix exception instantiation pattern** - `_base_client.py:31-42` - Store exception classes, not instances in registry dict
+- [ ] **Use JSONDecodeError** - `_base_client.py:109` - Catch `json.JSONDecodeError` instead of broad `ValueError`
+
+---
+
 ## Testing Improvements
 
-- [ ] **Add mock tests** - Use `responses` or `pytest-httpx` to mock Riot API responses
-- [ ] **Test error conditions** - Mock 404, 429, 500, 503 responses
-- [ ] **Improve test assertions** - Validate actual data, not just response types
+- [ ] **Add mock tests** - Use `responses` or `pytest-httpx` to mock Riot API responses (all tests currently hit real API - slow, rate-limited, and can't test errors)
+- [ ] **Test error conditions** - Mock 404, 429, 500, 503 responses to test exception handling
+- [ ] **Improve test assertions** - Validate actual data (e.g., `result.puuid == TEST_PUUID`, `result.summoner_level > 0`), not just `isinstance()` checks
 - [ ] **Test retry/backoff logic** - Deterministic tests for 429 and 502 handling
 - [ ] **Add pytest fixtures** - Fixtures for API keys and common test data
 - [ ] **Add tox/nox config** - Local multi-Python version testing
+- [ ] **Test rate limiting logic** - Verify smart rate limiting calculations work correctly
+- [ ] **Test edge cases** - Empty lists, None values, malformed JSON responses
 
 ---
 
@@ -34,6 +89,8 @@
 
 ## Documentation
 
+- [ ] **Add error handling examples** - All endpoint docstrings only show happy path, add try/except examples with `exceptions.DataNotFound` etc.
+- [ ] **Fix league_exp docstring** - `league_exp.py:31` - Says "Defaults to 1" but parameter is `None`, update to match actual behavior
 - [ ] **Add code examples to docstrings** - More comprehensive usage examples
 - [ ] **Add CONTRIBUTING.md** - Setup instructions, lint/test commands, release process
 - [ ] **Add CHANGELOG.md** - Track version history and breaking changes
@@ -50,6 +107,7 @@
 - [ ] **Enforce code style** - Consistent use of ruff, black, isort
 - [ ] **Periodic dependency audit** - Use pip-audit or safety
 - [ ] **Add README badges** - Build status, docs, coverage, code quality
+- [ ] **Improve API key validation** - `_base_client.py:24-25` - Only checks if None, should validate format/length (Riot keys are ~40 chars)
 
 ### Packaging
 
