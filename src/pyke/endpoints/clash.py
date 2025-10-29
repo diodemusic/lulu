@@ -88,7 +88,6 @@ class ClashEndpoint:
             `TournamentDto` [TournamentDto](/pyke/pyke/models/clash_v1.html#TournamentDto).
         """  # fmt: skip
 
-        path = "/lol/clash/v1/tournaments"
         path = f"/lol/clash/v1/tournaments/by-team/{team_id}"
         data = self._client._region_request(region=region, path=path)
 
