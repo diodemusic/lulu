@@ -110,9 +110,6 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
             raise exceptions.InternalServerError("Empty JSON response", 500)
 
     def _get(self, url: str, params: dict[Any, Any] | None = None) -> Any:
-        if params is None:
-            params = {}
-
         max_retries = 5
         retry_count = 0
 
@@ -159,13 +156,13 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
             )
 
     def _continent_request(
-        self, continent: Continent, path: str, params: dict[Any, Any] = {}
+        self, continent: Continent, path: str, params: dict[Any, Any] | None = None
     ) -> Any:
         url = f"{self.CONTINENT_BASE.format(continent=continent.value)}{path}"
         return self._get(url, params)
 
     def _region_request(
-        self, region: Region, path: str, params: dict[Any, Any] = {}
+        self, region: Region, path: str, params: dict[Any, Any] | None = None
     ) -> Any:
         url = f"{self.REGION_BASE.format(region=region.value)}{path}"
         return self._get(url, params)
