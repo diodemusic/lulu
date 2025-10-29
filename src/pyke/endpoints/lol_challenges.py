@@ -16,7 +16,7 @@ class ChallengesEndpoint:
         """# List of all basic challenge configuration information (includes all translations for names and descriptions)
 
         **Example:**  
-            ``
+            `configs = api.lol_challenges.config(Region.EUW)`
 
         **Args:**  
             `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
@@ -39,7 +39,7 @@ class ChallengesEndpoint:
         """# Map of level to percentile of players who have achieved it - keys: ChallengeId -> Season -> Level -> percentile of players who achieved it
 
         **Example:**  
-            ``
+            `percentiles = api.lol_challenges.percentiles(Region.EUW)`
 
         **Args:**  
             `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
@@ -59,7 +59,7 @@ class ChallengesEndpoint:
         """# Get challenge configuration (REST)
 
         **Example:**  
-            ``
+            `config = api.lol_challenges.config_by_challenge_id(Region.EUW, 123456)`
 
         **Args:**  
             `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
@@ -80,7 +80,7 @@ class ChallengesEndpoint:
         """# Return top players for each level. Level must be MASTER, GRANDMASTER or CHALLENGER
 
         **Example:**  
-            ``
+            `players = api.lol_challenges.leaderboards_by_level(Region.EUW, Level.MASTER, 123456)`
 
         **Args:**  
             `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
@@ -107,7 +107,7 @@ class ChallengesEndpoint:
         """# Dictionary of level to percentile of players who have achieved it
 
         **Example:**  
-            ``
+            `percentiles = api.lol_challenges.percentiles_by_challenge_id(Region.EUW, 123456)`
 
         **Args:**  
             `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
@@ -126,7 +126,7 @@ class ChallengesEndpoint:
         """# Returns player information with list of all progressed challenges (REST)
 
         **Example:**  
-            ``
+            `player_info = api.lol_challenges.by_puuid(Region.EUW, "some puuid")`
 
         **Args:**  
             `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
