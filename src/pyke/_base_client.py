@@ -116,7 +116,16 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
         while True:
             headers = {"X-Riot-Token": self.api_key}
             start_time = time.perf_counter()
-            response = self.session.get(url, headers=headers, params=params, timeout=30)
+
+            try:
+                response = self.session.get(
+                    url, headers=headers, params=params, timeout=30
+                )
+            except requests.exceptions.Timeout:
+                raise exceptions.RequestTimeout(
+                    "Request timed out after 30 seconds", 408
+                )
+
             self._print_url(response, url)
             self._wait(response, start_time)
             code = response.status_code
