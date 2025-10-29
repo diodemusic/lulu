@@ -27,4 +27,3 @@ def test_region_by_puuid(api: Pyke):
     )
 
     assert isinstance(region_by_puuid, AccountRegionDTO)
-    assert isinstance(region_by_puuid, AccountRegionDTO)
