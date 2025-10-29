@@ -6,7 +6,6 @@
 
 ### Type Safety Issues
 
-- [ ] **Fix type annotation mismatch in clash** - `clash.py:97,106` - Parameter is `int` but docstring says `str`, fix typo "Tournement" → "Tournament"
 - [ ] **Fix return type in match endpoint** - `match.py:64` - `match_ids_by_puuid()` returns raw data, should validate/cast to `list[str]`
 - [ ] **Fix type coercion in champion_mastery** - `champion_mastery.py:106` - Should use `return int(data)` instead of raw return
 

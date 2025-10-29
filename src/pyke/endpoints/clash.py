@@ -103,7 +103,7 @@ class ClashEndpoint:
 
         **Args:**  
             `region (Region)` [Region](/pyke/pyke.html#Region) to execute against.  
-            `tournament_id (str)` Tournement id of the clash.  
+            `tournament_id (int)` Tournament id of the clash.  
 
         **Returns:**  
             `TournamentDto` [TournamentDto](/pyke/pyke/models/clash_v1.html#TournamentDto).
