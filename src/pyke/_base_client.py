@@ -47,6 +47,7 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
                 response.headers.get("X-App-Rate-Limit-Count", "0").split(":")[0]
             )
         except IndexError:
+            print("Error parsing headers for count, defaulting to 0")
             count = 0
 
         return count
@@ -55,7 +56,8 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
         try:
             limit = int(response.headers.get("X-App-Rate-Limit", "100").split(":")[0])
         except IndexError:
-            limit = 0
+            print("Error parsing headers for limit, defaulting to 100")
+            limit = 100
 
         return limit
 
@@ -76,6 +78,7 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
                 .split(",")[0]
             )
         except IndexError:
+            print("Error parsing headers for time_frame, defaulting to 120")
             time_frame = 120
 
         return time_frame / limit
