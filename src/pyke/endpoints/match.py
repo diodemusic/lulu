@@ -68,7 +68,10 @@ class MatchEndpoint:
                 error_code=404,
             )
 
-        if not all(isinstance(item, str) for item in data):  # pyright: ignore[reportUnknownVariableType]
+        if not all(
+            isinstance(item, str)
+            for item in data  # pyright: ignore[reportUnknownVariableType]
+        ):
             raise exceptions.DataNotFound(
                 message="Match ID list contains non-string values", error_code=404
             )
