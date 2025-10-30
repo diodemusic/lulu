@@ -52,12 +52,14 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
 
         if len(parts) < 1 or not parts[0]:
             print(f"Invalid X-App-Rate-Limit-Count format: {header_value}")
+
             return 0
 
         try:
             return int(parts[0])
         except ValueError:
             print(f"Non-integer count in X-App-Rate-Limit-Count: {parts[0]}")
+
             return 0
 
     def _get_limit(self, response: Response) -> int:
@@ -70,12 +72,14 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
 
         if len(parts) < 1 or not parts[0]:
             print(f"Invalid X-App-Rate-Limit format: {header_value}")
+
             return 100
 
         try:
             return int(parts[0])
         except ValueError:
             print(f"Non-integer limit in X-App-Rate-Limit: {parts[0]}")
+
             return 100
 
     def _print_url(self, response: Response, url: str) -> None:
@@ -97,19 +101,23 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
 
         if not comma_parts[0]:
             print(f"Invalid X-App-Rate-Limit-Count format: {header_value}")
+
             return 120 / limit
 
         colon_parts = comma_parts[0].split(":")
 
         if len(colon_parts) < 2 or not colon_parts[1]:
             print(f"Missing time_frame in X-App-Rate-Limit-Count: {header_value}")
+
             return 120 / limit
 
         try:
             time_frame = int(colon_parts[1])
+
             return time_frame / limit
         except ValueError:
             print(f"Non-integer time_frame in X-App-Rate-Limit-Count: {colon_parts[1]}")
+
             return 120 / limit
 
     def _wait(self, response: Response, start_time: float | None = None) -> None:
@@ -163,15 +171,34 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
 
             if code == 200:
                 return self._response_json(response)
-
             elif code == 429:
                 retry_count += 1
-                print(f"Retries: {retry_count}/{max_retries}")
+                print(f"Rate limit retries: {retry_count}/{max_retries}")
+
                 if retry_count >= max_retries:
                     raise exceptions.RateLimitExceeded(
                         f"Rate limit exceeded after {max_retries} retries", 429
                     )
+
                 self._retry_after(response)
+
+                continue
+            elif code in (502, 503, 504):
+                retry_count += 1
+                print(f"Server error {code}, retry {retry_count}/{max_retries}")
+
+                if retry_count >= max_retries:
+                    raise self._status_code_registry.get(
+                        code,
+                        exceptions.UnknownError(
+                            f"Server error {code} after {max_retries} retries", code
+                        ),
+                    )
+
+                wait_time = 5 * (2 ** (retry_count - 1))
+                print(f"Waiting {wait_time} seconds before retry...")
+                time.sleep(wait_time)
+
                 continue
 
             raise self._status_code_registry.get(
@@ -185,10 +212,12 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
         self, continent: Continent, path: str, params: dict[Any, Any] | None = None
     ) -> Any:
         url = f"{self.CONTINENT_BASE.format(continent=continent.value)}{path}"
+
         return self._get(url, params)
 
     def _region_request(
         self, region: Region, path: str, params: dict[Any, Any] | None = None
     ) -> Any:
         url = f"{self.REGION_BASE.format(region=region.value)}{path}"
+
         return self._get(url, params)
