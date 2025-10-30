@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pyke import Continent, Type
 
+from .. import exceptions
 from .._base_client import _BaseApiClient
 from ..models.match_v5 import MatchDto, TimelineDto
 
@@ -61,7 +62,18 @@ class MatchEndpoint:
             continent=continent, path=path, params=params
         )
 
-        return data
+        if not isinstance(data, list):
+            raise exceptions.DataNotFound(
+                message="Expected list of match IDs but received invalid response format",
+                error_code=404,
+            )
+
+        if not all(isinstance(item, str) for item in data):  # pyright: ignore[reportUnknownVariableType]
+            raise exceptions.DataNotFound(
+                message="Match ID list contains non-string values", error_code=404
+            )
+
+        return data  # pyright: ignore[reportUnknownVariableType]
 
     def by_match_id(self, continent: Continent, match_id: str) -> MatchDto:
         """# Get a match by match id

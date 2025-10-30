@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Fix type annotation mismatch `clash.py:97,106`
+- Fix return type in match endpoint `match.py:64`
 
 ### Removed
 
