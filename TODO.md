@@ -18,7 +18,6 @@
 ### Resource Management
 
 - [ ] **Add context manager support** - Implement `__enter__`/`__exit__` on `Pyke` class to properly close `requests.Session()`
-- [ ] **Make timeout configurable** - Expose timeout parameter instead of hardcoded 30 seconds in `_base_client.py:125`
 
 ### Input Validation
 

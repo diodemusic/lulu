@@ -19,15 +19,37 @@ from .endpoints.tournament_stub import TournamentStubEndpoint
 
 
 class Pyke:
-    """Main entrypoint for interacting with the Riot API."""
+    """# Main entrypoint for interacting with the Riot API
+
+    **Example:**  
+        `api = Pyke("API_KEY")`
+
+    **Args:**  
+        `api_key (str | None)` Your Riot API key.  
+        `print_url (bool, optional)` Print URL and rate limit info for each request. Defaults to True.  
+        `smart_rate_limiting (bool, optional)` Automatically throttle requests to stay under rate limits. Defaults to True.  
+        `timeout (int, optional)` Request timeout in seconds. Defaults to 60.  
+        `max_rate_limit_retries (int, optional)` Maximum retry attempts for 429 rate limit errors. Defaults to 5.  
+        `max_server_error_retries (int, optional)` Maximum retry attempts for 502/503/504 server errors. Defaults to 3.
+    """  # fmt: skip
 
     def __init__(
         self,
         api_key: str | None,
         print_url: bool = True,
         smart_rate_limiting: bool = True,
+        timeout: int = 60,
+        max_rate_limit_retries: int = 5,
+        max_server_error_retries: int = 3,
     ) -> None:
-        self._client = _BaseApiClient(api_key, print_url, smart_rate_limiting)
+        self._client = _BaseApiClient(
+            api_key,
+            print_url,
+            smart_rate_limiting,
+            timeout,
+            max_rate_limit_retries,
+            max_server_error_retries,
+        )
 
         self.account = AccountEndpoint(self._client)
         self.champion_mastery = ChampionMasteryEndpoint(self._client)

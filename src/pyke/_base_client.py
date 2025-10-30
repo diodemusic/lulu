@@ -19,8 +19,11 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
     def __init__(
         self,
         api_key: str | None,
-        print_url: bool = True,
-        smart_rate_limiting: bool = True,
+        print_url: bool,
+        smart_rate_limiting: bool,
+        timeout: int,
+        max_rate_limit_retries: int,
+        max_server_error_retries: int,
     ) -> None:
         if api_key is None:
             raise ValueError("API key is required, please pass a valid Riot API key.")
@@ -29,6 +32,9 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
         self.session = requests.Session()
         self.print_url = print_url
         self.smart_rate_limiting = smart_rate_limiting
+        self.timeout = timeout
+        self.max_rate_limit_retries = max_rate_limit_retries
+        self.max_server_error_retries = max_server_error_retries
         self._status_code_registry = {
             400: exceptions.BadRequest("Bad request", 400),
             401: exceptions.Unauthorized("Unauthorized", 401),
@@ -149,8 +155,8 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
             raise exceptions.InternalServerError("Empty JSON response", 500)
 
     def _get(self, url: str, params: dict[Any, Any] | None = None) -> Any:
-        max_retries = 5
-        retry_count = 0
+        rate_limit_retry_count = 0
+        server_error_retry_count = 0
 
         while True:
             headers = {"X-Riot-Token": self.api_key}
@@ -158,11 +164,11 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
 
             try:
                 response = self.session.get(
-                    url, headers=headers, params=params, timeout=30
+                    url, headers=headers, params=params, timeout=self.timeout
                 )
             except requests.exceptions.Timeout:
                 raise exceptions.RequestTimeout(
-                    "Request timed out after 30 seconds", 408
+                    f"Request timed out after {self.timeout} seconds", 408
                 )
 
             self._print_url(response, url)
@@ -171,34 +177,44 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
 
             if code == 200:
                 return self._response_json(response)
-            elif code == 429:
-                retry_count += 1
-                print(f"Rate limit retries: {retry_count}/{max_retries}")
 
-                if retry_count >= max_retries:
+            elif code == 429:
+                rate_limit_retry_count += 1
+                print(
+                    f"Rate limit retries: {rate_limit_retry_count}/{self.max_rate_limit_retries}"
+                )
+
+                if rate_limit_retry_count >= self.max_rate_limit_retries:
                     raise exceptions.RateLimitExceeded(
-                        f"Rate limit exceeded after {max_retries} retries", 429
+                        f"Rate limit exceeded after {self.max_rate_limit_retries} retries",
+                        429,
                     )
 
                 self._retry_after(response)
-
                 continue
-            elif code in (502, 503, 504):
-                retry_count += 1
-                print(f"Server error {code}, retry {retry_count}/{max_retries}")
 
-                if retry_count >= max_retries:
+            elif code in (502, 503, 504):
+                server_error_retry_count += 1
+                print(
+                    f"Server error {code}, retry {server_error_retry_count}/{self.max_server_error_retries}"
+                )
+
+                if server_error_retry_count >= self.max_server_error_retries:
                     raise self._status_code_registry.get(
                         code,
                         exceptions.UnknownError(
-                            f"Server error {code} after {max_retries} retries", code
+                            f"Server error {code} after {self.max_server_error_retries} retries",
+                            code,
                         ),
                     )
 
-                wait_time = 5 * (2 ** (retry_count - 1))
+                if code == 504:
+                    wait_time = 10 * (2 ** (server_error_retry_count - 1))
+                else:
+                    wait_time = 5 * (2 ** (server_error_retry_count - 1))
+
                 print(f"Waiting {wait_time} seconds before retry...")
                 time.sleep(wait_time)
-
                 continue
 
             raise self._status_code_registry.get(

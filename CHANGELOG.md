@@ -21,17 +21,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.4.1]
+## [1.4.1] - 2025-10-30
 
 ### Added
 
 - Initial changelog setup
 - Added retry logic with exponential backoff for server errors in `_base_client.py:178-194`
+- Added configurable timeout in `_base_client.py:125`
+- Added configurable retry parameters to `Pyke` constructor in `main.py`
+- Added intelligent backoff strategies:
+  - 504 Gateway Timeout: 10s base exponential backoff (10s, 20s, 40s)
+  - 502/503 Server Errors: 5s base exponential backoff (5s, 10s, 20s)
 
 ### Changed
 
 - Filter None params explicitly in `match.py:52-59`
 - Changed ValueError to JSONDecodeError in `_base_client.py:109`
+- Changed default timeout from 30s to 60s for slow endpoints
+- Separated retry logic: rate limit (429) and server errors (502/503/504) now use independent retry counters
+- Updated `_BaseApiClient.__init__()` to accept separate retry configuration parameters
+- Updated timeout test to reflect new 60s default in `tests/test_timeout.py`
 
 ### Fixed
 
@@ -42,11 +51,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed league_exp parameter name in `league_exp.py:38`
 - Fixed region enum case consistency in `region.py:10`
 - Fixed fragile header parsing in `_base_client.py:44-84`
+- Fixed infinite retry issue for 502/503/504 errors in `_base_client.py`
 
 ### Removed
 
 - Removed dead code in `clash.py:91`
 - Removed retry on 502 in `_base_client.py:145`
+- Removed unused `Mock` import from `tests/test_timeout.py`
 
 ---
 
