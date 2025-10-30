@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fix type annotation mismatch `clash.py:97,106`
 - Fix return type in match endpoint `match.py:64`
+- Fix type coercion in `champion_mastery.py:106`
 
 ### Removed
 
@@ -92,7 +93,6 @@ When ready to release, replace `[Unreleased]` with a version number and date:
 2. **Reference locations**: Include file paths for code changes
 3. **Group related changes**: Multiple fixes to the same file can be one bullet
 4. **Keep it user-focused**: Write for people reading release notes, not just developers
-5. **Breaking changes**: Mark with ⚠️ emoji and explain migration path
 
 ### Semantic Versioning Quick Reference:
 

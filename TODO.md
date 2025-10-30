@@ -2,12 +2,6 @@
 
 ---
 
-## Critical Fixes (Before Next Release)
-
-### Type Safety Issues
-
-- [ ] **Fix type coercion in champion_mastery** - `champion_mastery.py:106` - Should use `return int(data)` instead of raw return
-
 ### Bugs & Dead Code
 
 - [ ] **Fix mutable default arguments** - `_base_client.py:162, 168` - Change `params: dict[Any, Any] = {}` to `params: dict[Any, Any] | None = None`

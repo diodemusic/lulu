@@ -103,4 +103,4 @@ class ChampionMasteryEndpoint:
         path = f"/lol/champion-mastery/v4/scores/by-puuid/{puuid}"
         data = self._client._region_request(region=region, path=path)
 
-        return data
+        return int(data)
