@@ -24,7 +24,6 @@ class Pyke:
 
     **Args:**  
         `api_key (str | None)` Your Riot API key.  
-        `print_url (bool, optional)` Print URL and rate limit info for each request. Defaults to True.  
         `smart_rate_limiting (bool, optional)` Automatically throttle requests to stay under rate limits. Defaults to True.  
         `timeout (int, optional)` Request timeout in seconds. Defaults to 60.  
         `max_rate_limit_retries (int, optional)` Maximum retry attempts for 429 rate limit errors. Defaults to 5.  
@@ -34,7 +33,6 @@ class Pyke:
     def __init__(
         self,
         api_key: str | None,
-        print_url: bool = True,
         smart_rate_limiting: bool = True,
         timeout: int = 60,
         max_rate_limit_retries: int = 5,
@@ -42,7 +40,6 @@ class Pyke:
     ) -> None:
         self._client = _BaseApiClient(
             api_key,
-            print_url,
             smart_rate_limiting,
             timeout,
             max_rate_limit_retries,

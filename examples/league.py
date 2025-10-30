@@ -6,7 +6,7 @@ from pyke import Continent, Pyke, Queue, Region
 
 load_dotenv()
 API_KEY = os.getenv("RIOT_API_KEY")
-api = Pyke(API_KEY, print_url=False, smart_rate_limiting=False)
+api = Pyke(API_KEY, smart_rate_limiting=False)
 
 # Let's get all the challenger players for solo/duo queue
 challenger_leagues = api.league.challenger_leagues_by_queue(

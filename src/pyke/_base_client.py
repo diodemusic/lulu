@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import time
 from typing import Any
 
@@ -11,6 +12,8 @@ from . import exceptions
 from .enums.continent import Continent
 from .enums.region import Region
 
+logger = logging.getLogger(__name__)
+
 
 class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
     CONTINENT_BASE = "https://{continent}.api.riotgames.com"
@@ -19,7 +22,6 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
     def __init__(
         self,
         api_key: str | None,
-        print_url: bool,
         smart_rate_limiting: bool,
         timeout: int,
         max_rate_limit_retries: int,
@@ -30,7 +32,6 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
 
         self.api_key = api_key
         self.session = requests.Session()
-        self.print_url = print_url
         self.smart_rate_limiting = smart_rate_limiting
         self.timeout = timeout
         self.max_rate_limit_retries = max_rate_limit_retries
@@ -57,14 +58,14 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
         parts = header_value.split(":")
 
         if len(parts) < 1 or not parts[0]:
-            print(f"Invalid X-App-Rate-Limit-Count format: {header_value}")
+            logger.warning(f"Invalid X-App-Rate-Limit-Count format: {header_value}")
 
             return 0
 
         try:
             return int(parts[0])
         except ValueError:
-            print(f"Non-integer count in X-App-Rate-Limit-Count: {parts[0]}")
+            logger.warning(f"Non-integer count in X-App-Rate-Limit-Count: {parts[0]}")
 
             return 0
 
@@ -77,24 +78,21 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
         parts = header_value.split(":")
 
         if len(parts) < 1 or not parts[0]:
-            print(f"Invalid X-App-Rate-Limit format: {header_value}")
+            logger.warning(f"Invalid X-App-Rate-Limit format: {header_value}")
 
             return 100
 
         try:
             return int(parts[0])
         except ValueError:
-            print(f"Non-integer limit in X-App-Rate-Limit: {parts[0]}")
+            logger.warning(f"Non-integer limit in X-App-Rate-Limit: {parts[0]}")
 
             return 100
 
-    def _print_url(self, response: Response, url: str) -> None:
-        if not self.print_url:
-            return
-
+    def _log_url(self, response: Response, url: str) -> None:
         count = self._get_count(response)
         limit = self._get_limit(response)
-        print(f"({count}/{limit}) - {url}")
+        logger.info(f"({count}/{limit}) - {url}")
 
     def _calculate_time_to_wait(self, response: Response) -> float:
         limit = self._get_limit(response)
@@ -106,14 +104,16 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
         comma_parts = header_value.split(",")
 
         if not comma_parts[0]:
-            print(f"Invalid X-App-Rate-Limit-Count format: {header_value}")
+            logger.warning(f"Invalid X-App-Rate-Limit-Count format: {header_value}")
 
             return 120 / limit
 
         colon_parts = comma_parts[0].split(":")
 
         if len(colon_parts) < 2 or not colon_parts[1]:
-            print(f"Missing time_frame in X-App-Rate-Limit-Count: {header_value}")
+            logger.warning(
+                f"Missing time_frame in X-App-Rate-Limit-Count: {header_value}"
+            )
 
             return 120 / limit
 
@@ -122,7 +122,9 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
 
             return time_frame / limit
         except ValueError:
-            print(f"Non-integer time_frame in X-App-Rate-Limit-Count: {colon_parts[1]}")
+            logger.warning(
+                f"Non-integer time_frame in X-App-Rate-Limit-Count: {colon_parts[1]}"
+            )
 
             return 120 / limit
 
@@ -143,7 +145,7 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
 
     def _retry_after(self, response: Response) -> None:
         retry_after = int(response.headers.get("Retry-After", "120"))
-        print(f"Rate limit exceeded, waiting {retry_after} seconds")
+        logger.warning(f"Rate limit exceeded, waiting {retry_after} seconds")
         time.sleep(retry_after)
 
     def _response_json(self, response: Response) -> Any:
@@ -171,7 +173,7 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
                     f"Request timed out after {self.timeout} seconds", 408
                 )
 
-            self._print_url(response, url)
+            self._log_url(response, url)
             self._wait(response, start_time)
             code = response.status_code
 
@@ -180,7 +182,7 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
 
             elif code == 429:
                 rate_limit_retry_count += 1
-                print(
+                logger.warning(
                     f"Rate limit retries: {rate_limit_retry_count}/{self.max_rate_limit_retries}"
                 )
 
@@ -195,7 +197,7 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
 
             elif code in (502, 503, 504):
                 server_error_retry_count += 1
-                print(
+                logger.warning(
                     f"Server error {code}, retry {server_error_retry_count}/{self.max_server_error_retries}"
                 )
 
@@ -213,8 +215,9 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
                 else:
                     wait_time = 5 * (2 ** (server_error_retry_count - 1))
 
-                print(f"Waiting {wait_time} seconds before retry...")
+                logger.warning(f"Waiting {wait_time} seconds before retry...")
                 time.sleep(wait_time)
+
                 continue
 
             raise self._status_code_registry.get(

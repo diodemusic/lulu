@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Replaced print() with logging in `_base_client.py`
+
 ### Fixed
 
 ### Removed

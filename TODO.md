@@ -2,17 +2,7 @@
 
 ---
 
-### Missing Implementation
-
-- [ ] **Uncomment spectator tests** - `test_spectator.py` has all tests commented out (zero test coverage)
-
----
-
 ## High Priority Improvements
-
-### Error Handling & Reliability
-
-- [ ] **Replace print() with logging** - `_base_client.py` (lines 50, 59, 81, 103, 138, 147) - Use `logging` module instead of print statements
 
 ### Resource Management
 

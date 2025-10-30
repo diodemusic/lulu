@@ -7,7 +7,7 @@ Each file in this package corresponds to a specific Riot API service — such as
 
     from pyke import Continent, Pyke, exceptions
 
-    api = Pyke("API_KEY", print_url=False)
+    api = Pyke("API_KEY")
 
     account = api.account.by_riot_id(Continent.EUROPE, "saves", "000")
 """

@@ -7,8 +7,7 @@ from pyke import Continent, Pyke, Region
 load_dotenv()
 API_KEY = os.getenv("RIOT_API_KEY")
 
-# Let's not print urls, we don't want our clash team to be filled with random urls
-api = Pyke(API_KEY, print_url=False)
+api = Pyke(API_KEY)
 
 # Let's check if there is currently a clash
 tournaments = api.clash.tournaments(Region.EUW)
