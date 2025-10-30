@@ -4,7 +4,6 @@
 
 ### Missing Implementation
 
-- [ ] **Implement or remove tournament endpoints** - `tournament.py` and `tournament_stub.py` have no methods (just empty `__init__`)
 - [ ] **Uncomment spectator tests** - `test_spectator.py` has all tests commented out (zero test coverage)
 
 ---
