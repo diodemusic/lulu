@@ -13,7 +13,6 @@
 
 ### Error Handling & Reliability
 
-- [ ] **Fix fragile header parsing** - `_base_client.py:44-84` - Multiple chained `.split()` calls with broad exception handling, use safer parsing
 - [ ] **Replace print() with logging** - `_base_client.py` (lines 50, 59, 81, 103, 138, 147) - Use `logging` module instead of print statements
 
 ### Resource Management

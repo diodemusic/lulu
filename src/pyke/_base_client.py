@@ -42,24 +42,40 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
         }
 
     def _get_count(self, response: Response) -> int:
-        try:
-            count = int(
-                response.headers.get("X-App-Rate-Limit-Count", "0").split(":")[0]
-            )
-        except IndexError:
-            print("Error parsing headers for count, defaulting to 0")
-            count = 0
+        header_value = response.headers.get("X-App-Rate-Limit-Count")
 
-        return count
+        if not header_value:
+            return 0
+
+        parts = header_value.split(":")
+
+        if len(parts) < 1 or not parts[0]:
+            print(f"Invalid X-App-Rate-Limit-Count format: {header_value}")
+            return 0
+
+        try:
+            return int(parts[0])
+        except ValueError:
+            print(f"Non-integer count in X-App-Rate-Limit-Count: {parts[0]}")
+            return 0
 
     def _get_limit(self, response: Response) -> int:
-        try:
-            limit = int(response.headers.get("X-App-Rate-Limit", "100").split(":")[0])
-        except IndexError:
-            print("Error parsing headers for limit, defaulting to 100")
-            limit = 100
+        header_value = response.headers.get("X-App-Rate-Limit")
 
-        return limit
+        if not header_value:
+            return 100
+
+        parts = header_value.split(":")
+
+        if len(parts) < 1 or not parts[0]:
+            print(f"Invalid X-App-Rate-Limit format: {header_value}")
+            return 100
+
+        try:
+            return int(parts[0])
+        except ValueError:
+            print(f"Non-integer limit in X-App-Rate-Limit: {parts[0]}")
+            return 100
 
     def _print_url(self, response: Response, url: str) -> None:
         if not self.print_url:
@@ -71,17 +87,29 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
 
     def _calculate_time_to_wait(self, response: Response) -> float:
         limit = self._get_limit(response)
-        try:
-            time_frame = int(
-                response.headers.get("X-App-Rate-Limit-Count", "unknown")
-                .split(":")[1]
-                .split(",")[0]
-            )
-        except IndexError:
-            print("Error parsing headers for time_frame, defaulting to 120")
-            time_frame = 120
+        header_value = response.headers.get("X-App-Rate-Limit-Count")
 
-        return time_frame / limit
+        if not header_value:
+            return 120 / limit
+
+        comma_parts = header_value.split(",")
+
+        if not comma_parts[0]:
+            print(f"Invalid X-App-Rate-Limit-Count format: {header_value}")
+            return 120 / limit
+
+        colon_parts = comma_parts[0].split(":")
+
+        if len(colon_parts) < 2 or not colon_parts[1]:
+            print(f"Missing time_frame in X-App-Rate-Limit-Count: {header_value}")
+            return 120 / limit
+
+        try:
+            time_frame = int(colon_parts[1])
+            return time_frame / limit
+        except ValueError:
+            print(f"Non-integer time_frame in X-App-Rate-Limit-Count: {colon_parts[1]}")
+            return 120 / limit
 
     def _wait(self, response: Response, start_time: float | None = None) -> None:
         if not self.smart_rate_limiting:
