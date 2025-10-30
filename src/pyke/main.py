@@ -14,8 +14,6 @@ from .endpoints.lol_status import StatusEndpoint
 from .endpoints.match import MatchEndpoint
 from .endpoints.spectator import SpectatorEndpoint
 from .endpoints.summoner import SummonerEndpoint
-from .endpoints.tournament import TournamentEndpoint
-from .endpoints.tournament_stub import TournamentStubEndpoint
 
 
 class Pyke:
@@ -62,5 +60,3 @@ class Pyke:
         self.match = MatchEndpoint(self._client)
         self.spectator = SpectatorEndpoint(self._client)
         self.summoner = SummonerEndpoint(self._client)
-        self.tournament_stub = TournamentStubEndpoint(self._client)
-        self.tournament = TournamentEndpoint(self._client)
