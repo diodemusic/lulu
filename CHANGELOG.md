@@ -9,8 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added retry logic with exponential backoff for server errors in `_base_client.py:178-194`
-
 ### Changed
 
 ### Fixed
@@ -28,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Initial changelog setup
+- Added retry logic with exponential backoff for server errors in `_base_client.py:178-194`
 
 ### Changed
 
