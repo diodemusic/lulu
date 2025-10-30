@@ -10,12 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Initial changelog setup
+- Filter None params explicitly in `match.py:52-59`
 
 ### Changed
 
 ### Fixed
 
-- Fixed type annotation mismatch `clash.py:97,106`
+- Fixed type annotation mismatch in `clash.py:97,106`
 - Fixed return type in match endpoint `match.py:64`
 - Fixed type coercion in `champion_mastery.py:106`
 - Fixed mutable default arguments in `base_client.py:158,164`

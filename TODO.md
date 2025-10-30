@@ -14,7 +14,6 @@
 ### Error Handling & Reliability
 
 - [ ] **Fix fragile header parsing** - `_base_client.py:44-84` - Multiple chained `.split()` calls with broad exception handling, use safer parsing
-- [ ] **Filter None params explicitly** - `match.py:52-59` - Params dict can contain None values, filter before API call: `{k: v for k, v in params.items() if v is not None}`
 - [ ] **Replace print() with logging** - `_base_client.py` (lines 50, 59, 81, 103, 138, 147) - Use `logging` module instead of print statements
 
 ### Resource Management

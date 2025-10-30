@@ -58,6 +58,7 @@ class MatchEndpoint:
             "start": start,
             "count": count,
         }
+        params = {k: v for k, v in params.items() if v is not None}
         data = self._client._continent_request(
             continent=continent, path=path, params=params
         )
