@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Filter None params explicitly in `match.py:52-59`
+- Changed ValueError to JSONDecodeError in `_base_client.py:109`
 
 ### Fixed
 

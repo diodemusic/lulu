@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import time
 from typing import Any
 
@@ -134,6 +135,8 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
     def _response_json(self, response: Response) -> Any:
         try:
             return response.json()
+        except json.JSONDecodeError:
+            raise exceptions.InternalServerError("Could not decode JSON", 500)
         except ValueError:
             raise exceptions.InternalServerError("Empty JSON response", 500)
 
