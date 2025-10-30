@@ -33,7 +33,6 @@
 
 - [ ] **Use list comprehensions** - Replace verbose for-loops with Pythonic list comprehensions throughout endpoints (8+ occurrences in league.py, champion_mastery.py, clash.py, lol_challenges.py)
 - [ ] **Standardize docstring format** - Remove `#` prefix, consistent spacing and code block styles across all endpoints
-- [ ] **Fix region enum case consistency** - `region.py:10` - `JP = "JP1"` should be `"jp1"`, `KR = "kr"` should be `"kr1"` (missing region number)
 - [ ] **Fix exception instantiation pattern** - `_base_client.py:31-42` - Store exception classes, not instances in registry dict
 - [ ] **Use JSONDecodeError** - `_base_client.py:109` - Catch `json.JSONDecodeError` instead of broad `ValueError`
 

@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed type coercion in `champion_mastery.py:106`
 - Fixed mutable default arguments in `base_client.py:158,164`
 - Fixed league_exp parameter name in `league_exp.py:38`
+- Fixed region enum case consistency in `region.py:10`
 
 ### Removed
 
