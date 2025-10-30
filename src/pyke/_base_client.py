@@ -143,11 +143,6 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
                 self._retry_after(response)
                 continue
 
-            elif code == 502:
-                print("502 error, retrying after 10 seconds...")
-                time.sleep(10)
-                continue
-
             raise self._status_code_registry.get(
                 code,
                 exceptions.UnknownError(
