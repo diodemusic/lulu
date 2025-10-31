@@ -11,18 +11,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Replaced print() with logging in `_base_client.py`
-- Replaced for loops with list comprehensions
-
 ### Fixed
 
 ### Removed
 
-- Removed tournament endpoints `tournament.py` and `tournament_stub.py`
-
 ### Deprecated
 
 ### Security
+
+---
+
+## [2.0.0] - 2025-10-31
+
+### Changed
+
+- Replaced print() with logging in `_base_client.py`
+- Replaced for loops with list comprehensions
+
+### Removed
+
+- Removed tournament endpoints `tournament.py` and `tournament_stub.py`
 
 ---
 
