@@ -193,7 +193,7 @@ pyke provides typed exceptions for all HTTP status codes:
 from pyke import exceptions
 
 try:
-    summoner = api.summoner.by_name(Region.EUW, "NonExistentSummoner")
+    summoner = api.summoner.by_puuid(Region.EUW, "NonExistentPuuid")
 except exceptions.DataNotFound as e:
     print(f"Not found: {e}")     # Data not found (Error Code: 404)
 except exceptions.RateLimitExceeded as e:
