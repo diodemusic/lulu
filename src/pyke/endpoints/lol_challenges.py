@@ -28,12 +28,7 @@ class ChallengesEndpoint:
         path = "/lol/challenges/v1/challenges/config"
         data = self._client._region_request(region=region, path=path)
 
-        challenge_configs: list[ChallengeConfigInfoDto] = []
-
-        for challenge_config in data:
-            challenge_configs.append(ChallengeConfigInfoDto(**challenge_config))
-
-        return challenge_configs
+        return [ChallengeConfigInfoDto(**challenge_config) for challenge_config in data]
 
     def percentiles(self, region: Region) -> dict[int, dict[int, dict[str, int]]]:
         """# Map of level to percentile of players who have achieved it - keys: ChallengeId -> Season -> Level -> percentile of players who achieved it
@@ -94,12 +89,7 @@ class ChallengesEndpoint:
         path = f"/lol/challenges/v1/challenges/{challenge_id}/leaderboards/by-level/{level.value}"
         data = self._client._region_request(region=region, path=path)
 
-        apex_player_infos: list[ApexPlayerInfoDto] = []
-
-        for apex_player_info in data:
-            apex_player_infos.append(ApexPlayerInfoDto(**apex_player_info))
-
-        return apex_player_infos
+        return [ApexPlayerInfoDto(**apex_player_info) for apex_player_info in data]
 
     def percentiles_by_challenge_id(
         self, region: Region, challenge_id: int

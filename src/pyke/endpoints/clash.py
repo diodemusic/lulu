@@ -25,12 +25,7 @@ class ClashEndpoint:
         path = f"/lol/clash/v1/players/by-puuid/{puuid}"
         data = self._client._region_request(region=region, path=path)
 
-        players: list[PlayerDto] = []
-
-        for player in data:
-            players.append(PlayerDto(**player))
-
-        return players
+        return [PlayerDto(**player) for player in data]
 
     def by_team_id(self, region: Region, team_id: str) -> TeamDto:
         """# Get team by ID
@@ -67,12 +62,7 @@ class ClashEndpoint:
         path = "/lol/clash/v1/tournaments"
         data = self._client._region_request(region=region, path=path)
 
-        tournaments: list[TournamentDto] = []
-
-        for tournament in data:
-            tournaments.append(TournamentDto(**tournament))
-
-        return tournaments
+        return [TournamentDto(**tournament) for tournament in data]
 
     def tournament_by_team_id(self, region: Region, team_id: str) -> TournamentDto:
         """# Get tournament by team ID

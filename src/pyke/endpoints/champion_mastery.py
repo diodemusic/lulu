@@ -29,12 +29,7 @@ class ChampionMasteryEndpoint:
         path = f"/lol/champion-mastery/v4/champion-masteries/by-puuid/{puuid}"
         data = self._client._region_request(region=region, path=path)
 
-        champion_masteries: list[ChampionMasteryDto] = []
-
-        for champion_mastery in data:
-            champion_masteries.append(ChampionMasteryDto(**champion_mastery))
-
-        return champion_masteries
+        return [ChampionMasteryDto(**champion_mastery) for champion_mastery in data]
 
     def by_puuid_and_champion_id(
         self, region: Region, puuid: str, champion_id: int
@@ -79,12 +74,7 @@ class ChampionMasteryEndpoint:
         params = {"count": count}
         data = self._client._region_request(region=region, path=path, params=params)
 
-        champion_masteries: list[ChampionMasteryDto] = []
-
-        for champion_mastery in data:
-            champion_masteries.append(ChampionMasteryDto(**champion_mastery))
-
-        return champion_masteries
+        return [ChampionMasteryDto(**champion_mastery) for champion_mastery in data]
 
     def score_by_puuid(self, region: Region, puuid: str) -> int:
         """# Get a player's total champion mastery score, which is the sum of individual champion mastery levels

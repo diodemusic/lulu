@@ -38,9 +38,4 @@ class LeagueExpEndpoint:
         params = {"page": page}
         data = self._client._region_request(region=region, path=path, params=params)
 
-        league_entries: list[LeagueEntryDTO] = []
-
-        for league_entry in data:
-            league_entries.append(LeagueEntryDTO(**league_entry))
-
-        return league_entries
+        return [LeagueEntryDTO(**league_entry) for league_entry in data]

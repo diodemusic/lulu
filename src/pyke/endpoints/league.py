@@ -23,7 +23,7 @@ class LeagueEndpoint:
             `queue (Queue)` Ranked [Queue](/pyke/pyke.html#Queue) type.  
 
         **Returns:**  
-            `list[LeagueListDTO]` List of [LeagueListDTO](/pyke/pyke/models/league_v4.html#LeagueListDTO).
+            `LeagueListDTO` [LeagueListDTO](/pyke/pyke/models/league_v4.html#LeagueListDTO).
         """  # fmt: skip
 
         path = f"/lol/league/v4/challengerleagues/by-queue/{queue.value}"
@@ -48,12 +48,7 @@ class LeagueEndpoint:
         path = f"/lol/league/v4/entries/by-puuid/{puuid}"
         data = self._client._region_request(region=region, path=path)
 
-        league_entries: list[LeagueEntryDTO] = []
-
-        for league_entry in data:
-            league_entries.append(LeagueEntryDTO(**league_entry))
-
-        return league_entries
+        return [LeagueEntryDTO(**league_entry) for league_entry in data]
 
     def by_queue_tier_division(
         self,
@@ -88,7 +83,7 @@ class LeagueEndpoint:
         for league_entry in data:
             league_entries.append(LeagueEntryDTO(**league_entry))
 
-        return league_entries
+        return [LeagueEntryDTO(**league_entry) for league_entry in data]
 
     def grandmaster_leagues_by_queue(
         self,
