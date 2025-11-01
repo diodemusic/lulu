@@ -3,6 +3,13 @@
 from __future__ import annotations
 
 from ._base_client import _BaseApiClient
+from ._base_data_dragon_client import _BaseDataDragonClient
+
+# Data dragon
+from .ddragon.champions import ChampionsEndpoint
+from .ddragon.versions import VersionsEndpoint
+
+# Riot API
 from .endpoints.account import AccountEndpoint
 from .endpoints.champion import ChampionEndpoint
 from .endpoints.champion_mastery import ChampionMasteryEndpoint
@@ -57,3 +64,11 @@ class Pyke:
         self.match = MatchEndpoint(self._client)
         self.spectator = SpectatorEndpoint(self._client)
         self.summoner = SummonerEndpoint(self._client)
+
+
+class DataDragon:
+    def __init__(self, version: str | None = None, timeout: int = 10) -> None:
+        self._client = _BaseDataDragonClient(version, timeout)
+
+        self.versions = VersionsEndpoint(self._client)
+        self.champions = ChampionsEndpoint(self._client)

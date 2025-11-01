@@ -270,7 +270,7 @@ MIT License - see [LICENSE.txt](https://github.com/diodemusic/pyke/blob/main/LIC
 **Made with ❤️ for the League of Legends developer community**
 """
 
-from . import endpoints, enums, exceptions, models
+from . import ddragon, endpoints, enums, exceptions, models
 from .__version__ import __author__, __title__, __version__
 from .enums.continent import Continent
 from .enums.division import Division
@@ -279,9 +279,10 @@ from .enums.queue import Queue
 from .enums.region import Region
 from .enums.tier import Tier
 from .enums.type import Type
-from .main import Pyke
+from .main import DataDragon, Pyke
 
 __all__ = [
+    "ddragon",
     "exceptions",
     "Continent",
     "Division",
@@ -290,6 +291,7 @@ __all__ = [
     "Region",
     "Tier",
     "Type",
+    "DataDragon",
     "Pyke",
     "__author__",
     "__title__",
