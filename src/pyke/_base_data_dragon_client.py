@@ -20,7 +20,7 @@ class _BaseDataDragonClient:  # pyright: ignore[reportUnusedClass]
         self.timeout = timeout
 
         if version is None:
-            self.version = self._data_dragon_request("/api/versions.json")[0]
+            self.version = self._get_latest_version()
         else:
             self.version = version
 
@@ -36,6 +36,18 @@ class _BaseDataDragonClient:  # pyright: ignore[reportUnusedClass]
             503: exceptions.ServiceUnavailable("Service unavailable", 503),
             504: exceptions.GatewayTimeout("Gateway timeout", 504),
         }
+
+    def _get_latest_version(self) -> str:
+        versions = self._data_dragon_request("/api/versions.json")
+
+        try:
+            version = versions[0]
+        except IndexError:
+            raise exceptions.InternalServerError(
+                "Could not index version from ddragon", 500
+            )
+
+        return version
 
     def _response_json(self, response: Response) -> Any:
         try:
