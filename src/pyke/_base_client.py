@@ -89,10 +89,10 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
 
             return 100
 
-    def _log_url(self, response: Response, url: str) -> None:
+    def _log_rate_limit(self, response: Response) -> None:
         count = self._get_count(response)
         limit = self._get_limit(response)
-        logger.info(f"({count}/{limit}) - {url}")
+        logger.info(f"Rate limit: ({count}/{limit})")
 
     def _calculate_time_to_wait(self, response: Response) -> float:
         limit = self._get_limit(response)
@@ -161,8 +161,9 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
         server_error_retry_count = 0
 
         while True:
-            headers = {"X-Riot-Token": self.api_key}
             start_time = time.perf_counter()
+            logging.info(url)
+            headers = {"X-Riot-Token": self.api_key}
 
             try:
                 response = self.session.get(
@@ -173,7 +174,7 @@ class _BaseApiClient:  # pyright: ignore[reportUnusedClass]
                     f"Request timed out after {self.timeout} seconds", 408
                 )
 
-            self._log_url(response, url)
+            self._log_rate_limit(response)
             self._wait(response, start_time)
             code = response.status_code
 
