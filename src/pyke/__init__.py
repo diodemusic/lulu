@@ -275,6 +275,7 @@ from .__version__ import __author__, __title__, __version__
 from .enums.continent import Continent
 from .enums.division import Division
 from .enums.level import Level
+from .enums.locale import Locale
 from .enums.queue import Queue
 from .enums.region import Region
 from .enums.tier import Tier
@@ -291,6 +292,7 @@ __all__ = [
     "Region",
     "Tier",
     "Type",
+    "Locale",
     "DataDragon",
     "Pyke",
     "__author__",

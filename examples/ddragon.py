@@ -1,4 +1,4 @@
-from pyke import DataDragon
+from pyke import DataDragon, Locale
 
 # Let's create a DataDragon instance, we can pass a version if we want
 # But by default the latest version will be used
@@ -7,4 +7,4 @@ from pyke import DataDragon
 ddragon = DataDragon()
 
 print(ddragon.versions.get_all_versions())
-print(ddragon.champions.get_all_champions("en_US"))
+print(ddragon.champions.get_all_champions(Locale.united_kingdom))
