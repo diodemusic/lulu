@@ -21,6 +21,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.1.0] - 2025-11-01
+
+### Added
+
+- Added Data Dragon support with `DataDragon` class in `main.py:69-74`
+- Added `_BaseDataDragonClient` for Data Dragon HTTP handling in `_base_data_dragon_client.py:15-68`
+- Added automatic latest version resolution in `_base_data_dragon_client.py:40-50`
+  - Fetches latest version from Data Dragon API when `version=None`
+  - Graceful error handling for version fetch failures
+- Added `VersionsEndpoint` with `get_all_versions()` in `ddragon/versions.py:8`
+- Added `ChampionsEndpoint` with `get_all_champions(locale)` in `ddragon/champions.py:12`
+- Added comprehensive `Locale` enum with 25+ supported locales in `enums/locale.py`
+  - Snake_case naming (e.g., `Locale.united_kingdom`, `Locale.korea`)
+- Added Data Dragon usage example in `examples/ddragon.py`
+
+---
+
 ## [2.0.0] - 2025-10-31
 
 ### Changed
