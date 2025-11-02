@@ -83,3 +83,12 @@ class _BaseDataDragonClient:  # pyright: ignore[reportUnusedClass]
         url = f"{self.DATA_DRAGON_BASE}{path}"
 
         return self._get(url)
+
+    def _data_dragon_cdn_request(
+        self, locale: str, endpoint: str
+    ) -> Any:  # TODO: use real return
+        url = (
+            f"{self.DATA_DRAGON_BASE}/cdn/{self.version}/data/{locale}/{endpoint}.json"
+        )
+
+        return self._get(url)

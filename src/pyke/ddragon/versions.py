@@ -1,7 +1,7 @@
 from .._base_data_dragon_client import _BaseDataDragonClient
 
 
-class VersionsEndpoint:
+class VersionsData:
     def __init__(self, client: _BaseDataDragonClient):
         self._client = client
 
@@ -15,7 +15,4 @@ class VersionsEndpoint:
             `list[str]` List of versions.
         """  # fmt: skip
 
-        path = "/api/versions.json"
-        data = self._client._data_dragon_request(path)
-
-        return data
+        return self._client._data_dragon_request("/api/versions.json")

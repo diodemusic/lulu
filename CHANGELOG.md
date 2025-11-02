@@ -10,8 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added get_all_champions_full endpoint in `ddragon.py`
+- Added get_all_champions endpoint in `ddragon.py`
 
 ### Changed
+
+- Changed `_BaseDataDragonClient` and all cdn calls in ddragon to use `_data_dragon_cdn_request` instead of `_data_dragon_request`
 
 ### Fixed
 

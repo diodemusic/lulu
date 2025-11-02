@@ -3,7 +3,7 @@ from typing import Any
 from .._base_data_dragon_client import _BaseDataDragonClient
 
 
-class ChampionsEndpoint:
+class ChampionsData:
     def __init__(self, client: _BaseDataDragonClient):
         self._client = client
 
@@ -20,10 +20,7 @@ class ChampionsEndpoint:
             `dict[str, any]`
         """  # fmt: skip
 
-        path = f"/cdn/{self._client.version}/data/{locale}/champion.json"
-        data = self._client._data_dragon_request(path)
-
-        return data
+        return self._client._data_dragon_cdn_request(locale, "champion")
 
     def get_all_champions_full(self, locale: str) -> dict[str, Any]:
         """# Get all champions by locale
@@ -38,7 +35,4 @@ class ChampionsEndpoint:
             `dict[str, any]`
         """  # fmt: skip
 
-        path = f"/cdn/{self._client.version}/data/{locale}/championFull.json"
-        data = self._client._data_dragon_request(path)
-
-        return data
+        return self._client._data_dragon_cdn_request(locale, "championFull")
