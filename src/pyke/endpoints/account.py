@@ -21,7 +21,7 @@ class AccountEndpoint:
             `puuid (str)` Encrypted PUUID. Exact length of 78 characters.  
 
         **Returns:**  
-            `AccountDto` [AccountDto](/pyke/pyke/models/account_v1.html#AccountDto).  
+            `AccountDto` [AccountDto](/pyke/pyke/models/account_v1.html#AccountDto).
         """  # fmt: skip
 
         path = f"/riot/account/v1/accounts/by-puuid/{puuid}"
