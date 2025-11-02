@@ -4,10 +4,11 @@ from __future__ import annotations
 
 from ._base_client import _BaseApiClient
 from ._base_data_dragon_client import _BaseDataDragonClient
+from .ddragon.challenges import ChallengesData
 
 # Data dragon
-from .ddragon.champions import ChampionsEndpoint
-from .ddragon.versions import VersionsEndpoint
+from .ddragon.champions import ChampionsData
+from .ddragon.versions import VersionsData
 
 # Riot API
 from .endpoints.account import AccountEndpoint
@@ -70,5 +71,6 @@ class DataDragon:
     def __init__(self, version: str | None = None, timeout: int = 10) -> None:
         self._client = _BaseDataDragonClient(version, timeout)
 
-        self.versions = VersionsEndpoint(self._client)
-        self.champions = ChampionsEndpoint(self._client)
+        self.versions = VersionsData(self._client)
+        self.champions = ChampionsData(self._client)
+        self.challenges = ChallengesData(self._client)
