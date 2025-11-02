@@ -6,17 +6,17 @@
 
 ### Data Dragon support
 
-- Added get_all_feats endpoint to `ddragon/feats.py`
-- Added get_all_item_modifiers endpoint to `ddragon/item_modifiers.py`
-- Added get_all_item endpoint to `ddragon/item.py`
-- Added get_all_language endpoint to `ddragon/language.py`
-- Added get_all_map endpoint to `ddragon/map.py`
-- Added get_all_mission assets endpoint to `ddragon/mission.py`
-- Added get_all_profile_icon endpoint to `ddragon/profile_icon.py`
-- Added get_all_runes_reforged endpoint to `ddragon/runes_reforged.py`
-- Added get_all_spell_buffs endpoint to `ddragon/spell_buffs.py`
-- Added get_all_sticker endpoint to `ddragon/sticker.py`
-- Added get_all_summoner endpoint to `ddragon/summoner.py`
+- Added get_all_feats endpoint in `ddragon/feats.py`
+- Added get_all_item_modifiers endpoint in `ddragon/item_modifiers.py`
+- Added get_all_item endpoint in `ddragon/item.py`
+- Added get_all_language endpoint in `ddragon/language.py`
+- Added get_all_map endpoint in `ddragon/map.py`
+- Added get_all_mission assets endpoint in `ddragon/mission.py`
+- Added get_all_profile_icon endpoint in `ddragon/profile_icon.py`
+- Added get_all_runes_reforged endpoint in `ddragon/runes_reforged.py`
+- Added get_all_spell_buffs endpoint in `ddragon/spell_buffs.py`
+- Added get_all_sticker endpoint in `ddragon/sticker.py`
+- Added get_all_summoner endpoint in `ddragon/summoner.py`
 
 ### API Improvements
 
