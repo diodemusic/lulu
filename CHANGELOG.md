@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added get_all_champions_full endpoint in `ddragon.py`
+
 ### Changed
 
 ### Fixed
