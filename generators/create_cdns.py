@@ -46,7 +46,7 @@ class {class_name}:
         """# Get all {file} by locale
 
         **Example:**
-            `{file} = ddragon.{file}.get_all(Locale.united_kingdom)`
+            `{file} = ddragon.{file}.get_all("en_GB")`
 
         **Args:**
             `locale (str)` Locale to use.
