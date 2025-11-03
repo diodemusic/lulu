@@ -6,7 +6,6 @@ from pyke import DataDragon
 # "15.21.1" (or "lolpatch_7.20" for older versions)
 ddragon = DataDragon()
 
-print(ddragon.versions.get_all_versions())
-print(ddragon.champions.get_all_champions("en_GB"))
-print(ddragon.champions.get_all_champions_full("en_GB"))
-print(ddragon.challenges.get_all_challenges("en_GB"))
+print(ddragon.champion.get_all("en_GB"))
+print(ddragon.champion_full.get_all("en_GB"))
+print(ddragon.challenges.get_all("en_GB"))
