@@ -38,6 +38,7 @@ for file in files:
 
 from .._base_data_dragon_client import _BaseDataDragonClient
 
+
 class {class_name}:
     def __init__(self, client: _BaseDataDragonClient):
         self._client = client

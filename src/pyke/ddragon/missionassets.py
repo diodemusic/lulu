@@ -2,6 +2,7 @@ from typing import Any
 
 from .._base_data_dragon_client import _BaseDataDragonClient
 
+
 class MissionassetsData:
     def __init__(self, client: _BaseDataDragonClient):
         self._client = client
