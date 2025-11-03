@@ -213,7 +213,7 @@ __marimo__/
 poetry.lock
 
 # OpenAPI Schema
-src/pyke/_schema/schema.json
+src/pyke/generators/schema.json
 
 # Pdoc cache
 .pdoc_cache/
@@ -224,3 +224,6 @@ src/pyke/_schema/schema.json
 # Claude
 CLAUDE.md
 .claude/
+
+# DDragon
+generators/dragontail-*/
