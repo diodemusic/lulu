@@ -1,4 +1,4 @@
-python3 src/pyke/generators/get_schema_json.py
+python3 get_schema_json.py
 
 datamodel-codegen \
   --input src/pyke/generators/schema.json \
