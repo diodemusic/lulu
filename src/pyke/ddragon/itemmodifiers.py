@@ -2,15 +2,15 @@ from typing import Any
 
 from .._base_data_dragon_client import _BaseDataDragonClient
 
-class ChallengesData:
+class ItemmodifiersData:
     def __init__(self, client: _BaseDataDragonClient):
         self._client = client
 
     def get_all(self, locale: str) -> dict[str, Any]:
-        """# Get all challenges by locale
+        """# Get all itemmodifiers by locale
 
         **Example:**
-            `challenges = ddragon.challenges.get_all("en_GB")`
+            `itemmodifiers = ddragon.itemmodifiers.get_all("en_GB")`
 
         **Args:**
             `locale (str)` Locale to use.
@@ -19,4 +19,4 @@ class ChallengesData:
             `dict[str, any]`
         """  # fmt: skip
 
-        return self._client._data_dragon_cdn_request(locale, "challenges")
+        return self._client._data_dragon_cdn_request(locale, "itemmodifiers")

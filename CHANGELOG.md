@@ -9,9 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added get_all_champions endpoint in `ddragon/champions.py`
-- Added get_all_champions_full endpoint in `ddragon/champions.py`
-- Added get_all_challenges endpoint in `ddragon/challenges.py`
+- Added support for all `DataDragon` CDN endpoints
 
 ### Changed
 
