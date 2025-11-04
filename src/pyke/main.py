@@ -11,10 +11,8 @@ from .ddragon.champion import ChampionData
 from .ddragon.champion_full import ChampionFullData
 from .ddragon.feats import FeatsData
 from .ddragon.item import ItemData
-from .ddragon.itemmodifiers import ItemmodifiersData
 from .ddragon.language import LanguageData
 from .ddragon.map import MapData
-from .ddragon.missionassets import MissionassetsData
 from .ddragon.profileicon import ProfileiconData
 from .ddragon.runes_reforged import RunesReforgedData
 from .ddragon.spellbuffs import SpellbuffsData
@@ -90,12 +88,10 @@ class DataDragon:
         self.runes_reforged = RunesReforgedData(self._client)
         self.language = LanguageData(self._client)
         self.feats = FeatsData(self._client)
-        self.itemmodifiers = ItemmodifiersData(self._client)
         self.champion_full = ChampionFullData(self._client)
         self.summoner = SummonerData(self._client)
         self.champion = ChampionData(self._client)
         self.challenges = ChallengesData(self._client)
-        self.missionassets = MissionassetsData(self._client)
         self.champion = ChampionData(self._client)
         self.sticker = StickerData(self._client)
         self.profileicon = ProfileiconData(self._client)
