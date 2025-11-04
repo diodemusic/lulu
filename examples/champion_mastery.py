@@ -15,7 +15,7 @@ account = api.account.by_riot_id(Continent.EUROPE, "saves", "000")
 # Now my champion masteries
 masteries = api.champion_mastery.masteries_by_puuid(Region.EUW, account.puuid)
 
-# We will need champions.json from ddragon to resolve champion ids to champion names later
+# We will need champion.json from ddragon to resolve champion ids to champion names later
 champions = ddragon.champion.get_all("en_GB")
 
 # Let's print my top ten champion masteries
