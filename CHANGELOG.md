@@ -10,14 +10,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added support for all `DataDragon` CDN endpoints
+- Added tests for all `DataDragon` CDN endpoints
+- Added `create_cdn_tests.py` generator
 
 ### Changed
 
 - Changed `_BaseDataDragonClient` and all cdn calls in ddragon to use `_data_dragon_cdn_request` instead of `_data_dragon_request`
+- Changed pipeline to run matrix at max parallel 1
 
 ### Fixed
 
 ### Removed
+
+- Removed two broken ddragon cdn endpoints
 
 ### Deprecated
 
