@@ -8,8 +8,6 @@
 
 **Do these FIRST - blocking bugs that affect functionality**
 
-- [ ] **Remove dead code in league endpoint** - `league.py:81-84` - Delete unused list comprehension (line 86 rebuilds it)
-- [ ] **Fix CI Python version** - `.github/workflows/python-commit.yml:15` - Change "3.14" to "3.13" (3.14 not released yet)
 - [ ] **Move pytest to dev dependencies** - `pyproject.toml:12` - pytest shouldn't be in production deps
 - [ ] **Clean up git status** - Commit or discard uncommitted changes before release:
   - Modified: `.github/workflows/python-commit.yml`, `CHANGELOG.md`, `TODO.md`, `examples/champion_mastery.py`, `generators/create_cdn_tests.py`

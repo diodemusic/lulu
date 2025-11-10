@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - Removed two broken ddragon cdn endpoints
+- Removed dead code in `league.py:81-84`
 
 ### Deprecated
 

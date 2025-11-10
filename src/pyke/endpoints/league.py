@@ -78,11 +78,6 @@ class LeagueEndpoint:
         params = {"page": page}
         data = self._client._region_request(region=region, path=path, params=params)
 
-        league_entries: list[LeagueEntryDTO] = []
-
-        for league_entry in data:
-            league_entries.append(LeagueEntryDTO(**league_entry))
-
         return [LeagueEntryDTO(**league_entry) for league_entry in data]
 
     def grandmaster_leagues_by_queue(
