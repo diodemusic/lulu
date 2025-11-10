@@ -8,7 +8,6 @@
 
 **Do these FIRST - blocking bugs that affect functionality**
 
-- [ ] **Fix duplicate champion assignment** - `main.py:95` - Remove duplicate line that overwrites `self.champion`
 - [ ] **Remove dead code in league endpoint** - `league.py:81-84` - Delete unused list comprehension (line 86 rebuilds it)
 - [ ] **Fix CI Python version** - `.github/workflows/python-commit.yml:15` - Change "3.14" to "3.13" (3.14 not released yet)
 - [ ] **Move pytest to dev dependencies** - `pyproject.toml:12` - pytest shouldn't be in production deps

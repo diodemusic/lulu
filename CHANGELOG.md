@@ -20,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fixed duplicate `self.champion` assignment in `main.py:95`
+
 ### Removed
 
 - Removed two broken ddragon cdn endpoints
