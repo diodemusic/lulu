@@ -8,8 +8,6 @@
 
 **Do these FIRST - blocking bugs that affect functionality**
 
-- [x] **Move pytest to dev dependencies** - `pyproject.toml:12` - pytest shouldn't be in production deps
-
 ---
 
 ## Security & Stability (v2.2.0 - Minor Release)
