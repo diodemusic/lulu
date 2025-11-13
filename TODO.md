@@ -8,11 +8,7 @@
 
 **Do these FIRST - blocking bugs that affect functionality**
 
-- [ ] **Move pytest to dev dependencies** - `pyproject.toml:12` - pytest shouldn't be in production deps
-- [ ] **Clean up git status** - Commit or discard uncommitted changes before release:
-  - Modified: `.github/workflows/python-commit.yml`, `CHANGELOG.md`, `TODO.md`, `examples/champion_mastery.py`, `generators/create_cdn_tests.py`
-  - Deleted: `src/pyke/ddragon/itemmodifiers.py`, `src/pyke/ddragon/missionassets.py`
-  - Untracked: 13 DDragon test files in `tests/unit/ddragon/`
+- [x] **Move pytest to dev dependencies** - `pyproject.toml:12` - pytest shouldn't be in production deps
 
 ---
 

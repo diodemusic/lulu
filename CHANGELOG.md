@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added support for all `DataDragon` CDN endpoints
 - Added tests for all `DataDragon` CDN endpoints
 - Added `create_cdn_tests.py` generator
+- Created poetry dependency groups in `pyproject.toml:17`
 
 ### Changed
 
