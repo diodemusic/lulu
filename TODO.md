@@ -4,12 +4,6 @@
 
 ---
 
-## Critical Fixes (v2.1.1 - Patch Release)
-
-**Do these FIRST - blocking bugs that affect functionality**
-
----
-
 ## Security & Stability (v2.2.0 - Minor Release)
 
 **Important improvements for production reliability**

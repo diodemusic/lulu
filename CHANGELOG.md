@@ -9,30 +9,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added support for all `DataDragon` CDN endpoints
-- Added tests for all `DataDragon` CDN endpoints
-- Added `create_cdn_tests.py` generator
-- Created poetry dependency groups in `pyproject.toml:17`
-
 ### Changed
-
-- Changed `_BaseDataDragonClient` and all cdn calls in ddragon to use `_data_dragon_cdn_request` instead of `_data_dragon_request`
-- Changed pipeline to run matrix at max parallel 1
 
 ### Fixed
 
-- Fixed duplicate `self.champion` assignment in `main.py:95`
-
 ### Removed
-
-- Removed two broken ddragon cdn endpoints
-- Removed dead code in `league.py:81-84`
 
 ### Deprecated
 
 ### Security
 
 ---
+
+## [v2.1.1] - 2025-11-13
+
+### Added
+
+- Added support for all `DataDragon` CDN endpoints
+- Added tests for all `DataDragon` CDN endpoints
+- Added `create_cdn_tests.py` generator
+- Added `[project.optional-dependencies]` for proper dev dependency separation
+
+### Changed
+
+- Changed `_BaseDataDragonClient` and all cdn calls in ddragon to use `_data_dragon_cdn_request` instead of `_data_dragon_request`
+- Changed pipeline to run matrix at max parallel 1
+- Moved dev dependencies (pytest, mypy, black, etc.) to optional `[dev]` group
+- Production dependencies now only include `requests` and `pydantic`
+- `python-dotenv` moved to dev dependencies (user's choice for env management)
+
+### Fixed
+
+- Fixed duplicate `self.champion` assignment in `main.py:95`
+- Fixed dead code in `league.py:81-84` that was rebuilding the same list twice
+
+### Removed
+
+- Removed two broken ddragon cdn endpoints (`itemmodifiers`, `missionassets`)
+- Removed dead code in `league.py:81-84`
 
 ## [2.1.0] - 2025-11-01
 
