@@ -1,28 +1,12 @@
 [project]
 name = "pyke-lol"
-version = "2.1.0"
+version = "2.1.1"
 description = "A Riot API wrapper specifically for League of Legends."
 authors = [{ name = "diodemusic" }]
 license = { text = "MIT" }
 readme = "README.md"
 requires-python = ">=3.9"
-dependencies = [
-    "requests (>=2.32.5,<3.0.0)",
-    "python-dotenv (>=1.1.1,<2.0.0)",
-    "pydantic (>=2.11.10,<3.0.0)",
-    "datamodel-code-generator (>=0.34.0,<0.35.0)",
-    "bandit (>=1.8.6,<2.0.0)",
-    "case-converter (>=1.2.0,<2.0.0)",
-]
-[dependency-groups]
-test = ["pytest (>=8.4.2,<9.0.0)"]
-lint = ["mypy (>=1.18.2,<2.0.0)"]
-doc = ["pdoc (>=15.0.4,<16.0.0)"]
-dev = [
-    { include-group = "test" },
-    { include-group = "lint" },
-    { include-group = "doc" },
-]
+dependencies = ["requests>=2.32.5,<3.0.0", "pydantic>=2.11.10,<3.0.0"]
 keywords = [
     "riot api",
     "league of legends",
@@ -35,6 +19,18 @@ keywords = [
     "API",
     "REST",
     "restful api",
+]
+
+[project.optional-dependencies]
+dev = [
+    "python-dotenv>=1.1.1,<2.0.0",
+    "pytest>=8.4.2,<9.0.0",
+    "black>=24.0.0",
+    "mypy>=1.18.2,<2.0.0",
+    "bandit>=1.8.6,<2.0.0",
+    "pdoc>=15.0.4,<16.0.0",
+    "datamodel-code-generator>=0.34.0,<0.35.0",
+    "case-converter>=1.2.0,<2.0.0",
 ]
 
 [build-system]
