@@ -2,7 +2,7 @@ import json
 
 import requests
 
-url = "http://www.mingweisamuel.com/riotapi-schema/openapi-3.0.0.json"
+url = "https://www.mingweisamuel.com/riotapi-schema/openapi-3.0.0.json"
 
 response = requests.get(url, timeout=10)
 
