@@ -10,18 +10,17 @@
 
 ### Security
 
-- [ ] **Use HTTPS for schema URL** - `get_schema_json.py:5` - Change to `https://www.mingweisamuel.com/...`
+- [x] **Use HTTPS for schema URL** - `get_schema_json.py:5` - Change to `https://www.mingweisamuel.com/...`
 - [ ] **Version schema source** - Pin or host OpenAPI schema copy to avoid breaking changes
 - [ ] **Add schema fallback mechanism** - If primary source fails, use backup or cached version
-- [ ] **Improve API key validation** - `_base_client.py:30-31` - Validate format/length (Riot keys are ~42 chars, start with "RGAPI-")
+- [x] **Improve API key validation** - `_base_client.py:30-31` - Validate format/length (Riot keys are ~42 chars, start with "RGAPI-")
 - [ ] **Add secrets detection** - Install git-secrets or detect-secrets pre-commit hook
-- [ ] **Validate DDragon responses** - Create Pydantic models for DDragon endpoints instead of `dict[str, Any]`
 
 ### Code Cleanup
 
 - [ ] **Remove or document commented code** - `main.py:35,85` - Either delete versions endpoint code or explain why disabled
 - [ ] **Fix schema generation path** - `get_schema_json.py:12` - Use `__file__` for relative paths instead of hardcoded `"./pyke/generators/schema.json"`
-- [ ] **Add proper return type annotations** - `_base_data_dragon_client.py:82,89` - Replace TODO comments with actual types
+- [x] **Add proper return type annotations** - `_base_data_dragon_client.py:82,89` - Replace TODO comments with actual types
 
 ---
 
