@@ -7,7 +7,7 @@ from pyke import Continent, Pyke, exceptions
 
 
 def test_timeout_raises_custom_exception():
-    api = Pyke("fake-api-key")
+    api = Pyke("RGAPI-000000000000000000000000000000000000")
 
     with patch.object(api.account._client.session, "get") as mock_get:
         mock_get.side_effect = requests.exceptions.Timeout()
