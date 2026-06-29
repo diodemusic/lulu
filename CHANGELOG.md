@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added full httpx Response to pyke exceptions
+
 ### Changed
 
 ### Fixed
@@ -208,7 +210,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## Category Guidelines:
+## Category Guidelines
 
 - **Added**: New features, endpoints, or functionality
 - **Changed**: Changes to existing functionality (breaking or non-breaking)
@@ -217,7 +219,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Deprecated**: Features marked for removal in future versions
 - **Security**: Security fixes or improvements
 
-## Semantic Versioning Quick Reference:
+## Semantic Versioning Quick Reference
 
 - **MAJOR** (1.0.0 → 2.0.0): Breaking changes
 - **MINOR** (1.0.0 → 1.1.0): New features (backwards compatible)

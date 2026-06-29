@@ -1,5 +1,5 @@
-import pytest
 import httpx
+import pytest
 from httpx import Response
 from respx import MockRouter
 
@@ -164,7 +164,7 @@ async def test_timeout_raises_request_timeout(
     assert exc_info.value.error_code == 408
 
 
-# --- Fresh exception instances (lambda registry) ---
+# --- Fresh exception instances ---
 
 
 @pytest.mark.asyncio
@@ -193,3 +193,21 @@ def test_none_api_key_raises():
 def test_valid_api_key_accepted():
     client = Pyke("RGAPI-000000000000000000000000000000000000")
     assert client is not None
+
+
+@pytest.mark.asyncio
+async def test_exception_exposes_response(pyke_client: Pyke, respx_mock: MockRouter):
+    respx_mock.get(BASE).mock(return_value=Response(429))
+
+    with pytest.raises(exceptions.RateLimitExceeded) as exc_info:
+        await pyke_client.lol_status.platform_data(Region.EUW)
+
+    assert exc_info.value.response is not None
+    assert exc_info.value.response.status_code == 429
+
+
+def test_exception_repr():
+    exc = exceptions.DataNotFound("Not found", 404)
+    assert (
+        repr(exc) == "DataNotFound(message='Not found', error_code=404, response=None)"
+    )
