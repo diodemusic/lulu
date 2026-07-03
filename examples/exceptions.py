@@ -11,7 +11,7 @@ API_KEY = os.getenv("RIOT_API_KEY")
 
 async def main() -> None:
     async with Pyke(API_KEY, timeout=60, print_url=True) as api:
-        # We can still get the full httpx response and headers from the pyke exception
+        # We can get the full httpx response and headers from the pyke exception
         try:
             await api.account.by_riot_id(Continent.EUROPE, "saves", "000")
         except exceptions.RateLimitExceeded as e:
